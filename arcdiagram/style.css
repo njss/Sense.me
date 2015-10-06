@@ -1,12 +1,14 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
+    background-color: #062E46;
 }
 
-#container {width:65%; margin:20px auto}
-#box-N {width: auto; height: 120px; outline: 1px solid red;}
+#container {width:65%; margin:20px auto; background-color: #fff; border-radius: 18px}
+#box-N {width: auto; height: 80px; padding: 25px; outline: 1px solid red;}
 #box-C {width: auto; height: auto; text-align:center; outline: 1px solid fuchsia;}
-#box-S {width: auto; height: 100px; text-align:center; outline: 1px solid blue;}
+#box-S {width: auto; height: auto; text-align:center; outline: 1px solid blue;}
+#box-BarChart {width: auto; height: auto; text-align:center; outline: 1px solid blue;}
          
 
 .image-border {
@@ -38,6 +40,35 @@ b {
     stroke-width: 0.25px;
 }
 
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
 .node {
     stroke: #ffffff;
     stroke-weight: 1px;
@@ -54,4 +85,32 @@ b {
     stroke: red;
     stroke-weight: 4px;
     stroke-opacity: 1.0;
+}
+
+
+path {
+    stroke: steelblue;
+    stroke-width: 1;
+    fill: none;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line {
+    stroke: lightgrey;
+}
+
+.x.axis .minor {
+    stroke-opacity: .5;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.y.axis line, .y.axis path {
+    fill: none;
+    stroke: #000;
 }

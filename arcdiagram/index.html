@@ -9,8 +9,12 @@
 
         <!-- JavaScript Libraries //-->
         <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
         <!-- CSS Style //-->
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900|Source+Code+Pro:300" rel="stylesheet" type="text/css">
         <link href="style.css" rel="stylesheet" type="text/css">
@@ -19,7 +23,7 @@
     <body>
         <div id="container">
             <div id="box-N" class="box">
-                <h2>The Sense Project</h2>
+                <h1>The Sense Project</h1>
             </div>
 
             <div id="box-C" class="box">
@@ -27,152 +31,21 @@
 
             <div id="box-S" class="box">
             </div>
+
+            <div id="box-BarChart" class="box">
+                <h3>Line Chart</h3>
+                <div id="chart"></div>
+                <div id="slider">
+            </div>
         </div>
     </body>
-
-    <!--<script>
-        /* Test */
-
-        var bCheckEnabled = true;
-        var bFinishCheck = false;
-        var img;
-        var imgArray = new Array();
-        var i = 1;
-        var linkData = new Array();
-        var visImageArray = new Array();
-
-        var myInterval = setInterval(loadImage, 1);
-
-        function loadImage() {
-
-            if (bFinishCheck) {
-                clearInterval(myInterval);
-//                alert('Loaded ' + i + ' image(s)!)');
-
-//                var width = $("#box-S").width();
-//                var imagesSVG = d3.select("#box-S")
-//                        .append("svg")
-//                        .attr("id", "svgVis")
-//                        .attr("width", width)
-//                        .attr("height", 450)
-//                        .style("border", "1px solid black");
-//
-//                visImageArray = imagesSVG.selectAll("image")
-//                        .data(imgArray)
-//                        .enter()
-//                        .append("svg:image")
-//                        .attr("xlink:href", function (d) {
-//                            return d.src;
-//                        })
-//                        .attr("class", "image")
-//                        .attr("width", 200)
-//                        .attr("height", 100)
-//                        .attr("x", function (d, i) {
-//                            return i * 200 + i * 80;
-//                        })
-//                        .attr("y", "60");
-
-
-                //draw arcs
-
-                d3.json("links.json", function (error, data) {
-                    var linkedByIndex = {};
-                    data.links.forEach(function (d) {
-                        linkData.push(d.);
-                        linkedByIndex[d.source + "," + d.target] = true;
-                            d.source = isNaN(d.source) ? d.source : data.nodes[d.source];
-                            d.target = isNaN(d.target) ? d.target : data.nodes[d.target];
-                    });
-                    linkData = data;
-                    arcDiagram(data);
-                });
-
-                return;
-            }
-
-            if (bCheckEnabled) {
-
-                bCheckEnabled = false;
-
-                img = new Image();
-                img.onload = fExists;
-                img.onerror = fDoesntExist;
-                img.src = "images/" + i + ".png";
-
-            }
-
-        }
-
-        function fExists() {
-            imgArray.push(img);
-            i++;
-            bCheckEnabled = true;
-        }
-
-        function fDoesntExist() {
-            bFinishCheck = true;
-        }
-
-        function drawArcs(links) {
-            // scale to generate radians (just for lower-half of circle)
-            var radians = d3.scale.linear()
-                    .range([Math.PI / 2, 3 * Math.PI / 2]);
-
-            // path generator for arcs (uses polar coordinates)
-            var arc = d3.svg.line.radial()
-                    .interpolate("basis")
-                    .tension(0)
-                    .angle(function (d) {
-                        return radians(d);
-                    });
-
-            var test = Math.floor(Math.random() * 101);
-
-            var xshift, yshift, source, target;
-
-            // add links
-            var vis = d3.select("#svgVis")
-                    .selectAll(".links")
-//                    .data(links)
-                    .enter()
-                    .append("path")
-                    .attr("class", "link")
-                    .attr("transform", function (d, i) {
-                        // arc will always be drawn around (0, 0)
-                        // shift so (0, 0) will be between source and target
-                        xshift = d.source.x + (d.target.x - d.source.x) / 2;
-                        yshift = yfixed;
-                        return "translate(" + xshift + ", " + yshift + ")";
-                    })
-                    .attr("d", function (d, i) {
-                        // get x distance between source and target
-                        source = d.source;
-                        target = d.target;
-                        var xdist = 5;
-
-                        // set arc radius based on x distance
-                        arc.radius(xdist / 2);
-
-                        // want to generate 1/3 as many points per pixel in x direction
-                        var points = d3.range(0, Math.ceil(xdist / 3));
-
-                        // set radian scale domain
-                        radians.domain([0, points.length - 1]);
-
-                        // return path for arc
-                        return arc(points);
-                    });
-        }
-
-    </script>
--->
 
     <script>
         /* Arc Diagram */
 
         var width = 960;           // width of svg image
-        var height = 400;           // height of svg image
-        var margin = 20;            // amount of margin around plot area
+        var height = 500;           // height of svg image
+        var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radius = 4;             // fixed node radius
         var yfixed = pad + radius;  // y position for all nodes
@@ -180,6 +53,14 @@
         var imageWidth = 200;       // width of SP image
         var imageHeight = 100;      // height of SP image
         var visImageArray;
+
+        // SPLOM Tooltip
+        var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function (d) {
+                    return "<strong>Scatterplot</strong> <span style='color:red'>" + d.name + "</span>";
+                });
 
 
         /* DRAW ARC DIAGRAM */
@@ -202,15 +83,11 @@
                     .attr("y", 1100)
                     .style("border", "1px solid black");
 
-            // draw border around svg image
-            //     svg.append("rect")
-            //         .attr("class", "outline")
-            //         .attr("width", width)
-            //         .attr("height", height);
+            svg.call(tip);
 
             // create plot area within svg image
             var plot = svg.append("g")
-                    .attr("id", "plot")
+                    .attr("id", "gPlot")
                     .attr("transform", "translate(" + pad + ", " + pad + ")");
 
             // fix graph links to map to objects instead of indices
@@ -234,10 +111,6 @@
 
         // Layout nodes linearly, sorted by group
         function linearLayout(nodes) {
-            // sort nodes by group
-            nodes.sort(function (a, b) {
-                return a.group - b.group;
-            });
 
             // used to scale node index to x position
             var xscale = d3.scale.linear()
@@ -256,12 +129,15 @@
             // used to assign nodes color by group
             var color = d3.scale.category20();
 
-            d3.select("#plot").selectAll(".node")
+            d3.select("#gPlot").selectAll(".node")
                     .data(nodes)
                     .enter()
                     .append("circle")
                     .attr("class", "node")
                     .attr("id", function (d, i) {
+                        return d.rank;
+                    })
+                    .attr("name", function (d, i) {
                         return d.name;
                     })
                     .attr("cx", function (d, i) {
@@ -271,16 +147,18 @@
                         return d.y;
                     })
                     .attr("r", function (d, i) {
-                        return radius*d.value;
+                        return radius * d.value;
                     })
                     .style("fill", function (d, i) {
                         return color(d.group);
                     })
                     .on("mouseover", function (d, i) {
-                        addTooltip(d3.select(this));
+                        tip.show(d);
+                        highlightSPLOMgrid(d3.select(this));
                     })
                     .on("mouseout", function (d, i) {
-                        d3.select("#tooltip").remove();
+                        tip.hide(d);
+                        d3.select("#highlightRect").remove();
                     });
         }
 
@@ -299,7 +177,7 @@
                     });
 
             // add links
-            d3.select("#plot").selectAll(".link")
+            d3.select("#gPlot").selectAll(".link")
                     .data(links)
                     .enter()
                     .append("path")
@@ -326,61 +204,10 @@
 
                         // return path for arc
                         return arc(points);
+                    })
+                    .style("stroke-width", function (d) {
+                        return d.value;
                     });
-        }
-
-
-        /* HELPER FUNCTIONS */
-
-        // Generates a tooltip for a SVG circle element based on its ID
-        function addTooltip(circle) {
-            var x = parseFloat(circle.attr("cx"));
-            var y = parseFloat(circle.attr("cy"));
-            var r = parseFloat(circle.attr("r"));
-            var text = circle.attr("id");
-
-            var tooltip = d3.select("#plot")
-                    .append("text")
-                    .text(text)
-                    .attr("x", x)
-                    .attr("y", y)
-                    .attr("dy", -r * 2)
-                    .attr("id", "tooltip");
-
-            var offset = tooltip.node().getBBox().width / 2;
-
-            if ((x - offset) < 0) {
-                tooltip.attr("text-anchor", "start");
-                tooltip.attr("dx", -r);
-            }
-            else if ((x + offset) > (width - margin)) {
-                tooltip.attr("text-anchor", "end");
-                tooltip.attr("dx", r);
-            }
-            else {
-                tooltip.attr("text-anchor", "middle");
-                tooltip.attr("dx", 0);
-            }
-
-            //hightlight SP
-            var name = circle.attr("id");
-//            var myImage = document.getElementById(name);
-//            myImage.style.width = 500;
-//            visImageArray[0].style.border = "1px solid black";
-
-            
-//            $("#SP:"+name).mouseenter();
-            var varName = "SP:"+name+".image";
-            var groupOfSPs = d3.select("#gSPLOM");
-            var mySP = d3.select(groupOfSPs[0][0]);
-            alert(mySP.toString());
-            
-            var groupOfSPs = d3.select("#gSPLOM");
-            var a = groupOfSPs.node();
-            var fc = a.firstChild;
-            
-//            .style("border", "1px solid blue;");
-//                    .attr("style", "border: 1px solid blue;");
         }
 
         function drawSPmatrix(nodes) {
@@ -399,6 +226,13 @@
                     .attr("height", 3 * imageHeight + 2 * 60)
                     .style("border", "1px solid black");
 
+            imagesSVG.call(tip);
+
+            //sort nodes by rank
+            nodes.sort(function (a, b) {
+                return a.rank - b.rank;
+            });
+
             visImageArray = imagesSVG
                     .append("g")
                     .attr("id", "gSPLOM")
@@ -408,27 +242,26 @@
                     .enter()
                     .append("svg:image")
                     .attr("xlink:href", function (d, i) {
-//                            var img.src = "images/" + d.name;
-                        return "images/" + (i + 1) + ".png";
+                        return "images/" + d.name;
                     })
                     .attr("class", "image")
                     .attr("width", imageWidth)
                     .attr("height", imageHeight)
-                    .attr("id", function(d, i){     //change index to real ID!
-                        return "SP:" + d.name;
-                    })
                     .attr("x", function (d, i) {
                         return (i % 4) * imageWidth + (i % 4) * 80;
                     })
                     .attr("y", function (d, i) {
                         return (Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
                     });
-                    
+
             var spBorder = d3.select("#gSPLOM")
                     .selectAll("rect")
                     .data(nodes)
                     .enter()
                     .append("rect")
+                    .attr("id", function (d, i) {
+                        return d.rank;
+                    })
                     .attr('class', 'image-border')
                     .attr("x", function (d, i) {
                         return (i % 4) * imageWidth + (i % 4) * 80;
@@ -436,11 +269,262 @@
                     .attr("y", function (d, i) {
                         return (Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
                     })
-       		    .attr("height", imageHeight +5)
-       		    .attr("width", imageWidth +5);
-            
+                    .attr("height", imageHeight + 5)
+                    .attr("width", imageWidth + 5)
+                    .on("mouseover", function (d, i) {
+                        tip.show(d);
+                        highlightADcircle(d3.select(this));
+                    })
+                    .on("mouseout", function (d, i) {
+                        tip.hide(d);
+                        d3.select("#highlightCircle").remove();
+                    });
+
         }
 
+        /* HELPER FUNCTIONS */
+
+        // Generates a tooltip for SP grid based on selected ID
+        function highlightSPLOMgrid(circle) {
+
+            var cId = circle.attr("id");
+            var groupElement = d3.select("#gSPLOM");
+            var groupNodes = groupElement.node();
+            var spNode = groupNodes.children[cId];
+            var borderX = spNode.x;
+            var borderY = spNode.y;
+
+            groupElement.append("rect")
+                    .attr("id", "highlightRect")
+                    .attr("x", borderX.baseVal.value)
+                    .attr("y", borderY.baseVal.value)
+                    .attr("width", imageWidth)
+                    .attr("height", imageHeight)
+                    .style("fill", "none")
+                    .style("stroke", "red")
+                    .style("stroke-width", 1);
+
+        }
+
+        function highlightADcircle(grid) {
+            var spID = grid.attr("id");
+            var groupElement = d3.select("#gPlot");
+            var groupNodes = groupElement.node();
+
+            var gID = -1;
+            for (var i = 0; i < groupNodes.children.length; ++i) {
+                var n = groupNodes.children[i];
+                if (groupNodes.children[i].localName === "circle") {
+                    if (groupNodes.children[i].id === spID) {
+                        gID = i;
+                        break;
+                    }
+                }
+            }
+
+            var spNode = groupNodes.children[gID];
+            var cX = spNode.cx;
+            var cY = spNode.cy;
+            var cR = spNode.r;
+
+
+            groupElement.append("circle")
+                    .attr("id", "highlightCircle")
+                    .attr("cx", cX.baseVal.value)
+                    .attr("cy", cY.baseVal.value)
+                    .attr("r", cR.baseVal.value)
+                    .attr("width", imageWidth)
+                    .attr("height", imageHeight)
+                    .style("fill", "none")
+                    .style("stroke", "red")
+                    .style("stroke-width", 1);
+        }
+
+    </script>
+
+    <script language="javascript">
+        var m = [80, 80, 80, 80]; // margins
+        var w = 1000 - m[1] - m[3]; // width
+        var h = 400 - m[0] - m[2]; // height
+
+        var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5];
+
+        var x = d3.scale.linear().domain([0, data.length]).range([0, w + m[1] + m[3]]);
+        var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+
+        // automatically determining max range can work something like this
+        // var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+
+        var line = d3.svg.line()
+                .x(function (d, i) {
+                    return x(i);
+                })
+                .y(function (d) {
+                    return y(d);
+                })
+
+
+
+        // Add an SVG element with the desired dimensions and margin.
+        var graph = d3.select("#chart").append("svg:svg")
+                .attr("width", w + m[1] + m[3])
+                .attr("height", h + m[0] + m[2])
+                .append("svg:g")
+                .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+        // create yAxis
+        var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+        // Add the x-axis.
+        graph.append("svg:g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + h + ")")
+                .call(xAxis);
+
+
+        // create left yAxis
+        var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+        // Add the y-axis to the left
+        graph.append("svg:g")
+                .attr("class", "y axis")
+                .attr("transform", "translate(-25,0)")
+                .call(yAxisLeft);
+
+
+        var clip = graph.append("defs").append("svg:clipPath")
+                .attr("id", "clip")
+                .append("svg:rect")
+                .attr("id", "clip-rect")
+                .attr("x", "0")
+                .attr("y", "0")
+                .attr("width", w)
+                .attr("height", h);
+
+
+        // Add the line by appending an svg:path element with the data line we created above
+        // do this AFTER the axes above so that the line is above the tick-lines
+        var path = graph.append("svg:path").attr("class", "path").attr("clip-path", "url(#clip)").attr("d", line(data));
+
+
+        // slider
+        $(function () {
+            $("#slider").slider({
+                range: true,
+                min: 0,
+                max: data.length - 1,
+                values: [0, data.length - 1],
+                slide: function (event, ui) {
+                    var maxv = d3.min([ui.values[1], data.length]);
+                    var minv = d3.max([ui.values[0], 0]);
+                    ;
+
+
+
+                    x.domain([minv, maxv - 1]);
+                    graph.transition().duration(750)
+                            .select(".x.axis").call(xAxis);
+                    graph.transition().duration(750)
+                            .select(".path").attr("d", line(data));
+                }});
+        });
+    </script>
+
+    <script>
+        InitChart();
+
+        function InitChart() {
+
+            var barData = [{
+                    'x': 1,
+                    'y': 5
+                }, {
+                    'x': 2,
+                    'y': 20
+                }, {
+                    'x': 3,
+                    'y': 10
+                }, {
+                    'x': 4,
+                    'y': 40
+                }, {
+                    'x': 5,
+                    'y': 5
+                }, {
+                    'x': 6,
+                    'y': 60
+                }];
+
+            d3.select('#box-BarChart')
+                    .append("br");
+            d3.select('#box-BarChart')
+                    .append("h3")
+                    .text("Bar Chart");
+
+            var vis = d3.select('#box-BarChart')
+                    .append("svg")
+                    .attr("width", 1000)
+                    .attr("height", 500),
+                    WIDTH = 1000,
+                    HEIGHT = 500,
+                    MARGINS = {
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 50
+                    },
+            xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barData.map(function (d) {
+                return d.x;
+            })),
+                    yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
+                d3.max(barData, function (d) {
+                    return d.y;
+                })
+            ]),
+                    xAxis = d3.svg.axis()
+                    .scale(xRange)
+                    .tickSize(5)
+                    .tickSubdivide(true),
+                    yAxis = d3.svg.axis()
+                    .scale(yRange)
+                    .tickSize(5)
+                    .orient("left")
+                    .tickSubdivide(true);
+
+
+            vis.append('svg:g')
+                    .attr('class', 'x axis')
+                    .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+                    .call(xAxis);
+
+            vis.append('svg:g')
+                    .attr('class', 'y axis')
+                    .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+                    .call(yAxis);
+
+            vis.selectAll('rect')
+                    .data(barData)
+                    .enter()
+                    .append('rect')
+                    .attr('x', function (d) {
+                        return xRange(d.x);
+                    })
+                    .attr('y', function (d) {
+                        return yRange(d.y);
+                    })
+                    .attr('width', xRange.rangeBand())
+                    .attr('height', function (d) {
+                        return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
+                    })
+                    .attr('fill', 'grey')
+                    .on('mouseover', function (d) {
+                        d3.select(this)
+                                .attr('fill', 'blue');
+                    })
+                    .on('mouseout', function (d) {
+                        d3.select(this)
+                                .attr('fill', 'grey');
+                    });
+
+        }
     </script>
 
     <script>
