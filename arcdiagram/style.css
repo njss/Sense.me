@@ -5,9 +5,10 @@ body {
 }
 
 #container {width:65%; margin:20px auto; background-color: #fff; border-radius: 18px}
-#box-N {width: auto; height: 80px; padding: 25px; outline: 1px solid red;}
-#box-C {width: auto; height: auto; text-align:center; outline: 1px solid fuchsia;}
-#box-S {width: auto; height: auto; text-align:center; outline: 1px solid blue;}
+#box-Title {width: auto; height: 80px; padding: 25px; outline: 1px solid red;}
+#box-ArcDiagram {width: auto; height: auto; text-align:center; outline: 1px solid fuchsia;}
+#box-SPLOM {width: auto; height: auto; text-align:center; outline: 1px solid blue;}
+#box-LineChart {width: auto; height: auto; text-align:center; outline: 1px solid blue;}
 #box-BarChart {width: auto; height: auto; text-align:center; outline: 1px solid blue;}
          
 
