@@ -1,9 +1,6 @@
  var classesNumber = 10,
     cellSize = 100;
 
-
-
-
 //#########################################################
 function heatmap_display(url, heatmapId, paletteName) {
 
@@ -21,17 +18,11 @@ function heatmap_display(url, heatmapId, paletteName) {
     // http://bost.ocks.org/mike/miserables/
     // http://bl.ocks.org/ianyfchang/8119685
 
-
-
-
     //==================================================
     var tooltip = d3.select(heatmapId)
         .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden");
-
-
-
 
     //==================================================
     // http://bl.ocks.org/mbostock/3680958
@@ -39,61 +30,35 @@ function heatmap_display(url, heatmapId, paletteName) {
       svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
     }
 
-
-
-
     // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
     var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
-
-
-
 
     //==================================================
     var viewerWidth = $(document).width();
     var viewerHeight = $(document).height();
     var viewerPosTop = 230;
     var viewerPosLeft = 45;
-
-
-
-
     var legendElementWidth = cellSize/2 * 2;
-
-
-
 
     // http://bl.ocks.org/mbostock/5577023
     var colors = colorbrewer[paletteName][classesNumber];
 
-
-
-
     // http://bl.ocks.org/mbostock/3680999
     var svg;
 
-
-
-
     //==================================================
     d3.json(url, function(error, data) {
+//        console.log(data);
 
-
-
-
-        //console.log(data);
         var arr = data.data;
         var row_number = arr.length;
         var col_number = arr[0].length;
         //console.log(col_number, row_number);
 
 
-
-
         var colorScale = d3.scale.quantize()
             .domain([0.0, 1.0])
             .range(colors);
-
-
 
 
         svg = d3.select(heatmapId).append("svg")
@@ -102,9 +67,6 @@ function heatmap_display(url, heatmapId, paletteName) {
       //.call(zoomListener)
             .append("g")
             .attr("transform", "translate(" + viewerPosLeft + "," + viewerPosTop/2 + ")");
-
-
-
 
         svg.append('defs')
             .append('pattern')
@@ -118,14 +80,8 @@ function heatmap_display(url, heatmapId, paletteName) {
             .attr('stroke-width', 1);
 
 
-
-
         var rowSortOrder = false;
         var colSortOrder = false;
-
-
-
-
         var rowLabels = svg.append("g")
             .attr("class", "rowLabels")
             .selectAll(".rowLabel")
@@ -161,8 +117,6 @@ function heatmap_display(url, heatmapId, paletteName) {
             });
 
 
-
-
         var colLabels = svg.append("g")
             .attr("class", "colLabels")
             .selectAll(".colLabel")
@@ -196,9 +150,6 @@ function heatmap_display(url, heatmapId, paletteName) {
                 sortByValues("c", i, colSortOrder);
                 d3.select("#order").property("selectedIndex", 0);
             });
-
-
-
 
         var row = svg.selectAll(".row")
             .data(data.data)
@@ -472,6 +423,6 @@ function changePalette(paletteName, heatmapId) {
         });
 }
 //$(document).ready(function() {
-    console.log("test");
+//    console.log("test");
  
 //});
