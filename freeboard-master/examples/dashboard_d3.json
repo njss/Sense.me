@@ -1,0 +1,39 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "Pie",
+			"width": 1,
+			"row": {
+				"2": 1,
+				"3": 1,
+				"5": 13,
+				"6": 1
+			},
+			"col": {
+				"2": 1,
+				"3": 3,
+				"5": 1,
+				"6": 6
+			},
+			"col_width": 2,
+			"widgets": [
+				{
+					"type": "d3PlotWidget",
+					"settings": {
+						"id": "chart5",
+						"data": "[[\n    ['Heavy Industry', 12],['Retail', 9], ['Light Industry', 14], \n    ['Out of home', 16],['Commuting', 7], ['Orientation', 9]\n  ]]",
+						"options": "{ \n      seriesDefaults: {\n        // Make this a pie chart.\n        renderer: $.jqplot.PieRenderer, \n        rendererOptions: {\n          // Put data labels on the pie slices.\n          // By default, labels show the percentage of the slice.\n          showDataLabels: true\n        }\n      }, \n      legend: { show: true, location: 'e' }\n    }",
+						"chartHeight": 300,
+						"chartWidth": 600,
+						"height": 10
+					}
+				}
+			]
+		}
+	],
+	"datasources": [],
+	"columns": 5
+}

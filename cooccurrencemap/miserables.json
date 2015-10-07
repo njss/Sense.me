@@ -1,0 +1,150 @@
+{
+  "nodes": [
+    {
+      "name": "A00",
+      "group": 0
+    },
+    {
+      "name": "A01",
+      "group": 1
+    },
+    {
+      "name": "A02",
+      "group": 2
+    },
+    {
+      "name": "A03",
+      "group": 3
+    },
+    {
+      "name": "A04",
+      "group": 4
+    },
+    {
+      "name": "A05",
+      "group": 5
+    },
+    {
+      "name": "A06",
+      "group": 6
+    },
+    {
+      "name": "A07",
+      "group": 7
+    },
+    {
+      "name": "B10",
+      "group": 8
+    },
+    {
+      "name": "B11",
+      "group": 9
+    },
+    {
+      "name": "B12",
+      "group": 10
+    },
+    {
+      "name": "B13",
+      "group": 11
+    },
+    {
+      "name": "B14",
+      "group": 12
+    },
+    {
+      "name": "B15",
+      "group": 13
+    },
+    {
+      "name": "B16",
+      "group": 14
+    },
+    {
+      "name": "B17",
+      "group": 15
+    }    
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 0,
+      "value": 1
+    },
+    {
+      "source": 1,
+      "target": 1,
+      "value": 8
+    },
+        {
+      "source": 2,
+      "target": 2,
+      "value": 10
+    },
+    {
+      "source": 3,
+      "target": 3,
+      "value": 10
+    },
+    {
+      "source": 4,
+      "target": 4,
+      "value": 6
+    },
+    {
+      "source": 5,
+      "target": 5,
+      "value": 1
+    },
+    {
+      "source": 6,
+      "target": 6,
+      "value": 1
+    },
+    {
+      "source": 7,
+      "target": 7,
+      "value": 1
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "value": 100
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "value": 10
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "value": 1
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "value": 1
+    },
+    {
+      "source": 4,
+      "target": 12,
+      "value": 1
+    },
+    {
+      "source": 5,
+      "target": 13,
+      "value": 50
+    },
+    {
+      "source": 6,
+      "target": 14,
+      "value": 30
+    },
+    {
+      "source": 7,
+      "target": 15,
+      "value": 1
+    }    
+  ]
+}
