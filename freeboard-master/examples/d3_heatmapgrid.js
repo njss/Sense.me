@@ -1,9 +1,12 @@
  var classesNumber = 10,
     cellSize = 100;
 
-//#########################################################
-function heatmap_display(url, heatmapId, paletteName) {
+var heatmapId;
 
+//#########################################################
+function heatmap_display(url, heatmapIdTemp, paletteName) {
+
+	heatmapId = "#" + heatmapIdTemp;
 
     //##########################################################################
     // Patrick.Brockmann@lsce.ipsl.fr
@@ -76,7 +79,7 @@ function heatmap_display(url, heatmapId, paletteName) {
             .attr('height', 4)
             .append('path')
             .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
-            .attr('stroke', '#000000')
+            .attr('stroke', '#FFFFF')
             .attr('stroke-width', 1);
 
 
@@ -112,7 +115,7 @@ function heatmap_display(url, heatmapId, paletteName) {
             .on("click", function(d, i) {
                 rowSortOrder = !rowSortOrder;
                 sortByValues("r", i, rowSortOrder);
-                d3.select("#order").property("selectedIndex", 0);
+                d3.select("#order_" + heatmapIdTemp).property("selectedIndex", 0);
                 //$("#order").jqxComboBox({selectedIndex: 0});
             });
 
@@ -148,7 +151,8 @@ function heatmap_display(url, heatmapId, paletteName) {
             .on("click", function(d, i) {
                 colSortOrder = !colSortOrder;
                 sortByValues("c", i, colSortOrder);
-                d3.select("#order").property("selectedIndex", 0);
+                d3.select("#order_" + heatmapIdTemp).property("selectedIndex", 0);
+console.log("#order_" + heatmapIdTemp);
             });
 
         var row = svg.selectAll(".row")
@@ -314,8 +318,8 @@ function heatmap_display(url, heatmapId, paletteName) {
 
 
         //==================================================
-        d3.select("#order").on("change", function() {
-      var newOrder = d3.select("#order").property("value"); 
+        d3.select("#order_" + heatmapIdTemp).on("change", function() {
+      var newOrder = d3.select("#order_" + heatmapIdTemp).property("value"); 
             changeOrder(newOrder, heatmapId);
         });
 
@@ -323,14 +327,14 @@ function heatmap_display(url, heatmapId, paletteName) {
 
 
         //==================================================
-        d3.select("#palette")
+        d3.select("#palette_" + heatmapIdTemp)
             .on("keyup", function() {
-    var newPalette = d3.select("#palette").property("value");
+    var newPalette = d3.select("#palette_" + heatmapIdTemp).property("value");
     if (newPalette != null)           // when interfaced with jQwidget, the ComboBox handles keyup event but value is then not available ?
                   changePalette(newPalette, heatmapId);
             })
             .on("change", function() {
-    var newPalette = d3.select("#palette").property("value");
+    var newPalette = d3.select("#palette_" + heatmapIdTemp).property("value");
                 changePalette(newPalette, heatmapId);
             });
     });

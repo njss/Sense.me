@@ -10,10 +10,35 @@
     var chartHeight = 300;
     var chartWidth = 300;
     var rootElement = null;
+    var selectOrderElement;
+    var selectPaletteElement;
 
     //seems to be called once (or after settings change)
     this.render = function (element) {
+            $(element).append('<link rel="stylesheet" href="/css/heatmap.css" />');
       rootElement = element;
+
+    selectOrderElement = $('<select id="order_' + currentSettings.id + '" > ' +
+     '<option value="null" selected> ----- </option>  ' +
+     '<option value="sortinit_col_row">Initial order on columns and rows</option> ' +
+     '<option value="sortinit_row">Initial order on rows</option> '+
+     '<option value="sortinit_col">Initial order on columns</option> </select>');
+    $(rootElement).append(selectOrderElement);
+
+
+    selectPaletteElement = $('<select id="palette_' + currentSettings.id + '" > ' +
+     '<option value="RdYlGn">RdYlGn</option> ' +
+     '<option value="Spectral" selected>Spectral</option> ' +
+     '<option value="RdYlBu">RdYlBu</option> ' +
+     '<option value="RdGy">RdGy</option> ' +
+     '<option value="RdBu">RdBu</option> ' +
+     '<option value="PiYG">PiYG</option> ' +
+     '<option value="PRGn">PRGn</option> ' +
+     '<option value="BrBG">BrBG</option> ' +
+     '<option value="PuOr">PuOr</option> ' +
+     '</select>');
+    $(rootElement).append(selectPaletteElement);
+
       chartElement = $('<div id="' + currentSettings.id + '" ></div>');
       $(rootElement).append(chartElement);
     }
@@ -47,7 +72,7 @@
     this.myChartRender = function (currentSettings) {
       $(chartElement).empty();
       console.log('asdfasdf');
-      heatmap_display("metrics_ocmip5.json", "#" + currentSettings.id, "Spectral");
+      heatmap_display("metrics_ocmip5.json", currentSettings.id, "Spectral");
     }
 
     this.onDispose = function () {
