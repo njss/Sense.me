@@ -4,23 +4,43 @@
 
     var self = this;    
     var currentSettings = settings;
-    var htmlElement;
+    var chartElement;
     var data;
     var options;
     var chartHeight = 300;
     var chartWidth = 300;
+    var rootElement = null;
+    var selectOrderElement;
+    var selectPaletteElement;
 
     //seems to be called once (or after settings change)
     this.render = function (element) {
-      console.log('render');
+            $(element).append('<link rel="stylesheet" href="/css/heatmap.css" />');
+      rootElement = element;
 
-      //add the chart div to the dom
-      var chartDiv = '<div id="' + currentSettings.id + '" style="height:' + currentSettings.chartHeight + 'px;width:' + currentSettings.chartWidth + 'px;"></div>';
-      console.log(chartDiv);
-      htmlElement = $(chartDiv);
-      $(element).append(htmlElement);
+    selectOrderElement = $('<select id="order_' + currentSettings.id + '" > ' +
+     '<option value="null" selected> ----- </option>  ' +
+     '<option value="sortinit_col_row">Initial order on columns and rows</option> ' +
+     '<option value="sortinit_row">Initial order on rows</option> '+
+     '<option value="sortinit_col">Initial order on columns</option> </select>');
+    $(rootElement).append(selectOrderElement);
 
-      self.myChartRender(currentSettings);
+
+    selectPaletteElement = $('<select id="palette_' + currentSettings.id + '" > ' +
+     '<option value="RdYlGn">RdYlGn</option> ' +
+     '<option value="Spectral" selected>Spectral</option> ' +
+     '<option value="RdYlBu">RdYlBu</option> ' +
+     '<option value="RdGy">RdGy</option> ' +
+     '<option value="RdBu">RdBu</option> ' +
+     '<option value="PiYG">PiYG</option> ' +
+     '<option value="PRGn">PRGn</option> ' +
+     '<option value="BrBG">BrBG</option> ' +
+     '<option value="PuOr">PuOr</option> ' +
+     '</select>');
+    $(rootElement).append(selectPaletteElement);
+
+      chartElement = $('<div id="' + currentSettings.id + '" ></div>');
+      $(rootElement).append(chartElement);
     }
 
     this.onSettingsChanged = function (newSettings) {
@@ -29,24 +49,30 @@
 
     //seems to be called after render whenever a calculated value changes
     this.onCalculatedValueChanged = function (settingName, newValue) {
-      console.log('onCalculatedValueChanged for ' + settingName);
+      
 
       if (settingName == 'data')
-        data = newValue;
+      {
+          var data = newValue;
+          self.myChartRender(currentSettings); 
+          console.log('onCalculatedValueChanged for ' + settingName);
+      }
         
       if (settingName == 'options')
         options = newValue;
 
       //render the chart
-      htmlElement.empty();
+      //chartElement.empty();
 //      $.jqplot(currentSettings.id, data, options);
 
-      console.log("test_chart");
-      self.myChartRender(currentSettings);     
+      
+        
     }
 
     this.myChartRender = function (currentSettings) {
-       heatmap_display("http://localhost:3000/db", currentSettings.id, "Spectral");
+      $(chartElement).empty();
+      console.log('asdfasdf');
+      heatmap_display("metrics_ocmip5.json", currentSettings.id, "Spectral");
     }
 
     this.onDispose = function () {
@@ -66,7 +92,7 @@
     "external_scripts": [
       "http://d3js.org/d3.v3.js",
       "http://d3js.org/colorbrewer.v1.min.js",
-      "http://code.jquery.com/jquery-1.11.0.min.js",
+      //"http://code.jquery.com/jquery-1.11.0.min.js"
     ],    
     "settings": [
       {
