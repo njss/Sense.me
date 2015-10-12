@@ -1,0 +1,31 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 4,
+			"widgets": [
+				{
+					"type": "d3ArcPlotWidget",
+					"settings": {
+						"id": "chart1",
+						"options": "[[]]",
+						"chartHeight": 300,
+						"chartWidth": 300,
+						"height": 5
+					}
+				}
+			]
+		}
+	],
+	"datasources": [],
+	"columns": 3
+}
