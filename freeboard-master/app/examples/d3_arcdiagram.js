@@ -1,5 +1,5 @@
 var width = 960;           // width of svg image
-        var height = 500;           // height of svg image
+        var height = 350;           // height of svg image
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radius = 4;             // fixed node radius
@@ -24,8 +24,6 @@ var width = 960;           // width of svg image
 
 		function DrawArcDiagram(url, settings)
 		{
-			//debugger;
-			console.log ("settings div Lin:" + currentSettingsID);
 			currentSettingsID = settings;
 			d3.json(url, arcDiagram);
 		}
@@ -33,10 +31,12 @@ var width = 960;           // width of svg image
         // Draws an arc diagram for the provided undirected graph
         function arcDiagram(graph) {
 
-		console.log ("settings div Lin:" + currentSettingsID);
-		d3.select("#" + currentSettingsID)
-		.append("Div")
-		.style("position", "absolute");
+			console.log ("settings div Lin:" + currentSettingsID);
+			d3.select("#" + currentSettingsID)
+				//.style("vertical-align", "top")
+				.style("text-align", "center")
+				.style("margin", "auto");
+				
 		
             // create svg image
             var svg = d3.select("#" + currentSettingsID)
@@ -44,9 +44,8 @@ var width = 960;           // width of svg image
                     .attr("id", "arc")
                     .attr("width", width)
                     .attr("height", height)
-                    .attr("x", 300)
-                    .attr("y", 1100)
-                    .style("border", "1px solid black");
+                    .style("border", "1px solid black")
+					.style("margin", "auto"); 
 
             //svg.call(tip);
 
@@ -177,14 +176,16 @@ var width = 960;           // width of svg image
 
         function drawSPmatrix(nodes) {
 
-            var width = $("#" + currentSettingsID).width();
+            var width = $("#arcDiv").width();
+			
+			d3.select("#" + currentSettingsID).append("p");
             var imagesSVG = d3.select("#" + currentSettingsID)
                     .append("svg")
                     .attr("id", "svgVis")
                     .attr("width", 4 * imageWidth + 3 * 80)
                     .attr("height", 3 * imageHeight + 2 * 60)
                     .style("border", "1px solid black")
-					.style("text-align", "center");
+					.style("margin", "auto");
 
             //imagesSVG.call(tip);
 
