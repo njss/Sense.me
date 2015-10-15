@@ -34,7 +34,9 @@ var width = 960;           // width of svg image
         function arcDiagram(graph) {
 
 		console.log ("settings div Lin:" + currentSettingsID);
-		d3.select("#" + currentSettingsID).style("textAlign", "center");
+		d3.select("#" + currentSettingsID)
+		.append("Div")
+		.style("position", "absolute");
 		
             // create svg image
             var svg = d3.select("#" + currentSettingsID)
