@@ -1,4 +1,4 @@
-var width = 960;           // width of svg image
+var width = 940;           // width of svg image
         var height = 350;           // height of svg image
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
@@ -10,14 +10,8 @@ var width = 960;           // width of svg image
         var visImageArray;
 		
 		var currentSettingsID;
-
-        // SPLOM Tooltip
-        /*var  tip = d3.tip()
-                .attr('class', 'd3-tip')
-                .offset([-10, 0])
-                .html(function (d) {
-                    return "<strong>Scatterplot</strong> <span style='color:red'>" + d.name + "</span>";
-                }); */
+        var tip;					// tool tip
+		var matrixGap = 30
 
 
         /* DRAW ARC DIAGRAM */
@@ -25,6 +19,14 @@ var width = 960;           // width of svg image
 		function DrawArcDiagram(url, settings)
 		{
 			currentSettingsID = settings;
+			
+			tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function (d) {
+                    return "<strong>Scatterplot</strong> <span style='color:red'>" + d.name + "</span>";
+                });
+				
 			d3.json(url, arcDiagram);
 		}
 		
@@ -33,7 +35,6 @@ var width = 960;           // width of svg image
 
 			console.log ("settings div Lin:" + currentSettingsID);
 			d3.select("#" + currentSettingsID)
-				//.style("vertical-align", "top")
 				.style("text-align", "center")
 				.style("margin", "auto");
 				
@@ -47,7 +48,7 @@ var width = 960;           // width of svg image
                     .style("border", "1px solid black")
 					.style("margin", "auto"); 
 
-            //svg.call(tip);
+            svg.call(tip);
 
             // create plot area within svg image
             var plot = svg.append("g")
@@ -117,11 +118,11 @@ var width = 960;           // width of svg image
                         return color(d.group);
                     })
                     .on("mouseover", function (d, i) {
-                        //tip.show(d);
+                        tip.show(d);
                         highlightSPLOMgrid(d3.select(this));
                     })
                     .on("mouseout", function (d, i) {
-                        //tip.hide(d);
+                        tip.hide(d);
                         d3.select("#highlightRect").remove();
                     });
         }
@@ -175,19 +176,18 @@ var width = 960;           // width of svg image
         }
 
         function drawSPmatrix(nodes) {
-
-            var width = $("#arcDiv").width();
 			
 			d3.select("#" + currentSettingsID).append("p");
             var imagesSVG = d3.select("#" + currentSettingsID)
                     .append("svg")
                     .attr("id", "svgVis")
-                    .attr("width", 4 * imageWidth + 3 * 80)
+					.attr("width", width)
+                    //.attr("width", 4 * imageWidth + 3 * matrixGap)
                     .attr("height", 3 * imageHeight + 2 * 60)
                     .style("border", "1px solid black")
 					.style("margin", "auto");
 
-            //imagesSVG.call(tip);
+            imagesSVG.call(tip);
 
             //sort nodes by rank
             nodes.sort(function (a, b) {
@@ -209,10 +209,10 @@ var width = 960;           // width of svg image
                     .attr("width", imageWidth)
                     .attr("height", imageHeight)
                     .attr("x", function (d, i) {
-                        return (i % 4) * imageWidth + (i % 4) * 80;
+                        return (i % 4) * imageWidth + (i % 4) * matrixGap;
                     })
                     .attr("y", function (d, i) {
-                        return (Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
+                        return (5 + Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
                     });
 
             var spBorder = d3.select("#gSPLOM")
@@ -225,19 +225,19 @@ var width = 960;           // width of svg image
                     })
                     .attr('class', 'image-border')
                     .attr("x", function (d, i) {
-                        return (i % 4) * imageWidth + (i % 4) * 80;
+                        return (i % 4) * imageWidth + (i % 4) * matrixGap;
                     })
                     .attr("y", function (d, i) {
-                        return (Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
+                        return (5 + Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
                     })
                     .attr("height", imageHeight + 5)
                     .attr("width", imageWidth + 5)
                     .on("mouseover", function (d, i) {
-                        //tip.show(d);
+                        tip.show(d);
                         highlightADcircle(d3.select(this));
                     })
                     .on("mouseout", function (d, i) {
-                        //tip.hide(d);
+                        tip.hide(d);
                         d3.select("#highlightCircle").remove();
                     });
 
