@@ -1,12 +1,13 @@
 
 .image-border {
   fill: transparent;
-  stroke: transparent;
+  stroke: black;
   stroke-width: 1;
 }
 
 .image-border:hover {
   stroke: red;
+  stroke-width: 2;
 }
 
 
@@ -42,6 +43,10 @@
 .node {
     stroke: #ffffff;
     stroke-weight: 1px;
+}
+
+.node:hover {
+  stroke: red;
 }
 
 .link {

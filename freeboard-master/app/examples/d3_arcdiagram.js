@@ -5,12 +5,15 @@ var width = 940;           // width of svg image
         var radius = 4;             // fixed node radius
         var yfixed = pad + radius;  // y position for all nodes
 
-        var imageWidth = 200;       // width of SP image
+        var imageWidth = 150;       // width of SP image
         var imageHeight = 100;      // height of SP image
-        var visImageArray;
+        var cellGroup;
 		
 		var currentSettingsID;
         var tip;					// tool tip
+		
+		var column = 6;
+		var row = 4;
 		var matrixGap = 30
 
 
@@ -33,7 +36,6 @@ var width = 940;           // width of svg image
         // Draws an arc diagram for the provided undirected graph
         function arcDiagram(graph) {
 
-			console.log ("settings div Lin:" + currentSettingsID);
 			d3.select("#" + currentSettingsID)
 				.style("text-align", "center")
 				.style("margin", "auto");
@@ -181,10 +183,11 @@ var width = 940;           // width of svg image
             var imagesSVG = d3.select("#" + currentSettingsID)
                     .append("svg")
                     .attr("id", "svgVis")
-					.attr("width", width)
+					//.attr("width", width)
                     //.attr("width", 4 * imageWidth + 3 * matrixGap)
-                    .attr("height", 3 * imageHeight + 2 * 60)
-                    .style("border", "1px solid black")
+                    //.attr("height", 3 * imageHeight + 2 * 60)
+					.attr("width", column * imageWidth)
+                    .attr("height", row * imageHeight +10)
 					.style("margin", "auto");
 
             imagesSVG.call(tip);
@@ -194,10 +197,13 @@ var width = 940;           // width of svg image
                 return a.rank - b.rank;
             });
 
-            visImageArray = imagesSVG
+            cellGroup = imagesSVG
                     .append("g")
                     .attr("id", "gSPLOM")
+					.attr("x", 0)
+					//.attr("y", 15)
                     .style("textAlign", "center")
+					.attr("transform", "translate(0,10)")
                     .selectAll("image")
                     .data(nodes)
                     .enter()
@@ -209,14 +215,15 @@ var width = 940;           // width of svg image
                     .attr("width", imageWidth)
                     .attr("height", imageHeight)
                     .attr("x", function (d, i) {
-                        return (i % 4) * imageWidth + (i % 4) * matrixGap;
+                        return (i % column) * imageWidth;   // + (i % 4) * matrixGap
                     })
                     .attr("y", function (d, i) {
-                        return (5 + Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
+                        return (Math.floor(i / column) * imageHeight);  // 10 +  ... + Math.floor(i / 4) * 50
                     });
+					
 
             var spBorder = d3.select("#gSPLOM")
-                    .selectAll("rect")
+					.selectAll("rect")
                     .data(nodes)
                     .enter()
                     .append("rect")
@@ -225,13 +232,13 @@ var width = 940;           // width of svg image
                     })
                     .attr('class', 'image-border')
                     .attr("x", function (d, i) {
-                        return (i % 4) * imageWidth + (i % 4) * matrixGap;
+                        return (i % column) * imageWidth;   // + (i % 4) * matrixGap
                     })
                     .attr("y", function (d, i) {
-                        return (5 + Math.floor(i / 4) * imageHeight) + Math.floor(i / 4) * 50;
+                        return (Math.floor(i / column) * imageHeight);  // 10 +  ... + Math.floor(i / 4) * 50
                     })
-                    .attr("height", imageHeight + 5)
-                    .attr("width", imageWidth + 5)
+                    .attr("height", imageHeight)
+                    .attr("width", imageWidth)
                     .on("mouseover", function (d, i) {
                         tip.show(d);
                         highlightADcircle(d3.select(this));
@@ -240,7 +247,7 @@ var width = 940;           // width of svg image
                         tip.hide(d);
                         d3.select("#highlightCircle").remove();
                     });
-
+					
         }
 
         /* HELPER FUNCTIONS */

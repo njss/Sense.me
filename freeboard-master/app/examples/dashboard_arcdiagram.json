@@ -20,6 +20,16 @@
 						"options": "[[]]",
 						"chartHeight": 300,
 						"chartWidth": 300,
+						"height": 8
+					}
+				},
+				{
+					"type": "d3ArcPlotWidget",
+					"settings": {
+						"id": "chart1",
+						"data": "[]",
+						"chartHeight": 300,
+						"chartWidth": 300,
 						"height": 5
 					}
 				}
