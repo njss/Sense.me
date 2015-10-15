@@ -29,6 +29,10 @@ sudo /etc/init.d/networking restart
 sense.me (in browser)
 
 
+#docker push to docker hub
+docker login
+docker push njssnjss/sense
+
 
 
 

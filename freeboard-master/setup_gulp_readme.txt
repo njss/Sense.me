@@ -1,6 +1,11 @@
 #GULP and Automatic Reload
 https://community.nitrous.io/tutorials/setting-up-gulp-with-livereload-sass-and-other-tasks
 
+#start gulp
+gulp
+
+#on chrome
+localhost:4000/app
 
 #DOCKER
 https://github.com/learncodeacademy/docker-static-nginx
