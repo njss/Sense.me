@@ -15,7 +15,7 @@
 
     //seems to be called once (or after settings change)
     this.render = function (element) {
-            $(element).append('<link rel="stylesheet" href="/css/arcStyle.css" />');
+            $(element).append('<link rel="stylesheet" href="/app/css/arcStyle.css" />');
       rootElement = element;
 
     /* selectOrderElement = $('<select id="order_' + currentSettings.id + '" > ' +
