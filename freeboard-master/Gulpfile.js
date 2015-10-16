@@ -9,7 +9,7 @@ gulp.task('express', function() {
   var express = require('express');
   var app = express();
   app.use(require('connect-livereload')({port: 35729}));
-  app.use(express.static('app'));
+  app.use(express.static(__dirname));
   app.listen(4000, '0.0.0.0');
 });
 
@@ -40,8 +40,9 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
   //gulp.watch('sass/*.scss', ['styles']);
-  gulp.watch('*.html', notifyLiveReload);
-  gulp.watch('css/*.css', notifyLiveReload);
+  gulp.watch('app/*.html', notifyLiveReload);
+  gulp.watch('app/*.css', notifyLiveReload);
+  gulp.watch('app/*.js', notifyLiveReload);
 });
 
 //gulp.task('default', ['styles', 'express', 'livereload', 'watch'], function() {
