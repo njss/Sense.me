@@ -272,14 +272,15 @@
 			colorSliderGroup
 				.append("label")
 				.attr("for", "value")
-				.text("Opacity:");
+				.text("Opacity:")
 				
 			colorSliderGroup
 				.append("text")
 				.attr("id", "value")
 				.style("fill", "#004669")
 				.style("font-weight", "bold")
-				.text("95%");
+				.text("95%")
+				//.style("fill", "white");
 				
 			colorSliderGroup
 				.append("div")
@@ -353,14 +354,6 @@
     			t.selectAll("rect")
 					.style("fill", "transparent");
 			}
-			else if(paletteNamme === "Local Heatmap"){
-				
-				d3.select("#"+ currentSettingsID)
-					.append("div")
-					.attr("class", "test");
-					
-				createHeatMap("test");
-			}
 			else{
     		var colors = colorbrewer[paletteName][classesNumber];
     		var colorScale = d3.scale.quantize()
@@ -369,6 +362,7 @@
     		var svg = d3.select("#gSPLOM");
     		var t = svg.transition().duration(500);
     		t.selectAll("rect")
+				//.style("fill", "green")
         		.style("fill", function(d, i) {
 					var c = colorScale(d.duration)
 					return colorScale(d.duration);
@@ -386,47 +380,6 @@
 				.style("opacity", value);
 			
 		}
-		
-		function createHeatMap(divName){
-			var heatmapInstance = h337.create({
-				// only container is required, the rest will be defaults
-				container: document.querySelector('.' + divName)
-			});
-			
-			// now generate some random data
-			var points = [];
-			var max = 0;
-			var width = 840;
-			var height = 400;
-			var len = 300;
-
-			while (len--) {
-				var val = Math.floor(Math.random()*100);
-				// now also with custom radius
-				var radius = Math.floor(Math.random()*70);
-
-				max = Math.max(max, val);
-				var point = {
-					x: Math.floor(Math.random()*width),
-					y: Math.floor(Math.random()*height),
-					value: val,
-					// radius configuration on point basis
-					radius: radius
-			};
-			points.push(point);
-			
-			// heatmap data format
-			var data = { 
-				max: max, 
-				data: points 
-			};
-			
-			// if you have a set of datapoints always use setData instead of addData
-			// for data initialization
-			heatmapInstance.setData(data);
-		}
-
-			
 
 
         // Generates a tooltip for SP grid based on selected ID
