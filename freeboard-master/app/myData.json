@@ -1,29 +1,29 @@
 {
 "nodes":[
-    {"name":"14.TS-Ni.png","rank":0,"group":1,"value":1},
-    {"name":"15.Sum-Ni.png","rank":1,"group":1,"value":3},
-    {"name":"16.Ni-Ni.png","rank":2,"group":2,"value":1},
-    {"name":"34.Ni-Sum.png","rank":3,"group":2,"value":1},
-    {"name":"69.Fe-Ni.png","rank":7,"group":1,"value":2},
-	{"name":"40.TS-Ni.png","rank":6,"group":2,"value":3},
-	{"name":"38.Ni-Ni.png","rank":5,"group":3,"value":2},
-	{"name":"35.TS-Sum.png","rank":4,"group":2,"value":4},
-	{"name":"70.Co-Ni.png","rank":8,"group":1,"value":2},
-	{"name":"71.TS-Ni.png","rank":9,"group":2,"value":2},
-	{"name":"169.Sum-TS.png","rank":10,"group":2,"value":1},
-	{"name":"170.Ni-TS.png","rank":11,"group":3,"value":1},
-	{"name":"1.png","rank":12,"group":2,"value":1},
-	{"name":"2.png","rank":13,"group":1,"value":1},
-	{"name":"3.png","rank":14,"group":2,"value":1},
-	{"name":"4.png","rank":15,"group":1,"value":1},
-	{"name":"5.png","rank":16,"group":3,"value":2},
-	{"name":"6.png","rank":17,"group":2,"value":1},
-	{"name":"7.png","rank":18,"group":1,"value":1},
-	{"name":"8.png","rank":19,"group":3,"value":2},
-	{"name":"9.png","rank":20,"group":3,"value":2},
-	{"name":"10.png","rank":21,"group":2,"value":1},
-	{"name":"11.png","rank":22,"group":1,"value":1},
-	{"name":"12.png","rank":23,"group":3,"value":2}
+    {"name":"14.TS-Ni.png","rank":0,"group":1,"value":1, "duration":0.1178},
+    {"name":"15.Sum-Ni.png","rank":1,"group":1,"value":3, "duration":0.4834},
+    {"name":"16.Ni-Ni.png","rank":2,"group":2,"value":1, "duration":0.1647},
+    {"name":"34.Ni-Sum.png","rank":3,"group":2,"value":1, "duration":0.3355},
+    {"name":"69.Fe-Ni.png","rank":7,"group":1,"value":2, "duration":0.5126},
+	{"name":"40.TS-Ni.png","rank":6,"group":2,"value":3, "duration":-0.0274},
+	{"name":"38.Ni-Ni.png","rank":5,"group":3,"value":2, "duration":0.4304},
+	{"name":"35.TS-Sum.png","rank":4,"group":2,"value":4, "duration":0.5},
+	{"name":"70.Co-Ni.png","rank":8,"group":1,"value":2, "duration":0.4},
+	{"name":"71.TS-Ni.png","rank":9,"group":2,"value":2, "duration":0.7},
+	{"name":"169.Sum-TS.png","rank":10,"group":2,"value":1, "duration":0.99},
+	{"name":"170.Ni-TS.png","rank":11,"group":3,"value":1, "duration":0.8},
+	{"name":"1.png","rank":12,"group":2,"value":1, "duration":0.1633},
+	{"name":"2.png","rank":13,"group":1,"value":1, "duration":0.5},
+	{"name":"3.png","rank":14,"group":2,"value":1, "duration":0.4},
+	{"name":"4.png","rank":15,"group":1,"value":1, "duration":0.8},
+	{"name":"5.png","rank":16,"group":3,"value":2, "duration":0.2},
+	{"name":"6.png","rank":17,"group":2,"value":1, "duration":0.3},
+	{"name":"7.png","rank":18,"group":1,"value":1, "duration":0.1},
+	{"name":"8.png","rank":19,"group":3,"value":2, "duration":0.1},
+	{"name":"9.png","rank":20,"group":3,"value":2, "duration":0.3},
+	{"name":"10.png","rank":21,"group":2,"value":1, "duration":0.46},
+	{"name":"11.png","rank":22,"group":1,"value":1, "duration":0.3},
+	{"name":"12.png","rank":23,"group":3,"value":2, "duration":0.6}
   ],
 "links":[
 {"source":0,"target":1,"value":1},
@@ -43,4 +43,3 @@
 {"source":4,"target":6,"value":3}
 ]
 }
-

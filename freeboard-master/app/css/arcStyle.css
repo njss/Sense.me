@@ -67,3 +67,13 @@ path {
     stroke-width: 1;
     fill: none;
 }
+
+.ui-slider-horizontal {
+    height: 8px;
+    width: 200px;
+}
+.ui-slider .ui-slider-handle {
+    height: 15px;
+    width: 5px;
+    padding-left: 5px;
+}

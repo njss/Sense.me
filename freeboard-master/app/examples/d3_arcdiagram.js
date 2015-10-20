@@ -1,5 +1,5 @@
-var width = 940;           // width of svg image
-        var height = 350;           // height of svg image
+		var width = 940;           // width of svg image
+        var height = 250;           // height of svg image
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radius = 4;             // fixed node radius
@@ -15,6 +15,10 @@ var width = 940;           // width of svg image
 		var column = 6;
 		var row = 4;
 		var matrixGap = 30
+		
+		//colorbrewer
+		var classesNumber = 10;
+		var paletteName = "Spectral";
 
 
         /* DRAW ARC DIAGRAM */
@@ -29,7 +33,7 @@ var width = 940;           // width of svg image
                 .html(function (d) {
                     return "<strong>Scatterplot</strong> <span style='color:red'>" + d.name + "</span>";
                 });
-				
+								
 			d3.json(url, arcDiagram);
 		}
 		
@@ -248,9 +252,182 @@ var width = 940;           // width of svg image
                         d3.select("#highlightCircle").remove();
                     });
 					
+			
+				
+			d3.select("#"+ currentSettingsID)
+				.append("p");
+				
+			var settingDiv = d3.select("#"+ currentSettingsID)
+				.append("div")
+				.attr("width", "100%")
+				.style("text-align", "left");	
+				
+			//var colorSliderGroup = d3.select("#"+ currentSettingsID)
+			var colorSliderGroup = settingDiv
+				.append("g")
+				.attr("id", "gSlider")
+				.attr("width", "33%")
+				.style("margin", "5px");
+				
+			colorSliderGroup
+				.append("label")
+				.attr("for", "value")
+				.text("Opacity:");
+				
+			colorSliderGroup
+				.append("text")
+				.attr("id", "value")
+				.style("fill", "#004669")
+				.style("font-weight", "bold")
+				.text("95%");
+				
+			colorSliderGroup
+				.append("div")
+				.attr("id", "colorSlider")
+				.attr("width", "200");
+				
+			$(function() {
+				$("#colorSlider").slider({
+					range: "min",
+					value: 95,
+					min: 0,
+					max: 100,
+					slide: function( event, ui ) {
+						$( "#value" ).text(ui.value + "%");
+						var val = ui.value / 100;
+						changeOpacity(val);
+					}
+				});
+			});
+			
+			
+			var colors = colorbrewer[paletteName][classesNumber];
+			
+			var dropDown = settingDiv.append("select")
+				.attr("id", "colorPalette")
+				.attr("width", "33%")
+				.style("margin", "5px");
+				
+			dropDown.append("option")
+				.text("---")
+				.attr("value", "---")
+				.attr("selected", "selected");
+			dropDown.append("option")
+				.text("RdYlGn")
+				.attr("value", "RdYlGn");
+			dropDown.append("option")
+				.text("Spectral")
+				.attr("value", "Spectral");
+			dropDown.append("option")
+				.text("RdYlBu")
+				.attr("value", "RdYlBu");
+			dropDown.append("option")
+				.text("RdGy")
+				.attr("value", "RdGy");
+			dropDown.append("option")
+				.text("Local Heatmap")
+				.attr("value", "Local Heatmap");
+			
+			
+			d3.select("#colorPalette").on("keyup", function() {
+				var newPalette = d3.select("#colorPalette").property("value");
+    			if (newPalette != null)           // when interfaced with jQwidget, the ComboBox handles keyup event but value is then not available ?
+                  	changePalette(newPalette);
+            	})
+            	.on("change", function() {
+    				var newPalette = d3.select("#colorPalette").property("value");
+                	changePalette(newPalette);
+            	});
+			
+			
         }
+		
 
         /* HELPER FUNCTIONS */
+		
+		
+		function changePalette(paletteName) {
+			if(paletteName === "---"){
+				var svg = d3.select("#gSPLOM");
+    			var t = svg.transition().duration(500);
+    			t.selectAll("rect")
+					.style("fill", "transparent");
+			}
+			else if(paletteNamme === "Local Heatmap"){
+				
+				d3.select("#"+ currentSettingsID)
+					.append("div")
+					.attr("class", "test");
+					
+				createHeatMap("test");
+			}
+			else{
+    		var colors = colorbrewer[paletteName][classesNumber];
+    		var colorScale = d3.scale.quantize()
+        		.domain([0.0, 1.0])
+        		.range(colors);
+    		var svg = d3.select("#gSPLOM");
+    		var t = svg.transition().duration(500);
+    		t.selectAll("rect")
+        		.style("fill", function(d, i) {
+					var c = colorScale(d.duration)
+					return colorScale(d.duration);
+					//if (d != null) return colorScale(d);
+                	//else return "url(#diagonalHatch)";
+        		});
+			
+			}
+		}
+		
+		function changeOpacity(value){
+			var svg = d3.select("#gSPLOM");
+    		var t = svg.transition().duration(500);
+    		t.selectAll("rect")
+				.style("opacity", value);
+			
+		}
+		
+		function createHeatMap(divName){
+			var heatmapInstance = h337.create({
+				// only container is required, the rest will be defaults
+				container: document.querySelector('.' + divName)
+			});
+			
+			// now generate some random data
+			var points = [];
+			var max = 0;
+			var width = 840;
+			var height = 400;
+			var len = 300;
+
+			while (len--) {
+				var val = Math.floor(Math.random()*100);
+				// now also with custom radius
+				var radius = Math.floor(Math.random()*70);
+
+				max = Math.max(max, val);
+				var point = {
+					x: Math.floor(Math.random()*width),
+					y: Math.floor(Math.random()*height),
+					value: val,
+					// radius configuration on point basis
+					radius: radius
+			};
+			points.push(point);
+			
+			// heatmap data format
+			var data = { 
+				max: max, 
+				data: points 
+			};
+			
+			// if you have a set of datapoints always use setData instead of addData
+			// for data initialization
+			heatmapInstance.setData(data);
+		}
+
+			
+
 
         // Generates a tooltip for SP grid based on selected ID
         function highlightSPLOMgrid(circle) {
