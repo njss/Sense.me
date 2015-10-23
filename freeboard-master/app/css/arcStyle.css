@@ -7,7 +7,7 @@
 
 .image-border:hover {
   stroke: red;
-  stroke-width: 2;
+  stroke-width: 3;
 }
 
 
@@ -47,6 +47,7 @@
 
 .node:hover {
   stroke: red;
+  stroke-weight: 3px;
 }
 
 .link {
@@ -77,3 +78,5 @@ path {
     width: 5px;
     padding-left: 5px;
 }
+
+.heatmap{background:rgba(0,0,0,.03); border:1px solid black;}

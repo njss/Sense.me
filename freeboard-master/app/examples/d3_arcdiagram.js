@@ -1,5 +1,5 @@
-		var width = 940;           // width of svg image
-        var height = 250;           // height of svg image
+		var width = 940;           // width of arc div
+        var height = 200;           // height of arc div
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radius = 4;             // fixed node radius
@@ -41,14 +41,21 @@
         function arcDiagram(graph) {
 
 			d3.select("#" + currentSettingsID)
+				.attr("width", "100%")
+				.attr("height", "100%")
 				.style("text-align", "center")
-				.style("margin", "auto");
+				.style("margin", "0 auto");
 				
-		
+			var divArc = d3.select("#" + currentSettingsID)
+                .append("div")
+                .attr("id", "divArc")
+				.attr("width", "100%")
+				.attr("height", "100%");
+					
             // create svg image
-            var svg = d3.select("#" + currentSettingsID)
+            var svg = divArc
                     .append("svg")
-                    .attr("id", "arc")
+                    .attr("id", "svgArc")
                     .attr("width", width)
                     .attr("height", height)
                     .style("border", "1px solid black")
@@ -58,7 +65,7 @@
 
             // create plot area within svg image
             var plot = svg.append("g")
-                    .attr("id", "gPlot")
+                    .attr("id", "gArc")
                     .attr("transform", "translate(" + pad + ", " + pad + ")");
 
             // fix graph links to map to objects instead of indices
@@ -99,8 +106,14 @@
         function drawNodes(nodes) {
             // used to assign nodes color by group
             var color = d3.scale.category20();
+			
+			var colors = colorbrewer[paletteName][classesNumber];
+    		var colorScale = d3.scale.quantize()
+        		.domain([0, 10])
+        		.range(colors);
+			
 
-            d3.select("#gPlot").selectAll(".node")
+            d3.select("#gArc").selectAll(".node")
                     .data(nodes)
                     .enter()
                     .append("circle")
@@ -121,7 +134,7 @@
                         return radius * d.value;
                     })
                     .style("fill", function (d, i) {
-                        return color(d.group);
+                        return colorScale(d.group);
                     })
                     .on("mouseover", function (d, i) {
                         tip.show(d);
@@ -148,7 +161,7 @@
                     });
 
             // add links
-            d3.select("#gPlot").selectAll(".link")
+            d3.select("#gArc").selectAll(".link")
                     .data(links)
                     .enter()
                     .append("path")
@@ -182,14 +195,20 @@
         }
 
         function drawSPmatrix(nodes) {
+						
+			//add view				
+			var divSPLOM = d3.select("#" + currentSettingsID)
+                    .append("div")
+                    .attr("id", "divSPLOM")
+					.style("width", "900px")
+					.style("height", "400px")
+					//.style("left", "50px")
+					//.style("top", "50px")
+					//.style("position", "absolute");
 			
-			d3.select("#" + currentSettingsID).append("p");
-            var imagesSVG = d3.select("#" + currentSettingsID)
+            var imagesSVG = divSPLOM
                     .append("svg")
-                    .attr("id", "svgVis")
-					//.attr("width", width)
-                    //.attr("width", 4 * imageWidth + 3 * matrixGap)
-                    //.attr("height", 3 * imageHeight + 2 * 60)
+                    .attr("id", "svgSPLOM")
 					.attr("width", column * imageWidth)
                     .attr("height", row * imageHeight +10)
 					.style("margin", "auto");
@@ -205,9 +224,10 @@
                     .append("g")
                     .attr("id", "gSPLOM")
 					.attr("x", 0)
-					//.attr("y", 15)
                     .style("textAlign", "center")
-					.attr("transform", "translate(0,10)")
+					//.attr("transform", "translate(0,10)")
+					.append("g")
+					.attr("id", "gCellImages")
                     .selectAll("image")
                     .data(nodes)
                     .enter()
@@ -227,6 +247,8 @@
 					
 
             var spBorder = d3.select("#gSPLOM")
+					.append("g")
+					.attr("id", "gCellBorder")
 					.selectAll("rect")
                     .data(nodes)
                     .enter()
@@ -252,17 +274,44 @@
                         d3.select("#highlightCircle").remove();
                     });
 					
-			
+					
+			var hArc = d3.select("#divArc").style("height");
+			var heightArcDiv = parseInt(hArc.substr(0, hArc.indexOf("px")))
 				
-			d3.select("#"+ currentSettingsID)
-				.append("p");
-				
+			var spHeatmap = d3.select("#divSPLOM")
+					.append("div")
+					.attr("id", "divHeatmap")
+					//.attr("width", "800")
+					//.style("height", "700")
+					.style("top", heightArcDiv + "px")
+					.style("position", "absolute")
+					.selectAll("div")
+                    .data(nodes)
+                    .enter()
+                    .append("div")
+                    .attr("id", function (d, i) {
+                        return "heatmap" + d.rank;
+                    })
+                    .attr('class', 'heatmap')
+                    .style("left", function (d, i) {
+						var margin = (i % column) * imageWidth
+                        return margin + "px";   // + (i % 4) * matrixGap
+                    })
+                    .style("top", function (d, i) {
+                        return (Math.floor(i / column) * imageHeight) + "px";  // 10 +  ... + Math.floor(i / 4) * 50
+                    })
+                    .attr("height", imageHeight)
+                    .attr("width", imageWidth)
+					.style("position", "absolute");
+						
+			//add controler
 			var settingDiv = d3.select("#"+ currentSettingsID)
 				.append("div")
+				.attr("id", "divControl")
 				.attr("width", "100%")
-				.style("text-align", "left");	
+				.style("text-align", "left")
+				.style("position", "relative");	
 				
-			//var colorSliderGroup = d3.select("#"+ currentSettingsID)
 			var colorSliderGroup = settingDiv
 				.append("g")
 				.attr("id", "gSlider")
@@ -272,15 +321,14 @@
 			colorSliderGroup
 				.append("label")
 				.attr("for", "value")
-				.text("Opacity:")
+				.text("Opacity:");
 				
 			colorSliderGroup
 				.append("text")
 				.attr("id", "value")
 				.style("fill", "#004669")
 				.style("font-weight", "bold")
-				.text("95%")
-				//.style("fill", "white");
+				.text("95%");
 				
 			colorSliderGroup
 				.append("div")
@@ -300,7 +348,6 @@
 					}
 				});
 			});
-			
 			
 			var colors = colorbrewer[paletteName][classesNumber];
 			
@@ -326,8 +373,8 @@
 				.text("RdGy")
 				.attr("value", "RdGy");
 			dropDown.append("option")
-				.text("Local Heatmap")
-				.attr("value", "Local Heatmap");
+				.text("Local AOI")
+				.attr("value", "Local AOI");
 			
 			
 			d3.select("#colorPalette").on("keyup", function() {
@@ -346,30 +393,63 @@
 
         /* HELPER FUNCTIONS */
 		
-		
 		function changePalette(paletteName) {
 			if(paletteName === "---"){
 				var svg = d3.select("#gSPLOM");
     			var t = svg.transition().duration(500);
     			t.selectAll("rect")
 					.style("fill", "transparent");
+					
+				//disable local AOI view
+				d3.select("#divHeatmap").node().style.visibility = "hidden";
+			}
+			else if(paletteName === "Local AOI"){
+				//enable local AOI view
+				d3.select("#divHeatmap").node().style.visibility = "visible";
+				
+				var heatmapsDiv = d3.select("#divHeatmap");
+				var heatNodes = heatmapsDiv.node().childNodes;
+				
+				if(!heatNodes[0].hasChildNodes()){
+					for(var i=0; i < heatNodes.length; i++){
+						var id = heatNodes[i].id
+						d3.select("#"+ id).style("width", imageWidth + "px")
+						d3.select("#"+ id).style("height", imageHeight + "px")
+						createHeatMap(id); 
+						d3.select("#"+ id).style("position", "absolute")
+					}
+				}
 			}
 			else{
-    		var colors = colorbrewer[paletteName][classesNumber];
-    		var colorScale = d3.scale.quantize()
-        		.domain([0.0, 1.0])
-        		.range(colors);
-    		var svg = d3.select("#gSPLOM");
-    		var t = svg.transition().duration(500);
-    		t.selectAll("rect")
-				//.style("fill", "green")
-        		.style("fill", function(d, i) {
-					var c = colorScale(d.duration)
-					return colorScale(d.duration);
-					//if (d != null) return colorScale(d);
-                	//else return "url(#diagonalHatch)";
-        		});
+				
+    			var colors = colorbrewer[paletteName][classesNumber];
+    			var colorScale = d3.scale.quantize()
+        			.domain([0.0, 1.0])
+        			.range(colors);
+    			var svg = d3.select("#gSPLOM");
+    			var t = svg.transition().duration(500);
+    			t.selectAll("rect")
+        			.style("fill", function(d, i) {
+						var c = colorScale(d.duration)
+						return colorScale(d.duration);
+						//if (d != null) return colorScale(d);
+                		//else return "url(#diagonalHatch)";
+        			});
 			
+				var colors = colorbrewer[paletteName][classesNumber];
+    			var colorScale = d3.scale.quantize()
+        			.domain([0, 10])
+        			.range(colors);
+				var svg2 = d3.select("#gArc");
+    			var t2 = svg2.transition().duration(500);
+    			t2.selectAll("circle")
+        			.style("fill", function(d, i) {
+						var c = colorScale(d.group)
+						return colorScale(d.group);
+						//if (d != null) return colorScale(d);
+                		//else return "url(#diagonalHatch)";
+        			});
+				
 			}
 		}
 		
@@ -380,13 +460,49 @@
 				.style("opacity", value);
 			
 		}
+		
+		function createHeatMap(divName){
+			var heatmapInstance = h337.create({
+				// only container is required, the rest will be defaults
+				container: document.querySelector('#' + divName)
+			});
+			
+			var data = generateRandomData(100);
+			heatmapInstance.setData(data);
+		}
+
+		function generateRandomData(len) {
+			// now generate some random data
+			var points = [];
+			var max = 0;
+			var width = 840;
+			var height = 400;
+
+			while (len--) {
+				var val = Math.floor(Math.random()*100);
+				// now also with custom radius
+				var radius = Math.floor(Math.random()*70);
+
+				max = Math.max(max, val);
+				var point = {
+					x: Math.floor(Math.random()*width),
+					y: Math.floor(Math.random()*height),
+					value: val,
+					// radius configuration on point basis
+					radius: radius
+				};
+				points.push(point);
+			}
+			var data = { max: max, data: points };
+			return data;
+		}
 
 
         // Generates a tooltip for SP grid based on selected ID
         function highlightSPLOMgrid(circle) {
 
             var cId = circle.attr("id");
-            var groupElement = d3.select("#gSPLOM");
+            var groupElement = d3.select("#gCellBorder");
             var groupNodes = groupElement.node();
             var spNode = groupNodes.children[cId];
             var borderX = spNode.x;
@@ -400,13 +516,13 @@
                     .attr("height", imageHeight)
                     .style("fill", "none")
                     .style("stroke", "red")
-                    .style("stroke-width", 1);
+                    .style("stroke-width", 3);
 
         }
 
         function highlightADcircle(grid) {
             var spID = grid.attr("id");
-            var groupElement = d3.select("#gPlot");
+            var groupElement = d3.select("#gArc");
             var groupNodes = groupElement.node();
 
             var gID = -1;
@@ -435,6 +551,6 @@
                     .attr("height", imageHeight)
                     .style("fill", "none")
                     .style("stroke", "red")
-                    .style("stroke-width", 1);
+                    .style("stroke-width", 3);
         }
 		

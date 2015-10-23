@@ -71,6 +71,7 @@
     "external_scripts": [
       "http://d3js.org/d3.v3.js",
 	  "plugins/thirdparty/d3.tip.v0.6.3.js",
+	  "plugins/thirdparty/heatmap.min.js",
       "http://d3js.org/colorbrewer.v1.min.js",
 	  "http://code.jquery.com/ui/1.11.4/jquery-ui.js"
       //"http://code.jquery.com/jquery-1.11.0.min.js"
