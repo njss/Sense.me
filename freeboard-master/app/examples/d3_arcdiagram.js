@@ -1,4 +1,4 @@
-		var width = 940;           // width of arc div
+		var width = 1140;           // width of arc div
         var height = 200;           // height of arc div
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
@@ -12,8 +12,8 @@
 		var currentSettingsID;
         var tip;					// tool tip
 		
-		var column = 6;
-		var row = 4;
+		var column = 8;
+		var row = 5;
 		var matrixGap = 30
 		
 		//colorbrewer
@@ -31,7 +31,7 @@
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
                 .html(function (d) {
-                    return "<strong>Scatterplot</strong> <span style='color:red'>" + d.name + "</span>";
+                    return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
                 });
 								
 			d3.json(url, arcDiagram);
@@ -119,7 +119,7 @@
                     .append("circle")
                     .attr("class", "node")
                     .attr("id", function (d, i) {
-                        return d.rank;
+                        return d.aoi;
                     })
                     .attr("name", function (d, i) {
                         return d.name;
@@ -200,8 +200,8 @@
 			var divSPLOM = d3.select("#" + currentSettingsID)
                     .append("div")
                     .attr("id", "divSPLOM")
-					.style("width", "900px")
-					.style("height", "400px")
+					.style("width", "1000")		//100% !
+					.style("height", "100%")
 					//.style("left", "50px")
 					//.style("top", "50px")
 					//.style("position", "absolute");
@@ -215,9 +215,9 @@
 
             imagesSVG.call(tip);
 
-            //sort nodes by rank
+            //sort nodes by aoi
             nodes.sort(function (a, b) {
-                return a.rank - b.rank;
+                return a.aoi - b.aoi;
             });
 
             cellGroup = imagesSVG
@@ -254,7 +254,7 @@
                     .enter()
                     .append("rect")
                     .attr("id", function (d, i) {
-                        return d.rank;
+                        return d.aoi;
                     })
                     .attr('class', 'image-border')
                     .attr("x", function (d, i) {
@@ -274,23 +274,52 @@
                         d3.select("#highlightCircle").remove();
                     });
 					
+			var spText = d3.select("#gSPLOM")
+					.append("g")
+					.attr("id", "gCellText")
+					.selectAll("text")
+                    .data(nodes)
+                    .enter()
+                    .append("text")
+                    .attr("id", function (d, i) {
+                        return d.aoi;
+                    })
+                    //.attr('class', 'image-border')
+                    .attr("x", function (d, i) {
+                        return (i % column) * imageWidth + (imageWidth/2);
+                    })
+                    .attr("y", function (d, i) {
+                        return (Math.floor(i / column) * imageHeight) + (imageHeight/2);  // 10 +  ... + Math.floor(i / 4) * 50
+                    })
+					.text(function (d, i) {
+                        return "AOI " + d.aoi;
+                    })
+					.attr("font-family", "sans-serif")
+					.attr("font-size", "20px")
+					.style("text-anchor", "middle")
+					.style("font-weight", "bold")
+					.style("visibility", "hidden");
+			
 					
 			var hArc = d3.select("#divArc").style("height");
 			var heightArcDiv = parseInt(hArc.substr(0, hArc.indexOf("px")))
-				
+							
+			//var heatmapX = d3.select("#svgSPLOM").node()
+			
 			var spHeatmap = d3.select("#divSPLOM")
 					.append("div")
 					.attr("id", "divHeatmap")
 					//.attr("width", "800")
 					//.style("height", "700")
 					.style("top", heightArcDiv + "px")
+					.style("left", "30px")
 					.style("position", "absolute")
 					.selectAll("div")
                     .data(nodes)
                     .enter()
                     .append("div")
                     .attr("id", function (d, i) {
-                        return "heatmap" + d.rank;
+                        return "heatmap" + d.aoi;
                     })
                     .attr('class', 'heatmap')
                     .style("left", function (d, i) {
@@ -361,20 +390,14 @@
 				.attr("value", "---")
 				.attr("selected", "selected");
 			dropDown.append("option")
-				.text("RdYlGn")
-				.attr("value", "RdYlGn");
+				.text("Labels")
+				.attr("value", "labels");
 			dropDown.append("option")
-				.text("Spectral")
-				.attr("value", "Spectral");
-			dropDown.append("option")
-				.text("RdYlBu")
-				.attr("value", "RdYlBu");
-			dropDown.append("option")
-				.text("RdGy")
-				.attr("value", "RdGy");
+				.text("Global AOI")
+				.attr("value", "global");
 			dropDown.append("option")
 				.text("Local AOI")
-				.attr("value", "Local AOI");
+				.attr("value", "local");
 			
 			
 			d3.select("#colorPalette").on("keyup", function() {
@@ -400,10 +423,17 @@
     			t.selectAll("rect")
 					.style("fill", "transparent");
 					
-				//disable local AOI view
+				//disable other views
 				d3.select("#divHeatmap").node().style.visibility = "hidden";
+				d3.select("#gSPLOM").selectAll("text").style("visibility", "hidden");
 			}
-			else if(paletteName === "Local AOI"){
+			else if(paletteName === "labels"){
+				//show labels inside cells
+    			d3.select("#gSPLOM")
+					.selectAll("text")
+        			.style("visibility", "visible");
+			}
+			else if(paletteName === "local"){
 				//enable local AOI view
 				d3.select("#divHeatmap").node().style.visibility = "visible";
 				
@@ -420,9 +450,9 @@
 					}
 				}
 			}
-			else{
+			else if(paletteName === "global"){
 				
-    			var colors = colorbrewer[paletteName][classesNumber];
+    			var colors = colorbrewer["RdYlGn"][classesNumber];
     			var colorScale = d3.scale.quantize()
         			.domain([0.0, 1.0])
         			.range(colors);
@@ -432,8 +462,6 @@
         			.style("fill", function(d, i) {
 						var c = colorScale(d.duration)
 						return colorScale(d.duration);
-						//if (d != null) return colorScale(d);
-                		//else return "url(#diagonalHatch)";
         			});
 			
 				var colors = colorbrewer[paletteName][classesNumber];
@@ -467,7 +495,7 @@
 				container: document.querySelector('#' + divName)
 			});
 			
-			var data = generateRandomData(100);
+			var data = generateRandomData(10);
 			heatmapInstance.setData(data);
 		}
 
@@ -475,8 +503,8 @@
 			// now generate some random data
 			var points = [];
 			var max = 0;
-			var width = 840;
-			var height = 400;
+			var width = imageWidth;
+			var height = imageHeight;
 
 			while (len--) {
 				var val = Math.floor(Math.random()*100);
