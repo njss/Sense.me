@@ -192,6 +192,52 @@
                     .style("stroke-width", function (d) {
                         return d.value;
                     });
+					
+			// add labels
+			var labelList = [];
+            d3.select("#gArc").selectAll("text")
+                    .data(links)
+                    .enter()
+                    .append("text")
+					.attr("id", function (d, i) {
+						var s = d.source.aoi;
+						var t = d.target.aoi;
+						var id = "id-" + s + "_" + t;
+						labelList.push(id);
+                        return id;
+                    })
+					.attr("x", function (d, i) {
+                        return d.source.x + (d.target.x - d.source.x) / 2;
+                    })
+                    .attr("y", function (d, i) {
+						var xdist = Math.abs(d.source.x - d.target.x);						
+                        return yfixed + (xdist/2) + 10;
+                    })
+					.text(function (d, i) {
+                        return i +1;
+                    })
+					.attr("font-family", "sans-serif")
+					.attr("font-size", "10px")
+					.style("text-anchor", "middle")
+					.style("fill", "white");
+					
+			//treat duplicates
+			for(var i = 0; i < labelList.length -1; i++){
+				for(var j = i+1; j < labelList.length; j++){
+					var n1 = labelList[i].substring(3, labelList[i].indexOf("_")) //"id-" -> 3
+					var n2 = labelList[i].substring(labelList[i].indexOf("_")+1)
+					var reverseI = "id-" + n2 + "_" + n1;
+					if(labelList[i] === labelList[j] || reverseI === labelList[j]){
+						var l = d3.select("#" + labelList[i]);
+						var x = l.node().x.baseVal[0].value;
+						var y = l.node().y.baseVal[0].value;
+						var text = l.text() + ", " + d3.select("#" + labelList[j]).text();
+						
+						d3.select("#" + labelList[j]).text("");
+						d3.select("#" + labelList[i]).text(text);
+					}
+				}
+			}
         }
 
         function drawSPmatrix(nodes) {
@@ -284,7 +330,6 @@
                     .attr("id", function (d, i) {
                         return d.aoi;
                     })
-                    //.attr('class', 'image-border')
                     .attr("x", function (d, i) {
                         return (i % column) * imageWidth + (imageWidth/2);
                     })
