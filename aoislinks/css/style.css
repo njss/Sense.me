@@ -1,0 +1,36 @@
+/* Clear fix */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Document styling */
+body {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	width: 1120px;
+	margin: 0 auto;
+	font-size: 14px;
+}
+
+#wrapper {
+	position: relative;
+}
+
+#title {
+	font-size: 24px;
+	font-weight: 100;
+}
+#title div.large, #title span.large {
+	font-size: 36px;
+}
+
+footer, footer a {
+	color: #666;
+}
+
+.twitter-share-button {width: 82px !important;}
+
+#social {
+  margin-bottom: 30px;
+}

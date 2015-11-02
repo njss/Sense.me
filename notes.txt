@@ -1,0 +1,19 @@
+
+43 AOIs in total
+40 + sketch + options + outofscreen
+
+
+
+circles
+AOI;duration;terminal
+aoi0;300;false
+aoi5;200;true
+a043;300;false
+aoi0;200;true
+
+
+
+links(arcs):
+aoi_source;aoi_target;strength(number same jumps)
+
+
