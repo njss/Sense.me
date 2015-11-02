@@ -148,7 +148,12 @@ function makeChart() {
       return arcSVG(d.targetX, d.targetY, 800, 800, 0, 0, 1, d.sourceX, d.sourceY);
     })    
     .attr('marker-end', 'url(#Triangle)')
-    .style('opacity', 0.2);
+    .style('opacity', function (d) {
+        if (d.count>20)
+          return 0.7;
+        else
+          return 0.1;
+    });
 }
 
 
