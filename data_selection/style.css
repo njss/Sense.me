@@ -1,0 +1,48 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+textarea,
+button {
+	font-size: 14px;
+}
+
+textarea {
+	box-sizing: border-box;
+	font: 14px/1.25em Menlo, Monaco, 'Courier New', monospace;
+	width: 100%;
+	padding: 10px;
+	max-width: 900px;
+	height: 200px;
+}
+
+button {
+	padding: 10px 50px;
+	font-size: 20px;
+}
+
+label {
+	display: block;
+}
+
+input[type=number] {
+	width: 55px;
+}
+
+
+.text-center {
+	text-align: center;
+}
+
+.grid-container{
+	width:100%; margin:20px auto; background-color: #fff; border-radius: 18px; text-align:center
+}
+
+.grid-50 {
+	text-align:center
+	width: 50%;
+}

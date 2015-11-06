@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Data Generator</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+		<script src="papaparse.js"></script>
+		<script src="player.js"></script>
+		<script src="http://d3js.org/d3.v3.js"></script>
+		
+		
+	</head>
+	<body>
+		<h1>Sense Data Generator</h1>
+
+		<div class="grid-container text-center">
+
+			<div class="grid-50 text-center">
+
+				<textarea id="input" placeholder="Input">Users;Experiment;Trial;AOI;X;Y;Duration
+A;1;1;5;10;10;0.235786
+A;1;1;5;10;10;0.579286
+A;2;1;1;10;10;0.123896
+A;2;1;2;10;10;0.427904
+A;2;1;3;10;10;0.443703
+B;1;1;4;10;10;0.123456</textarea>
+		
+				<br>
+				<b>or</b>
+				<br>
+
+				<input type="file" id="files" multiple>
+			
+				<br><br>
+
+				<button id="submit-parse">Parse</button>
+				&nbsp;
+				<button id="submit-unparse">Unparse</button>
+
+				<br><br>
+
+				<i>Open the Console in your browser's inspector tools to see results.</i>
+				
+				<br><br>
+				
+				<table id="resultTable">
+				</table>
+				<br><br>
+				<table id="userTable">
+				</table>
+				<table id="experimentTable">
+				</table>
+				<table id="trialsTable">
+				</table>
+			</div>
+
+		</div>
+	</body>
+</html>
