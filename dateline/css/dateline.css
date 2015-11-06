@@ -1,0 +1,52 @@
+     .chart {
+		    font-family: Arial, sans-serif;
+		    font-size: 10px;
+		    /*border: 1px solid black;*/
+			float:left;
+			width:1400px;
+			height:220px;
+			/*overflow:auto;*/
+			white-space: nowrap;
+		  }
+		  .axis path, .axis line {
+		    fill: none;
+		    stroke: #000;
+		    shape-rendering: crispEdges;
+		  }
+		  .letter {
+		  	fill: #ffffd0;
+	    	stroke-width: 2
+		  }
+		  .precise {
+			stroke: #000000;
+			}
+		  .notprecise {
+			stroke: #ff2c00;
+		  }
+		  .link {
+		  	fill:none; 
+		  	stroke:black; 
+		  	stroke-width:1 
+		  }
+		  .arrowhead {
+		  	stroke: black;
+		  	fill: black;
+		  	stroke-width:1 
+		  }
+		  .bar {
+		    fill: steelblue;
+		  }
+		  .fromR {
+		  	fill: #dca2ea;
+		  }
+		  .fromF {
+		    fill: #d7faaa;
+		  }
+		  .monthaxis {
+		  	font-size: 300%;
+		  }
+		  text.shadow {
+		  	stroke: #fff;
+		  	stroke-width: 3px;
+		  	stroke-opacity: .8;
+		  }
