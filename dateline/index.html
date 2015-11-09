@@ -6,8 +6,11 @@
 
 	<!-- Our CSV Files -->
   	<link rel="stylesheet" href="../css/dateline.css">
-    <link rel="stylesheet" href="../css/style.css">    
+    <link rel="stylesheet" href="../css/style.css">  
     <link rel="stylesheet" href="../css/matcharrows.css">
+
+    <link rel="stylesheet" type="text/css" href="../libs/jquery.gridster.css">
+    <link rel="stylesheet" type="text/css" href="../css/demo_gridster.css">
     <!--<link rel="stylesheet" href="../css/svg.css">-->
 
     <!-- Well Known javascript libraries -->
@@ -16,6 +19,27 @@
 	<script src="../libs/underscore-min.js"></script>
 	<script src="../libs/queue.min.js"></script>
 	<script src="../libs/lodash.js"></script>
+	<script src="../libs/jquery.js" type="text/javascript"></script>
+    <script src="../libs/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+		var gridster;
+
+		$(function(){
+
+			var log = document.getElementById('log');
+
+			gridster = $(".gridster ul").gridster({
+			  widget_base_dimensions: [100, 55],
+			  widget_margins: [5, 5],
+			  autogrow_cols: true,
+			  resize: {
+			    enabled: true
+			  }
+			}).data('gridster');
+
+
+		});
+	</script>
 	
 	<!-- To drive the visualizations -->
 	<script src="../js/d3dateline.js"></script>
@@ -33,31 +57,52 @@
 	</script>
 </head>
 <body>
+	<div class="gridster">
+	    <ul>
+	    	<li data-row="1" data-col="1" data-sizex="16" data-sizey="2">
+	    		1
+	      	</li>
+	      	<li data-row="2" data-col="1" data-sizex="3" data-sizey="4">
+	      		2
+				<div id="title"><span class="large">AOIs Links</span></div>
+				<div id="output">
+					<select id="datasetslist">
+					</select>				
+				</div>
+			</li>
+    		<li data-row="3" data-col="1" data-sizex="3" data-sizey="15">
+	    		3
+	      	</li>
+	      	<li data-row="2" data-col="2" data-sizex="13" data-sizey="4">
+	      		4
+	      		<div id="svgContent" class="chart"></div>
+	      	</li>
 
-	<div id="svgContent" class="chart"></div>
-	<div id="wrapper">
-			<div id="chart">
-				<svg>
-					<defs>
-					    <marker id="Triangle"
-					      viewBox="0 0 10 10" refX="0" refY="5" 
-					      markerUnits="strokeWidth"
-					      markerWidth="4" markerHeight="3"
-					      orient="auto">
-					      <path d="M 0 0 L 10 5 L 0 10 z" />
-					    </marker>
-					  </defs>
-  				</svg>
-			</div>			
-			<div id="title"><span class="large">AOIs Links</span></div>
-			<div id="output">
-				<select id="datasetslist">
-				</select>				
-			</div>
-			<footer>
-				<p>test...</p>
-			</footer>
-		</div>
+
+			<li data-row="3" data-col="2" data-sizex="13" data-sizey="15">
+				5
+				<div id="wrapper">
+					<div id="chart">
+						<svg>
+							<defs>
+							    <marker id="Triangle"
+							     	viewBox="0 0 10 10" refX="0" refY="5" 
+							      	markerUnits="strokeWidth"
+							     	 markerWidth="4" markerHeight="3"
+							      	orient="auto">
+							      	<path d="M 0 0 L 10 5 L 0 10 z" />
+							    </marker>
+							</defs>
+						</svg>
+					</div>
+				</div>
+			</li>
+	    </ul>
+  	</div>
   
+  	
+	<footer>
+		<p>test...</p>
+	</footer>
 </body>
 </html>

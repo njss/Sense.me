@@ -1,10 +1,19 @@
+$(function(){ //DOM Ready
+
+    $(".gridster ul").gridster({
+        widget_margins: [10, 10],
+        widget_base_dimensions: [140, 140]
+    });
+
+});
+
 var config = d3.csv("all_files.csv", function(error, dataset){
 	//d3.select("#datasetslist").html(
-var countCSVFiles = 0;
-var filenames = new Array();
+	var countCSVFiles = 0;
+	var filenames = new Array();
 
-//Our final dataset with all the csv files concatenated in an array object!
-var finalDataset = [];
+	//Our final dataset with all the csv files concatenated in an array object!
+	var finalDataset = [];
 
 	d3.select("#datasetslist").selectAll("option")
 		.data(dataset)
