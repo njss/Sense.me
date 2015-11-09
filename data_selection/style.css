@@ -27,9 +27,11 @@ label {
 	display: block;
 }
 
-input[type=number] {
+/* input[type=number] {
+	text-align: center;
+	margin:20px auto;
 	width: 55px;
-}
+} */
 
 
 .text-center {
@@ -43,10 +45,7 @@ input[type=number] {
 
 .grid-container{
 	width:100%;
-	height: 100%; margin:20px auto; background-color: #fff; border-radius: 18px; text-align:center
-}
-
-.grid-50 {
+	height: 100%; margin:20px auto; background-color: #fff; border-radius: 18px; text-align:center;
 }
 
 .grid-horizontal {

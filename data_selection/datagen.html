@@ -8,16 +8,21 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 		<script src="http://d3js.org/d3.v3.js"></script>
+		  
+		<!-- Tabslet JS/STYLES -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+		<script type="text/javascript" src="javascripts/vendor/jquery.tabslet.min.js"></script>
+		<script src="javascripts/initializers.js"></script>
+		  
 	</head>
 	<body>
 		<h1>Sense Data Generator</h1>
 
 		<div class="grid-container">
 
-			<div style="margin: 0px auto;">
-
-				<input align="middle" type="file" id="files" multiple>
-			
+			<div style="margin: 0px auto; text-align: center;">
+				<input align="middle" style="margin: auto;" type="file" id="files" multiple>
+					
 				<br><br>
 
 				<button id="submit-parse">Parse CSV</button>
@@ -33,30 +38,36 @@
 				<table id="resultTable" align="center">
 				</table>
 				
-				<br><br>				
-				
-				<div class="row horizontal-style" style="width:80%; margin: 0px auto;">
-					<div class="col-xs-3" style="width:420px; margin: 0px auto;">
+				<br><br>
+			</div>
+			
+			<div class='tabs tabs_default' style="width:420px; margin: auto;">
+				<ul class='horizontal'>
+					<li><a href="#tab-1" style="display: inline-block">Users</a></li>
+					<li><a href="#tab-2" style="display: inline-block">Experiment</a></li>
+					<li><a href="#tab-3" style="display: inline-block">Trials</a></li>
+				</ul>
+				<div id='tab-1' style="display: block;"><span>
+					<div class="col-xs-3" style="width:420px; margin: 0px auto; display: block;">
 						<select id="userSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
 						</select>
-					</div>
-					
+					</div></span>
+				</div>
+			  
+				<div id='tab-2' style="display: block"><span>
 					<div class="col-xs-4" style="width:420px; margin: 0px auto;">
 						<select id="experimentSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
 						</select>
-					</div>
-					
+					</div></span>
+				</div>
+
+				<div id='tab-3' style="display: block"><span>
 					<div class="col-xs-3" style="width:420px; margin: 0px auto;">
 						<select id="trialsSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
 						</select>
-					</div>
+					</div></span>
 				</div>
-				
-				<br><br>
-				
-				
-				
-				</table>
+					
 			</div>
 		</div>
 		
