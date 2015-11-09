@@ -4,57 +4,226 @@
 		<title>Data Generator</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
+		<link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-		<script src="papaparse.js"></script>
-		<script src="player.js"></script>
 		<script src="http://d3js.org/d3.v3.js"></script>
-		
-		
+		  
+		<!-- Tabslet JS/STYLES -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+		<script type="text/javascript" src="javascripts/vendor/jquery.tabslet.min.js"></script>
+		<script src="javascripts/initializers.js"></script>
+		  
 	</head>
 	<body>
 		<h1>Sense Data Generator</h1>
 
-		<div class="grid-container text-center">
+		<div class="grid-container">
 
-			<div class="grid-50 text-center">
-
-				<textarea id="input" placeholder="Input">Users;Experiment;Trial;AOI;X;Y;Duration
-A;1;1;5;10;10;0.235786
-A;1;1;5;10;10;0.579286
-A;2;1;1;10;10;0.123896
-A;2;1;2;10;10;0.427904
-A;2;1;3;10;10;0.443703
-B;1;1;4;10;10;0.123456</textarea>
-		
-				<br>
-				<b>or</b>
-				<br>
-
-				<input type="file" id="files" multiple>
-			
+			<div style="margin: 0px auto; text-align: center;">
+				<input align="middle" style="margin: auto;" type="file" id="files" multiple>
+					
 				<br><br>
 
-				<button id="submit-parse">Parse</button>
+				<button id="submit-parse">Parse CSV</button>
 				&nbsp;
-				<button id="submit-unparse">Unparse</button>
+				<button id="submit-unparse">Generate Data</button>
 
 				<br><br>
 
 				<i>Open the Console in your browser's inspector tools to see results.</i>
 				
 				<br><br>
+			
+				<table id="resultTable" align="center">
+				</table>
 				
-				<table id="resultTable">
-				</table>
 				<br><br>
-				<table id="userTable">
-				</table>
-				<table id="experimentTable">
-				</table>
-				<table id="trialsTable">
-				</table>
 			</div>
+			
+			<div class='tabs tabs_default' style="width:420px; margin: auto;">
+				<ul class='horizontal'>
+					<li><a href="#tab-1" style="display: inline-block">Users</a></li>
+					<li><a href="#tab-2" style="display: inline-block">Experiment</a></li>
+					<li><a href="#tab-3" style="display: inline-block">Trials</a></li>
+				</ul>
+				<div id='tab-1' style="display: block;"><span>
+					<div class="col-xs-3" style="width:420px; margin: 0px auto; display: block;">
+						<select id="userSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
+						</select>
+					</div></span>
+				</div>
+			  
+				<div id='tab-2' style="display: block"><span>
+					<div class="col-xs-4" style="width:420px; margin: 0px auto;">
+						<select id="experimentSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
+						</select>
+					</div></span>
+				</div>
 
+				<div id='tab-3' style="display: block"><span>
+					<div class="col-xs-3" style="width:420px; margin: 0px auto;">
+						<select id="trialsSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
+						</select>
+					</div></span>
+				</div>
+					
+			</div>
 		</div>
+		
+	<script src="js/jquery.multi-select.js" type="text/javascript"></script>
+	<script>		
+		$(function()
+		{			
+			$('#submit-parse').click(function()
+			{	
+				var fileName = $('#files')[0].files[0].name;
+				d3.csv(fileName, function(data) {
+					console.log(data[0]);
+					setTable(data);
+				});
+				
+			});
+			
+			$('#userSelectionList').multiSelect({
+				keepOrder: true ,
+				selectableHeader: "<div class='form-control'>Selectable Users</div>",
+				selectionHeader: "<div class='form-control'>Selected Users</div>",
+			});
+			
+			$('#experimentSelectionList').multiSelect({
+				keepOrder: true ,
+				selectableHeader: "<div class='form-control'>Selectable Exp</div>",
+				selectionHeader: "<div class='form-control'>Selected Exp</div>",
+			});
+			
+			$('#trialsSelectionList').multiSelect({
+				keepOrder: true ,
+				selectableHeader: "<div class='form-control'>Selectable Trial</div>",
+				selectionHeader: "<div class='form-control'>Selected Trial</div>",
+			});
+		});
+		
+		function setTable(data)
+		{
+			//Raw Data Table	
+			var duplicates = [];
+			var rawData = d3.entries(data[0]);
+			var header = d3.select("#resultTable")
+				.append("thead")
+				.append("tr");
+				
+			for(var i = 0; i<rawData.length; i++){
+				header.append("th")
+					.text(rawData[i].key);
+			}
+			
+			var tBody = d3.select("#resultTable")
+				.append("tbody");
+				
+			for(var i = 0; i < data.length; i++){
+				var record = d3.entries(data[i]);
+				var tr = tBody.append("tr");
+				for(var j = 0; j < record.length; j++){
+					tr.append("td")
+						.text(record[j].value);
+				}
+			}
+			
+			//User List				
+			for(var i = 0; i < data.length; i++){
+				var record = d3.entries(data[i]);
+				
+				if(duplicates.length > 0 ){			
+					if(!available(duplicates, record[0].value)){
+						duplicates.push(record[0].value);
+						
+						var listUser = d3.select("#userSelectionList")
+							.append("option")
+							.attr("value", record[0].value)
+							.text(record[0].value);
+						
+					}
+						
+				}else{						
+					duplicates.push(record[0].value);
+					
+					var listUser = d3.select("#userSelectionList")
+							.append("option")
+							.attr("value", record[0].value)
+							.text(record[0].value);
+							
+				}
+			}
+			
+			$('#userSelectionList').multiSelect('refresh');
+				
+			//Experiment List		
+			var duplicates = [];			
+			for(var i = 0; i < data.length; i++){
+				var record = d3.entries(data[i]);
+				
+				if(duplicates.length > 0 ){			
+					if(!available(duplicates, record[2].value)){
+						duplicates.push(record[2].value);
+						
+						var listUser = d3.select("#experimentSelectionList")
+							.append("option")
+							.attr("value", record[2].value)
+							.text(record[2].value);
+						
+					}
+						
+				}else{						
+					duplicates.push(record[2].value);
+					
+					var listUser = d3.select("#experimentSelectionList")
+							.append("option")
+							.attr("value", record[2].value)
+							.text(record[2].value);
+							
+				}
+			}
+			
+			$('#experimentSelectionList').multiSelect('refresh');
+			
+			//Trials List		
+			var duplicates = [];			
+			for(var i = 0; i < data.length; i++){
+				var record = d3.entries(data[i]);
+				
+				if(duplicates.length > 0 ){			
+					if(!available(duplicates, record[3].value)){
+						duplicates.push(record[3].value);
+						
+						var listUser = d3.select("#trialsSelectionList")
+							.append("option")
+							.attr("value", record[3].value)
+							.text(record[3].value);
+						
+					}
+						
+				}else{						
+					duplicates.push(record[3].value);
+					
+					var listUser = d3.select("#trialsSelectionList")
+							.append("option")
+							.attr("value", record[3].value)
+							.text(record[3].value);
+							
+				}
+			}
+			
+			$('#trialsSelectionList').multiSelect('refresh');
+		};
+		
+		function available(array, value){
+			for(var i = 0; i<array.length; i++){
+				if(value === array[i])
+					return true;
+			}
+			return false;
+		};
+	</script>
 	</body>
 </html>
