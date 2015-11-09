@@ -29,6 +29,7 @@ body {
 /* gridster
 /*/
 
+
 .gridster ul {
     background-color: #EFEFEF;
     
@@ -46,7 +47,15 @@ body {
     display: table-cell; 
     vertical-align: middle;
 }
-
+.gridster li header {
+    background: #999;
+    display: block;
+    font-size: 20px;
+    line-height: normal;
+    padding: 4px 0 6px;
+    margin-bottom: 20px;
+    cursor: move;
+}
 
 .gridster {
     margin: 0 auto;
