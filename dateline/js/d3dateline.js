@@ -8,7 +8,7 @@ function loadchart(div, json) {
         margin = {
             top: 40,
             right: 40,
-            bottom: 0,
+            bottom: 15,
             left: 40
         },
         radius = 10;
@@ -35,7 +35,7 @@ function loadchart(div, json) {
 
         var svg = d3.select("#" + div)
             .append("svg")
-            .attr("viewBox","0 40 1100 1100")
+            .attr("viewBox","-10 40 1100 1100")
             .attr("width", width)
             .attr("height", height)
             .attr('preserveAspectRatio', 'xMinYMin slice')
