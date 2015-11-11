@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+K-means Clustering and Visualization | Chris Polis, ByteMuse.com
+</title>
+<meta content='initial-scale=1' name='viewport'>
+<link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23674172-1']);
+<!-- /_gaq.push(['_trackPageview']); -->
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<link data-turbolinks-track="true" href="https://d1ml0gfpm9yj9s.cloudfront.net/assets/application-382a319a2356633271227ba37a67d5a8.css" media="all" rel="stylesheet" />
+<script data-turbolinks-track="true" src="https://d1ml0gfpm9yj9s.cloudfront.net/assets/application-274ba9935b54d810fae28c487b941bfa.js"></script>
+<script src='//platform.twitter.com/widgets.js'></script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="x2f2zZmzUWlb7WAC7VtpEomnIOR6+SXGHR7A9VJRC6A=" name="csrf-token" />
+</head>
+<body>
+<script>_gaq.push(['_trackPageview']);</script>
+<div class='bg-corner hidden-xs hidden-sm'></div>
+<div class='bg-toggle glyphicon glyphicon-tint hidden-xs hidden-sm'></div>
+<div class='container except-footer'>
+<div class='row header'>
+<div class='col-sm-6'>
+<h2 class='header-name'><a href="/">ByteMuse.com</a></h2>
+<h2 class='header-sub'>The code and musings of <a href="http://twitter.com/ChrisPolis">@ChrisPolis</a></h2>
+</div>
+<div class='col-sm-6 links'>
+<a class="" href="/about">About</a>
+<a class="" href="/posts">Posts</a>
+<a class="" href="/work">Work</a>
+<a class="" href="/contact">Contact</a>
+</div>
+</div>
+
+<div class='post-content'>
+<h1 class='title'>
+K-means Clustering and Visualization
+</h1>
+<h2 class='meta'>April 22nd, 2014</h2>
+<div class='body'>
+<p>One of the simplest machine learning algorithms that I know is <a href="http://en.wikipedia.org/wiki/K-means_clustering" rel="nofollow" target="_blank">K-means clustering</a>. It is used to classify a data set into <i>k</i> groups with similar attributes and lets itself really well to visualization!</p>
+<p class='no-bottom'>Here is a quick overview of the algorithm:</p>
+<ul>
+<li>Pick or randomly select <i>k</i> group centroids</li>
+<li>Group/bin points by nearest centroid</li>
+<li>Recalculate centroids from points in corresponding bin</li>
+<li>Continue binning/moving centroids until convergence</li>
+</ul>
+<p>
+<i><a href="http://nlp.stanford.edu/IR-book/html/htmledition/k-means-1.html" rel="nofollow" target="_blank">More information on K-means clustering</a></i>
+</p>
+<hr>
+<p><i>Note:</i> Points are normally distributed around around <i>k</i> random points to create a somewhat grouped distribution. <b>Click 'Step' to go through the algorithm.</b></p>
+<p>
+n =
+<input id='n-val' style='width: 64px;' type='text' value='2000'>
+k =
+<input id='k-val' style='width: 64px;' type='text' value='3'>
+<a onclick='step()'>Step</a>
+<i>
+<a onclick='initProblem()'>New Problem</a>
+</i>
+</p>
+</div></div>
+<div id='kmeans-vis'></div>
+<div class='post-content'><div class='body'>
+<p>
+<a class='view-source' onclick="$('.res-source').removeClass('hidden'); $(this).addClass('hidden'); $('.hide-source').removeClass('hidden');">View Source</a>
+<a class='hide-source hidden' onclick="$('.res-source').addClass('hidden'); $(this).addClass('hidden'); $('.view-source').removeClass('hidden');">Hide Source</a>
+</p>
+<pre class='line-numbers hidden res-source'><code class='language-coffeescript'># Generate x with normal dist function, 0 &lt; x &lt; 100&#x000A;normalPt = (normalFun) -&gt;&#x000A;  val = normalFun()&#x000A;  if val &gt; 0 and val &lt; 100 then val else normalPt(normalFun)&#x000A;&#x000A;# Generate centers for dist centers and centroids&#x000A;randomCenter = () -&gt; (Math.random() * 90) + 5&#x000A;&#x000A;# Euclidean distance&#x000A;distance = (a, b) -&gt;&#x000A;  Math.sqrt(Math.pow(a[0]-b[0],2) + Math.pow(a[1]-b[1], 2))&#x000A;avgXY = (arr) -&gt;&#x000A;  [ d3.sum(arr, (d) -&gt; d[0]) / arr.length,&#x000A;    d3.sum(arr, (d) -&gt; d[1]) / arr.length ]&#x000A;&#x000A;#&#x000A;$(document).on 'page:load', () -&gt;&#x000A;  return unless $('#kmeans-vis').length&#x000A;&#x000A;  #&#x000A;  colors = d3.scale.category10()&#x000A;  width  = $('.container').width()&#x000A;  if width &gt; 600 then width = 600&#x000A;  height = width&#x000A;&#x000A;  #&#x000A;  svg = d3.select('#nmeans-vis').append('svg')&#x000A;    .attr 'width', width&#x000A;    .attr 'height', height&#x000A;  pointsGroup    = svg.append('g').attr('id', 'points')&#x000A;  centroidsGroup = svg.append('g').attr('id', 'centroids')&#x000A;  voronoiGroup   = svg.append('g').attr('id', 'voronoi')&#x000A;  x = d3.scale.linear()&#x000A;    .range  [0, width]&#x000A;    .domain [0, 100]&#x000A;  y = d3.scale.linear()&#x000A;    .range  [height, 0]&#x000A;    .domain [0, 100]&#x000A;  voronoi = d3.geom.voronoi()&#x000A;    .x((d) -&gt; x(d[0]))&#x000A;    .y((d) -&gt; y(d[1]))&#x000A;&#x000A;  #&#x000A;  window.initProblem = () -&gt;&#x000A;    window.points = []&#x000A;    window.centroids = []&#x000A;    window.k = parseInt $('#k-val').val()&#x000A;    window.n = parseInt $('#n-val').val()&#x000A;&#x000A;    # Generate psuedo random points normally distributed around k centers&#x000A;    for kNdx in [1..k]&#x000A;      xNorm  = d3.random.normal(randomCenter(), 12)&#x000A;      yNorm  = d3.random.normal(randomCenter(), 12)&#x000A;      for ptNdx in [1..(n/k)]&#x000A;        points.push [normalPt(xNorm), normalPt(yNorm)]&#x000A;&#x000A;    # Generate centroids&#x000A;    for kNdx in [1..k]&#x000A;      centroids.push [randomCenter(), randomCenter()]&#x000A;&#x000A;    # Plot&#x000A;    voronoiGroup.selectAll('*').remove()&#x000A;    centroidsGroup.selectAll('*').remove()&#x000A;    pointsGroup.selectAll('*').remove()&#x000A;    centroidsGroup.selectAll('circle')&#x000A;      .data(centroids).enter()&#x000A;      .append('circle')&#x000A;        .style 'fill', (d,ndx) -&gt; colors(ndx)&#x000A;        .attr  'cx', (d) -&gt; x(d[0])&#x000A;        .attr  'cy', (d) -&gt; y(d[1])&#x000A;        .attr  'r', 4.5&#x000A;    pointsGroup.selectAll('circle')&#x000A;      .data(points).enter()&#x000A;      .append('circle')&#x000A;        .attr 'cx', (d) -&gt; x(d[0])&#x000A;        .attr 'cy', (d) -&gt; y(d[1])&#x000A;        .attr 'r', 1.5&#x000A;&#x000A;  #&#x000A;  window.step = () -&gt;&#x000A;    # Render voronoi&#x000A;    voronoiGroup.selectAll('*').remove()&#x000A;    voronoiGroup.selectAll('path')&#x000A;      .data(voronoi(centroids))&#x000A;      .enter().append('path')&#x000A;        .style 'fill', (d,ndx) -&gt; colors(ndx)&#x000A;        .attr  'd', (d) -&gt; &quot;M#{d.join('L')}Z&quot;&#x000A;&#x000A;    # Bin points based on centroids O(n * k)&#x000A;    centroidBins = [1..k].map (d) -&gt; []&#x000A;    for point in points&#x000A;      minDist = 100&#x000A;      for centroid, centroidNdx in centroids&#x000A;        if (d = distance(point, centroid)) &lt; minDist&#x000A;          minDist = d&#x000A;          minNdx  = centroidNdx&#x000A;      centroidBins[minNdx].push point&#x000A;    &#x000A;    # Find new centroids&#x000A;    for bin, binNdx in centroidBins&#x000A;      newCentroid = avgXY(bin)&#x000A;      centroids[binNdx] = newCentroid&#x000A;    centroidsGroup.selectAll('circle')&#x000A;      .data(centroids)&#x000A;      .transition()&#x000A;        .attr  'cx', (d) -&gt; x(d[0])&#x000A;        .attr  'cy', (d) -&gt; y(d[1])&#x000A;initProblem()&#x000A;&#x000A;</code></pre>
+</div>
+<hr>
+<div class='share-container'>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bytemuse.com/post/k-means-clustering-visualization" data-via="chrispolis" data-width=>Tweet</a>
+<div id='redditlink'></div>
+<div class='fb-like' data-action='like' data-href='http://www.bytemuse.com/post/k-means-clustering-visualization/' data-layout='button_count' data-share='true' data-show-faces='false'></div>
+<iframe allowTransparency='true' class='fb-frame' frameborder='0' scrolling='no' src='//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.bytemuse.com%2Fpost%2Fk-means-clustering-visualization%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21' style='border:none;overflow:hidden; height:21px;'></iframe>
+</div>
+<div id='disqus-stub'></div>
+<!-- = render partial: 'disqus' -->
+
+</div>
+<div class='hidden'>
+<img alt="Kmeans preview" src="https://d1ml0gfpm9yj9s.cloudfront.net/assets/kmeans_preview-fe7be48c94a1f725d3aa3f67de3550d7.jpg" />
+</div>
+
+</div>
+<div class='container'>
+<div class='footer'>
+<p class='pull-left'>&copy; Chris Polis, 2012 - 2014</p>
+<p class='pull-right'>
+<a href="https://github.com/cmpolis">GitHub</a>
+&middot;
+<a href="http://twitter.com/chrispolis">Twitter</a>
+&middot;
+<a href="http://www.linkedin.com/pub/chris-polis/24/33/89a">LinkedIn</a>
+&middot;
+<a href="http://stackoverflow.com/users/238672/cmpolis">Stack Overflow</a>
+&middot;
+<a href="http://www.quora.com/Chris-Polis">Quora</a>
+</p>
+</div>
+</div>
+</body>
+</html>
