@@ -25,6 +25,8 @@
     <script src="../libs/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
     <script>
 		var gridster;
+		var finalDataset = [];
+		var result;
 
 		$(function(){
 
@@ -99,28 +101,28 @@
 			
 	      	</li>
 	      	<li data-row="2" data-col="2" data-sizex="13" data-sizey="4">
-	      		<header>Users Arc Diagrams</header>
-<div class="tabswrapper">
-					<div class="tabsmain">   
-						<!-- tabs -->
-						<div class="tabs">
-						  <a href="#" data-tab="1" class="tab active">Tab 1</a>
-						  <a href="#" data-tab="2" class="tab">Tab 2</a>
-						  <a href="#" data-tab="3" class="tab">Tab 3</a>
-						  <a href="#" data-tab="4" class="tab">Tab 4</a>
-						  <a href="#" data-tab="5" class="tab">Tab 5</a>
-						  
-						  <div data-content="1" class="content active">
-						  	<div id="svgContent" class="chart"></div>
-						  </div>
-						  <div data-content="2" class="content">Tab 2 Content</div>
-						  <div data-content="3" class="content">Tab 3 Content</div>
-						  <div data-content="4" class="content">Tab 4 Content</div>
-						  <div data-content="5" class="content">Tab 5 Content</div>
+	      		<header>Group1</header>
+					<div class="tabswrapper">
+						<div class="tabsmain">   
+							<!-- tabs -->
+							<div class="tabs">
+							  <a href="#" data-tab="1" class="tab active">User1</a>
+							  <a href="#" data-tab="2" class="tab">User2</a>
+							  <a href="#" data-tab="3" class="tab">User3</a>
+							  <a href="#" data-tab="4" class="tab">User4</a>
+							  <a href="#" data-tab="5" class="tab">User5</a>
+							  
+							  <div data-content="1" class="content active">
+							  	<div id="svgContent" class="chart"></div>
+							  </div>
+							  <div data-content="2" class="content">User2 Content</div>
+							  <div data-content="3" class="content">User3 Content</div>
+							  <div data-content="4" class="content">User4 Content</div>
+							  <div data-content="5" class="content">User5 Content</div>
+							</div>
+							<!-- /tabs -->
 						</div>
-						<!-- /tabs -->
 					</div>
-				</div>
 	      	</li>
 
 
@@ -143,6 +145,7 @@
 					</div>
 				</div>
 			</li>
+
 	    </ul>
   	</div>
   

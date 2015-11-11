@@ -13,7 +13,7 @@ var config = d3.csv("all_files.csv", function(error, dataset){
 	var filenames = new Array();
 
 	//Our final dataset with all the csv files concatenated in an array object!
-	var finalDataset = [];
+	
 
 	d3.select("#datasetslist").selectAll("option")
 		.data(dataset)
@@ -40,7 +40,7 @@ var config = d3.csv("all_files.csv", function(error, dataset){
 	q.awaitAll(ready);
 
 	//Queued csv files ready
-	function ready(error, results) {	 
+	result = function ready(error, results) {	 
 
 	var messageOk ="csv load files, ok!";
 	var messageNotOk = "csv load files, not ok!"; 
@@ -50,7 +50,7 @@ var config = d3.csv("all_files.csv", function(error, dataset){
 		try
 		{
 	  		function logArrayElements(element, index, array) {  		
-  				finalDataset = finalDataset.concat(array[index]);	
+  				finalDataset = finalDataset.concat(array[index]);
 			};
   		}
   		catch (err)
