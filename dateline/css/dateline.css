@@ -2,12 +2,13 @@
 		    font-family: Arial, sans-serif;
 		    font-size: 10px;
 		    /*border: 1px solid black;*/
-			float:left;
+			/*float:left;*/
 			display: flex;
 			width:100%;
 			height:100%;
 			/*overflow:auto;*/
 			white-space: nowrap;
+			
 		  }
 		  .chart svg {
 			width: 100%;

@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" type="text/css" href="../libs/jquery.gridster.css">
     <link rel="stylesheet" type="text/css" href="../css/demo_gridster.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../css/tabs2.css" />
+
     <!--<link rel="stylesheet" href="../css/svg.css">-->
 
     <!-- Well Known javascript libraries -->
@@ -39,6 +41,24 @@
 
 
 		});
+
+
+    $(function () {
+    
+      $('[data-tab]').on('click', function (e) {
+        $(this)
+          .addClass('active')
+          .siblings('[data-tab]')
+          .removeClass('active')
+          .siblings('[data-content=' + $(this).data('tab') + ']')
+          .addClass('active')
+          .siblings('[data-content]')
+          .removeClass('active');
+        e.preventDefault();
+      });
+      
+    });
+
 	</script>
 	
 	<!-- To drive the visualizations -->
@@ -59,12 +79,13 @@
 <body>
 	<div class="gridster">
 	    <ul>
-	    	<li data-row="1" data-col="1" data-sizex="16" data-sizey="2">
-	    		<header> ||| </header>
+	    	<li data-row="1" data-col="1" data-sizex="16" data-sizey="5">
+	    		<header>Main Toolbar</header>
 	    		1
+	    		
 	      	</li>
 	      	<li data-row="2" data-col="1" data-sizex="3" data-sizey="4">
-	      		<header> ||| </header>
+	      		<header>File Operations</header>
 	      		2
 				<div id="title"><span class="large">AOIs Links</span></div>
 				<div id="output">
@@ -73,18 +94,38 @@
 				</div>
 			</li>
     		<li data-row="3" data-col="1" data-sizex="3" data-sizey="15">
-    			<header> ||| </header>
+    			<header>Users Creation</header>
 	    		3
+			
 	      	</li>
 	      	<li data-row="2" data-col="2" data-sizex="13" data-sizey="4">
-	      		<header> ||| </header>
-	      		4
-	      		<div id="svgContent" class="chart"></div>
+	      		<header>Users Arc Diagrams</header>
+<div class="tabswrapper">
+					<div class="tabsmain">   
+						<!-- tabs -->
+						<div class="tabs">
+						  <a href="#" data-tab="1" class="tab active">Tab 1</a>
+						  <a href="#" data-tab="2" class="tab">Tab 2</a>
+						  <a href="#" data-tab="3" class="tab">Tab 3</a>
+						  <a href="#" data-tab="4" class="tab">Tab 4</a>
+						  <a href="#" data-tab="5" class="tab">Tab 5</a>
+						  
+						  <div data-content="1" class="content active">
+						  	<div id="svgContent" class="chart"></div>
+						  </div>
+						  <div data-content="2" class="content">Tab 2 Content</div>
+						  <div data-content="3" class="content">Tab 3 Content</div>
+						  <div data-content="4" class="content">Tab 4 Content</div>
+						  <div data-content="5" class="content">Tab 5 Content</div>
+						</div>
+						<!-- /tabs -->
+					</div>
+				</div>
 	      	</li>
 
 
 			<li data-row="3" data-col="2" data-sizex="13" data-sizey="15">
-				<header> ||| </header>
+				<header>AOIs Interconnections</header>
 				5
 				<div id="wrapper">
 					<div id="chart">

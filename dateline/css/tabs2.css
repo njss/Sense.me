@@ -1,0 +1,72 @@
+/*
+	Todd Motto Labs
+	URL: www.toddmotto.com
+*/
+
+body {
+	background:#FFF;
+}
+a,
+a:hover {
+	text-decoration:none;
+	color:#FFF;
+}
+ul,
+ol {
+	list-style:none;
+}
+.tabswrapper {
+	/*max-width:1280px;*/
+	width:98%;
+	height: 87%;
+	margin:0 auto;
+	position:relative;
+	border:1px solid black;
+}
+.tabsmain {
+	width:100%;
+	margin:5px auto;
+}
+.tabsmain-desc {
+	font-size:16px;
+	margin:0 0 5px 0;
+
+}
+
+/*------------------------------------*\
+	Simple HTML5 data-tabs
+\*------------------------------------*/
+
+.tab {
+    float:left;
+    display:block;
+    padding:10px 5px;
+    text-decoration:none;
+    border-radius:5px 5px 5px 5px;
+    background:#DDD777;
+    color:#777;
+    border:1px solid black;
+
+}
+.tab.active{
+	background:#FFFFFF;
+	color:#222;
+}
+.tab:hover {
+	background:#FFA500;
+	color:#222;
+}
+.content {
+    display:none;
+    clear:both;
+    height: 100%;
+    /*background:#FFF;
+    padding:20px;*/
+
+}
+.content.active {
+    display:block;
+    
+
+    /*box-shadow: 0 3px 3px rgba(0,0,0,0.9);*/
+}
