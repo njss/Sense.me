@@ -3,17 +3,12 @@
 	<head>
 		<title>Data Generator</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="style.css">
+		
 		<link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-		<script src="http://d3js.org/d3.v3.js"></script>
-		  
-		<!-- Tabslet JS/STYLES -->
-		<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-		<script type="text/javascript" src="javascripts/vendor/jquery.tabslet.min.js"></script>
-		<script src="javascripts/initializers.js"></script>
-		  
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" >		
+		<link href="css/app.css" rel="stylesheet" type="text/css"/>
+		<link href="style.css" rel="stylesheet">
+		
 	</head>
 	<body>
 		<h1>Sense Data Generator</h1>
@@ -21,13 +16,13 @@
 		<div class="grid-container">
 
 			<div style="margin: 0px auto; text-align: center;">
-				<input align="middle" style="margin: auto;" type="file" id="files" multiple>
+				<input align="middle" style="margin: auto;" type="file" id="files" multiple class="btn-default btn-lg">
 					
 				<br><br>
 
-				<button id="submit-parse">Parse CSV</button>
+				<button id="submit-parse" class="btn btn-default btn-lg">Parse CSV</button>
 				&nbsp;
-				<button id="submit-unparse">Generate Data</button>
+				<button id="submit-unparse" class="btn btn-default btn-lg">Generate Data</button>
 
 				<br><br>
 
@@ -41,38 +36,201 @@
 				<br><br>
 			</div>
 			
-			<div class='tabs tabs_default' style="width:420px; margin: auto;">
+			<div class='tabs tabs_default' style="width:420px; height:400px; margin: auto;">
 				<ul class='horizontal'>
 					<li><a href="#tab-1" style="display: inline-block">Users</a></li>
 					<li><a href="#tab-2" style="display: inline-block">Experiment</a></li>
 					<li><a href="#tab-3" style="display: inline-block">Trials</a></li>
 				</ul>
-				<div id='tab-1' style="display: block;"><span>
+				<div id='tab-1' style="display: block;">
+					<span>
 					<div class="col-xs-3" style="width:420px; margin: 0px auto; display: block;">
-						<select id="userSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
-						</select>
-					</div></span>
+						<br>
+						<select id="userSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" ></select>
+					</div>
+					</span>
 				</div>
 			  
-				<div id='tab-2' style="display: block"><span>
+				<div id='tab-2' style="display: block">
+					<span>
 					<div class="col-xs-4" style="width:420px; margin: 0px auto;">
-						<select id="experimentSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
-						</select>
-					</div></span>
+						<br>
+						<select id="experimentSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" ></select>
+					</div>
+					</span>
 				</div>
 
-				<div id='tab-3' style="display: block"><span>
+				<div id='tab-3' style="display: block">
+					<span>
 					<div class="col-xs-3" style="width:420px; margin: 0px auto;">
-						<select id="trialsSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" >
-						</select>
-					</div></span>
+						<br>
+						<select id="trialsSelectionList" name="my-select[]" class="form-control" size="13" multiple="multiple" ></select>
+					</div>
+					</span>
 				</div>
+			</div>
+			
+			<br>
+			
+			<div id="groupingDiv" class="container" style="height: 520px;">
+				<h2>Grouping</h2>
+				<button id="new-group" class="btn btn-default btn-lg">New Group</button>
+				<a href='#login-box' class='login-window btn btn-default btn-lg' role="button">Add Item</a>
+				<div id="multi" style="margin-left: 30px">
 					
+				</div>
+				
+				<div id="content">
+					<div class="post">			
+						<div id="login-box" class="login-popup">
+						<a href="#" class="close"><img src="close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+						  <form method="post" class="signin" action="#">
+								<fieldset class="textbox">
+								<label class="username">
+								<span>Name</span>
+								<input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Name">
+								</label>
+								
+								<label class="group">
+								<span>Group</span>
+								<select id="dropdownGrouping" class="form-select">
+								  <option selected="">Select Group</option>
+								</select>
+								<!-- <input id="group" name="group" value="" type="text" placeholder="Group"> -->
+								</label>
+																
+								<button id="submitItem" class="submit button" type="button">Add</button>
+																
+								</fieldset>
+						  </form>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+var count = 1;
+$('#new-group').click(function()
+{	
+	var outerDiv = d3.select("#multi")
+		.append("div")
+		.attr("data-force","30")
+		.attr("id", "groupDiv-" + count)
+		.attr("class", "layer title")
+		.style("margin-left", "30px")
+		.style("margin-top", "10px")
+		.style("width", "37%");
+	
+	outerDiv.append("div")
+		.attr("class", "tile__name")
+		.attr("id", "groupBox" + count)
+		.text("Group " + count)
+		.style("font-size", "18pt");
+		
+	var liItem = outerDiv.append("ul")
+		.attr("id", "group" + count)
+		.attr("class", "tile__name");
+	
+	var el = document.getElementById('group' + count);
+	var editableList = Sortable.create(el, { group: "omega",
+		filter: '.js-remove',
+	  onFilter: function (evt) {
+		var el = editableList.closest(evt.item); // get dragged item
+		el && el.parentNode.removeChild(el);
+	  }
+	});
+	
+	d3.select("#dropdownGrouping")
+		.append("option")
+		.text("Group" + count);
+	
+	count++;
+});	
+			
+$('#submitItem').click(function(){
+	var name = username.value;
+	var group = dropdownGrouping.value;
+	var groupNr = group.substring(5)
+	
+	var liItem = d3.select("#group" + groupNr);
+	liItem.append("li")
+		.style("color", "black")
+		.append("span")
+		.attr("class", "display")
+		.text(name)
+		.style("color", "black")
+		.append("i")
+		.attr("class", "js-remove")
+		.style("color", "red")
+		.style("float", "right")
+		.text("X");
+		
+});	
+
+<!-- $('#dropdownGrouping').selectpicker();		 -->
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('a.login-window').click(function() {
+		
+		// Getting the variable's value from a link 
+		var loginBox = $(this).attr('href');
+
+		//Fade in the Popup and add close button
+		$(loginBox).fadeIn(300);
+		
+		//Set the center alignment padding + border
+		var popMargTop = ($(loginBox).height() + 24) / 2; 
+		var popMargLeft = ($(loginBox).width() + 24) / 2; 
+		
+		$(loginBox).css({ 
+			'margin-top' : -popMargTop,
+			'margin-left' : -popMargLeft
+		});
+		
+		// Add the mask to body
+		$('body').append('<div id="mask"></div>');
+		$('#mask').fadeIn(300);
+		
+		return false;
+	});
+	
+	// ### Old Version < jquery 1.9 ###
+	// When clicking on the button close or the mask layer the popup closed  
+  $('a.close, #mask').live('click', function() { 
+	  $('#mask , .login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
+	return false;
+	}); 
+/*	
+	$('#mask').on('click', 'a.close', function() { 
+	  $('#mask , .login-popup').fadeOut(300 , function() {
+		$('#mask').remove();  
+	}); 
+	return false;
+	});
+	*/
+});
+</script>
+	
+	<!-- Tabslet JS/STYLES -->
+	<link rel="stylesheet" type="text/css" href="css/stylesTabslet.css">	
+	
+	<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+	
+	<script src="js/jquery.tabslet.min.js" type="text/javascript"></script>
+	<script src="js/initializers.js"></script>
 	<script src="js/jquery.multi-select.js" type="text/javascript"></script>
-	<script>		
+	<script>
 		$(function()
 		{			
 			$('#submit-parse').click(function()
@@ -102,7 +260,31 @@
 				selectableHeader: "<div class='form-control'>Selectable Trial</div>",
 				selectionHeader: "<div class='form-control'>Selected Trial</div>",
 			});
+							
 		});
+		
+		
+		function addItemToGroup(element)
+		{
+			var par = element.parentNode.id;
+			var divIndex = par.substring(par.indexOf("-")+1)
+			
+			d3.select("#group" + divIndex).append("li")
+					.style("color", "black")
+					.text("test")
+					<!-- .on("dblclick", function(){-->
+						<!-- setText(this); -->
+					<!-- })  -->
+					.append("i")
+					.attr("class", "js-remove")
+					.style("color", "red")
+					.style("float", "right")
+					.text("X");
+		}
+		
+		function setText(parent){
+			console.log("dd");
+		}
 		
 		function setTable(data)
 		{
@@ -224,6 +406,12 @@
 			}
 			return false;
 		};
+		
 	</script>
+	
+	<script src="http://d3js.org/d3.v3.js"></script>
+	<script src="js/Sortable.js"></script>
+	<script src="js/app.js"></script>
+	
 	</body>
 </html>
