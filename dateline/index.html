@@ -23,6 +23,8 @@
 	<script src="../libs/lodash.js"></script>
 	<script src="../libs/jquery.js" type="text/javascript"></script>
     <script src="../libs/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../libs/rgb.js"></script>
+	<script src="../libs/clusterfck.js"></script>
     <script>
 		var gridster;
 		var finalDataset = [];
@@ -33,15 +35,15 @@
 			var log = document.getElementById('log');
 
 			gridster = $(".gridster ul").gridster({
-			  widget_base_dimensions: [100, 55],
-			  widget_margins: [5, 5],
-			  autogrow_cols: true,
-			  resize: {
+				widget_base_dimensions: [100, 55],
+			  	widget_margins: [5, 5],
+			  	autogrow_cols: true,
+			  	resize: {
 			    enabled: true
-			  },
-          draggable: {
-            handle: 'header'
-          }
+			  	},
+				draggable: {
+        			handle: 'header'
+          		}
 			}).data('gridster');
 
 
@@ -69,7 +71,9 @@
 	<!-- To drive the visualizations -->
 	<script src="../js/d3dateline.js"></script>
 	<script src="../js/matcharrows.js"></script>	
-	<script src="../js/loadcsv.js"></script>	
+	<script src="../js/loadcsv.js"></script>
+	<script src="../js/vis.js"></script>
+	
 
 	<script>
 		function itemclick(d) {
@@ -129,7 +133,7 @@
 	      	</li>
 
 
-			<li data-row="3" data-col="2" data-sizex="13" data-sizey="15">
+			<li data-row="3" data-col="2" data-sizex="13" data-sizey="10">
 				<header>AOIs Interconnections</header>
 				5
 				<div id="wrapper">
@@ -147,6 +151,25 @@
 						</svg>
 					</div>
 				</div>
+			</li>
+
+			<li data-row="4" data-col="2" data-sizex="13" data-sizey="5">
+				<header>Kmeans Voronoi</header>
+				6
+				<div id="container">
+				 
+				  <div id="sample">
+				    <div id="kmeans-buttons">
+				      K-means cluster colors with # of clusters:
+					    <span id="kmeans-first-button" class="kmeans-button button" data-k=3>3</span>
+					    <span id="kmeans-second-button" class="kmeans-button button" data-k=5>5</span>
+					    <span id="kmeans-third-button" class="kmeans-button button" data-k=11>11</span>	      
+				    </div>
+					</div>
+				  <div id="clusters">
+				  </div>
+				</div>
+
 			</li>
 
 	    </ul>

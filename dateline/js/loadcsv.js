@@ -40,7 +40,7 @@ var config = d3.csv("all_files.csv", function(error, dataset){
 	q.awaitAll(ready);
 
 	//Queued csv files ready
-	result = function ready(error, results) {	 
+	function ready(error, results) {	 
 
 	var messageOk ="csv load files, ok!";
 	var messageNotOk = "csv load files, not ok!"; 

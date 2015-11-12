@@ -1,4 +1,5 @@
 var avgXY, distance, normalPt, randomCenter;
+var initProblem;
 
 normalPt = function(normalFun) {
   var val;
@@ -28,7 +29,7 @@ avgXY = function(arr) {
   ];
 };
 
-$(document).on('page:load', function() {
+
   var centroidsGroup, colors, height, pointsGroup, svg, voronoi, voronoiGroup, width, x, y;
   if (!$('#kmeans-vis').length) {
     return;
@@ -57,12 +58,12 @@ $(document).on('page:load', function() {
     return y(d[1]);
   });
 
-  window.initProblem = function() {
+   function initProblem() {
     var i, j, kNdx, l, ptNdx, ref, ref1, ref2, xNorm, yNorm;
-    window.points = [];
-    window.centroids = [];
-    window.k = parseInt($('#k-val').val());
-    window.n = parseInt($('#n-val').val());
+    points = [];
+    centroids = [];
+    k = parseInt($('#k-val').val());
+    n = parseInt($('#n-val').val());
 
     for (kNdx = i = 1, ref = k; 1 <= ref ? i <= ref : i >= ref; kNdx = 1 <= ref ? ++i : --i) {
       xNorm = d3.random.normal(randomCenter(), 12);
@@ -140,6 +141,6 @@ $(document).on('page:load', function() {
 
   };
 
-});
+})(window);
 
 initProblem();
