@@ -386,6 +386,34 @@
 			
 			createGroup(name);
 			
+			var selectedExp = [];
+			var experiments = d3.select("#explist").selectAll("option")
+			for(var i = 0; i < experiments[0].length; i++){
+				if(experiments[0][i].selected){
+					selectedExp.push(experiments[0][i].value);
+				}
+			}
+			
+			var selectedTrial = [];
+			var trials = d3.select("#triallist").selectAll("option")
+			for(var i = 0; i < trials[0].length; i++){
+				if(trials[0][i].selected){
+					selectedTrial.push(trials[0][i].value);
+				}
+			}
+			
+			gridster.add_widget('<li class="gs-w"> <header>Group ' + name + 
+											'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+											'<div id="groupWidget' + name + '"></li>', 16, 4, 2, 1);
+			
+			var newWidget = d3.select("#groupWidget" + name);
+			newWidget.append("div")
+				.attr("class", "tabswrapper")
+				.append("div")
+				.attr("class", "tabsmain")
+				.append("div")
+				.attr("class", "tabs");
+						
 			var items = d3.select("#userlist").selectAll("option");
 			for(var i = 0; i < items[0].length; i++){
 				if(items[0][i].selected){
@@ -401,9 +429,15 @@
 						.style("color", "red")
 						.style("float", "right")
 						.text("X");
+						
+					newWidget.append("a")
+						.attr("href", "#")
+						.attr("data-tab", "1")
+						.attr("class", "tab active")
+						.text(items[0][i].value);
 				}
 			}
-				
+			
 		});	
 
 	</script>
