@@ -1,5 +1,5 @@
 		var width = 1140;           // width of arc div
-        var height = 200;           // height of arc div
+        var height = 250;           // height of arc div
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radius = 4;             // fixed node radius
@@ -57,7 +57,7 @@
                     .append("svg")
                     .attr("id", "svgArc")
                     .attr("width", width)
-                    .attr("height", height)
+                    .style("height", height)
                     .style("border", "1px solid black")
 					.style("margin", "auto"); 
 
@@ -279,7 +279,7 @@
                     .enter()
                     .append("svg:image")
                     .attr("xlink:href", function (d, i) {
-                        return "images/" + d.name;
+                        return "img/plots/" + d.name;
                     })
                     .attr("class", "image")
                     .attr("width", imageWidth)
