@@ -13,6 +13,24 @@ var colorMods = ['default', "hsv","hsl", "lab", "lch"]
 
 var scale = chroma.scale(colArray);
 
+var compare = function array_compare(a1, a2) {
+ if(a1.length != a2.length) {
+  return false;
+ }
+ for(var i in a1) {
+  // Don't forget to check for arrays in our arrays.
+  if(a1[i] instanceof Array && a2[i] instanceof Array) {
+   if(!array_compare(a1[i], a2[i])) {
+    return false;
+   }
+  }
+  else if(a1[i] != a2[i]) {
+   return false;
+  }
+ }
+ return true;
+}
+
 
 function translateSVG(x, y) {
   return 'translate('+x+','+y+')';
@@ -62,6 +80,49 @@ function computeArrows() {
   });
 }
 
+// var kmeans = {
+//    clusterColors: function(colors, k) {
+//      var worker = new Worker("./kmeans-worker.js");
+
+//      worker.onmessage = function(event) {
+//        var clusters = event.data.clusters;
+       
+//        visualizeClusters(clusters);
+//        if(event.data.time)
+//          $("<div>" + event.data.time + " ms</div>")
+//            .css("margin-bottom", "14px")
+//            .prependTo($("#clusters"));
+//      };
+
+//      worker.onerror = function(event) {
+//        console.log("Worker thread error: " + event.message
+//              + " " + event.filename + " " + event.lineno);
+//      }
+
+//      worker.postMessage({
+//        colors: colors,
+//        frameRate: 1000,
+//        k: k
+//      });
+//    }
+// }
+
+function visualizeClusters(clusters, point) {
+
+  var total = 0; 
+  for(var i = 0; i < clusters.length; i++) {
+    var cluster = clusters[i];
+    total += cluster.length;
+    var width = Math.ceil(Math.sqrt(cluster.length));
+   
+    for(var j = 0; j < cluster.length; j++) {
+      if (cluster[j]==point)
+        return i;
+    }
+  }
+}
+
+
 function playerOver(d) {
   //var color = d3.scale().category20();
   var arrNameSplit = new Array();
@@ -86,18 +147,27 @@ function playerOver(d) {
     })
     .attr('marker-end', 'url(#Triangle)');
 
+
   // Highlight player
   //d3.select('.players').selectAll('circle').style('fill', '#7A9D7B');
-  d3.select('.players').selectAll('circle').style("fill", function(d, i) { 
+  d3.select('.players').selectAll('circle').style("fill", function(d, i) 
+  { 
      //arrNameSplit = d.name.split(/(\s+)/);
-
-var colval =  i*(1/(numColors-1));
-     return scale(colval).hex();
-    //return color(arrNameSplit); 
+    //colors!!!
+    var colval =  i*(1/(numColors-1));
+         return scale(colval).hex();
+        //return color(arrNameSplit); 
   });
 
-  d3.select(this).style('fill', '#225D23');
+    d3.select(this).style('fill', '#225D23');
 
+}
+
+function Create2DArray(rows,columns) {
+Brady = new Array (rows);
+for (i = 0; i < Brady.length; ++ i)
+  Brady [i] = new Array (columns);
+   return Brady;
 }
 
 function makeChart() {
@@ -124,25 +194,67 @@ function makeChart() {
       return translateSVG(x, y);
     });
 
-  computeArrows();
+    computeArrows();
+
+    var input = [];
+ 
+    
+
 
   players
     .append('circle')
     .attr('r', radius)
     .on('mouseover', playerOver);
 
+
+
+
+
+var arr = Create2DArray(40,2);
+
   players
     .append('text')
-    .text(function(d) {return fullname(d);}) //((.slice(0, 10)))
+    .text(function(d,i) {
+arr[i][0] = d.totalDuration;
+arr[i][1] = d.totalDuration;
+    return fullname(d);
+
+    }) //((.slice(0, 10)))
     .classed('name', true)
     .attr('y', '0.2em');
+
+var clusters = clusterfck.kmeans(arr, 4);
+
+  players.selectAll('circle').style("fill", function(d, i) 
+  { 
+    //var duration = getTotalDuration(i);
+
+
+var test=0;
+
+var total = 0; 
+  for(var i = 0; i < clusters.length-1; i++) {
+    var cluster = clusters[i];
+    total += cluster.length;
+    var width = Math.ceil(Math.sqrt(cluster.length));
+   
+    for(var j = 0; j < cluster.length-1; j++) {
+      if (compare(cluster[j],[d.totalDuration, d.totalDuration]))
+       test =i;
+    }
+  }
+
+     var colval =  test*(1/(clusters.length-1));
+     
+          return scale(colval).hex();
+        
+  });
 
   // Front layer for matches of selected player
   var topMatches = d3.select('#chart svg')
     .append('g')
     .attr('transform', translateSVG(radius + padding, radius + padding))
     .classed('top-matches', true);
-
 
 //Faded lines (straight)
   // Render matches as edges
@@ -193,4 +305,14 @@ d3.json('data/matches.json', function(err, data) {
   matchData = data;
   if(!--remaining) makeChart();
 });
+
+
+// function getTotalDuration(pos)
+// {
+//     for (int i = 0; aoiPosData.length-1; i++)
+//     {
+//         if (i == pos)
+//           return aoiPosData[i].totalDuration;
+//     }
+// }
 

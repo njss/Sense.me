@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="vis.css"/>
+
+  <script src="jquery-1.4.2.min.js"></script>	
+	<script src="vis.js"></script>
+	<script src="rgb.js"></script>
+	<script src="clusterfck.js"></script>
+</head>
+<body>
+  <div id="container">
+	  <div id="header">hierarchical clustering</div>
+	  <div id="sample">
+		  <img id="test-image" src="chopsuey.jpg"/>
+		  <div id="cluster-buttons">
+			  Hierarchical cluster colors from ^ with linkage: 
+		    <span id="single-button" class="hcluster-button button" data-linkage="single">single</span>
+		    <span id="complete-button" class="hcluster-button button" data-linkage="complete">complete</span>
+		    <span id="average-button" class="hcluster-button button" data-linkage="average">average</span>
+		    or:
+	    </div>
+	    <div id="kmeans-buttons">
+	      K-means cluster colors with # of clusters:
+		    <span id="kmeans-first-button" class="kmeans-button button" data-k=3>3</span>
+		    <span id="kmeans-second-button" class="kmeans-button button" data-k=5>5</span>
+		    <span id="kmeans-third-button" class="kmeans-button button" data-k=11>11</span>	      
+	    </div>
+		</div>
+	  <div id="clusters">
+	  </div>
+	</div>
+
+</body>
+</html>
