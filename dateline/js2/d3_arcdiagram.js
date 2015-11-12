@@ -107,9 +107,9 @@
             // used to assign nodes color by group
             var color = d3.scale.category20();
 			
-			var colors = colorbrewer[paletteName][classesNumber];
+			var colors = colorbrewer["RdYlGn"][classesNumber];
     		var colorScale = d3.scale.quantize()
-        		.domain([0, 10])
+        		.domain([0, 1])
         		.range(colors);
 			
 
@@ -134,7 +134,7 @@
                         return radius * d.value;
                     })
                     .style("fill", function (d, i) {
-                        return colorScale(d.group);
+                        return colorScale(d.duration);
                     })
                     .on("mouseover", function (d, i) {
                         tip.show(d);
@@ -219,7 +219,7 @@
 					.attr("font-family", "sans-serif")
 					.attr("font-size", "10px")
 					.style("text-anchor", "middle")
-					.style("fill", "white");
+					.style("fill", "black");
 					
 			//treat duplicates
 			for(var i = 0; i < labelList.length -1; i++){
@@ -255,8 +255,8 @@
             var imagesSVG = divSPLOM
                     .append("svg")
                     .attr("id", "svgSPLOM")
-					.attr("width", column * imageWidth)
-                    .attr("height", row * imageHeight +10)
+					.style("width", column * imageWidth)
+                    .style("height", row * imageHeight +10)
 					.style("margin", "auto");
 
             imagesSVG.call(tip);
@@ -348,6 +348,7 @@
 					
 			var hArc = d3.select("#divArc").style("height");
 			var heightArcDiv = parseInt(hArc.substr(0, hArc.indexOf("px")))
+			var headerHeigth = 40;
 							
 			//var heatmapX = d3.select("#svgSPLOM").node()
 			
@@ -356,8 +357,8 @@
 					.attr("id", "divHeatmap")
 					//.attr("width", "800")
 					//.style("height", "700")
-					.style("top", heightArcDiv + "px")
-					.style("left", "30px")
+					.style("top", (heightArcDiv + headerHeigth) +"px")
+					.style("left", "110px")
 					.style("position", "absolute")
 					.selectAll("div")
                     .data(nodes)
@@ -372,7 +373,7 @@
                         return margin + "px";   // + (i % 4) * matrixGap
                     })
                     .style("top", function (d, i) {
-                        return (Math.floor(i / column) * imageHeight) + "px";  // 10 +  ... + Math.floor(i / 4) * 50
+                        return (Math.floor(i / column) * imageHeight) + "px";
                     })
                     .attr("height", imageHeight)
                     .attr("width", imageWidth)
@@ -422,8 +423,6 @@
 					}
 				});
 			});
-			
-			var colors = colorbrewer[paletteName][classesNumber];
 			
 			var dropDown = settingDiv.append("select")
 				.attr("id", "colorPalette")
@@ -509,16 +508,16 @@
 						return colorScale(d.duration);
         			});
 			
-				var colors = colorbrewer[paletteName][classesNumber];
+				var colors = colorbrewer["RdYlGn"][classesNumber];
     			var colorScale = d3.scale.quantize()
-        			.domain([0, 10])
+        			.domain([0, 1])
         			.range(colors);
 				var svg2 = d3.select("#gArc");
     			var t2 = svg2.transition().duration(500);
     			t2.selectAll("circle")
         			.style("fill", function(d, i) {
-						var c = colorScale(d.group)
-						return colorScale(d.group);
+						var c = colorScale(d.duration)
+						return colorScale(d.duration);
 						//if (d != null) return colorScale(d);
                 		//else return "url(#diagonalHatch)";
         			});
