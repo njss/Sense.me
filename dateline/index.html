@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/tabs2.css" media="all"/>	
     <link rel="stylesheet" type="text/css" href="css/style.css">  
     <link rel="stylesheet" type="text/css" href="css/matcharrows.css">
+    <link rel="stylesheet" type="text/css" href="css2/groupStyle.css">
 
 	<!-- Gridster -->
     <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.css">
@@ -418,7 +419,7 @@
 											'<div id="groupWidget' + name + '"></li>', 16, 4, 2, 1);
 			
 			var newWidget = d3.select("#groupWidget" + name);
-			newWidget.append("div")
+			var tabDiv = newWidget.append("div")
 				.attr("class", "tabswrapper")
 				.append("div")
 				.attr("class", "tabsmain")
@@ -440,12 +441,20 @@
 						.style("color", "red")
 						.style("float", "right")
 						.text("X");
-						
-					newWidget.append("a")
+					
+					if(i === 0){
+						tabDiv.append("a")
 						.attr("href", "#")
 						.attr("data-tab", "1")
-						.attr("class", "login-window btn btn-default btn-md")
+						.attr("class", "tab active") //login-window btn btn-default btn-md
 						.text(items[0][i].value);
+					}else{
+						tabDiv.append("a")
+						.attr("href", "#")
+						.attr("data-tab", "1")
+						.attr("class", "tab") //login-window btn btn-default btn-md
+						.text(items[0][i].value);
+					}
 				}
 			}
 			
