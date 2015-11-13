@@ -1,12 +1,3 @@
-$(function(){ //DOM Ready
-
-    $(".gridster ul").gridster({
-        widget_margins: [10, 10],
-        widget_base_dimensions: [140, 140]
-    });
-
-});
-
 var config = d3.csv("data/all_files.csv", function(error, dataset){
 	//d3.select("#datasetslist").html(
 	var countCSVFiles = 0;
