@@ -124,14 +124,11 @@ function loadchart(div, json) {
 
 
 //check this code
-        // var link = svg.selectAll(".link")
-        //     .data(graph.links)
-        //     .enter().append("svg:path")
-        //     .attr("d", function (d) {
-        //         return curve(d);
-        //     })
-        //     .attr("class", "link")
-        //     .attr("marker-end", "url(#end)");
+        var link = svg.selectAll(".link")
+            .data(graph.links)
+            .enter().append("svg:path")            
+            .attr("class", "link")
+            .attr("marker-end", "url(#end)");
 
 		/************************
 			Nodes
@@ -292,9 +289,9 @@ function loadchart(div, json) {
                 });
 
 //check this code
-            // link.attr("d", function (d) {
-            //     return curve(d);
-            // });
+            link.attr("d", function (d) {
+                return curve(d);
+            });
         }
     });
 }
