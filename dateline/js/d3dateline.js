@@ -1,5 +1,6 @@
 //Node types: fixed, hasAnswer, free, isAnswer, both. 
 //Node Links: answeredby
+var tipDateline;
 
 function loadchart(div, json) {
     // pass in id of div where the svg will live and name/url of json data
@@ -172,10 +173,18 @@ function loadchart(div, json) {
             })
             .attr('r', radius)
 
-        node.append("svg:title")
-            .text(function (d) {
-                return d.name;
-            });
+        // node.append("svg:title")
+        //     .text(function (d) {
+        //         return d.name;
+        //     });
+
+         tipDateline = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function (d) {
+            return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
+        });
+                        
 
 		// text, centered in node, with white shadow for legibility
 		node.append("text")
@@ -194,12 +203,23 @@ function loadchart(div, json) {
                 return arrNameSplit[2];
             });
 
+        svg.call(tipDateline);
+
 		// on click, do something with id
 		// implement this in a function outside this block
 		
         node.on("click", function (d) {
         	itemclick(d);
         });
+
+        node.on("mouseover", function (d, i) {
+                        tip.show(d.name);
+                        highlightSPLOMgrid(d3.select(this));
+                    })
+        node.on("mouseout", function (d, i) {
+                        tip.hide(d.name);
+                        d3.select("#highlightRect").remove();
+                    });
 
 
         // Resolves collisions between d and all other circles.
