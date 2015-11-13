@@ -272,8 +272,8 @@
 						d3.select("#explist")
 							.append("option")			
 							.attr("value", finalDataset[i].experiment)
-							.on("click", function(d,i) {
-								fillTrialsList(finalDataset[i].experiment);
+							.on("click", function(d) {
+								fillTrialsList(this.value);
 							})
 							.text(finalDataset[i].experiment);
 					}
@@ -283,8 +283,8 @@
 					d3.select("#explist")
 						.append("option")			
 						.attr("value", finalDataset[i].experiment)
-						.on("click", function(d,i) {
-							fillTrialsList(finalDataset[i].experiment);
+						.on("click", function(d) {
+							fillTrialsList(this.value);
 						})
 						.text(finalDataset[i].experiment);							
 				}
@@ -305,8 +305,8 @@
 							d3.select("#triallist")
 								.append("option")			
 								.attr("value", finalDataset[i].trial)
-								.on("click", function(d,i) {
-									fillUsersList(finalDataset[i].experiment, finalDataset[i].trial);
+								.on("click", function(d) {
+									fillUsersList(value, this.value);
 								})
 								.text(finalDataset[i].trial);
 						}
@@ -316,8 +316,8 @@
 						d3.select("#triallist")
 							.append("option")			
 							.attr("value", finalDataset[i].trial)
-							.on("click", function(d,i) {
-								fillUsersList(finalDataset[i].experiment, finalDataset[i].trial);
+							.on("click", function(d) {
+								fillUsersList(value, this.value);
 							})
 							.text(finalDataset[i].trial);							
 					}
@@ -346,7 +346,6 @@
 						d3.select("#userlist")
 							.append("option")			
 							.attr("value", finalDataset[i].userName)
-							
 							.text(finalDataset[i].userName);							
 					}
 				}
