@@ -211,13 +211,12 @@ function loadchart(div, json) {
 
         node.on("mouseover", function (d, i) {
                         tip.show(d.name);
-                        highlightSPLOMgrid(d3.select(this));
+                        //highlightSPLOMgrid(d3.select(this));
                     })
         node.on("mouseout", function (d, i) {
                         tip.hide(d.name);
                         d3.select("#highlightRect").remove();
                     });
-
 
         // Resolves collisions between d and all other circles.
         function collide(node) {
