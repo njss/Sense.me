@@ -7,7 +7,7 @@ $(function(){ //DOM Ready
 
 });
 
-var config = d3.csv("all_files.csv", function(error, dataset){
+var config = d3.csv("data/all_files.csv", function(error, dataset){
 	//d3.select("#datasetslist").html(
 	var countCSVFiles = 0;
 	var filenames = new Array();
@@ -24,7 +24,7 @@ var config = d3.csv("all_files.csv", function(error, dataset){
 			})
 			.text(function(d) {
 				countCSVFiles += 1;
-				filenames.push("../data/" + d.filename);
+				filenames.push("data/" + d.filename);
 
 				return d.filename;
 			});
