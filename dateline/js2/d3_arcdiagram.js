@@ -256,7 +256,7 @@
                     .append("svg")
                     .attr("id", "svgSPLOM")
 					.style("width", column * imageWidth)
-                    .style("height", row * imageHeight +10)
+                    .style("height", row * imageHeight +30) // +30 for off-screen
 					.style("margin", "auto");
 
             imagesSVG.call(tip);
@@ -271,7 +271,6 @@
                     .attr("id", "gSPLOM")
 					.attr("x", 0)
                     .style("textAlign", "center")
-					//.attr("transform", "translate(0,10)")
 					.append("g")
 					.attr("id", "gCellImages")
                     .selectAll("image")

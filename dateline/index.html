@@ -429,9 +429,16 @@
 			var items = d3.select("#userlist").selectAll("option");
 			for(var i = 0; i < items[0].length; i++){
 				if(items[0][i].selected){
-					var liItem = d3.select("#group" + name);
-					liItem.append("li")
+					var ulItem = d3.select("#group" + name)
+						.style("width", "70%")
+						.style("margin", "auto");
+						
+					ulItem.append("li")
 						.style("color", "black")
+						.style("padding-left", "5px")
+						.style("padding-right", "5px")
+						.style("text-align", "center")
+						.style("display", "block")
 						.append("span")
 						.attr("class", "display")
 						.text(items[0][i].value)
