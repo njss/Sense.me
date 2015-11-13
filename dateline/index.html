@@ -5,29 +5,34 @@
 	<title>AOIs links</title>
 
 	<!-- Our CSV Files -->
-  	<link rel="stylesheet" href="../css/dateline.css">
-    <link rel="stylesheet" href="../css/style.css">  
-    <link rel="stylesheet" href="../css/matcharrows.css">
+  	<link rel="stylesheet" href="css/dateline.css">
+    <link rel="stylesheet" href="css/style.css">  
+    <link rel="stylesheet" href="css/matcharrows.css">
 
-    <link rel="stylesheet" type="text/css" href="../libs/jquery.gridster.css">
-    <link rel="stylesheet" type="text/css" href="../css/demo_gridster.css">
-    <link rel="stylesheet" type="text/css" media="all" href="../css/tabs2.css" />
+    <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.css">
+    <link rel="stylesheet" type="text/css" href="css/demo_gridster.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/tabs2.css" />
 	
+<<<<<<< HEAD
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">	
 	<link rel="stylesheet" href="../css2/jquery-ui.css">
+=======
+	<link rel="stylesheet" href="css2/bootstrap.min.css">
+	<link rel="stylesheet" href="css2/jquery-ui.css">
+>>>>>>> 4e2932354972c52d0edb1c3652c1687d7d92b884
 
     <!-- <link rel="stylesheet" href="../css/svg.css">-->
 
     <!-- Well Known javascript libraries -->
-	<script src="../libs/d3.v3.min.js"></script>
-	<script src="../libs/chroma.min.js"></script>
-	<script src="../libs/underscore-min.js"></script>
-	<script src="../libs/queue.min.js"></script>
-	<script src="../libs/lodash.js"></script>
-	<script src="../libs/jquery.js" type="text/javascript"></script>
-    <script src="../libs/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../libs/rgb.js"></script>
-	<script src="../libs/clusterfck.js"></script>
+	<script src="libs/d3.v3.min.js"></script>
+	<script src="libs/chroma.min.js"></script>
+	<script src="libs/underscore-min.js"></script>
+	<script src="libs/queue.min.js"></script>
+	<script src="libs/lodash.js"></script>
+	<script src="libs/jquery.js" type="text/javascript"></script>
+    <script src="libs/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+	<script src="libs/rgb.js"></script>
+	<script src="libs/clusterfck.js"></script>
 	
 	
 	<script src="js2/colorbrewer.v1.min.js" type="text/javascript"></script>
@@ -77,10 +82,10 @@
 	
 	
 	<!-- To drive the visualizations -->
-	<script src="../js/d3dateline.js"></script>
-	<script src="../js/matcharrows.js"></script>	
-	<script src="../js/loadcsv.js"></script>
-	<script src="../js/vis.js"></script>
+	<script src="js/d3dateline.js"></script>
+	<script src="js/matcharrows.js"></script>	
+	<script src="js/loadcsv.js"></script>
+	<script src="js/vis.js"></script>
 	
 	<script>
 		function itemclick(d) {
@@ -88,7 +93,7 @@
 			alert(d.id);
 		}
 		window.onload = function() {
-			loadchart("svgContent", "../data/demodata.json");
+			loadchart("svgContent", "data/demodata.json");
 		}
 		
 						
@@ -233,10 +238,10 @@
 	</footer>
 	
 	
-	<script src="../js2/d3_arcdiagram.js"></script>	
+	<script src="js2/d3_arcdiagram.js"></script>	
 	<script>
 	
-		drawArcDiagram("myData.json", "arcDiv");
+		drawArcDiagram("data/myData.json", "arcDiv");
 		
 		checkLoading();
 		
