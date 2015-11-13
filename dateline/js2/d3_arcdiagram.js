@@ -2,8 +2,8 @@
         var height = 250;           // height of arc div
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
-        var radius = 4;             // fixed node radius
-        var yfixed = pad + radius;  // y position for all nodes
+        var radiusArc = 4;             // fixed node radiusArc
+        var yfixed = pad + radiusArc;  // y position for all nodes
 
         var imageWidth = 150;       // width of SP image
         var imageHeight = 100;      // height of SP image
@@ -93,7 +93,7 @@
             // used to scale node index to x position
             var xscale = d3.scale.linear()
                     .domain([0, nodes.length - 1])
-                    .range([radius, width - margin - radius]);
+                    .range([radiusArc, width - margin - radiusArc]);
 
             // calculate pixel location for each node
             nodes.forEach(function (d, i) {
@@ -131,7 +131,7 @@
                         return d.y;
                     })
                     .attr("r", function (d, i) {
-                        return radius * d.value;
+                        return radiusArc * d.value;
                     })
                     .style("fill", function (d, i) {
                         return colorScale(d.duration);
@@ -177,7 +177,7 @@
                         // get x distance between source and target
                         var xdist = Math.abs(d.source.x - d.target.x);
 
-                        // set arc radius based on x distance
+                        // set arc radiusArc based on x distance
                         arc.radius(xdist / 2);
 
                         // want to generate 1/3 as many points per pixel in x direction
@@ -552,16 +552,16 @@
 
 			while (len--) {
 				var val = Math.floor(Math.random()*100);
-				// now also with custom radius
-				var radius = Math.floor(Math.random()*70);
+				// now also with custom radiusArc
+				var radiusArc = Math.floor(Math.random()*70);
 
 				max = Math.max(max, val);
 				var point = {
 					x: Math.floor(Math.random()*width),
 					y: Math.floor(Math.random()*height),
 					value: val,
-					// radius configuration on point basis
-					radius: radius
+					// radiusArc configuration on point basis
+					radiusArc: radiusArc
 				};
 				points.push(point);
 			}
