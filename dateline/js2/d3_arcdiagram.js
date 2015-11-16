@@ -18,7 +18,7 @@
 		
 		//colorbrewer
 		var classesNumber = 10;
-		var paletteName = "Spectral";
+		var matrixNodes = [];
 
 
         /* DRAW ARC DIAGRAM */
@@ -31,7 +31,11 @@
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
                 .html(function (d) {
-                    return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
+					if(d.aoi >= 0){
+						return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
+					}else{
+						return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
+					}
                 });
 								
 			d3.json(url, arcDiagram);
@@ -265,6 +269,14 @@
             nodes.sort(function (a, b) {
                 return a.aoi - b.aoi;
             });
+			
+			for(var i = 0; i < nodes.length; i++){
+				if(nodes[i].aoi < 0){
+					matrixNodes.push(nodes[i]);
+					nodes.splice(i, 1);
+					i--;
+				}
+			}
 
             cellGroup = imagesSVG
                     .append("g")
@@ -326,6 +338,7 @@
                     .data(nodes)
                     .enter()
                     .append("text")
+					.attr("class", "matrix-label")
                     .attr("id", function (d, i) {
                         return d.aoi;
                     })
@@ -337,46 +350,93 @@
                     })
 					.text(function (d, i) {
                         return "AOI " + d.aoi;
-                    })
-					.attr("font-family", "sans-serif")
-					.attr("font-size", "20px")
-					.style("text-anchor", "middle")
-					.style("font-weight", "bold")
-					.style("visibility", "hidden");
-			
+                    });
 					
+			
+
+			var element = document.getElementById('gSPLOM'); //replace elementId with your element's Id.
+			var rect = element.getBoundingClientRect();
+			var offScreenItemWidth = rect.width / 3;
+
+			var offscreen = d3.select("#gSPLOM")
+				.append("g")
+				.attr("id", "otherAOIs")
+				.selectAll("rect")
+				.data(matrixNodes)
+				.enter()
+				.append("rect")
+				.attr('class', 'image-border')
+				.attr("id", function (d, i) {
+					return d.aoi;
+				})
+				.attr("x", function (d, i) {
+					return (i % column) * offScreenItemWidth +1;
+				})
+				.attr("y", function (d, i) {
+					return 500;
+				})
+				.attr("height", 28)
+				.attr("width", offScreenItemWidth -2)
+				.style("fill", "LightYellow")
+				.style("stroke-width", "1")
+				.on("mouseover", function (d, i) {
+					tip.show(d);
+					highlightADcircle(d3.select(this));
+				})
+				.on("mouseout", function (d, i) {
+					tip.hide(d);
+					d3.select("#highlightCircle").remove();
+				});
+					
+			d3.select("#otherAOIs").selectAll("text")
+				.data(matrixNodes)
+				.enter()
+				.append("text")
+				.attr("class", "matrix-label")
+				.attr("id", function (d, i) {
+					return d.name;
+				})
+				.attr("x", function (d, i) {
+					return (i % column) * offScreenItemWidth + (offScreenItemWidth/2);
+				})
+				.attr("y", function (d, i) {
+					return 500 + 23;
+				})
+				.text(function (d, i) {
+					return "AOI " + d.name;
+				});
+			
+			
 			var hArc = d3.select("#divArc").style("height");
 			var heightArcDiv = parseInt(hArc.substr(0, hArc.indexOf("px")))
 			var headerHeigth = 40;
-							
-			//var heatmapX = d3.select("#svgSPLOM").node()
-			
+						
 			var spHeatmap = d3.select("#divSPLOM")
-					.append("div")
-					.attr("id", "divHeatmap")
-					//.attr("width", "800")
-					//.style("height", "700")
-					.style("top", (heightArcDiv + headerHeigth) +"px")
-					.style("left", "110px")
-					.style("position", "absolute")
-					.selectAll("div")
-                    .data(nodes)
-                    .enter()
-                    .append("div")
-                    .attr("id", function (d, i) {
-                        return "heatmap" + d.aoi;
-                    })
-                    .attr('class', 'heatmap')
-                    .style("left", function (d, i) {
-						var margin = (i % column) * imageWidth
-                        return margin + "px";   // + (i % 4) * matrixGap
-                    })
-                    .style("top", function (d, i) {
-                        return (Math.floor(i / column) * imageHeight) + "px";
-                    })
-                    .attr("height", imageHeight)
-                    .attr("width", imageWidth)
-					.style("position", "absolute");
+				.append("div")
+				.attr("id", "divHeatmap")
+				//.attr("width", "800")
+				//.style("height", "700")
+				.style("top", (heightArcDiv + headerHeigth) +"px")
+				.style("left", "110px")
+				.style("position", "absolute")
+				.selectAll("div")
+				.data(nodes)
+				.enter()
+				.append("div")
+				.attr("id", function (d, i) {
+					return "heatmap" + d.aoi;
+				})
+				.attr('class', 'heatmap')
+				.style("left", function (d, i) {
+					var margin = (i % column) * imageWidth
+					return margin + "px";   // + (i % 4) * matrixGap
+				})
+				.style("top", function (d, i) {
+					return (Math.floor(i / column) * imageHeight) + "px";
+				})
+				.attr("height", imageHeight)
+				.attr("width", imageWidth)
+				.style("position", "absolute");
 						
 			//add controler
 			var settingDiv = d3.select("#"+ currentSettingsID)
@@ -469,6 +529,12 @@
 				//disable other views
 				d3.select("#divHeatmap").node().style.visibility = "hidden";
 				d3.select("#gSPLOM").selectAll("text").style("visibility", "hidden");
+				
+				var svg = d3.select("#otherAOIs");
+    			var t = svg.transition().duration(500);
+    			t.selectAll("rect")
+					.style("fill", "LightYellow");
+				// d3.select("#otherAOIs").selectAll("rect").style("fill", "LightYellow");
 			}
 			else if(paletteName === "labels"){
 				//show labels inside cells
@@ -573,21 +639,43 @@
         function highlightSPLOMgrid(circle) {
 
             var cId = circle.attr("id");
-            var groupElement = d3.select("#gCellBorder");
-            var groupNodes = groupElement.node();
-            var spNode = groupNodes.children[cId];
-            var borderX = spNode.x;
-            var borderY = spNode.y;
+			var groupElement = d3.select("#gCellBorder");
+			var groupNodes = groupElement.node();
+			
+			if(cId >= 0){
+				var spNode = groupNodes.children[cId];
+				var borderX = spNode.x;
+				var borderY = spNode.y;
 
-            groupElement.append("rect")
-                    .attr("id", "highlightRect")
-                    .attr("x", borderX.baseVal.value)
-                    .attr("y", borderY.baseVal.value)
-                    .attr("width", imageWidth)
-                    .attr("height", imageHeight)
-                    .style("fill", "none")
-                    .style("stroke", "red")
-                    .style("stroke-width", 3);
+				groupElement.append("rect")
+						.attr("id", "highlightRect")
+						.attr("x", borderX.baseVal.value)
+						.attr("y", borderY.baseVal.value)
+						.attr("width", imageWidth)
+						.attr("height", imageHeight)
+						.style("fill", "none")
+						.style("stroke", "red")
+						.style("stroke-width", 3);
+			}else{
+				for(var i = 0; i < matrixNodes.length; i++){
+					if(cId == matrixNodes[i].aoi){
+						var spNode = d3.select("#otherAOIs").node().children[i];
+						spNode.style
+						var borderX = spNode.x;
+						var borderY = spNode.y;
+						
+						groupElement.append("rect")
+							.attr("id", "highlightRect")
+							.attr("x", borderX.baseVal.value)
+							.attr("y", borderY.baseVal.value)
+							.attr("width", spNode.width.baseVal.value)
+							.attr("height", spNode.height.baseVal.value)
+							.style("fill", "none")
+							.style("stroke", "red")
+							.style("stroke-width", 4);
+					}
+				}
+			}
 
         }
 

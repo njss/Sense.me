@@ -39,7 +39,10 @@
 	{"name":"147.Ni-Ni.png","aoi":36,"group":3,"value":2, "duration":0.1},
 	{"name":"145.Co-Ni.png","aoi":37,"group":1,"value":1, "duration":0.56},
 	{"name":"144.Fe-Ni.png","aoi":38,"group":1,"value":1, "duration":0.8},
-	{"name":"13551.Sal-Turbidity.png","aoi":39,"group":1,"value":2, "duration":0.6}
+	{"name":"13551.Sal-Turbidity.png","aoi":39,"group":1,"value":2, "duration":0.6},
+	{"name":"sketch","aoi":-3,"group":1,"value":2, "duration":0.6},
+	{"name":"settings","aoi":-2,"group":1,"value":2, "duration":0.5},
+	{"name":"offscreen","aoi":-1,"group":1,"value":2, "duration":0.2}
   ],
 "links":[
 {"source":0,"target":1,"value":1},
