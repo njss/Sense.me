@@ -169,7 +169,7 @@
 		for(var i = 0; i < finalDataset.length; i++){
 			var aoi = finalDataset[i].aoi;
 			var aoiInt = parseInt(aoi.substring(3));
-			var duration = parseInt(finalDataset[i].duration);
+			var duration = parseFloat(finalDataset[i].duration);
 			
 			//links
 			if(i > 0){
@@ -200,7 +200,7 @@
 				}else{
 					// aggregate duration
 					var dupIndex = getIndexAOI(nodes, aoiInt);
-					nodes[dupIndex].duration = parseInt(nodes[dupIndex].duration) + duration;
+					nodes[dupIndex].duration = parseFloat(nodes[dupIndex].duration) + duration;
 				}
 			}else{
 				var randomImage = Math.floor((Math.random() * 10) + 1);
