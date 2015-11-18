@@ -5,7 +5,7 @@
     {"name":"16.Ni-Ni.png","aoi":2,"group":2,"value":1, "duration":0.1647},
     {"name":"34.Ni-Sum.png","aoi":3,"group":2,"value":1, "duration":0.3355},
     {"name":"69.Fe-Ni.png","aoi":7,"group":1,"value":2, "duration":0.5126},
-	{"name":"40.TS-Ni.png","aoi":6,"group":2,"value":3, "duration":-0.0274},
+	{"name":"40.TS-Ni.png","aoi":6,"group":2,"value":3, "duration":0.0274},
 	{"name":"38.Ni-Ni.png","aoi":5,"group":3,"value":2, "duration":0.4304},
 	{"name":"35.TS-Sum.png","aoi":4,"group":2,"value":4, "duration":0.5},
 	{"name":"70.Co-Ni.png","aoi":8,"group":1,"value":2, "duration":0.4},
@@ -40,9 +40,9 @@
 	{"name":"145.Co-Ni.png","aoi":37,"group":1,"value":1, "duration":0.56},
 	{"name":"144.Fe-Ni.png","aoi":38,"group":1,"value":1, "duration":0.8},
 	{"name":"13551.Sal-Turbidity.png","aoi":39,"group":1,"value":2, "duration":0.6},
-	{"name":"sketch","aoi":-3,"group":1,"value":2, "duration":0.6},
-	{"name":"settings","aoi":-2,"group":1,"value":2, "duration":0.5},
-	{"name":"offscreen","aoi":-1,"group":1,"value":2, "duration":0.2}
+	{"name":"sketch","aoi":40,"group":1,"value":2, "duration":0.6},
+	{"name":"settings","aoi":41,"group":1,"value":2, "duration":0.5},
+	{"name":"offscreen","aoi":42,"group":1,"value":2, "duration":0.2}
   ],
 "links":[
 {"source":0,"target":1,"value":1},

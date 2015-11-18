@@ -55,6 +55,8 @@
 	<script src="js2/d3_arcdiagram.js"></script>
 	<script src="js/matcharrows.js"></script>
 
+	<script src="js2/mystuff.js"></script>
+	
     <script>
 		var gridster;
 		var finalDataset = [];
@@ -94,12 +96,7 @@
 		  });
 		  
 		});
-	</script>
-	
-	
-
-	
-	<script>
+		
 		function itemclick(d) {
 			// this function will be called when a node is clicked
 			alert(d.id);
@@ -108,9 +105,10 @@
 			loadchart("svgContent", "data/demodata.json");
 		}
 		
-						
-	</script>
-	
+		
+		drawArcDiagram("data/myData.json", "arcDiv");
+		checkLoading();
+	</script>	
 	
 </head>
 <body>
@@ -221,20 +219,11 @@
 			<a href="#" class="close"><img src="img/closebox.png" class="btn_close" title="Close Window" alt="Close" /></a>
 			  <form method="post" class="signin" action="#">
 					<fieldset class="textbox">
-					<label class="groupname">
-					<span>Group</span>
-					<input id="groupname" name="groupname" value="" type="text" autocomplete="on" placeholder="Name">
-					</label>
-					
-					<!-- <label class="group">
-					<span>Group</span>
-					<select id="dropdownGrouping" class="form-select">
-					  <option selected="">Select Group</option>
-					</select>
-					</label> -->
-													
-					<button id="submitItem" class="submit button" type="button">Add</button>
-													
+						<label class="groupname">
+							<span>Group</span>
+							<input id="groupname" name="groupname" value="" type="text" autocomplete="on" placeholder="Name">
+						</label>						
+						<button id="submitItem" class="submit button" type="button">Add</button>
 					</fieldset>
 			  </form>
 			</div>
@@ -246,229 +235,6 @@
 	</footer>
 	
 	
-
-	<script>
-	
-		drawArcDiagram("data/myData.json", "arcDiv");
-		
-		checkLoading();
-		
-		function checkLoading(){
-			if(!filesReady){
-				window.setTimeout(checkLoading, 100);
-			} else{
-				initList();
-			}
-		}
-		
-		function initList(){
-			var duplicatesExperiment = [];
-			
-			for(var i = 0; i < finalDataset.length; i++){
-				//Experiments
-				if(duplicatesExperiment.length > 0 ){			
-					if(!available(duplicatesExperiment, finalDataset[i].experiment)){
-						duplicatesExperiment.push(finalDataset[i].experiment);
-						
-						d3.select("#explist")
-							.append("option")			
-							.attr("value", finalDataset[i].experiment)
-							.on("click", function(d) {
-								fillTrialsList(this.value);
-							})
-							.text(finalDataset[i].experiment);
-					}
-				}else{						
-					duplicatesExperiment.push(finalDataset[i].experiment);
-					
-					d3.select("#explist")
-						.append("option")			
-						.attr("value", finalDataset[i].experiment)
-						.on("click", function(d) {
-							fillTrialsList(this.value);
-						})
-						.text(finalDataset[i].experiment);							
-				}
-			}
-		}
-		
-		function fillTrialsList(value){
-			var duplicatesTrials = [];
-			d3.select("#triallist").selectAll("option").remove();
-			d3.select("#userlist").selectAll("option").remove();
-			
-			for(var i = 0; i < finalDataset.length; i++){
-				if(finalDataset[i].experiment === value){
-					if(duplicatesTrials.length > 0 ){			
-						if(!available(duplicatesTrials, finalDataset[i].trial)){
-							duplicatesTrials.push(finalDataset[i].trial);
-							
-							d3.select("#triallist")
-								.append("option")			
-								.attr("value", finalDataset[i].trial)
-								.on("click", function(d) {
-									fillUsersList(value, this.value);
-								})
-								.text(finalDataset[i].trial);
-						}
-					}else{						
-						duplicatesTrials.push(finalDataset[i].trial);
-						
-						d3.select("#triallist")
-							.append("option")			
-							.attr("value", finalDataset[i].trial)
-							.on("click", function(d) {
-								fillUsersList(value, this.value);
-							})
-							.text(finalDataset[i].trial);							
-					}
-				}
-			}
-		}
-		
-		function fillUsersList(valueExp, valueTrial){
-			var duplicatesUser = [];
-			d3.select("#userlist").selectAll("option").remove();
-			
-			for(var i = 0; i < finalDataset.length; i++){
-				if(finalDataset[i].experiment === valueExp && finalDataset[i].trial === valueTrial){
-					if(duplicatesUser.length > 0 ){			
-						if(!available(duplicatesUser, finalDataset[i].userName)){
-							duplicatesUser.push(finalDataset[i].userName);
-							
-							d3.select("#userlist")
-								.append("option")			
-								.attr("value", finalDataset[i].userName)
-								.text(finalDataset[i].userName);
-						}
-					}else{						
-						duplicatesUser.push(finalDataset[i].userName);
-						
-						d3.select("#userlist")
-							.append("option")			
-							.attr("value", finalDataset[i].userName)
-							.text(finalDataset[i].userName);							
-					}
-				}
-			}
-		}
-		
-		
-		function available(array, value){
-			for(var i = 0; i<array.length; i++){
-				if(value === array[i])
-					return true;
-			}
-			return false;
-		};
-		
-		
-		function createGroup(name){	
-			var outerDiv = d3.select("#multi")
-				.append("div")
-				.attr("data-force","30")
-				.attr("id", "groupDiv-" + name)
-				.attr("class", "layer title")
-				.style("margin-left", "5px")
-				.style("margin-right", "5px")
-				.style("margin-top", "10px")
-				.style("width", "37%");
-			
-			outerDiv.append("div")
-				.attr("class", "tile__name")
-				.attr("id", "groupBox" + name)
-				.text("Group " + name)
-				.style("font-size", "14pt");
-				
-			var liItem = outerDiv.append("ul")
-				.attr("id", "group" + name)
-				.attr("class", "tile__name");
-			
-			var el = document.getElementById('group' + name);
-			var editableList = Sortable.create(el, { group: "omega",
-				filter: '.js-remove',
-			  onFilter: function (evt) {
-				var el = editableList.closest(evt.item); // get dragged item
-				el && el.parentNode.removeChild(el);
-			  }
-			});
-		};
-		
-		$('#submitItem').click(function(){
-			var name = groupname.value;
-			
-			createGroup(name);
-			
-			var selectedExp = [];
-			var experiments = d3.select("#explist").selectAll("option")
-			for(var i = 0; i < experiments[0].length; i++){
-				if(experiments[0][i].selected){
-					selectedExp.push(experiments[0][i].value);
-				}
-			}
-			
-			var selectedTrial = [];
-			var trials = d3.select("#triallist").selectAll("option")
-			for(var i = 0; i < trials[0].length; i++){
-				if(trials[0][i].selected){
-					selectedTrial.push(trials[0][i].value);
-				}
-			}
-			
-			gridster.add_widget('<li class="gs-w"> <header>Group ' + name + 
-											'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-											'<div id="groupWidget' + name + '"></li>', 16, 4, 2, 1);
-			
-			var newWidget = d3.select("#groupWidget" + name);
-			var tabDiv = newWidget.append("div")
-				.attr("class", "tabswrapper")
-				.append("div")
-				.attr("class", "tabsmain")
-				.append("div")
-				.attr("class", "tabs");
-						
-			var items = d3.select("#userlist").selectAll("option");
-			for(var i = 0; i < items[0].length; i++){
-				if(items[0][i].selected){
-					var ulItem = d3.select("#group" + name)
-						.style("width", "70%")
-						.style("margin", "auto");
-						
-					ulItem.append("li")
-						.style("color", "black")
-						.style("padding-left", "5px")
-						.style("padding-right", "5px")
-						.style("text-align", "center")
-						.style("display", "block")
-						.append("span")
-						.attr("class", "display")
-						.text(items[0][i].value)
-						.style("color", "black")
-						.append("i")
-						.attr("class", "js-remove")
-						.style("color", "red")
-						.style("float", "right")
-						.text("X");
-					
-					if(i === 0){
-						tabDiv.append("a")
-						.attr("href", "#")
-						.attr("data-tab", "1")
-						.attr("class", "tab active") //login-window btn btn-default btn-md
-						.text(items[0][i].value);
-					}else{
-						tabDiv.append("a")
-						.attr("href", "#")
-						.attr("data-tab", "1")
-						.attr("class", "tab") //login-window btn btn-default btn-md
-						.text(items[0][i].value);
-					}
-				}
-			}
-			
-		});	
-
-	</script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 
@@ -504,6 +270,92 @@
 		return false;
 		});
 	});
+	
+	$('#submitItem').click(function(){
+		var name = groupname.value;
+		
+		createGroup(name);
+		var selectedExp = getSelectedItems("explist");
+		var selectedTrial = getSelectedItems("triallist")
+		var selectedUser = getSelectedItems("userlist");
+		
+		gridster.add_widget('<li class="gs-w" id="li_' + name + '"> <header>Group ' + name + 
+										'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+										'<div id="groupWidget' + name + '"></li>', 16, 20, 6, 1);
+		
+		var newWidget = d3.select("#groupWidget" + name);
+		var tabDiv = newWidget.append("div")
+			.attr("class", "tabswrapper")
+			.append("div")
+			.attr("class", "tabsmain")
+			.append("div")
+			.attr("class", "tabs");
+					
+		var items = d3.select("#userlist").selectAll("option");
+		for(var i = 0; i < items[0].length; i++){
+			if(items[0][i].selected){
+				var ulItem = d3.select("#group" + name)
+					.style("width", "70%")
+					.style("margin", "auto");
+					
+				ulItem.append("li")
+					.style("color", "black")
+					.style("padding-left", "5px")
+					.style("padding-right", "5px")
+					.style("text-align", "center")
+					.style("display", "block")
+					.append("span")
+					.attr("class", "display")
+					.text(items[0][i].value)
+					.style("color", "black")
+					.append("i")
+					.attr("class", "js-remove")
+					.style("color", "red")
+					.style("float", "right")
+					.text("X");
+				
+				if(i === 0){
+					tabDiv.append("a")
+						.attr("href", "#")
+						.attr("data-tab", i)
+						.attr("class", "tab active") //login-window btn btn-default btn-md
+						.text(items[0][i].value);
+
+				}else{
+					tabDiv.append("a")
+						.attr("href", "#")
+						.attr("data-tab", i)
+						.attr("class", "tab") //login-window btn btn-default btn-md
+						.text(items[0][i].value);
+					
+				}
+			}
+		}
+		
+		for(var i = 0; i < items[0].length; i++){
+			if(i === 0){
+				var newVisDiv = tabDiv.append("div")
+					.attr("class", "content active")
+					.attr("id", "visDiv" + i)
+					.attr("data-content", i);
+			
+				var arcData = getData();
+				drawArcDiagram2(arcData, "visDiv" + i);
+			}
+			else{
+				var newVisDiv = tabDiv.append("div")
+					.attr("class", "content")
+					.attr("id", "visDiv" + i)
+					.attr("data-content", i);
+			}
+		}
+		
+		<!-- var visHeight = d3.select("#svgArc_visDiv0").node().style.height; -->
+		<!-- var heightIndex = visHeight / 50; -->
+		<!-- d3.select("#li_" + name).attr("data-sizey", ); -->
+		
+		
+	});	
 	</script>
 	
 	

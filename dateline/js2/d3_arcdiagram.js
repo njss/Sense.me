@@ -31,7 +31,7 @@
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
                 .html(function (d) {
-					if(d.aoi >= 0){
+					if(d.aoi < 39){
 						return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
 					}else{
 						return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
@@ -39,6 +39,24 @@
                 });
 								
 			d3.json(url, arcDiagram);
+		}
+		
+		function drawArcDiagram2(data, settings)
+		{
+			currentSettingsID = settings;
+			
+			tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function (d) {
+					if(d.aoi < 39){
+						return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
+					}else{
+						return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
+					}
+                });
+								
+			arcDiagram(data);
 		}
 		
         // Draws an arc diagram for the provided undirected graph
@@ -54,14 +72,14 @@
                 .append("div")
                 .attr("id", "divArc")
 				.attr("width", "100%")
-				.attr("height", "100%");
+				.style("height", "100%");
 					
             // create svg image
             var svg = divArc
                     .append("svg")
-                    .attr("id", "svgArc")
+                    .attr("id", "svgArc_"  + currentSettingsID)
                     .attr("width", width)
-                    .style("height", height)
+                    .style("height", "100%")
                     .style("border", "1px solid black")
 					.style("margin", "auto"); 
 
@@ -69,11 +87,11 @@
 
             // create plot area within svg image
             var plot = svg.append("g")
-                    .attr("id", "gArc")
+                    .attr("id", "gArc_" + currentSettingsID)
                     .attr("transform", "translate(" + pad + ", " + pad + ")");
 
-            // fix graph links to map to objects instead of indices
-            graph.links.forEach(function (d, i) {
+            // fix graph links to map to objects instead of indices			
+			graph.links.forEach(function (d, i) {
                 d.source = isNaN(d.source) ? d.source : graph.nodes[d.source];
                 d.target = isNaN(d.target) ? d.target : graph.nodes[d.target];
             });
@@ -86,6 +104,11 @@
 
             // draw nodes last
             drawNodes(graph.nodes);
+			
+			// reset height
+			var element = document.getElementById('gArc_' + currentSettingsID);
+			var divHeight = element.getBoundingClientRect().height + 30;
+			d3.select("#svgArc_" + currentSettingsID).node().style.height = divHeight;
 
             // draw scatterplot matrix
             drawSPmatrix(graph.nodes);
@@ -117,7 +140,7 @@
         		.range(colors);
 			
 
-            d3.select("#gArc").selectAll(".node")
+            d3.select("#gArc_" + currentSettingsID).selectAll(".node")
                     .data(nodes)
                     .enter()
                     .append("circle")
@@ -165,7 +188,7 @@
                     });
 
             // add links
-            d3.select("#gArc").selectAll(".link")
+            d3.select("#gArc_" + currentSettingsID).selectAll(".link")
                     .data(links)
                     .enter()
                     .append("path")
@@ -199,7 +222,7 @@
 					
 			// add labels
 			var labelList = [];
-            d3.select("#gArc").selectAll("text")
+            d3.select("#gArc_" + currentSettingsID).selectAll("text")
                     .data(links)
                     .enter()
                     .append("text")
@@ -250,11 +273,8 @@
 			var divSPLOM = d3.select("#" + currentSettingsID)
                     .append("div")
                     .attr("id", "divSPLOM")
-					.style("width", "1000")		//100% !
+					.style("width", "1000")
 					.style("height", "100%")
-					//.style("left", "50px")
-					//.style("top", "50px")
-					//.style("position", "absolute");
 			
             var imagesSVG = divSPLOM
                     .append("svg")
@@ -271,7 +291,7 @@
             });
 			
 			for(var i = 0; i < nodes.length; i++){
-				if(nodes[i].aoi < 0){
+				if(nodes[i].aoi > 39){
 					matrixNodes.push(nodes[i]);
 					nodes.splice(i, 1);
 					i--;
@@ -280,7 +300,7 @@
 
             cellGroup = imagesSVG
                     .append("g")
-                    .attr("id", "gSPLOM")
+                    .attr("id", "gSPLOM_" + currentSettingsID)
 					.attr("x", 0)
                     .style("textAlign", "center")
 					.append("g")
@@ -303,9 +323,9 @@
                     });
 					
 
-            var spBorder = d3.select("#gSPLOM")
+            var spBorder = d3.select("#gSPLOM_" + currentSettingsID)
 					.append("g")
-					.attr("id", "gCellBorder")
+					.attr("id", "gCellBorder_" + currentSettingsID)
 					.selectAll("rect")
                     .data(nodes)
                     .enter()
@@ -331,7 +351,7 @@
                         d3.select("#highlightCircle").remove();
                     });
 					
-			var spText = d3.select("#gSPLOM")
+			var spText = d3.select("#gSPLOM_" + currentSettingsID)
 					.append("g")
 					.attr("id", "gCellText")
 					.selectAll("text")
@@ -354,13 +374,13 @@
 					
 			
 
-			var element = document.getElementById('gSPLOM'); //replace elementId with your element's Id.
+			var element = document.getElementById('gSPLOM_' + currentSettingsID); //replace elementId with your element's Id.
 			var rect = element.getBoundingClientRect();
 			var offScreenItemWidth = rect.width / 3;
 
-			var offscreen = d3.select("#gSPLOM")
+			var offscreen = d3.select("#gSPLOM_" + currentSettingsID)
 				.append("g")
-				.attr("id", "otherAOIs")
+				.attr("id", "otherAOIs_" + currentSettingsID)
 				.selectAll("rect")
 				.data(matrixNodes)
 				.enter()
@@ -388,7 +408,7 @@
 					d3.select("#highlightCircle").remove();
 				});
 					
-			d3.select("#otherAOIs").selectAll("text")
+			d3.select("#otherAOIs_" + currentSettingsID).selectAll("text")
 				.data(matrixNodes)
 				.enter()
 				.append("text")
@@ -414,8 +434,6 @@
 			var spHeatmap = d3.select("#divSPLOM")
 				.append("div")
 				.attr("id", "divHeatmap")
-				//.attr("width", "800")
-				//.style("height", "700")
 				.style("top", (heightArcDiv + headerHeigth) +"px")
 				.style("left", "110px")
 				.style("position", "absolute")
@@ -466,11 +484,11 @@
 				
 			colorSliderGroup
 				.append("div")
-				.attr("id", "colorSlider")
+				.attr("id", "colorSlider_" + currentSettingsID)
 				.attr("width", "200");
 				
 			$(function() {
-				$("#colorSlider").slider({
+				$("#colorSlider_" + currentSettingsID).slider({
 					range: "min",
 					value: 95,
 					min: 0,
@@ -484,7 +502,7 @@
 			});
 			
 			var dropDown = settingDiv.append("select")
-				.attr("id", "colorPalette")
+				.attr("id", "colorPalette_" + currentSettingsID)
 				.attr("width", "33%")
 				.style("margin", "5px");
 				
@@ -503,42 +521,43 @@
 				.attr("value", "local");
 			
 			
-			d3.select("#colorPalette").on("keyup", function() {
-				var newPalette = d3.select("#colorPalette").property("value");
+			d3.select("#colorPalette_" + currentSettingsID).on("keyup", function() {
+				var newPalette = d3.select("#colorPalette_" + currentSettingsID).property("value");
     			if (newPalette != null)           // when interfaced with jQwidget, the ComboBox handles keyup event but value is then not available ?
                   	changePalette(newPalette);
             	})
             	.on("change", function() {
-    				var newPalette = d3.select("#colorPalette").property("value");
-                	changePalette(newPalette);
+					var parentDiv = d3.select(this).node().id;
+					var parentName = parentDiv.substring(parentDiv.indexOf("_")+1);
+    				var newPalette = d3.select("#colorPalette_" + parentName).property("value");
+                	changePalette(newPalette, parentName);
             	});
-			
 			
         }
 		
 
         /* HELPER FUNCTIONS */
 		
-		function changePalette(paletteName) {
+		function changePalette(paletteName, parentName) {
 			if(paletteName === "---"){
-				var svg = d3.select("#gSPLOM");
+				var svg = d3.select("#gSPLOM_" + parentName);
     			var t = svg.transition().duration(500);
     			t.selectAll("rect")
 					.style("fill", "transparent");
 					
 				//disable other views
 				d3.select("#divHeatmap").node().style.visibility = "hidden";
-				d3.select("#gSPLOM").selectAll("text").style("visibility", "hidden");
+				d3.select("#gSPLOM_" + parentName).selectAll("text").style("visibility", "hidden");
 				
-				var svg = d3.select("#otherAOIs");
+				var svg = d3.select("#otherAOIs_" + parentName);
     			var t = svg.transition().duration(500);
     			t.selectAll("rect")
 					.style("fill", "LightYellow");
-				// d3.select("#otherAOIs").selectAll("rect").style("fill", "LightYellow");
+				// d3.select("#otherAOIs_" + parentName).selectAll("rect").style("fill", "LightYellow");
 			}
 			else if(paletteName === "labels"){
 				//show labels inside cells
-    			d3.select("#gSPLOM")
+    			d3.select("#gSPLOM_" + parentName)
 					.selectAll("text")
         			.style("visibility", "visible");
 			}
@@ -565,7 +584,7 @@
     			var colorScale = d3.scale.quantize()
         			.domain([0.0, 1.0])
         			.range(colors);
-    			var svg = d3.select("#gSPLOM");
+    			var svg = d3.select("#gSPLOM_" + parentName);
     			var t = svg.transition().duration(500);
     			t.selectAll("rect")
         			.style("fill", function(d, i) {
@@ -577,21 +596,19 @@
     			var colorScale = d3.scale.quantize()
         			.domain([0, 1])
         			.range(colors);
-				var svg2 = d3.select("#gArc");
+				var svg2 = d3.select("#gArc_" + parentName);
     			var t2 = svg2.transition().duration(500);
     			t2.selectAll("circle")
         			.style("fill", function(d, i) {
 						var c = colorScale(d.duration)
 						return colorScale(d.duration);
-						//if (d != null) return colorScale(d);
-                		//else return "url(#diagonalHatch)";
         			});
 				
 			}
 		}
 		
 		function changeOpacity(value){
-			var svg = d3.select("#gSPLOM");
+			var svg = d3.select("#gSPLOM_" + currentSettingsID);
     		var t = svg.transition().duration(500);
     		t.selectAll("rect")
 				.style("opacity", value);
@@ -639,7 +656,7 @@
         function highlightSPLOMgrid(circle) {
 
             var cId = circle.attr("id");
-			var groupElement = d3.select("#gCellBorder");
+			var groupElement = d3.select("#gCellBorder_" + currentSettingsID);
 			var groupNodes = groupElement.node();
 			
 			if(cId >= 0){
@@ -659,7 +676,7 @@
 			}else{
 				for(var i = 0; i < matrixNodes.length; i++){
 					if(cId == matrixNodes[i].aoi){
-						var spNode = d3.select("#otherAOIs").node().children[i];
+						var spNode = d3.select("#otherAOIs_" + currentSettingsID).node().children[i];
 						spNode.style
 						var borderX = spNode.x;
 						var borderY = spNode.y;
@@ -681,7 +698,7 @@
 
         function highlightADcircle(grid) {
             var spID = grid.attr("id");
-            var groupElement = d3.select("#gArc");
+            var groupElement = d3.select("#gArc_" + currentSettingsID);
             var groupNodes = groupElement.node();
 
             var gID = -1;
@@ -695,21 +712,24 @@
                 }
             }
 
-            var spNode = groupNodes.children[gID];
-            var cX = spNode.cx;
-            var cY = spNode.cy;
-            var cR = spNode.r;
+			if(gID >= 0){
+				var spNode = groupNodes.children[gID];
+				var cX = spNode.cx;
+				var cY = spNode.cy;
+				var cR = spNode.r;
 
-
-            groupElement.append("circle")
-                    .attr("id", "highlightCircle")
-                    .attr("cx", cX.baseVal.value)
-                    .attr("cy", cY.baseVal.value)
-                    .attr("r", cR.baseVal.value)
-                    .attr("width", imageWidth)
-                    .attr("height", imageHeight)
-                    .style("fill", "none")
-                    .style("stroke", "red")
-                    .style("stroke-width", 3);
+				groupElement.append("circle")
+						.attr("id", "highlightCircle")
+						.attr("cx", cX.baseVal.value)
+						.attr("cy", cY.baseVal.value)
+						.attr("r", cR.baseVal.value)
+						.attr("width", imageWidth)
+						.attr("height", imageHeight)
+						.style("fill", "none")
+						.style("stroke", "red")
+						.style("stroke-width", 3);
+			}else{
+				
+			}
         }
 		
