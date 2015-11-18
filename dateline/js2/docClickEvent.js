@@ -1,0 +1,120 @@
+	$(document).ready(function() {
+
+		$('a.login-window').click(function() {
+			
+			// Getting the variable's value from a link 
+			var loginBox = $(this).attr('href');
+
+			//Fade in the Popup and add close button
+			$(loginBox).fadeIn(300);
+			
+			//Set the center alignment padding + border
+			var popMargTop = ($(loginBox).height() + 24) / 2; 
+			var popMargLeft = ($(loginBox).width() + 24) / 2; 
+			
+			$(loginBox).css({ 
+				'margin-top' : -popMargTop,
+				'margin-left' : -popMargLeft
+			});
+			
+			// Add the mask to body
+			$('body').append('<div id="mask"></div>');
+			$('#mask').fadeIn(300);
+			
+			return false;
+		});
+		
+		// When clicking on the button close or the mask layer the popup closed 
+		$(document).on('click', 'a.close, #mask', function() { 
+		  $('#mask , .login-popup').fadeOut(300 , function() {
+			$('#mask').remove();  
+		}); 
+		return false;
+		});
+	});
+	
+	$('#submitItem').click(function(){
+		var name = groupname.value;
+		
+		createGroup(name);
+		var selectedExp = getSelectedItems("explist");
+		var selectedTrial = getSelectedItems("triallist")
+		var selectedUser = getSelectedItems("userlist");
+		
+		gridster.add_widget('<li class="gs-w" id="li_' + name + '"> <header>Group ' + name + 
+										'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+										'<div id="groupWidget' + name + '"></li>', 16, 20, 6, 1);
+		
+		var newWidget = d3.select("#groupWidget" + name);
+		var tabDiv = newWidget.append("div")
+			.attr("class", "tabswrapper")
+			.append("div")
+			.attr("class", "tabsmain")
+			.append("div")
+			.attr("class", "tabs");
+					
+		var items = d3.select("#userlist").selectAll("option");
+		for(var i = 0; i < items[0].length; i++){
+			if(items[0][i].selected){
+				var ulItem = d3.select("#group" + name)
+					.style("width", "70%")
+					.style("margin", "auto");
+					
+				ulItem.append("li")
+					.style("color", "black")
+					.style("padding-left", "5px")
+					.style("padding-right", "5px")
+					.style("text-align", "center")
+					.style("display", "block")
+					.append("span")
+					.attr("class", "display")
+					.text(items[0][i].value)
+					.style("color", "black")
+					.append("i")
+					.attr("class", "js-remove")
+					.style("color", "red")
+					.style("float", "right")
+					.text("X");
+				
+				if(i === 0){
+					tabDiv.append("a")
+						.attr("href", "#")
+						.attr("data-tab", i)
+						.attr("class", "tab active") //login-window btn btn-default btn-md
+						.text(items[0][i].value);
+
+				}else{
+					tabDiv.append("a")
+						.attr("href", "#")
+						.attr("data-tab", i)
+						.attr("class", "tab") //login-window btn btn-default btn-md
+						.text(items[0][i].value);
+					
+				}
+			}
+		}
+		
+		for(var i = 0; i < items[0].length; i++){
+			if(i === 0){
+				var newVisDiv = tabDiv.append("div")
+					.attr("class", "content active")
+					.attr("id", "visDiv" + i)
+					.attr("data-content", i);
+			
+				var arcData = getData();
+				drawArcDiagram2(arcData, "visDiv" + i);
+			}
+			else{
+				var newVisDiv = tabDiv.append("div")
+					.attr("class", "content")
+					.attr("id", "visDiv" + i)
+					.attr("data-content", i);
+			}
+		}
+		
+		<!-- var visHeight = d3.select("#svgArc_visDiv0").node().style.height; -->
+		<!-- var heightIndex = visHeight / 50; -->
+		<!-- d3.select("#li_" + name).attr("data-sizey", ); -->
+		
+		
+	});	

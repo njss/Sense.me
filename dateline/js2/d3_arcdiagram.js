@@ -231,7 +231,7 @@
 						var t = d.target.aoi;
 						var id = "id-" + s + "_" + t;
 						labelList.push(id);
-                        return id;
+                        return id + currentSettingsID;
                     })
 					.attr("x", function (d, i) {
                         return d.source.x + (d.target.x - d.source.x) / 2;
@@ -255,13 +255,14 @@
 					var n2 = labelList[i].substring(labelList[i].indexOf("_")+1)
 					var reverseI = "id-" + n2 + "_" + n1;
 					if(labelList[i] === labelList[j] || reverseI === labelList[j]){
-						var l = d3.select("#" + labelList[i]);
-						var x = l.node().x.baseVal[0].value;
-						var y = l.node().y.baseVal[0].value;
-						var text = l.text() + ", " + d3.select("#" + labelList[j]).text();
+						var l = d3.select("#" + labelList[i] + currentSettingsID);
+						var text = l.text() + ", " + d3.select("#" + labelList[j] + currentSettingsID).text();
 						
-						d3.select("#" + labelList[j]).text("");
-						d3.select("#" + labelList[i]).text(text);
+						d3.select("#" + labelList[j] + currentSettingsID).text("");
+						d3.select("#" + labelList[i] + currentSettingsID).text(text);
+						
+						// d3.select("#" + labelList[i]).append("tspan").text(d3.select("#" + labelList[j]).text());
+						// d3.select("#" + labelList[j]).text("");
 					}
 				}
 			}
