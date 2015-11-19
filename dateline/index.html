@@ -145,13 +145,16 @@
 					<select id="userlist" size="5" style="width:120px; margin-left:170px" multiple="multiple">
 					</select>
 				</div>
-				<br>
 				<a href='#login-box' class='login-window btn btn-default btn-md' role="button">Add to Group</a>
 	      	</li>
 			
 			<li data-row="4" data-col="1" data-sizex="3" data-sizey="8">
     			<header>Groups</header>
-	    		<br>				
+	    		<br>
+				<select id="slcGroupToDelete">
+					<option value="---">---</option>
+				</select>
+				<button id="btnDeleteGroup" class="submit button" type="button">Delete</button>
 				<div id="multi">
 				</div>
 				
@@ -214,14 +217,14 @@
 	<div id="content">
 		<div class="post">			
 			<div id="login-box" class="login-popup">
-			<a href="#" class="close"><img src="img/closebox.png" class="btn_close" title="Close Window" alt="Close" /></a>
+			<a href="#" id="popupClose" class="close"><img src="img/closebox.png" class="btn_close" title="Close Window" alt="Close" /></a>
 			  <form method="post" class="signin" action="#">
 					<fieldset class="textbox">
 						<label class="groupname">
 							<span>Group</span>
 							<input id="groupname" name="groupname" value="" type="text" autocomplete="on" placeholder="Name">
 						</label>						
-						<button id="submitItem" class="submit button" type="button">Add</button>
+						<button id="btnSubmitItem" class="submit button" type="button">Add</button>
 					</fieldset>
 			  </form>
 			</div>

@@ -33,7 +33,7 @@
 		});
 	});
 	
-	$('#submitItem').click(function(){
+	$('#btnSubmitItem').click(function(){
 		var name = groupname.value;
 		
 		createGroup(name);
@@ -111,10 +111,34 @@
 					.attr("data-content", i);
 			}
 		}
-		
+
+		$("#popupClose").click();
+
+		var select = d3.select(slcGroupToDelete)
+		var optionSelect = select.node();
+		if(optionSelect.childElementCount > 0 && optionSelect[0].value === "---"){
+			optionSelect[0].remove();
+		}
+
+		select.append("option")
+			.attr("value", name)
+			.text(name);
+
+
 		<!-- var visHeight = d3.select("#svgArc_visDiv0").node().style.height; -->
 		<!-- var heightIndex = visHeight / 50; -->
 		<!-- d3.select("#li_" + name).attr("data-sizey", ); -->
 		
 		
-	});	
+	});
+
+	$("#btnDeleteGroup").click(function(){
+		var e = document.getElementById("slcGroupToDelete");
+		var strUser = e.options[e.selectedIndex].value;
+		e.options[e.selectedIndex].remove()
+
+		if(strUser !== "---"){
+			document.getElementById("groupDiv-" + strUser).remove();
+		}
+
+	});

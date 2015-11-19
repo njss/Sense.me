@@ -105,7 +105,7 @@
 				return true;
 		}
 		return false;
-	};
+	}
 	
 	function getIndexAOI(array, value){
 		for(var i = 0; i < array.length; i++){
@@ -133,11 +133,11 @@
 			.attr("id", "groupBox" + name)
 			.text("Group " + name)
 			.style("font-size", "14pt");
-			
-		var liItem = outerDiv.append("ul")
+
+		outerDiv.append("ul")
 			.attr("id", "group" + name)
 			.attr("class", "tile__name");
-		
+
 		var el = document.getElementById('group' + name);
 		var editableList = Sortable.create(el, { group: "omega",
 			filter: '.js-remove',
@@ -146,7 +146,7 @@
 			el && el.parentNode.removeChild(el);
 		  }
 		});
-	};
+	}
 	
 	function getSelectedItems(select){
 		var selectedItems = new Array();
