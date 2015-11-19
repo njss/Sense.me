@@ -25,38 +25,38 @@
 		});
 		
 		// When clicking on the button close or the mask layer the popup closed 
-		$(document).on('click', 'a.close, #mask', function() { 
-		  $('#mask , .login-popup').fadeOut(300 , function() {
-			$('#mask').remove();  
-		}); 
-		return false;
+		$(document).on('click', 'a.close, #mask', function() {
+            $('#mask , .login-popup').fadeOut(300 , function() {
+                $('#mask').remove();
+            });
+		    return false;
 		});
 	});
 	
 	$('#btnSubmitItem').click(function(){
-		var name = groupname.value;
+		var groupName = groupname.value;
 		
-		createGroup(name);
+		createGroup(groupName);
 		var selectedExp = getSelectedItems("explist");
 		var selectedTrial = getSelectedItems("triallist")
 		var selectedUser = getSelectedItems("userlist");
 		
-		gridster.add_widget('<li class="gs-w" id="li_' + name + '"> <header>Group ' + name + 
+		gridster.add_widget('<li class="gs-w" id="li_' + groupName + '"> <header>Group ' + groupName +
 										'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-										'<div id="groupWidget' + name + '"></li>', 16, 20, 6, 1);
+										'<div id="groupWidget' + groupName + '"></li>', 16, 20, 6, 1);
 		
-		var newWidget = d3.select("#groupWidget" + name);
+		var newWidget = d3.select("#groupWidget" + groupName);
 		var tabDiv = newWidget.append("div")
 			.attr("class", "tabswrapper")
 			.append("div")
 			.attr("class", "tabsmain")
 			.append("div")
 			.attr("class", "tabs");
-					
+
 		var items = d3.select("#userlist").selectAll("option");
 		for(var i = 0; i < items[0].length; i++){
 			if(items[0][i].selected){
-				var ulItem = d3.select("#group" + name)
+				var ulItem = d3.select("#group" + groupName)
 					.style("width", "70%")
 					.style("margin", "auto");
 					
@@ -89,26 +89,30 @@
 						.attr("data-tab", i)
 						.attr("class", "tab") //login-window btn btn-default btn-md
 						.text(items[0][i].value);
-					
 				}
 			}
 		}
-		
+
+		// content below links!
+		var isFirst = true;
 		for(var i = 0; i < items[0].length; i++){
-			if(i === 0){
-				var newVisDiv = tabDiv.append("div")
-					.attr("class", "content active")
-					.attr("id", "visDiv" + i)
-					.attr("data-content", i);
-			
-				var arcData = getData();
-				drawArcDiagram2(arcData, "visDiv" + i);
-			}
-			else{
-				var newVisDiv = tabDiv.append("div")
-					.attr("class", "content")
-					.attr("id", "visDiv" + i)
-					.attr("data-content", i);
+			if(items[0][i].selected) {
+				if (isFirst) {
+					var newVisDiv = tabDiv.append("div")
+                        .attr("class", "content active")
+                        .attr("id", "visDiv_"+ groupName + "_" + i)
+                        .attr("data-content", i);
+
+					var arcData = getData();
+					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
+					isFirst = false;
+				}
+				else {
+					var newVisDiv = tabDiv.append("div")
+                        .attr("class", "content")
+                        .attr("id", "visDiv_"+ groupName + "_" + i)
+                        .attr("data-content", i);
+				}
 			}
 		}
 
@@ -121,24 +125,36 @@
 		}
 
 		select.append("option")
-			.attr("value", name)
-			.text(name);
+			.attr("value", groupName)
+			.text(groupName);
 
 
 		<!-- var visHeight = d3.select("#svgArc_visDiv0").node().style.height; -->
 		<!-- var heightIndex = visHeight / 50; -->
-		<!-- d3.select("#li_" + name).attr("data-sizey", ); -->
+		<!-- d3.select("#li_" + groupName).attr("data-sizey", ); -->
 		
 		
 	});
 
 	$("#btnDeleteGroup").click(function(){
-		var e = document.getElementById("slcGroupToDelete");
-		var strUser = e.options[e.selectedIndex].value;
-		e.options[e.selectedIndex].remove()
+        var e = document.getElementById("slcGroupToDelete");
+        var groupName = e.options[e.selectedIndex].value;
+        
+        if(groupName !== "---"){
+            //delete option
+		    e.options[e.selectedIndex].remove()
 
-		if(strUser !== "---"){
-			document.getElementById("groupDiv-" + strUser).remove();
-		}
+            //delete group
+			document.getElementById("groupDiv-" + groupName).remove();
 
+            //delete widget
+            var widgets = $('.gridster li');
+            var rmIndex = -1;
+            for(var i = 0; i < widgets.length; i++){
+                if(widgets[i].id === ("li_" + groupName)){
+                    rmIndex = i;
+                }
+            }
+            gridster.remove_widget($('.gridster li').eq(rmIndex) );
+        }
 	});
