@@ -1,5 +1,4 @@
 		var width = 1140;           // width of arc div
-        var height = 250;           // height of arc div
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radiusArc = 4;             // fixed node radiusArc
@@ -14,8 +13,8 @@
 		
 		var column = 8;
 		var row = 5;
-		var matrixGap = 30
-		
+		var matrixGap = 30;
+
 		//colorbrewer
 		var classesNumber = 10;
 		var matrixNodes = [];
@@ -31,7 +30,7 @@
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
                 .html(function (d) {
-					if(d.aoi < 39){
+					if(d.aoi < 40){
 						return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
 					}else{
 						return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
@@ -49,7 +48,7 @@
                 .attr('class', 'd3-tip')
                 .offset([-10, 0])
                 .html(function (d) {
-					if(d.aoi < 39){
+					if(d.aoi < 40){
 						return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
 					}else{
 						return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
@@ -169,7 +168,9 @@
                     })
                     .on("mouseout", function (d, i) {
                         tip.hide(d);
-                        d3.select("#highlightRect").remove();
+						var parentDiv = d3.select(this).node().parentNode.id;
+						var parentRef = parentDiv.substring(parentDiv.indexOf("_")+1);
+                        d3.select("#highlightRect_" + parentRef).remove();
                     });
         }
 
@@ -300,58 +301,58 @@
 			}
 
             cellGroup = imagesSVG
-                    .append("g")
-                    .attr("id", "gSPLOM_" + currentSettingsID)
-					.attr("x", 0)
-                    .style("textAlign", "center")
-					.append("g")
-					.attr("id", "gCellImages")
-                    .selectAll("image")
-                    .data(nodes)
-                    .enter()
-                    .append("svg:image")
-                    .attr("xlink:href", function (d, i) {
-                        return "img/plots/" + d.name;
-                    })
-                    .attr("class", "image")
-                    .attr("width", imageWidth)
-                    .attr("height", imageHeight)
-                    .attr("x", function (d, i) {
-                        return (i % column) * imageWidth;   // + (i % 4) * matrixGap
-                    })
-                    .attr("y", function (d, i) {
-                        return (Math.floor(i / column) * imageHeight);  // 10 +  ... + Math.floor(i / 4) * 50
-                    });
-					
+				.append("g")
+				.attr("id", "gSPLOM_" + currentSettingsID)
+				.attr("x", 0)
+				.style("textAlign", "center")
+				.append("g")
+				.attr("id", "gCellImages")
+				.selectAll("image")
+				.data(nodes)
+				.enter()
+				.append("svg:image")
+				.attr("xlink:href", function (d, i) {
+					return "img/plots/" + d.name;
+				})
+				.attr("class", "image")
+				.attr("width", imageWidth)
+				.attr("height", imageHeight)
+				.attr("x", function (d, i) {
+					return (i % column) * imageWidth;   // + (i % 4) * matrixGap
+				})
+				.attr("y", function (d, i) {
+					return (Math.floor(i / column) * imageHeight);  // 10 +  ... + Math.floor(i / 4) * 50
+				});
+
 
             var spBorder = d3.select("#gSPLOM_" + currentSettingsID)
-					.append("g")
-					.attr("id", "gCellBorder_" + currentSettingsID)
-					.selectAll("rect")
-                    .data(nodes)
-                    .enter()
-                    .append("rect")
-                    .attr("id", function (d, i) {
-                        return d.aoi;
-                    })
-                    .attr('class', 'image-border')
-                    .attr("x", function (d, i) {
-                        return (i % column) * imageWidth;   // + (i % 4) * matrixGap
-                    })
-                    .attr("y", function (d, i) {
-                        return (Math.floor(i / column) * imageHeight);  // 10 +  ... + Math.floor(i / 4) * 50
-                    })
-                    .attr("height", imageHeight)
-                    .attr("width", imageWidth)
-                    .on("mouseover", function (d, i) {
-                        tip.show(d);
-                        highlightADcircle(d3.select(this));
-                    })
-                    .on("mouseout", function (d, i) {
-                        tip.hide(d);
-                        d3.select("#highlightCircle").remove();
-                    });
-					
+				.append("g")
+				.attr("id", "gCellBorder_" + currentSettingsID)
+				.selectAll("rect")
+				.data(nodes)
+				.enter()
+				.append("rect")
+				.attr("id", function (d, i) {
+					return d.aoi;
+				})
+				.attr('class', 'image-border')
+				.attr("x", function (d, i) {
+					return (i % column) * imageWidth;   // + (i % 4) * matrixGap
+				})
+				.attr("y", function (d, i) {
+					return (Math.floor(i / column) * imageHeight);  // 10 +  ... + Math.floor(i / 4) * 50
+				})
+				.attr("height", imageHeight)
+				.attr("width", imageWidth)
+				.on("mouseover", function (d, i) {
+					tip.show(d);
+					highlightADcircle(d3.select(this));
+				})
+				.on("mouseout", function (d, i) {
+					tip.hide(d);
+					d3.select("#highlightCircle").remove();
+				});
+
 			var spText = d3.select("#gSPLOM_" + currentSettingsID)
 					.append("g")
 					.attr("id", "gCellText")
@@ -655,18 +656,20 @@
 
         // Generates a tooltip for SP grid based on selected ID
         function highlightSPLOMgrid(circle) {
+			var parentDiv = circle.node().parentNode.id;
+			var parentRef = parentDiv.substring(parentDiv.indexOf("_")+1);
 
             var cId = circle.attr("id");
-			var groupElement = d3.select("#gCellBorder_" + currentSettingsID);
+			var groupElement = d3.select("#gCellBorder_" + parentRef);
 			var groupNodes = groupElement.node();
 			
-			if(cId >= 0){
+			if(cId < 40){
 				var spNode = groupNodes.children[cId];
 				var borderX = spNode.x;
 				var borderY = spNode.y;
 
 				groupElement.append("rect")
-						.attr("id", "highlightRect")
+						.attr("id", "highlightRect_" + parentRef)
 						.attr("x", borderX.baseVal.value)
 						.attr("y", borderY.baseVal.value)
 						.attr("width", imageWidth)
@@ -677,13 +680,13 @@
 			}else{
 				for(var i = 0; i < matrixNodes.length; i++){
 					if(cId == matrixNodes[i].aoi){
-						var spNode = d3.select("#otherAOIs_" + currentSettingsID).node().children[i];
+						var spNode = d3.select("#otherAOIs_" + parentRef).node().children[i];
 						spNode.style
 						var borderX = spNode.x;
 						var borderY = spNode.y;
 						
 						groupElement.append("rect")
-							.attr("id", "highlightRect")
+							.attr("id", "highlightRect_" + parentRef)
 							.attr("x", borderX.baseVal.value)
 							.attr("y", borderY.baseVal.value)
 							.attr("width", spNode.width.baseVal.value)
@@ -691,6 +694,7 @@
 							.style("fill", "none")
 							.style("stroke", "red")
 							.style("stroke-width", 4);
+						break;
 					}
 				}
 			}
@@ -698,8 +702,11 @@
         }
 
         function highlightADcircle(grid) {
+			var parentDiv = grid.node().parentNode.id;
+			var parentRef = parentDiv.substring(parentDiv.indexOf("_")+1);
+
             var spID = grid.attr("id");
-            var groupElement = d3.select("#gArc_" + currentSettingsID);
+            var groupElement = d3.select("#gArc_" + parentRef);
             var groupNodes = groupElement.node();
 
             var gID = -1;
@@ -713,24 +720,20 @@
                 }
             }
 
-			if(gID >= 0){
-				var spNode = groupNodes.children[gID];
-				var cX = spNode.cx;
-				var cY = spNode.cy;
-				var cR = spNode.r;
+			var spNode = groupNodes.children[gID];
+			var cX = spNode.cx;
+			var cY = spNode.cy;
+			var cR = spNode.r;
 
-				groupElement.append("circle")
-						.attr("id", "highlightCircle")
-						.attr("cx", cX.baseVal.value)
-						.attr("cy", cY.baseVal.value)
-						.attr("r", cR.baseVal.value)
-						.attr("width", imageWidth)
-						.attr("height", imageHeight)
-						.style("fill", "none")
-						.style("stroke", "red")
-						.style("stroke-width", 3);
-			}else{
-				
-			}
+			groupElement.append("circle")
+					.attr("id", "highlightCircle")
+					.attr("cx", cX.baseVal.value)
+					.attr("cy", cY.baseVal.value)
+					.attr("r", cR.baseVal.value)
+					.attr("width", imageWidth)
+					.attr("height", imageHeight)
+					.style("fill", "none")
+					.style("stroke", "red")
+					.style("stroke-width", 3);
         }
 		
