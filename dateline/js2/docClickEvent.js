@@ -43,7 +43,7 @@
 		
 		gridster.add_widget('<li class="gs-w" id="li_' + groupName + '"> <header>Group ' + groupName +
 										'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-										'<div id="groupWidget' + groupName + '"></li>', 16, 20, 6, 1);
+										'<div id="groupWidget' + groupName + '"></li>', 16, 20, 10, 1);
 		
 		var newWidget = d3.select("#groupWidget" + groupName);
 		var tabDiv = newWidget.append("div")
@@ -79,14 +79,14 @@
 				if(i === 0){
 					tabDiv.append("a")
 						.attr("href", "#")
-						.attr("data-tab", i)
+						.attr("data-tab", i+1)
 						.attr("class", "tab active") //login-window btn btn-default btn-md
 						.text(items[0][i].value);
 
 				}else{
 					tabDiv.append("a")
 						.attr("href", "#")
-						.attr("data-tab", i)
+						.attr("data-tab", i+1)
 						.attr("class", "tab") //login-window btn btn-default btn-md
 						.text(items[0][i].value);
 				}
@@ -101,7 +101,7 @@
 					var newVisDiv = tabDiv.append("div")
                         .attr("class", "content active")
                         .attr("id", "visDiv_"+ groupName + "_" + i)
-                        .attr("data-content", i);
+                        .attr("data-content", i+1);
 
 					var arcData = getData();
 					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
@@ -111,7 +111,7 @@
 					var newVisDiv = tabDiv.append("div")
                         .attr("class", "content")
                         .attr("id", "visDiv_"+ groupName + "_" + i)
-                        .attr("data-content", i);
+                        .attr("data-content", i+1);
 				}
 			}
 		}
@@ -128,12 +128,12 @@
 			.attr("value", groupName)
 			.text(groupName);
 
+        groupname.value = "";
 
 		<!-- var visHeight = d3.select("#svgArc_visDiv0").node().style.height; -->
 		<!-- var heightIndex = visHeight / 50; -->
 		<!-- d3.select("#li_" + groupName).attr("data-sizey", ); -->
-		
-		
+
 	});
 
 	$("#btnDeleteGroup").click(function(){

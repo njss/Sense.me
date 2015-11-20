@@ -186,11 +186,18 @@
 			//nodes
 			if(duplicatesAOIs.length > 0 ){					
 				if(!available(duplicatesAOIs, aoiInt)){
-					var randomImage = Math.floor((Math.random() * 10) + 1);
+					var randomImage;
+					if(aoiInt < 40){
+						randomImage = Math.floor((Math.random() * 10) + 1)  + ".png";
+					} else{
+						if(aoiInt === 40) randomImage = "sketch";
+						if(aoiInt === 41) randomImage = "setting";
+						if(aoiInt === 42) randomImage = "offscreen";
+					}
 					var randomGroup = Math.floor((Math.random() * 3) + 1); 
 					var randomValue = Math.floor((Math.random() * 3) + 1); 
 					nodes.push({
-						"name" : randomImage + ".png",
+						"name" : randomImage,
 						"aoi" : aoiInt,
 						"group" : randomGroup,
 						"value" : randomValue,

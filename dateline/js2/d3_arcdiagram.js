@@ -230,7 +230,7 @@
 					.attr("id", function (d, i) {
 						var s = d.source.aoi;
 						var t = d.target.aoi;
-						var id = "id-" + s + "_" + t;
+						var id = "id" + i + "-" + s + "_" + t;
 						labelList.push(id);
                         return id + currentSettingsID;
                     })
@@ -242,7 +242,7 @@
                         return yfixed + (xdist/2) + 10;
                     })
 					.text(function (d, i) {
-                        return i +1;
+                        return i+1;
                     })
 					.attr("font-family", "sans-serif")
 					.attr("font-size", "10px")
@@ -252,18 +252,38 @@
 			//treat duplicates
 			for(var i = 0; i < labelList.length -1; i++){
 				for(var j = i+1; j < labelList.length; j++){
-					var n1 = labelList[i].substring(3, labelList[i].indexOf("_")) //"id-" -> 3
-					var n2 = labelList[i].substring(labelList[i].indexOf("_")+1)
-					var reverseI = "id-" + n2 + "_" + n1;
-					if(labelList[i] === labelList[j] || reverseI === labelList[j]){
-						var l = d3.select("#" + labelList[i] + currentSettingsID);
-						var text = l.text() + ", " + d3.select("#" + labelList[j] + currentSettingsID).text();
-						
-						d3.select("#" + labelList[j] + currentSettingsID).text("");
-						d3.select("#" + labelList[i] + currentSettingsID).text(text);
-						
-						// d3.select("#" + labelList[i]).append("tspan").text(d3.select("#" + labelList[j]).text());
-						// d3.select("#" + labelList[j]).text("");
+					var tmp = labelList[i].substring(labelList[i].indexOf("-")+1);
+					var n1 = tmp.substring(0, tmp.indexOf("_"));
+					var n2 = tmp.substring(tmp.indexOf("_")+1);
+					var check = n1 + "_" + n2;
+					var reverseI = n2 + "_" + n1;
+
+					var tmp2 = labelList[j].substring(labelList[j].indexOf("-")+1);
+					var n1j = tmp2.substring(0, tmp2.indexOf("_"));
+					var n2j = tmp2.substring(tmp2.indexOf("_")+1);
+					var target = n1j + "_" + n2j;
+
+					if(check === target || reverseI === target){
+						var valI = d3.select("#" + labelList[i] + currentSettingsID).text();
+						var valJ = d3.select("#" + labelList[j] + currentSettingsID).text();
+
+						if(valI.length > 0 && valJ.length > 0) {
+							var text;
+							if (valI !== valJ) {
+								text = valI + "," + valJ;
+								d3.select("#" + labelList[j] + currentSettingsID).text("");
+								d3.select("#" + labelList[i] + currentSettingsID).text(text);
+							} else {
+							}
+						}
+
+						//var valI = d3.select("#" + labelList[i] + currentSettingsID).text();
+						//var valJ = d3.select("#" + labelList[j] + currentSettingsID).text();
+                        //
+						//if(valI.length > 0 && valJ.length > 0) {
+						//	d3.select("#" + labelList[i] + currentSettingsID).append("tspan").attr("dx", "-1em").attr("dy", "1.2em").text(d3.select("#" + labelList[j] + currentSettingsID).text());
+						//	d3.select("#" + labelList[j] + currentSettingsID).text("");
+						//}
 					}
 				}
 			}
