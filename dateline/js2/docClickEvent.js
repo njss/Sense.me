@@ -79,14 +79,14 @@
 				if(i === 0){
 					tabDiv.append("a")
 						.attr("href", "#")
-						.attr("data-tab", i+1)
+						.attr("data-tab", i+6)
 						.attr("class", "tab active") //login-window btn btn-default btn-md
 						.text(items[0][i].value);
 
 				}else{
 					tabDiv.append("a")
 						.attr("href", "#")
-						.attr("data-tab", i+1)
+						.attr("data-tab", i+6)
 						.attr("class", "tab") //login-window btn btn-default btn-md
 						.text(items[0][i].value);
 				}
@@ -101,7 +101,7 @@
 					var newVisDiv = tabDiv.append("div")
                         .attr("class", "content active")
                         .attr("id", "visDiv_"+ groupName + "_" + i)
-                        .attr("data-content", i+1);
+                        .attr("data-content", i+6);
 
 					var arcData = getData();
 					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
@@ -111,7 +111,7 @@
 					var newVisDiv = tabDiv.append("div")
                         .attr("class", "content")
                         .attr("id", "visDiv_"+ groupName + "_" + i)
-                        .attr("data-content", i+1);
+                        .attr("data-content", i+6);
 				}
 			}
 		}
