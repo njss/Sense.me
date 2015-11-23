@@ -100,8 +100,7 @@
 				if (isFirst) {
 					var newVisDiv = tabDiv.append("div")
                         .attr("class", "content active")
-                        .attr("id", "visDiv_"+ groupName + "_" + i)
-                        .attr("data-content", i+6);
+                        .attr("id", "visDiv_"+ groupName + "_" + i);
 
 					var arcData = getData();
 					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
@@ -109,9 +108,9 @@
 				}
 				else {
 					var newVisDiv = tabDiv.append("div")
+						.attr("data-content", i+6)
                         .attr("class", "content")
-                        .attr("id", "visDiv_"+ groupName + "_" + i)
-                        .attr("data-content", i+6);
+                        .attr("id", "visDiv_"+ groupName + "_" + i);
 				}
 			}
 		}
