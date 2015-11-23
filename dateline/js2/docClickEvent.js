@@ -38,13 +38,23 @@
 		
 		createGroup(groupName);
 		var selectedExp = getSelectedItems("explist");
-		var selectedTrial = getSelectedItems("triallist")
+		var selectedTrial = getSelectedItems("triallist");
 		var selectedUser = getSelectedItems("userlist");
-		
-		gridster.add_widget('<li class="gs-w" id="li_' + groupName + '"> <header>Group ' + groupName +
-										'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-										'<div id="groupWidget' + groupName + '"></li>', 16, 20, 10, 1);
-		
+
+		//gridster.add_widget('<li > <header>Group ' + groupName +
+		//								'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+		//								'<div id="groupWidget' + groupName + '"></li>', 16, 20, 10, 1);
+
+		var widgets = [
+			['<li> <header>Group ' + groupName +
+			'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+			'<div id="groupWidget' + groupName + '"></div></li>', 16, 20, 10, 1]
+		];
+
+		$.each(widgets, function(i, widget) {
+			gridster.add_widget.apply(gridster, widget);
+		});
+
 		var newWidget = d3.select("#groupWidget" + groupName);
 		var tabDiv = newWidget.append("div")
 			.attr("class", "tabswrapper")
@@ -100,11 +110,12 @@
 				if (isFirst) {
 					var newVisDiv = tabDiv.append("div")
                         .attr("class", "content active")
-                        .attr("id", "visDiv_"+ groupName + "_" + i);
+                        .attr("id", "visDiv_"+ groupName + "_" + i)
+                        .attr("data-content", i+6);
+					//var arcData = getData();
+					//drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
+					//isFirst = false;
 
-					var arcData = getData();
-					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
-					isFirst = false;
 				}
 				else {
 					var newVisDiv = tabDiv.append("div")
@@ -116,8 +127,21 @@
 		}
 
 		$("#popupClose").click();
+		$(function () {
+			$('[data-tab]').on('click', function (e) {
+				$(this)
+						.addClass('active')
+						.siblings('[data-tab]')
+						.removeClass('active')
+						.siblings('[data-content=' + $(this).data('tab') + ']')
+						.addClass('active')
+						.siblings('[data-content]')
+						.removeClass('active');
+				e.preventDefault();
+			});
+		});
 
-		var select = d3.select(slcGroupToDelete)
+		var select = d3.select(slcGroupToDelete);
 		var optionSelect = select.node();
 		if(optionSelect.childElementCount > 0 && optionSelect[0].value === "---"){
 			optionSelect[0].remove();
