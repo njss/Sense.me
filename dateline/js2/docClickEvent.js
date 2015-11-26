@@ -91,6 +91,9 @@
 						.attr("href", "#")
 						.attr("data-tab", i+6)
 						.attr("class", "tab active") //login-window btn btn-default btn-md
+						//.on("click", function (d, i) {
+						//	myClickHandler(this);
+						//})
 						.text(items[0][i].value);
 
 				}else{
@@ -98,6 +101,9 @@
 						.attr("href", "#")
 						.attr("data-tab", i+6)
 						.attr("class", "tab") //login-window btn btn-default btn-md
+						//.on("click", function (d, i) {
+						//	myClickHandler(this);
+						//})
 						.text(items[0][i].value);
 				}
 			}
@@ -112,16 +118,17 @@
                         .attr("class", "content active")
                         .attr("id", "visDiv_"+ groupName + "_" + i)
                         .attr("data-content", i+6);
-					//var arcData = getData();
-					//drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
-					//isFirst = false;
-
+					var arcData = getData();
+					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
+					isFirst = false;
 				}
 				else {
 					var newVisDiv = tabDiv.append("div")
 						.attr("data-content", i+6)
                         .attr("class", "content")
                         .attr("id", "visDiv_"+ groupName + "_" + i);
+					var arcData = getData();
+					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
 				}
 			}
 		}
@@ -181,3 +188,14 @@
             gridster.remove_widget($('.gridster li').eq(rmIndex) );
         }
 	});
+
+	//function myClickHandler(e) {
+	//	var groupName = e.offsetParent.parentNode.id;
+	//	groupName = groupName.substring(11);	//groupWidget_
+	//	var index = parseInt(e.text.substring(4));		//user_
+	//	index = index-1;
+    //
+	//	var element = document.getElementById('gArc_visDiv_' + groupName + '_' + index);
+	//	var divHeight = element.getBoundingClientRect().height + 30;
+	//	d3.select("#svgArc_visDiv_"  + groupName + '_' + index).node().style.height = divHeight;
+	//}

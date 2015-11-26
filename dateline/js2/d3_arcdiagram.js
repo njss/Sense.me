@@ -1,4 +1,5 @@
 		var width = 1140;           // width of arc div
+		var height = 620;
         var margin = 50;            // amount of margin around plot area
         var pad = margin / 2;       // actual padding amount
         var radiusArc = 4;             // fixed node radiusArc
@@ -77,8 +78,8 @@
             var svg = divArc
                     .append("svg")
                     .attr("id", "svgArc_"  + currentSettingsID)
-                    .attr("width", width)
-                    .style("height", "100%")
+                    .style("width", width)
+                    .style("height", height)
                     .style("border", "1px solid black")
 					.style("margin", "auto"); 
 
@@ -106,8 +107,10 @@
 			
 			// reset height
 			var element = document.getElementById('gArc_' + currentSettingsID);
-			var divHeight = element.getBoundingClientRect().height + 30;
-			d3.select("#svgArc_" + currentSettingsID).node().style.height = divHeight;
+			var gHeight = element.getBoundingClientRect().height + 30;
+			var svgHeight = d3.select("#svgArc_" + currentSettingsID).node().height.baseVal.value;
+			if((svgHeight - gHeight) > 100)
+				d3.select("#svgArc_" + currentSettingsID).node().style.height = gHeight;
 
             // draw scatterplot matrix
             drawSPmatrix(graph.nodes);
@@ -399,6 +402,7 @@
 			var element = document.getElementById('gSPLOM_' + currentSettingsID); //replace elementId with your element's Id.
 			var rect = element.getBoundingClientRect();
 			var offScreenItemWidth = rect.width / 3;
+			offScreenItemWidth = 400; //bug: > 2 users -> tab error!
 
 			var offscreen = d3.select("#gSPLOM_" + currentSettingsID)
 				.append("g")
