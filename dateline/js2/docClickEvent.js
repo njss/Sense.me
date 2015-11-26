@@ -118,7 +118,7 @@
                         .attr("class", "content active")
                         .attr("id", "visDiv_"+ groupName + "_" + i)
                         .attr("data-content", i+6);
-					var arcData = getData();
+					var arcData = getData(finalDataset);
 					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
 					isFirst = false;
 				}
@@ -127,7 +127,7 @@
 						.attr("data-content", i+6)
                         .attr("class", "content")
                         .attr("id", "visDiv_"+ groupName + "_" + i);
-					var arcData = getData();
+					var arcData = getData(finalDataset);
 					drawArcDiagram2(arcData, "visDiv_"+ groupName + "_" + i);
 				}
 			}
@@ -187,6 +187,78 @@
             }
             gridster.remove_widget($('.gridster li').eq(rmIndex) );
         }
+	});
+
+	var dateSteps = [
+		"05.11.2015",
+		"06.11.2015",
+		"07.11.2015",
+		"08.11.2015",
+		"09.11.2015",
+		"10.11.2015",
+		"11.11.2015",
+		"12.11.2015",
+		"13.11.2015",
+		"14.11.2015",
+		"15.11.2015",
+		"16.11.2015",
+		"17.11.2015",
+		"18.11.2015",
+		"19.11.2015",
+		"20.11.2015"
+	];
+
+	$(function() {
+		$( "#dateSlider" ).slider({
+			range: true,
+			min: 0,
+			max: 15,
+			values: [0, 15],
+			slide: function( event, ui ) {
+				$( "#valueDate" ).text(dateSteps[ui.values[0]] + " - " + dateSteps[ui.values[1]] );
+			}
+		});
+	});
+
+	var timeSteps = [
+		"00",
+		"01",
+		"02",
+		"03",
+		"04",
+		"05",
+		"06",
+		"07",
+		"08",
+		"09",
+		"10",
+		"11",
+		"12",
+		"13",
+		"14",
+		"15",
+		"16",
+		"17",
+		"18",
+		"19",
+		"20",
+		"21",
+		"22",
+		"23",
+		"24"
+	];
+
+	$(function() {
+		$( "#timeSlider" ).slider({
+			range: true,
+			min: 0,
+			max: 23,
+			values: [0, 23],
+			slide: function( event, ui ) {
+				$( "#valueTime" ).text(timeSteps[ui.values[0]] + ":00 - " + timeSteps[ui.values[1]] +":00");
+				filterData(parseInt(timeSteps[ui.values[0]]), parseInt(timeSteps[ui.values[1]]));
+			}
+		});
 	});
 
 	//function myClickHandler(e) {

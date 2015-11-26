@@ -160,16 +160,16 @@
 	}
 	
 	
-	function getData(){
+	function getData(data){
 		var nodes = [];
 		var links = [];
 		var duplicatesAOIs = [];
 		var lastLink = -1;
 
-		for(var i = 0; i < finalDataset.length; i++){
-			var aoi = finalDataset[i].aoi;
+		for(var i = 0; i < data.length; i++){
+			var aoi = data[i].aoi;
 			var aoiInt = parseInt(aoi.substring(3));
-			var duration = parseFloat(finalDataset[i].duration);
+			var duration = parseFloat(data[i].duration);
 			
 			//links
 			if(i > 0){
@@ -223,11 +223,39 @@
 				duplicatesAOIs.push(aoiInt);
 			}
 		}
-		var data = {
+		var newData = {
 			"nodes" : nodes,
 			"links" : links
 		};
-		return data;
+		return newData;
+	}
+
+	function filterData(startTime, endTime){
+		var newData = [];
+		for(var i = 0; i < finalDataset.length; i++){
+			var dateTime = finalDataset[i].datetime;
+			var date = dateTime.substring(0, dateTime.indexOf(" "));
+			var time = dateTime.substring(date.length+1, dateTime.indexOf(":")); //lastIndexOf(":")
+
+			if(startTime < parseInt(time) && parseInt(time) < endTime){
+				newData.push(finalDataset[i]);
+			}
+		}
+
+		//if(newData.length !== finalDataset.length){
+			var filteredArcData = getData(newData);
+
+			//update viz
+			var groups = d3.select("#multi").node();
+			for(var i = 0; i < groups.childElementCount; i++){
+				groupID = groups.children[i].id;
+				groupName = groupID.substring(9);
+				$("#visDiv_" + groupName + "_" + i).empty();
+				drawArcDiagram2(filteredArcData, "visDiv_" + groupName + "_" + i);
+			}
+			//updateArcDiagram(filteredArcDate);
+		//}
+		return newData;
 	}
 	
 	

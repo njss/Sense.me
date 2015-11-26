@@ -43,6 +43,11 @@ input[type=number] {
 	text-align: center;
 }
 
+.myTitle {
+	font-size: 24px;
+	font-weight: 100;
+}
+
 .horizontal-style{
 	float: left;
 	padding: 10px;

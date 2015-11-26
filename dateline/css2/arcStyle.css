@@ -80,11 +80,12 @@ path {
 .ui-slider-horizontal {
     height: 8px;
     width: 200px;
+    position: relative;
 }
 .ui-slider .ui-slider-handle {
     height: 15px;
     width: 5px;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .heatmap{background:rgba(0,0,0,.03); border:1px solid black;}

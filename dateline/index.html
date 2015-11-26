@@ -99,6 +99,7 @@
 			// this function will be called when a node is clicked
 			alert(d.id);
 		}
+
 		window.onload = function() {
 			loadchart("svgContent", "data/demodata.json");
 		};
@@ -112,7 +113,7 @@
 <body>
 	<div class="gridster">
 	    <ul>
-	    	<li data-row="1" data-col="1" data-sizex="16" data-sizey="5">
+	    	<li data-row="1" data-col="1" data-sizex="16" data-sizey="2">
 	    		<header>Main Toolbar</header>
 	    		1
 	      	</li>
@@ -129,26 +130,23 @@
     			<header>Attributes</header>
 				<br>
 	    		<div id="experimentMenu">
-					<div id="title" style="float:left">Experiments</div>
-					<select id="explist" size="5" style="width:120px; margin-left:170px;" multiple="multiple">
-					</select>
+					<div class="myTitle" style="float:left">Experiments</div>
+					<select id="explist" size="5" style="width:120px; margin-left:170px;" multiple="multiple"></select>
 				</div>
 				<br>
-	    		<div id="experimentMenu">
-					<div id="title" style="float:left">Trials</div>
-					<select id="triallist" size="5" style="width:120px; margin-left:170px" multiple="multiple">
-					</select>
+	    		<div id="trialsMenu">
+					<div class="myTitle" style="float:left">Trials</div>
+					<select id="triallist" size="5" style="width:120px; margin-left:170px" multiple="multiple"></select>
 				</div>
 				<br>
 	    		<div id="userMenu">
-					<div id="title" style="float:left">Users</div>
-					<select id="userlist" size="5" style="width:120px; margin-left:170px" multiple="multiple">
-					</select>
+					<div class="myTitle" style="float:left">Users</div>
+					<select id="userlist" size="5" style="width:120px; margin-left:170px" multiple="multiple"></select>
 				</div>
 				<a href='#login-box' class='login-window btn btn-default btn-md' role="button">Add to Group</a>
 	      	</li>
 			
-			<li data-row="4" data-col="1" data-sizex="3" data-sizey="8">
+			<li data-row="4" data-col="1" data-sizex="3" data-sizey="7">
     			<header>Groups</header>
 	    		<br>
 				<select id="slcGroupToDelete">
@@ -158,6 +156,21 @@
 				<div id="multi"></div>
 				
 	      	</li>
+			<li data-row="5" data-col="1" data-sizex="3" data-sizey="5">
+				<header>Settings</header>
+				<br>
+				<div id="divSettingDate" style="height: 30px">
+					<div class="myTitle" style="float:left">Date:</div>
+					<text id="valueDate" style="fill: rgb(0, 70, 105); font-weight: bold;">05.11.2015 - 20.11.2015</text>
+					<div id="dateSlider" class="slider" style="float:right; margin-right:25px"></div>
+				</div>
+				<br>
+				<div id="divSettingTime" style="height: 30px">
+					<div class="myTitle" style="float:left">Time:</div>
+					<text id="valueTime" style="fill: rgb(0, 70, 105); font-weight: bold;">00:00 - 24:00</text>
+					<div id="timeSlider" class="slider" style="float:right; margin-right:25px"></div>
+				</div>
+			</li>
 	      	<li data-row="2" data-col="2" data-sizex="13" data-sizey="4">
 	      		<header>Group1</header>
 					<div class="tabswrapper">
