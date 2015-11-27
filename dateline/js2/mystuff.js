@@ -96,6 +96,7 @@
 				}
 			}
 		}
+
 	}
 	
 	
@@ -250,10 +251,15 @@
 			for(var i = 0; i < groups.childElementCount; i++){
 				groupID = groups.children[i].id;
 				groupName = groupID.substring(9);
-				$("#visDiv_" + groupName + "_" + i).empty();
-				drawArcDiagram2(filteredArcData, "visDiv_" + groupName + "_" + i);
+
+				var items = d3.select("#userlist").selectAll("option");
+				for(var j = 0; j < items[0].length; j++) {
+					if (items[0][j].selected) {
+						$("#visDiv_" + groupName + "_" + j).empty();
+						drawArcDiagram2(filteredArcData, "visDiv_" + groupName + "_" + j);
+					}
+				}
 			}
-			//updateArcDiagram(filteredArcDate);
 		//}
 		return newData;
 	}

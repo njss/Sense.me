@@ -48,7 +48,7 @@
 		var widgets = [
 			['<li> <header>Group ' + groupName +
 			'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-			'<div id="groupWidget' + groupName + '"></div></li>', 16, 20, 10, 1]
+			'<div id="groupWidget' + groupName + '"></div></li>', 13, 20, 4, 10]
 		];
 
 		$.each(widgets, function(i, widget) {
@@ -132,6 +132,50 @@
 				}
 			}
 		}
+
+		var widgets2 = [
+			['<li> <header>Group ' + groupName + ' Overview' +
+			'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+			'<div id="groupWidget' + groupName + '_overview"></div></li>', 13, 7, 4, 11]
+		];
+
+		$.each(widgets2, function(i, widget) {
+			gridster.add_widget.apply(gridster, widget);
+		});
+
+		var newWidget2 = d3.select("#groupWidget" + groupName + "_overview");
+		var tabDiv2 = newWidget2.append("div")
+				.attr("class", "wrapper")
+				.append("div")
+				.attr("class", "groupChart")
+				.append("svg")
+				.attr("id", "svgMatch2")
+				.style("width", "600px")
+				.style("height", "350px")
+				.append("defs")
+				.append("marker")
+				.attr("id", "Triangle2")
+				.attr("viewBox", "0 0 10 10")
+				.attr("refX", "0")
+				.attr("refY", "5")
+				.attr("markerUnits", "strokeWidth")
+				.attr("markerWidth", "4")
+				.attr("markerHeight", "3")
+				.attr("orient", "auto")
+				.append("path")
+				.attr("d", "M 0 0 L 10 5 L 0 10 z")
+				.style("fill", "#000000");
+
+
+		d3.json('data/playergrid.json', function(err, data) {
+			aoiPosData2 = data;
+			if(!--remaining2) drawChart("groupChart");
+		});
+
+		d3.json('data/matches.json', function(err, data) {
+			matchData2 = data;
+			if(!--remaining2) drawChart("groupChart");
+		});
 
 		$("#popupClose").click();
 		$(function () {
