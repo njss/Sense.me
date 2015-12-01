@@ -31,6 +31,22 @@ input[type=number] {
 	width: 55px;
 }
 
+.radio-div input[type="radio"] {
+	display:none;
+}
+
+.radio-div label {
+	display:inline-block;
+	background-color:#ddd;
+	padding:4px 11px;
+	font-family:Arial;
+	font-size:16px;
+}
+
+.radio-div input[type="radio"]:checked + label {
+	color:red;
+}
+
 /* .edit{
 	border: none;
 }

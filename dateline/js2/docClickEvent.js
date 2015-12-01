@@ -136,22 +136,23 @@
 		var widgets2 = [
 			['<li> <header>Group ' + groupName + ' Overview' +
 			'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-			'<div id="groupWidget' + groupName + '_overview"></div></li>', 13, 7, 4, 11]
+			'<div id="groupWidget' + groupName + '_overview"></div></li>', 13, 8, 4, 11]
 		];
 
 		$.each(widgets2, function(i, widget) {
 			gridster.add_widget.apply(gridster, widget);
 		});
 
-		var newWidget2 = d3.select("#groupWidget" + groupName + "_overview");
-		var tabDiv2 = newWidget2.append("div")
+		var widget2 = d3.select("#groupWidget" + groupName + "_overview");
+		var chartDiv2 = widget2.append("div")
 				.attr("class", "wrapper")
 				.append("div")
-				.attr("class", "groupChart")
-				.append("svg")
+				.attr("class", "groupChart");
+
+		chartDiv2.append("svg")
 				.attr("id", "svgMatch2")
 				.style("width", "600px")
-				.style("height", "350px")
+				.style("height", "410px")
 				.append("defs")
 				.append("marker")
 				.attr("id", "Triangle2")
@@ -166,16 +167,41 @@
 				.attr("d", "M 0 0 L 10 5 L 0 10 z")
 				.style("fill", "#000000");
 
+		var checkbox = chartDiv2.append("div")
+				.attr("id", "divCheckbox")
+				.attr("class", "radio-div");
 
-		d3.json('data/playergrid.json', function(err, data) {
-			aoiPosData2 = data;
-			if(!--remaining2) drawChart("groupChart");
+		checkbox.append("input")
+				.attr("type", "checkbox")
+				.attr("id", "check1");
+		checkbox.append("label")
+				.attr("for", "check1")
+				.text("In");
+
+		checkbox.append("input")
+				.attr("type", "checkbox")
+				.attr("id", "check2");
+		checkbox.append("label")
+				.attr("for", "check2")
+				.text("Out");
+
+		$(function() {
+			//$( "#check1" ).button();
+			//$( "#check2" ).button();
+			$("#divCheckbox").buttonset();
 		});
 
-		d3.json('data/matches.json', function(err, data) {
-			matchData2 = data;
-			if(!--remaining2) drawChart("groupChart");
-		});
+
+		var groupVisData = getData(finalDataset);
+		drawGroupChart("groupChart", groupVisData);
+		//d3.json('data/playergrid.json', function(err, data) {
+		//	aoiPosData2 = data;
+		//	if(!--remaining2) drawGroupChart("groupChart");
+		//});
+		//d3.json('data/matches.json', function(err, data) {
+		//	matchData2 = data;
+		//	if(!--remaining2) drawGroupChart("groupChart");
+		//});
 
 		$("#popupClose").click();
 		$(function () {

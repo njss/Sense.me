@@ -41,14 +41,6 @@ function arcSVG(mx0, my0, rx, ry, xrot, larc, sweep, mx1, my1) {
     return 'M' + mx0 + ',' + my0 + ' A' + rx + ',' + ry + ' ' + xrot + ' ' + larc + ',' + sweep + ' ' + mx1 + ',' + my1;
 }
 
-function surname(d) {
-    return d.name.split(' ')[0];
-}
-
-function fullname(d) {
-    return d.name;
-}
-
 function nameId(n) {
     return n.replace(/[\., ]/g, '');
 }
@@ -79,11 +71,24 @@ function drawArrows() {
     });
 }
 
-function playerOver2(d) {
+function highlightNode(d) {
 
     // Render arrows
     var m = _.filter(matchData2, function (v) {
-        return v.target === d.name; //|| v.source === d.name;
+        var cbIn = false;
+        var cbOut = false;
+
+        var cbxs = d3.select("#divCheckbox").selectAll("label")[0];
+        cbIn = cbxs[0].getAttribute("aria-pressed");
+        cbOut = cbxs[1].getAttribute("aria-pressed");
+
+        if(cbIn === "true" && cbOut === "true"){
+            return v.source === d.aoi || v.target === d.aoi;
+        }else if(cbOut === "true"){
+            return v.source === d.aoi;
+        }else if(cbIn === "true"){
+            return v.target === d.aoi;
+        }
     });
 
     var topMatches = d3.select('#svgMatch2 g.top-matches')
@@ -99,7 +104,8 @@ function playerOver2(d) {
 
     topMatches
         .attr('d', function (d, i) {
-            return arcSVG(d.targetX, d.targetY, 800, 800, 0, 0, 1, d.sourceX, d.sourceY);
+            //return arcSVG(d.targetX, d.targetY, 800, 800, 0, 0, 1, d.sourceX, d.sourceY);
+            return arcSVG(d.sourceX, d.sourceY, 800, 800, 0, 0, 1, d.targetX, d.targetY);
         })
         .style("stroke-width", function(d){
             return Math.floor((Math.random() * 9) + 1);
@@ -112,12 +118,12 @@ function playerOver2(d) {
 
     // Highlight player
     d3.select('.players').selectAll('circle').style("fill", function (d, i) {
-        //colors!!!
         var colval = i * (1 / (numColors - 1));
         return scale(colval).hex();
     });
 
-    d3.select(this).style('fill', '#225D23');
+    //d3.select(this).style('stoke', "black");
+    //d3.select(this).style('fill', 'red');
 
 }
 
@@ -128,8 +134,11 @@ function Create2DArray(rows, columns) {
     return Brady;
 }
 
-function drawChart(div) {
+function drawGroupChart(div, data) {
     chartDiv = div;
+    aoiPosData2 = data.nodes;
+    matchData2 = data.links;
+
     var matches = d3.select('#svgMatch2')
         .append('g')
         .classed('matches', true);
@@ -143,7 +152,6 @@ function drawChart(div) {
         .data(aoiPosData2)
         .enter()
         .append('g')
-        //.sort(function(a, b) {return d3.ascending(a.name, b.name);})
         .attr('id', function (d) {
             return 'player-' + nameId(d.name);
         })
@@ -151,7 +159,8 @@ function drawChart(div) {
         .attr('transform', function (d, i) {
             var row = Math.floor(i / cols), col = i % cols;
             var x = 2 * col * (radius + padding), y = 2 * row * (radius + padding);
-            aoiPos2[d.name] = {x: x, y: y};
+            //aoiPos2[d.name] = {x: x, y: y};
+            aoiPos2[d.aoi] = {x: x, y: y};
             return translateSVG(x, y);
         });
 
@@ -159,27 +168,29 @@ function drawChart(div) {
 
     players.append('circle')
         .attr('r', radius)
-        .on('mouseover', playerOver2);
+        .attr("class", "overviewCircle")
+        .on('mouseover', highlightNode);
 
 
     var arr = Create2DArray(40, 2);
 
     players.append('text')
         .text(function (d, i) {
-            arr[i][0] = d.totalDuration;
-            arr[i][1] = d.totalDuration;
-            return fullname(d);
+            //arr[i][0] = d.totalDuration;
+            //arr[i][1] = d.totalDuration;
+            return d.aoi;
 
         }) //((.slice(0, 10)))
         .classed('name', true)
         .attr('y', '0.2em');
 
-    players.selectAll('circle').style("fill", function (d, i) {
-        //colors!!!
-        var colval = i * (1 / (numColors - 1));
-        return scale(colval).hex();
-
-    });
+    //players.selectAll('circle').style("fill", "#225D23");
+    //players.selectAll('circle').style("fill", function (d, i) {
+    //    //colors!!!
+    //    var colval = i * (1 / (numColors - 1));
+    //    return scale(colval).hex();
+    //
+    //});
 
     // Front layer for matches of selected player
     var topMatches = d3.select('#svgMatch2')

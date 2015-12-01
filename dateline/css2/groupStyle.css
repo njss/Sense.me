@@ -1,4 +1,14 @@
 
+.overviewCircle{
+	fill: #225D23;
+}
+
+.overviewCircle:hover{
+	stroke: red;
+	stroke-width: 3;
+}
+
+
 ul {
 	margin: 0;
 	padding: 0;
