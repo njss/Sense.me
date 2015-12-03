@@ -122,182 +122,198 @@
 	
 </head>
 <body>
-	<div class="gridster">
-	    <ul>
-	    	<li data-row="1" data-col="1" data-sizex="16" data-sizey="2">
-	    		<header>Main Toolbar</header>
-	    		1
-	      	</li>
-	      	<li data-row="2" data-col="1" data-sizex="3" data-sizey="4">
-	      		<header>File Operations</header>
-	      		2
-				<div id="title"><span class="large">AOIs Links</span></div>
-				<div id="output">
-					<select id="datasetslist">
-					</select>				
-				</div>
-			</li>
-    		<li data-row="3" data-col="1" data-sizex="3" data-sizey="7">
-    			<header>Attributes</header>
-				<br>
-	    		<div id="experimentMenu">
-					<div class="myTitle" style="float:left">Experiments</div>
-					<select id="explist" size="5" style="width:120px; margin-left:170px;" multiple="multiple"></select>
-				</div>
-				<br>
-	    		<div id="trialsMenu">
-					<div class="myTitle" style="float:left">Trials</div>
-					<select id="triallist" size="5" style="width:120px; margin-left:170px" multiple="multiple"></select>
-				</div>
-				<br>
-	    		<div id="userMenu">
-					<div class="myTitle" style="float:left">Users</div>
-					<select id="userlist" size="5" style="width:120px; margin-left:170px" multiple="multiple"></select>
-				</div>
-				<a href='#login-box' class='login-window btn btn-default btn-md' role="button">Add to Group</a>
-	      	</li>
-			
-			<li data-row="4" data-col="1" data-sizex="3" data-sizey="7">
-    			<header>Groups</header>
-	    		<br>
-				<select id="slcGroupToDelete">
-					<option value="---">---</option>
-				</select>
-				<button id="btnDeleteGroup" class="submit button" type="button">Delete</button>
-				<div id="multi"></div>
-				
-	      	</li>
-			<li data-row="5" data-col="1" data-sizex="3" data-sizey="5">
-				<header>Settings</header>
-				<br>
-				<div id="divSettingDate" style="height: 30px">
-					<div class="myTitle" style="float:left">Date:</div>
-					<text id="valueDate" style="fill: rgb(0, 70, 105); font-weight: bold;">05.11.2015 - 20.11.2015</text>
-					<div id="dateSlider" class="slider" style="float:right; margin-right:25px"></div>
-				</div>
-				<br>
-				<div id="divSettingTime" style="height: 30px">
-					<div class="myTitle" style="float:left">Time:</div>
-					<text id="valueTime" style="fill: rgb(0, 70, 105); font-weight: bold;">00:00 - 24:00</text>
-					<div id="timeSlider" class="slider" style="float:right; margin-right:25px"></div>
-				</div>
-			</li>
-	      	<li data-row="2" data-col="2" data-sizex="13" data-sizey="4">
-	      		<header>Group1</header>
-					<div class="tabswrapper">
-						<div class="tabsmain">   
-							<!-- tabs -->
-							<div class="tabs">
-							  <a href="#" data-tab="1" class="tab active">User1</a>
-							  <a href="#" data-tab="2" class="tab">User2</a>
-							  <a href="#" data-tab="3" class="tab">User3</a>
-							  <a href="#" data-tab="4" class="tab">User4</a>
-							  <a href="#" data-tab="5" class="tab">User5</a>
-							  
-							  <div data-content="1" class="content active">
-							  	<div id="svgContent" class="chart"></div>
-							  </div>
-							  <div data-content="2" class="content">User2 Content</div>
-							  <div data-content="3" class="content">User3 Content</div>
-							  <div data-content="4" class="content">User4 Content</div>
-							  <div data-content="5" class="content">User5 Content</div>
+
+<div class="tabswrapper">
+	<div class="tabsmain">
+		<!-- tabs -->
+		<div class="tabs">
+			<a href="#" data-tab="1" class="tab active">Histograms</a>
+			<a href="#" data-tab="2" class="tab">Analysis</a>
+
+			<div data-content="1" class="content">
+			Histograms
+			</div>
+			<div data-content="2" class="content active">
+				<div class="gridster">
+					<ul>
+						<li data-row="1" data-col="1" data-sizex="16" data-sizey="2">
+							<header>Main Toolbar</header>
+							1
+						</li>
+						<li data-row="2" data-col="1" data-sizex="3" data-sizey="4">
+							<header>File Operations</header>
+							2
+							<div id="title"><span class="large">AOIs Links</span></div>
+							<div id="output">
+								<select id="datasetslist">
+								</select>
 							</div>
-							<!-- /tabs -->
-						</div>
-					</div>
+						</li>
+						<li data-row="3" data-col="1" data-sizex="3" data-sizey="7">
+							<header>Attributes</header>
+							<br>
+							<div id="experimentMenu">
+								<div class="myTitle" style="float:left">Experiments</div>
+								<select id="explist" size="5" style="width:120px; margin-left:170px;" multiple="multiple"></select>
+							</div>
+							<br>
+							<div id="trialsMenu">
+								<div class="myTitle" style="float:left">Trials</div>
+								<select id="triallist" size="5" style="width:120px; margin-left:170px" multiple="multiple"></select>
+							</div>
+							<br>
+							<div id="userMenu">
+								<div class="myTitle" style="float:left">Users</div>
+								<select id="userlist" size="5" style="width:120px; margin-left:170px" multiple="multiple"></select>
+							</div>
+							<a href='#login-box' class='login-window btn btn-default btn-md' role="button">Add to Group</a>
+						</li>
 
+						<li data-row="4" data-col="1" data-sizex="3" data-sizey="15">
+							<header>Groups</header>
+							<br>
+							<select id="slcGroupToDelete">
+								<option value="---">---</option>
+							</select>
+							<button id="btnDeleteGroup" class="submit button" type="button">Delete</button>
+							<div id="multi"></div>
 
-	      	</li>
-			<li data-row="3" data-col="2" data-sizex="13" data-sizey="7">
-				<header>AOIs Interconnections</header>
-				5
-				<div id="wrapper">
-					<div id="chart">
-						<svg id="svgMatch" class="svgAOIS">
-							<defs>
-							    <marker id="Triangle"
-							     	viewBox="0 0 10 10" refX="0" refY="5" 
-							      	markerUnits="strokeWidth"
-							     	 markerWidth="4" markerHeight="3"
-							      	orient="auto">
-							      	<path d="M 0 0 L 10 5 L 0 10 z"/>
-							    </marker>
-							</defs>
-						</svg>
-					</div>
-				</div>
-			</li>
-			<li data-row="4" data-col="2" data-sizex="13" data-sizey="15">
-    			<header>Arc</header>
-	    		<br>
-				<div id="arcDiv"></div>
-	      	</li>
-			<li data-row="6" data-col="2" data-sizex="13" data-sizey="15">
-				<header>Metrics Exploration</header>
-				<div class='container' id='main-container'>
-					<div class='content'>
-						<div class='container' style='font: 12px sans-serif;'>
+						</li>
+						<li data-row="5" data-col="1" data-sizex="3" data-sizey="15">
+							<header>Settings</header>
+							<br>
+							<div id="divSettingDate" style="height: 30px">
+								<div class="myTitle" style="float:left">Date:</div>
+								<text id="valueDate" style="fill: rgb(0, 70, 105); font-weight: bold;">05.11.2015 - 20.11.2015</text>
+								<div id="dateSlider" class="slider" style="float:right; margin-right:25px"></div>
+							</div>
+							<br>
+							<div id="divSettingTime" style="height: 30px">
+								<div class="myTitle" style="float:left">Time:</div>
+								<text id="valueTime" style="fill: rgb(0, 70, 105); font-weight: bold;">00:00 - 24:00</text>
+								<div id="timeSlider" class="slider" style="float:right; margin-right:25px"></div>
+							</div>
+						</li>
+						<li data-row="2" data-col="2" data-sizex="13" data-sizey="4">
+							<header>Group1</header>
+							<div class="tabswrapper">
+								<div class="tabsmain">
+									<!-- tabs -->
+									<div class="tabs">
+										<a href="#" data-tab="1" class="tab active">User1</a>
+										<a href="#" data-tab="2" class="tab">User2</a>
+										<a href="#" data-tab="3" class="tab">User3</a>
+										<a href="#" data-tab="4" class="tab">User4</a>
+										<a href="#" data-tab="5" class="tab">User5</a>
 
-							<div class='row'>
-								<div class='span12'>
-									<h3>Sense (VisualSearch) [Experiment 0]: Metrics Exploration</h3>
-									<div class="dc-data-count" style="float: left;">
-										<h2>Saccade Events
-              <span>
-                <span class="filter-count"></span>
-                 selected out of
-                <span class="total-count"></span>
-                 records |
-                <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
-              </span>
-										</h2>
-									</div>
-									<div class='row'>
-										<div class='pie-graph span6' id='dc-mouse_clicks-chart'>
-											<h4>Total # of AOIs</h4>
+										<div data-content="1" class="content active">
+											<div id="svgContent" class="chart"></div>
 										</div>
-										<div class='pie-graph span6' id='dc-voice_calls-chart'>
-											<h4>Duration of AOIs</h4>
+										<div data-content="2" class="content">User2 Content</div>
+										<div data-content="3" class="content">User3 Content</div>
+										<div data-content="4" class="content">User4 Content</div>
+										<div data-content="5" class="content">User5 Content</div>
+									</div>
+									<!-- /tabs -->
+								</div>
+							</div>
+
+
+						</li>
+						<li data-row="3" data-col="2" data-sizex="13" data-sizey="7">
+							<header>AOIs Interconnections</header>
+							5
+							<div id="wrapper">
+								<div id="chart">
+									<svg id="svgMatch" class="svgAOIS">
+										<defs>
+											<marker id="Triangle"
+													viewBox="0 0 10 10" refX="0" refY="5"
+													markerUnits="strokeWidth"
+													markerWidth="4" markerHeight="3"
+													orient="auto">
+												<path d="M 0 0 L 10 5 L 0 10 z"/>
+											</marker>
+										</defs>
+									</svg>
+								</div>
+							</div>
+						</li>
+						<li data-row="4" data-col="2" data-sizex="13" data-sizey="15">
+							<header>Arc</header>
+							<br>
+							<div id="arcDiv"></div>
+						</li>
+						<li data-row="5" data-col="2" data-sizex="13" data-sizey="15">
+							<header>Metrics Exploration</header>
+							<div class='container' id='main-container'>
+								<div class='content'>
+									<div class='container' style='font: 12px sans-serif;'>
+
+										<div class='row'>
+											<div class='span12'>
+												<h3>Sense (VisualSearch) [Experiment 0]: Metrics Exploration</h3>
+												<div class="dc-data-count" style="float: left;">
+													<h2>Saccade Events
+														<span>
+															<span class="filter-count"></span>
+															selected out of
+															<span class="total-count"></span>
+															records |
+															<a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+														</span>
+													</h2>
+												</div>
+												<div class='row'>
+													<div class='pie-graph span6' id='dc-mouse_clicks-chart'>
+														<h4>Total # of AOIs</h4>
+													</div>
+													<div class='pie-graph span6' id='dc-voice_calls-chart'>
+														<h4>Duration of AOIs</h4>
+													</div>
+												</div>
+											</div>
 										</div>
+
+										<div class='row'>
+											<div class='span12' id='dc-time-chart'>
+												<h4>Events per Minute</h4>
+											</div>
+										</div>
+
+										<div class='row'>
+											<div class='pie-graph span12'>
+												<table class='table table-hover' id='dc-table-graph'>
+													<thead>
+													<tr class='header'>
+														<th>Event</th>
+														<th>Fixations</th>
+														<th>Saccade ID</th>
+														<th>Total Duration</th>
+														<th>Total # of AOIs</th>
+													</tr>
+													</thead>
+												</table>
+											</div>
+										</div>
+
+										<H5>Generated by:
+											<a href="localhost:4000">SenseBoard</a>
+										</H5>
+										<p>Metrics data generated from the analysis of 8 Sense (VisualSearch) Experiment Users.</p>
+
 									</div>
 								</div>
 							</div>
-
-							<div class='row'>
-								<div class='span12' id='dc-time-chart'>
-									<h4>Events per Minute</h4>
-								</div>
-							</div>
-
-							<div class='row'>
-								<div class='pie-graph span12'>
-									<table class='table table-hover' id='dc-table-graph'>
-										<thead>
-										<tr class='header'>
-											<th>Event</th>
-											<th>Fixations</th>
-											<th>Saccade ID</th>
-											<th>Total Duration</th>
-											<th>Total # of AOIs</th>
-										</tr>
-										</thead>
-									</table>
-								</div>
-							</div>
-
-							<H5>Generated by:
-								<a href="localhost:4000">SenseBoard</a>
-							</H5>
-							<p>Metrics data generated from the analysis of 8 Sense (VisualSearch) Experiment Users.</p>
-
-						</div>
-					</div>
+						</li>
+					</ul>
 				</div>
-			</li>
-	    </ul>
-  	</div>
-	
-	
+			</div>
+		</div>
+		<!-- /tabs -->
+	</div>
+</div>
+
 	<div id="content">
 		<div class="post">			
 			<div id="login-box" class="login-popup">
