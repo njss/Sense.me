@@ -186,22 +186,13 @@
 				.text("Out");
 
 		$(function() {
-			//$( "#check1" ).button();
-			//$( "#check2" ).button();
 			$("#divCheckbox").buttonset();
 		});
 
 
 		var groupVisData = getData(finalDataset);
 		drawGroupChart("groupChart", groupVisData);
-		//d3.json('data/playergrid.json', function(err, data) {
-		//	aoiPosData2 = data;
-		//	if(!--remaining2) drawGroupChart("groupChart");
-		//});
-		//d3.json('data/matches.json', function(err, data) {
-		//	matchData2 = data;
-		//	if(!--remaining2) drawGroupChart("groupChart");
-		//});
+
 
 		$("#popupClose").click();
 		$(function () {
