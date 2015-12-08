@@ -134,16 +134,16 @@
 		}
 
 		var widgets2 = [
-			['<li> <header>Group ' + groupName + ' Overview' +
+			['<li> <header>Group ' + groupName + ' Interconnections' +
 			'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
-			'<div id="groupWidget' + groupName + '_overview"></div></li>', 13, 8, 4, 11]
+			'<div id="groupWidget' + groupName + '_interconnections"></div></li>', 13, 8, 4, 11]
 		];
 
 		$.each(widgets2, function(i, widget) {
 			gridster.add_widget.apply(gridster, widget);
 		});
 
-		var widget2 = d3.select("#groupWidget" + groupName + "_overview");
+		var widget2 = d3.select("#groupWidget" + groupName + "_interconnections");
 		var chartDiv2 = widget2.append("div")
 				.attr("class", "wrapper")
 				.append("div")
@@ -189,10 +189,20 @@
 			$("#divCheckbox").buttonset();
 		});
 
-
 		var groupVisData = getData(finalDataset);
 		drawGroupChart("groupChart", groupVisData);
 
+		var widgets3 = [
+			['<li> <header>Group ' + groupName + ' Timeline' +
+			'</header> <br> ' + selectedExp[0] + ' - ' + selectedTrial[0] +
+			'<div id="groupWidget' + groupName + '_timeline"></div></li>', 13, 9, 4, 11]
+		];
+
+		$.each(widgets3, function(i, widget) {
+			gridster.add_widget.apply(gridster, widget);
+		});
+
+		drawGroupTimeVis("groupWidget" + groupName + "_timeline");
 
 		$("#popupClose").click();
 		$(function () {
