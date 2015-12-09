@@ -1,0 +1,59 @@
+{
+  "name": "angular",
+  "version": "1.5.0-beta.2",
+  "description": "HTML enhanced for web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "client-side"
+  ],
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org",
+  "gitHead": "b9d7f2d6824e522681db24eeb9c313c92c4461c7",
+  "_id": "angular@1.5.0-beta.2",
+  "_shasum": "ae521ee54c5124c449d61ae12a479c91b28623a4",
+  "_from": "angular@1.5.0-beta.2",
+  "_npmVersion": "2.0.2",
+  "_nodeVersion": "0.10.26",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "maintainers": [
+    {
+      "name": "bclinkinbeard",
+      "email": "ben.clinkinbeard@gmail.com"
+    },
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    },
+    {
+      "name": "petebd",
+      "email": "pete@bacondarwin.com"
+    }
+  ],
+  "dist": {
+    "shasum": "ae521ee54c5124c449d61ae12a479c91b28623a4",
+    "tarball": "http://registry.npmjs.org/angular/-/angular-1.5.0-beta.2.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.5.0-beta.2.tgz",
+  "readme": "ERROR: No README data found!"
+}

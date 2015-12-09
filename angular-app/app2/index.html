@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+    <script type="text/javascript" src="libs/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/products.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+
+  <body>
+
+  <div ng-app="chartApp" ng-controller="SalesController">
+    <h1>Today's Sales Chart</h1>
+    <div linear-chart chart-data="salesData"></div>
+  </div>
+
+  </body>
+</html>
