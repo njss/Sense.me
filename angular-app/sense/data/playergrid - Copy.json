@@ -1,0 +1,1618 @@
+[
+  {
+    "matchesWon": 3,
+    "setsWon": 11,
+    "gamesWon": 95,
+    "ranking": 37,
+    "points": 1085,
+    "roundReached": 4,
+    "heroScore": 260,
+    "heroDefeated": [
+      "Fognini F."
+    ],
+    "heroBeatBy": [],
+    "name": "Melzer J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 17,
+    "ranking": 30,
+    "points": 1345,
+    "roundReached": 1,
+    "heroScore": -260,
+    "heroBeatBy": [
+      "Melzer J."
+    ],
+    "name": "Fognini F."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 49,
+    "ranking": 121,
+    "points": 461,
+    "roundReached": 2,
+    "heroScore": 630,
+    "heroDefeated": [
+      "Rosol L."
+    ],
+    "heroBeatBy": [],
+    "name": "Reister J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 26,
+    "ranking": 35,
+    "points": 1091,
+    "roundReached": 1,
+    "heroScore": -630,
+    "heroBeatBy": [
+      "Reister J."
+    ],
+    "name": "Rosol L."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 33,
+    "ranking": 165,
+    "points": 316,
+    "roundReached": 2,
+    "heroScore": 350,
+    "heroDefeated": [
+      "Falla A."
+    ],
+    "heroBeatBy": [],
+    "name": "Robert S."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 14,
+    "ranking": 77,
+    "points": 666,
+    "roundReached": 1,
+    "heroScore": -350,
+    "heroBeatBy": [
+      "Robert S."
+    ],
+    "name": "Falla A."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 49,
+    "ranking": 27,
+    "points": 1380,
+    "roundReached": 3,
+    "heroScore": -940,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Kubot L."
+    ],
+    "name": "Paire B."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 14,
+    "ranking": 94,
+    "points": 568,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Ungur A."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 7,
+    "gamesWon": 61,
+    "ranking": 116,
+    "points": 488,
+    "roundReached": 3,
+    "heroScore": 7314,
+    "heroDefeated": [
+      "Dutra Silva R.",
+      "Federer R."
+    ],
+    "heroBeatBy": [],
+    "name": "Stakhovsky S."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 100,
+    "points": 550,
+    "roundReached": 1,
+    "heroScore": -62,
+    "heroBeatBy": [
+      "Stakhovsky S."
+    ],
+    "name": "Dutra Silva R."
+  },
+  {
+    "matchesWon": 4,
+    "setsWon": 9,
+    "gamesWon": 75,
+    "ranking": 130,
+    "points": 440,
+    "roundReached": 5,
+    "heroScore": 1011,
+    "heroDefeated": [
+      "Paire B.",
+      "Mannarino A."
+    ],
+    "heroBeatBy": [],
+    "name": "Kubot L."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 416,
+    "points": 87,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Andreev I."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 41,
+    "ranking": 85,
+    "points": 589,
+    "roundReached": 2,
+    "heroScore": 112,
+    "heroDefeated": [
+      "Matosevic M."
+    ],
+    "heroBeatBy": [],
+    "name": "Rufin G."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 14,
+    "ranking": 72,
+    "points": 701,
+    "roundReached": 1,
+    "heroScore": -112,
+    "heroBeatBy": [
+      "Rufin G."
+    ],
+    "name": "Matosevic M."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 18,
+    "ranking": 12,
+    "points": 2470,
+    "roundReached": 2,
+    "heroScore": -1843,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "De Schepper K."
+    ],
+    "name": "Cilic M."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 11,
+    "ranking": 40,
+    "points": 995,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Baghdatis M."
+  },
+  {
+    "matchesWon": 5,
+    "setsWon": 15,
+    "gamesWon": 111,
+    "ranking": 22,
+    "points": 1549,
+    "roundReached": 6,
+    "heroScore": 646,
+    "heroDefeated": [
+      "Almagro N."
+    ],
+    "heroBeatBy": [],
+    "name": "Janowicz J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 385,
+    "points": 99,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Edmund K."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 42,
+    "ranking": 3,
+    "points": 7740,
+    "roundReached": 2,
+    "heroScore": -7252,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Stakhovsky S."
+    ],
+    "name": "Federer R."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 5,
+    "ranking": 48,
+    "points": 895,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Hanescu V."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 9,
+    "gamesWon": 78,
+    "ranking": 26,
+    "points": 1415,
+    "roundReached": 4,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Youzhny M."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 14,
+    "ranking": 58,
+    "points": 797,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Haase R."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 21,
+    "ranking": 21,
+    "points": 1735,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Isner J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 13,
+    "ranking": 66,
+    "points": 729,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Donskoy E."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 5,
+    "gamesWon": 44,
+    "ranking": 103,
+    "points": 546,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Pospisil V."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 11,
+    "ranking": 131,
+    "points": 438,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Gicquel M."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 32,
+    "ranking": 78,
+    "points": 663,
+    "roundReached": 2,
+    "heroScore": 199,
+    "heroDefeated": [
+      "Montanes A."
+    ],
+    "heroBeatBy": [],
+    "name": "Kuznetsov An."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 16,
+    "ranking": 51,
+    "points": 862,
+    "roundReached": 1,
+    "heroScore": -199,
+    "heroBeatBy": [
+      "Kuznetsov An."
+    ],
+    "name": "Montanes A."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 49,
+    "ranking": 44,
+    "points": 935,
+    "roundReached": 3,
+    "heroScore": 1455,
+    "heroDefeated": [
+      "Tipsarevic J."
+    ],
+    "heroBeatBy": [],
+    "name": "Troicki V."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 13,
+    "ranking": 14,
+    "points": 2390,
+    "roundReached": 1,
+    "heroScore": -1455,
+    "heroBeatBy": [
+      "Troicki V."
+    ],
+    "name": "Tipsarevic J."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 5,
+    "gamesWon": 45,
+    "ranking": 39,
+    "points": 1026,
+    "roundReached": 3,
+    "heroScore": -201,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Verdasco F."
+    ],
+    "name": "Gulbis E."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 15,
+    "ranking": 71,
+    "points": 708,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Roger-Vasselin E."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 31,
+    "ranking": 7,
+    "points": 4155,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Tsonga J.W."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 13,
+    "ranking": 83,
+    "points": 611,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Goffin D."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 20,
+    "ranking": 135,
+    "points": 418,
+    "roundReached": 2,
+    "heroScore": 6477,
+    "heroDefeated": [
+      "Nadal R."
+    ],
+    "heroBeatBy": [],
+    "name": "Darcis S."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 16,
+    "ranking": 5,
+    "points": 6895,
+    "roundReached": 1,
+    "heroScore": -6477,
+    "heroBeatBy": [
+      "Darcis S."
+    ],
+    "name": "Nadal R."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 8,
+    "gamesWon": 60,
+    "ranking": 111,
+    "points": 511,
+    "roundReached": 4,
+    "heroScore": 288,
+    "heroDefeated": [
+      "Andujar P."
+    ],
+    "heroBeatBy": [
+      "Kubot L."
+    ],
+    "name": "Mannarino A."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 6,
+    "ranking": 50,
+    "points": 870,
+    "roundReached": 1,
+    "heroScore": -359,
+    "heroBeatBy": [
+      "Mannarino A."
+    ],
+    "name": "Andujar P."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 55,
+    "ranking": 20,
+    "points": 1740,
+    "roundReached": 3,
+    "heroScore": -1113,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "De Schepper K."
+    ],
+    "name": "Monaco J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 210,
+    "points": 225,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Knittel B."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 6,
+    "gamesWon": 50,
+    "ranking": 80,
+    "points": 627,
+    "roundReached": 4,
+    "heroScore": 3030,
+    "heroDefeated": [
+      "Lorenzi P.",
+      "Cilic M.",
+      "Monaco J."
+    ],
+    "heroBeatBy": [],
+    "name": "De Schepper K."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 12,
+    "ranking": 73,
+    "points": 701,
+    "roundReached": 1,
+    "heroScore": -74,
+    "heroBeatBy": [
+      "De Schepper K."
+    ],
+    "name": "Lorenzi P."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 40,
+    "ranking": 86,
+    "points": 586,
+    "roundReached": 2,
+    "heroScore": 49,
+    "heroDefeated": [
+      "Lacko L."
+    ],
+    "heroBeatBy": [],
+    "name": "Ram R."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 18,
+    "ranking": 79,
+    "points": 635,
+    "roundReached": 1,
+    "heroScore": -49,
+    "heroBeatBy": [
+      "Ram R."
+    ],
+    "name": "Lacko L."
+  },
+  {
+    "matchesWon": 4,
+    "setsWon": 14,
+    "gamesWon": 102,
+    "ranking": 54,
+    "points": 825,
+    "roundReached": 5,
+    "heroScore": 576,
+    "heroDefeated": [
+      "Benneteau J.",
+      "Gulbis E."
+    ],
+    "heroBeatBy": [],
+    "name": "Verdasco F."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 15,
+    "ranking": 61,
+    "points": 770,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Malisse X."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 58,
+    "ranking": 16,
+    "points": 2195,
+    "roundReached": 3,
+    "heroScore": -646,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Janowicz J."
+    ],
+    "name": "Almagro N."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 15,
+    "ranking": 183,
+    "points": 273,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Zopp J."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 23,
+    "ranking": 45,
+    "points": 920,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Stepanek R."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 216,
+    "points": 220,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Reid M."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 37,
+    "ranking": 75,
+    "points": 683,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Lu Y.H."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 23,
+    "ranking": 219,
+    "points": 218,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Ward J."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 40,
+    "ranking": 33,
+    "points": 1200,
+    "roundReached": 2,
+    "heroScore": -375,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Verdasco F."
+    ],
+    "name": "Benneteau J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 17,
+    "ranking": 68,
+    "points": 721,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Kamke T."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 53,
+    "ranking": 189,
+    "points": 261,
+    "roundReached": 3,
+    "heroScore": 914,
+    "heroDefeated": [
+      "Garcia-Lopez G.",
+      "Hewitt L."
+    ],
+    "heroBeatBy": [],
+    "name": "Brown D."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 67,
+    "points": 726,
+    "roundReached": 1,
+    "heroScore": -465,
+    "heroBeatBy": [
+      "Brown D."
+    ],
+    "name": "Garcia-Lopez G."
+  },
+  {
+    "matchesWon": 7,
+    "setsWon": 21,
+    "gamesWon": 144,
+    "ranking": 2,
+    "points": 8560,
+    "roundReached": 8,
+    "heroScore": 3270,
+    "heroDefeated": [
+      "Djokovic N."
+    ],
+    "name": "Murray A."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 92,
+    "points": 570,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Becker B."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 31,
+    "ranking": 124,
+    "points": 460,
+    "roundReached": 2,
+    "heroScore": 104,
+    "heroDefeated": [
+      "Hajek J."
+    ],
+    "heroBeatBy": [],
+    "name": "Mahut N."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 96,
+    "points": 564,
+    "roundReached": 1,
+    "heroScore": -104,
+    "heroBeatBy": [
+      "Mahut N."
+    ],
+    "name": "Hajek J."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 49,
+    "ranking": 29,
+    "points": 1355,
+    "roundReached": 3,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Robredo T."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 81,
+    "points": 622,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Bogomolov A."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 36,
+    "ranking": 70,
+    "points": 710,
+    "roundReached": 2,
+    "heroScore": 1756,
+    "heroDefeated": [
+      "Wawrinka S."
+    ],
+    "heroBeatBy": [
+      "Brown D."
+    ],
+    "name": "Hewitt L."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 12,
+    "ranking": 10,
+    "points": 2915,
+    "roundReached": 1,
+    "heroScore": -2205,
+    "heroBeatBy": [
+      "Hewitt L."
+    ],
+    "name": "Wawrinka S."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 39,
+    "ranking": 115,
+    "points": 489,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Struff J.L."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 132,
+    "points": 427,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Kavcic B."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 33,
+    "ranking": 127,
+    "points": 445,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Przysiezny M."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 141,
+    "points": 388,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Petzschner P."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 30,
+    "ranking": 87,
+    "points": 583,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Blake J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 6,
+    "ranking": 93,
+    "points": 569,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "De Bakker T."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 10,
+    "gamesWon": 73,
+    "ranking": 49,
+    "points": 888,
+    "roundReached": 4,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Dodig I."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 23,
+    "ranking": 18,
+    "points": 1885,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Kohlschreiber P."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 37,
+    "ranking": 105,
+    "points": 538,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Kudla D."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 19,
+    "ranking": 174,
+    "points": 291,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Duckworth J."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 30,
+    "ranking": 84,
+    "points": 611,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Mayer L."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 90,
+    "points": 575,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Bedene A."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 34,
+    "ranking": 112,
+    "points": 503,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Levine J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 21,
+    "ranking": 76,
+    "points": 674,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Pella G."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 7,
+    "gamesWon": 55,
+    "ranking": 23,
+    "points": 1510,
+    "roundReached": 3,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Anderson K."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 7,
+    "ranking": 143,
+    "points": 380,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Rochus O."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 8,
+    "gamesWon": 57,
+    "ranking": 11,
+    "points": 2495,
+    "roundReached": 3,
+    "heroScore": -1115,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Seppi A."
+    ],
+    "name": "Nishikori K."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 110,
+    "points": 518,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Ebden M."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 56,
+    "ranking": 25,
+    "points": 1441,
+    "roundReached": 3,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Chardy J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 19,
+    "ranking": 97,
+    "points": 556,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Harrison R."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 10,
+    "gamesWon": 91,
+    "ranking": 59,
+    "points": 780,
+    "roundReached": 4,
+    "heroScore": 3385,
+    "heroDefeated": [
+      "Querrey S.",
+      "Gasquet R."
+    ],
+    "heroBeatBy": [],
+    "name": "Tomic B."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 27,
+    "ranking": 19,
+    "points": 1810,
+    "roundReached": 1,
+    "heroScore": -1030,
+    "heroBeatBy": [
+      "Tomic B."
+    ],
+    "name": "Querrey S."
+  },
+  {
+    "matchesWon": 5,
+    "setsWon": 17,
+    "gamesWon": 123,
+    "ranking": 8,
+    "points": 3960,
+    "roundReached": 6,
+    "heroScore": 3260,
+    "heroDefeated": [
+      "Ferrer D."
+    ],
+    "heroBeatBy": [],
+    "name": "Del Potro J.M."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 62,
+    "points": 755,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Ramos A."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 9,
+    "gamesWon": 73,
+    "ranking": 13,
+    "points": 2425,
+    "roundReached": 4,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Haas T."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 13,
+    "ranking": 65,
+    "points": 739,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Tursunov D."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 24,
+    "ranking": 53,
+    "points": 844,
+    "roundReached": 2,
+    "heroScore": 231,
+    "heroDefeated": [
+      "Nieminen J."
+    ],
+    "heroBeatBy": [],
+    "name": "Llodra M."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 13,
+    "ranking": 38,
+    "points": 1075,
+    "roundReached": 1,
+    "heroScore": -231,
+    "heroBeatBy": [
+      "Llodra M."
+    ],
+    "name": "Nieminen J."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 37,
+    "ranking": 151,
+    "points": 358,
+    "roundReached": 2,
+    "heroScore": 176,
+    "heroDefeated": [
+      "Odesnik W."
+    ],
+    "heroBeatBy": [],
+    "name": "Wang J."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 25,
+    "ranking": 107,
+    "points": 534,
+    "roundReached": 1,
+    "heroScore": -176,
+    "heroBeatBy": [
+      "Wang J."
+    ],
+    "name": "Odesnik W."
+  },
+  {
+    "matchesWon": 3,
+    "setsWon": 7,
+    "gamesWon": 75,
+    "ranking": 28,
+    "points": 1380,
+    "roundReached": 4,
+    "heroScore": 1115,
+    "heroDefeated": [
+      "Nishikori K."
+    ],
+    "heroBeatBy": [],
+    "name": "Seppi A."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 28,
+    "ranking": 47,
+    "points": 915,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Istomin D."
+  },
+  {
+    "matchesWon": 6,
+    "setsWon": 18,
+    "gamesWon": 137,
+    "ranking": 1,
+    "points": 11830,
+    "roundReached": 7,
+    "heroScore": -3270,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Murray A."
+    ],
+    "name": "Djokovic N."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 12,
+    "ranking": 34,
+    "points": 1175,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Mayer F."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 33,
+    "ranking": 129,
+    "points": 442,
+    "roundReached": 2,
+    "heroScore": 89,
+    "heroDefeated": [
+      "Haider-Maurer A."
+    ],
+    "heroBeatBy": [],
+    "name": "Soeda G."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 12,
+    "ranking": 108,
+    "points": 531,
+    "roundReached": 1,
+    "heroScore": -89,
+    "heroBeatBy": [
+      "Soeda G."
+    ],
+    "name": "Haider-Maurer A."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 8,
+    "gamesWon": 60,
+    "ranking": 24,
+    "points": 1500,
+    "roundReached": 3,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Dolgopolov O."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 9,
+    "ranking": 122,
+    "points": 461,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Elias G."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 40,
+    "ranking": 91,
+    "points": 570,
+    "roundReached": 2,
+    "heroScore": 289,
+    "heroDefeated": [
+      "Zeballos H."
+    ],
+    "heroBeatBy": [],
+    "name": "Giraldo S."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 23,
+    "ranking": 52,
+    "points": 859,
+    "roundReached": 1,
+    "heroScore": -289,
+    "heroBeatBy": [
+      "Giraldo S."
+    ],
+    "name": "Zeballos H."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 4,
+    "gamesWon": 39,
+    "ranking": 60,
+    "points": 778,
+    "roundReached": 2,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Bautista R."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 13,
+    "ranking": 137,
+    "points": 404,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Gabashvili T."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 7,
+    "gamesWon": 73,
+    "ranking": 9,
+    "points": 3135,
+    "roundReached": 3,
+    "heroScore": -2355,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Tomic B."
+    ],
+    "name": "Gasquet R."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 20,
+    "ranking": 41,
+    "points": 975,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Granollers M."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 39,
+    "ranking": 64,
+    "points": 747,
+    "roundReached": 3,
+    "heroScore": 1478,
+    "heroDefeated": [
+      "Raonic M."
+    ],
+    "heroBeatBy": [],
+    "name": "Sijsling I."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 11,
+    "ranking": 173,
+    "points": 292,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Kuznetsov Al."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 33,
+    "ranking": 15,
+    "points": 2225,
+    "roundReached": 2,
+    "heroScore": -1478,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Sijsling I."
+    ],
+    "name": "Raonic M."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 10,
+    "ranking": 74,
+    "points": 690,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Berlocq C."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 6,
+    "gamesWon": 49,
+    "ranking": 31,
+    "points": 1330,
+    "roundReached": 2,
+    "heroScore": -514,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Zemlja G."
+    ],
+    "name": "Dimitrov G."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 8,
+    "ranking": 89,
+    "points": 577,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Bolelli S."
+  },
+  {
+    "matchesWon": 4,
+    "setsWon": 12,
+    "gamesWon": 110,
+    "ranking": 4,
+    "points": 7220,
+    "roundReached": 5,
+    "heroScore": -3260,
+    "heroDefeated": [],
+    "heroBeatBy": [
+      "Del Potro J.M."
+    ],
+    "name": "Ferrer D."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 14,
+    "ranking": 101,
+    "points": 550,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Alund M."
+  },
+  {
+    "matchesWon": 4,
+    "setsWon": 12,
+    "gamesWon": 97,
+    "ranking": 6,
+    "points": 4515,
+    "roundReached": 5,
+    "heroScore": 0,
+    "heroDefeated": [],
+    "heroBeatBy": [],
+    "name": "Berdych T."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 11,
+    "ranking": 36,
+    "points": 1090,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Klizan M."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 43,
+    "ranking": 57,
+    "points": 803,
+    "roundReached": 2,
+    "heroScore": 4,
+    "heroDefeated": [
+      "Gimeno-Traver D."
+    ],
+    "heroBeatBy": [],
+    "name": "Brands D."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 25,
+    "ranking": 56,
+    "points": 807,
+    "roundReached": 1,
+    "heroScore": -4,
+    "heroBeatBy": [
+      "Brands D."
+    ],
+    "name": "Gimeno-Traver D."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 30,
+    "ranking": 82,
+    "points": 616,
+    "roundReached": 2,
+    "heroScore": 95,
+    "heroDefeated": [
+      "Berankis R."
+    ],
+    "heroBeatBy": [],
+    "name": "Mathieu P.H."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 22,
+    "ranking": 69,
+    "points": 711,
+    "roundReached": 1,
+    "heroScore": -95,
+    "heroBeatBy": [
+      "Mathieu P.H."
+    ],
+    "name": "Berankis R."
+  },
+  {
+    "matchesWon": 1,
+    "setsWon": 3,
+    "gamesWon": 36,
+    "ranking": 156,
+    "points": 346,
+    "roundReached": 2,
+    "heroScore": 210,
+    "heroDefeated": [
+      "Johnson S."
+    ],
+    "heroBeatBy": [],
+    "name": "Reynolds B."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 2,
+    "gamesWon": 26,
+    "ranking": 98,
+    "points": 556,
+    "roundReached": 1,
+    "heroScore": -210,
+    "heroBeatBy": [
+      "Reynolds B."
+    ],
+    "name": "Johnson S."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 6,
+    "gamesWon": 47,
+    "ranking": 32,
+    "points": 1245,
+    "roundReached": 3,
+    "heroScore": 845,
+    "heroDefeated": [
+      "Simon G."
+    ],
+    "heroBeatBy": [],
+    "name": "Lopez F."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 0,
+    "gamesWon": 12,
+    "ranking": 17,
+    "points": 2090,
+    "roundReached": 1,
+    "heroScore": -845,
+    "heroBeatBy": [
+      "Lopez F."
+    ],
+    "name": "Simon G."
+  },
+  {
+    "matchesWon": 2,
+    "setsWon": 5,
+    "gamesWon": 65,
+    "ranking": 55,
+    "points": 816,
+    "roundReached": 3,
+    "heroScore": 514,
+    "heroDefeated": [
+      "Dimitrov G."
+    ],
+    "heroBeatBy": [],
+    "name": "Zemlja G."
+  },
+  {
+    "matchesWon": 0,
+    "setsWon": 1,
+    "gamesWon": 16,
+    "ranking": 95,
+    "points": 565,
+    "roundReached": 1,
+    "heroScore": 0,
+    "heroBeatBy": [],
+    "name": "Russell M."
+  }
+]

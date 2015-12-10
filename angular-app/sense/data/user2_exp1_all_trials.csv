@@ -1,0 +1,8 @@
+userName,age,experiment,trial,aoi,duration,x,y,datetime,datetimezero,isComparison,isAnswer,isTerminal
+user2,41,exp1,trial1,aoi0,0.1,10,20,05-11-2015 16:54:00.345 +200,05-11-2015 16:54:00.345 +200,false,false,false
+user2,41,exp1,trial1,aoi7,300,100,20,05-11-2015 16:54:01.345 +200,05-11-2015 16:54:01.345 +200,false,false,false
+user2,41,exp1,trial1,aoi9,200,10,40,05-11-2015 16:54:02.345 +200,05-11-2015 16:54:02.345 +200,false,true,false
+user2,41,exp1,trial2,aoi16,150,10,60,05-11-2015 16:54:03.745 +200,05-11-2015 16:54:03.745 +200,false,true,false
+user2,41,exp1,trial2,aoi41,200,30,80,05-11-2015 16:54:04.345 +200,05-11-2015 16:54:04.345 +200,true,true,false
+user3,41,exp1,trial2,aoi40,200,30,80,05-11-2015 16:54:04.345 +200,05-11-2015 16:54:04.345 +200,true,true,false
+user3,41,exp1,trial2,aoi41,200,30,80,05-11-2015 16:54:04.345 +200,05-11-2015 16:54:04.345 +200,true,true,false

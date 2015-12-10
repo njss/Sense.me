@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="sense">
+<head>
+
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+    <script type="text/javascript" src="js/products.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!--gridster-->
+    <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.css">
+    <link rel="stylesheet" type="text/css" href="libs/gridster.css">
+    <script type="text/javascript" src="libs/jquery.js"></script>
+    <script type="text/javascript" src="libs/jquery.gridster.js" charset="utf-8"></script>
+
+</head>
+
+<script type="text/javascript" id="code">
+    var gridster;
+
+    $(function(){
+
+//        gridster = $(".gridster > ul").gridster({
+//            widget_margins: [5, 5],
+//            widget_base_dimensions: [100, 55]
+//        }).data('gridster');
+//
+//        var widgets = [
+//            ['<li>0</li>', 1, 2],
+//            ['<li>1</li>', 3, 2],
+//            ['<li>2</li>', 3, 2],
+//            ['<li>3</li>', 2, 1],
+//            ['<li>4</li>', 4, 1],
+//            ['<li>5</li>', 1, 2],
+//            ['<li>6</li>', 2, 1],
+//            ['<li>7</li>', 3, 2],
+//            ['<li>8</li>', 1, 1],
+//            ['<li>9</li>', 2, 2],
+//            ['<li>10</li>', 1, 3]
+//        ];
+//
+//        $.each(widgets, function(i, widget){
+//            gridster.add_widget.apply(gridster, widget)
+//        });
+
+            gridster = $(".gridster ul").gridster({
+                widget_base_dimensions: [100, 55],
+                widget_margins: [5, 5],
+                autogrow_cols: true,
+                resize: {
+                    enabled: true
+                },
+                draggable: {
+                    handle: 'header'
+                }
+            }).data('gridster');
+
+
+    });
+</script>
+
+<body>
+    <header>
+        <h1 class="text-center">Sense Experiment Framework</h1>
+    </header>
+
+    <div>
+        <section class="panel" ng-controller="PanelController as panel">
+            <ul class="nav nav-pills">
+                <li ng-class="panel.isSet(1)">
+                    <a href ng-click="panel.selectTab(1)">Histograms</a>
+                </li>
+                <li ng-class="panel.isSet(2)">
+                    <a href ng-click="panel.selectTab(2)">Analysis</a>
+                </li>
+            </ul>
+
+            <!--content-->
+            <panel-Histograms ng-show="panel.isSet(1)"></panel-Histograms>
+            <panel-analysis ng-show="panel.isSet(2)"></panel-analysis>
+
+        </section>
+    </div>
+
+
+</body>
+</html>

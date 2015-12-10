@@ -1,0 +1,6 @@
+userName,age,experiment,trial,aoi,duration,x,y,datetime
+nelson,40,exp1,trial1,aoi0,200,10,20,05-11-2015 16:54:00.345
+nelson,40,exp1,trial1,aoi7,300,100,20,05-11-2015 16:54:00.345
+nelson,40,exp1,trial1,aoi9,200,10,40,05-11-2015 16:54:00.345
+nelson,40,exp1,trial1,aoi16,150,10,60,05-11-2015 16:54:00.345
+nelson,40,exp1,trial1,aoi25,200,30,80,05-11-2015 16:54:00.345
