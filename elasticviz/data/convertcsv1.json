@@ -1,0 +1,17 @@
+  
+{"index":{}}
+{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi0", "duration":300, "x":10, "y":20, "datetime":"2015-05-11T16:54:00+00:00", "datetimezero":"2015-05-11T16:54:00.005", "isComparison":false, "isAnswer":true, "isTerminal":true}
+{"index":{}}
+{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi1", "duration":500, "x":100, "y":120, "datetime":"2015-05-11T16:55:00+00:00", "datetimezero":"2015-05-11T16:55:00.145", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi2", "duration":800, "x":1020, "y":200, "datetime":"2015-05-11T16:55:30+00:00", "datetimezero":"2015-05-11T16:55:30.245", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial2", "aoi":"aoi7", "duration":100, "x":1000, "y":120, "datetime":"2015-05-11T16:56:00+00:00", "datetimezero":"2015-05-11T16:56:00.345", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user2", "age":45, "experiment":"exp1", "trial":"trial1", "aoi":"aoi0", "duration":300, "x":10, "y":20, "datetime":"2015-05-11T16:54:00+00:00", "datetimezero":"2015-05-11T16:54:00.005", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user2", "age":45, "experiment":"exp1", "trial":"trial1", "aoi":"aoi1", "duration":500, "x":100, "y":120, "datetime":"2015-05-11T16:55:00+00:00", "datetimezero":"2015-05-11T16:55:00.145", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user2", "age":45, "experiment":"exp1", "trial":"trial2", "aoi":"aoi2", "duration":435, "x":1020, "y":200, "datetime":"2015-05-11T16:55:30+00:00", "datetimezero":"2015-05-11T16:55:30.245", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user2", "age":45, "experiment":"exp2", "trial":"trial1", "aoi":"aoi7", "duration":167, "x":1000, "y":120, "datetime":"2015-09-21T16:56:00+00:00", "datetimezero":"2015-05-11T16:56:00.345", "isComparison":false, "isAnswer":true, "isTerminal":false}

@@ -1,0 +1,48 @@
+
+{"index":{}}
+
+//demodata
+
+//nodes
+{"AOI_Name": "AOI 0", "date": "2015-03-01", 
+"id":"0", "from":"R", "type":"fixed", "duration":"200"}
+
+//links
+{"source":"0", "target":"1", "type": "answeredby"}
+
+//mydata
+//nodes
+ {"name":"14.TS-Ni.png","aoi":"0","group":"1",
+ "value":"1", "duration":"0.1178"}
+
+//links
+{"source":"0","target":"1","value":"1"}
+
+
+
+//AOIS
+{"userName": "user1", "age": "40", 
+"experiment":"trial1", 
+"aoi":"aoi0", "duration":"200",
+"x":"10", "y":"20", 
+"datetime": "05-11-2015 16:54:00.345"}
+
+//experiments
+{"id":"id1","name":"user1_exp1",
+"filename":"user1_exp1_all_trials.csv",
+"date":"2015.11.06"}
+
+//all trials, all users
+{"userName":"user1","age":"40","experiment":"exp1",
+"trial":"trial1",
+"aoi":"aoi0","duration":"0.3","x":"10","y":"20",
+"datetime":"05-11-2015 16:54:00.345 +200",
+"datetimezero":"05-11-2015 16:54:00.345 +200",
+"isComparison":"false","isAnswer":"true",
+"isTerminal":"false"}
+
+
+
+//Configuration File
+experiment;trial;aoi;image;
+exp1;trial1;aoi;image1.jpg

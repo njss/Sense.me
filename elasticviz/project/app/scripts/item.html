@@ -1,0 +1,41 @@
+<div class="resultItem">
+  <div class="speaker">
+    <div class="image">
+      <img src="{{item.image}}" class="speaker"/>
+    </div>
+    <b>{{item.name}}</b>
+
+    <p>
+      <span class="party">Trial: {{item.trial}}</span>
+      <span class="occupation">Age: {{item.age}}</span>
+    </p>
+
+    <p>{{item.datetime | date }}</p>
+
+    <p ng-if="item.isTerminal">
+      &dagger; {{item.datetime | date }}
+    </p>
+  </div>
+  <div class="content">
+    <span class="tag-thing">
+      <h5>{{item.datetime | date : 'd.MM.y, HH:mm'}}</h5>
+    </span>
+    <span class="tag-thing">
+      LLP {{item.x}} / Session {{item.y}}
+    </span>
+    <span class="tag-thing">
+      Duration: {{item.duration}}
+    </span>
+    <span class="role">{{item.experiment}}</span>
+
+    <p class="text" ng-show="!itemExpanded">
+      {{item.name|limitTo : 160}}
+      <a class="expand" ng-click="expandToggle()">(more)</a>
+    </p>
+    <p class="text" ng-show="itemExpanded"
+      ng-bind-html="item.name | highlight:queryText">
+    </p>
+    <p ng-show="itemExpanded"><a class="expand" ng-click="expandToggle()">(less)</a></p>
+    <p class="text" ng-if="item.tags">{{item.tags.buckets}}</p>
+  </div>
+</div>

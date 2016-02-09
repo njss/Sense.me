@@ -1,0 +1,47 @@
+{
+   "statement": {
+      "properties": {
+         "userName": {
+            "type": "string"
+         },
+         "age": {
+            "type": "long"
+         },
+         "experiment": {
+            "type": "string"
+         },      
+         "trial": {
+            "type": "string"
+         },  
+         "aoi": {
+            "type": "string"
+         },     
+         "duration": {
+            "type": "long"
+         },    
+         "x": {
+            "type": "long"
+         },   
+         "y": {
+            "type": "long"
+         },                                            
+         "datetime": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+         },
+         "datetimezero": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+         },
+         "isComparison": {
+            "type": "boolean"
+         },
+         "isAnswer": {
+            "type": "boolean"
+         },
+         "isterminal": {
+            "type": "boolean"
+         }      
+     }
+   }
+}
