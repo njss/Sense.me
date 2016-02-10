@@ -7,8 +7,14 @@ body {
   stroke-width: 3px;
 }
 
-.node circle {
+/*.node circle {
   fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}*/
+.circledendogram
+{
+   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
 }

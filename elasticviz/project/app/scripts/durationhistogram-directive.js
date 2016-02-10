@@ -20,7 +20,7 @@
 
             var maxCount = 0;
 
-            //scope.mytext = 'rangehistogram';
+            //scope.mytext = 'durationhistogram';
 
 
             scope.$watch('bind', function (data) {

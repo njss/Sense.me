@@ -14,7 +14,8 @@
     "angularjs-slider": "~2.5.0",
     "d3-tip": "~0.6.7",
     "colorbrewer": "~1.0.0",
-    "jquery-ui": "~1.11.4"
+    "jquery-ui": "~1.11.4",
+    "heatmap.js-amd": "*"
   },
   "overrides": {
     "bootstrap-sass": {

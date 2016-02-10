@@ -36,15 +36,15 @@ function loadchart(div, json) {
 
         var svg = d3.select("#" + div)
             .append("svg")
-            .attr("viewBox","-10 40 1100 1100")
+            .attr("viewBox", "-10 40 1100 1100")
             .attr("width", width)
             .attr("height", height)
             .attr('preserveAspectRatio', 'xMinYMin slice')
             .append('g');
 
-		/************************
-			Scales and Axes
-		*************************/
+        /************************
+         Scales and Axes
+         *************************/
 
         var x = d3.time.scale()
             .domain([earliest, d3.time.day.offset(latest, 1)])
@@ -75,9 +75,9 @@ function loadchart(div, json) {
             .attr('transform', 'translate(0, ' + (height - margin.top - margin.bottom) + ')')
             .call(xAxisDays);
 
-		/************************
-			Links
-		*************************/
+        /************************
+         Links
+         *************************/
 
         function curve(d) {
             // Bezier curve
@@ -101,13 +101,13 @@ function loadchart(div, json) {
                 var dx = d.target.x - d.source.x,
                     dy = d.target.y - d.source.y,
                     dr = Math.sqrt(dx * dx + dy * dy);
-                c = "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + 
-                	d.target.x + "," + d.target.y;
+                c = "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " +
+                    d.target.x + "," + d.target.y;
             }
             return c;
         }
 
-		// Arrowheads
+        // Arrowheads
         svg.append("svg:defs").selectAll("marker")
             .data(["end"])
             .enter().append("svg:marker")
@@ -123,16 +123,16 @@ function loadchart(div, json) {
             .attr("d", "M0,-5L10,0L0,5");
 
 
-//check this code
+        //check this code
         var link = svg.selectAll(".link")
             .data(graph.links)
-            .enter().append("svg:path")            
+            .enter().append("svg:path")
             .attr("class", "link")
             .attr("marker-end", "url(#end)");
 
-		/************************
-			Nodes
-		*************************/
+        /************************
+         Nodes
+         *************************/
 
         // add fixed coords to nodes
         var stackcounts = [];
@@ -146,8 +146,8 @@ function loadchart(div, json) {
             if (node.type == "fixed" || "isAnswer") {
                 var previousLetters = (stackcounts['d' + node.date]) ? stackcounts['d' + node.date] : 0;
                 stackcounts['d' + node.date] = previousLetters + 1;
-                node.y = height - margin.bottom - margin.top - radius - 1 - 
-                	(previousLetters * radius * 2);
+                node.y = height - margin.bottom - margin.top - radius - 1 -
+                    (previousLetters * radius * 2);
                 node.fixed = true;
             } else {
                 // TODO offset x slightly
@@ -155,18 +155,18 @@ function loadchart(div, json) {
             }
         });
 
-		var node = svg.selectAll(".node")
-			.data(graph.nodes)
-			.enter().append("g")
-			.attr("class", "node");
+        var node = svg.selectAll(".node")
+            .data(graph.nodes)
+            .enter().append("g")
+            .attr("class", "node");
 
         var circle = node.append("svg:circle")
             .attr('id', function (d) {
                 return "n" + d.id;
             })
             .attr('class', function (d) {
-                return "letter d" + d.date + " from" + d.from + " " + 
-                	((d.type == "fixed" && d.duration <300) ? "precise" : "notprecise");
+                return "letter d" + d.date + " from" + d.from + " " +
+                    ((d.type == "fixed" && d.duration < 300) ? "precise" : "notprecise");
             })
             .attr('r', radius)
 
@@ -175,48 +175,48 @@ function loadchart(div, json) {
         //         return d.name;
         //     });
 
-         tipDateline = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function (d) {
-            return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
-        });
-                        
-
-		// text, centered in node, with white shadow for legibility
-		node.append("text")
-			.attr("text-anchor", "middle")
-			.attr("dy", radius / 2)
-			.attr("class", "shadow")
-			.text(function(d) { 
-                arrNameSplit = d.name.split(/(\s+)/);
-                return arrNameSplit[2]; 
+        tipDateline = d3.tip()
+            .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function (d) {
+                return "<strong>AOI</strong> <span style='color:red'>" + d.name + "</span>";
             });
-		node.append("text")
-			.attr("text-anchor", "middle")
-			.attr("dy", radius / 2)
-			.text(function(d) { 
+
+
+        // text, centered in node, with white shadow for legibility
+        node.append("text")
+            .attr("text-anchor", "middle")
+            .attr("dy", radius / 2)
+            .attr("class", "shadow")
+            .text(function (d) {
+                arrNameSplit = d.name.split(/(\s+)/);
+                return arrNameSplit[2];
+            });
+        node.append("text")
+            .attr("text-anchor", "middle")
+            .attr("dy", radius / 2)
+            .text(function (d) {
                 arrNameSplit = d.name.split(/(\s+)/);
                 return arrNameSplit[2];
             });
 
         svg.call(tipDateline);
 
-		// on click, do something with id
-		// implement this in a function outside this block
-		
+        // on click, do something with id
+        // implement this in a function outside this block
+
         node.on("click", function (d) {
-        	itemclick(d);
+            itemclick(d);
         });
 
         node.on("mouseover", function (d, i) {
-                        tip.show(d.name);
-                        //highlightSPLOMgrid(d3.select(this));
-                    })
+            tip.show(d.name);
+            //highlightSPLOMgrid(d3.select(this));
+        })
         node.on("mouseout", function (d, i) {
-                        tip.hide(d.name);
-                        d3.select("#highlightRect").remove();
-                    });
+            tip.hide(d.name);
+            d3.select("#highlightRect").remove();
+        });
 
         // Resolves collisions between d and all other circles.
         function collide(node) {
@@ -243,9 +243,9 @@ function loadchart(div, json) {
             };
         }
 
-		/************************
-			Force and Tick
-		*************************/
+        /************************
+         Force and Tick
+         *************************/
 
         var force = self.force = d3.layout.force()
             .nodes(graph.nodes)
@@ -269,7 +269,7 @@ function loadchart(div, json) {
             //         o.y += -k;
             // });
 
-			// handle collisions
+            // handle collisions
             var q = d3.geom.quadtree(graph.nodes),
                 i = 0,
                 n = graph.nodes.length;
@@ -277,17 +277,19 @@ function loadchart(div, json) {
                 q.visit(collide(graph.nodes[i]));
             }
 
-			node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+            node.attr("transform", function (d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
 
             // constrain to bounding box
             node.attr("cx", function (d) {
-                return d.x = Math.max(15, Math.min(width - 15, d.x));
-            	})
+                    return d.x = Math.max(15, Math.min(width - 15, d.x));
+                })
                 .attr("cy", function (d) {
                     return d.y = Math.max(15, Math.min(height - 15, d.y));
                 });
 
-//check this code
+            //check this code
             link.attr("d", function (d) {
                 return curve(d);
             });

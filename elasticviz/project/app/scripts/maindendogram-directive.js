@@ -77,6 +77,7 @@
 
                 node.append("circle")
                   .attr("r", 5.5)
+                  .attr('class', "circledendogram")
                   .style("fill", function (d) {
                     //return d.children ? "#ffffff" : color[+d.key - 1];
                     if (!d.children)
@@ -129,7 +130,7 @@
                         return d.key;
                     }
                     else
-                      return (d.key + ": " + d.doc_count);
+                      return ( d.aoiDate.buckets[0].key + ": " + d.aoiDuration.buckets[0].key );
                   });
 
                 d3.select(self.frameElement).style("height", height + "px");
@@ -142,13 +143,13 @@
                   root.children = dataObj.entries;
 
                   root.children.forEach(function (d) {
-                    d.children = d.main.roletype.buckets;
+                    d.children = d.main.trials.buckets;
                   });
 
                   root.children.forEach(function (d) {
                     //console.log(d);
                     d.children.forEach(function (d) {
-                      d.children = d.durationtotals.buckets;
+                      d.children = d.aois.buckets;
                     });
                   });
 

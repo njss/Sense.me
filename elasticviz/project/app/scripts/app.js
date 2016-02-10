@@ -60,6 +60,19 @@
     };
   }
 
+
+      /**
+   * Passing data to the Dateline Diagram
+   */
+  function datelineDiagramData(data) {
+    return {
+      _type: 'userName',
+      entries: data.buckets.map(function (r) {
+        return {main: r};
+      })
+    };
+  }
+
   //
   // Demo controller
   app.controller('FacetedDemoController', ['$scope', '$log', '$filter', 'esClient',
@@ -158,7 +171,7 @@
         false);
 
       //
-      // Query and aggregation by date
+      // Query and aggregation by duration
       queryBuilderService.setFacetConfig('durationFacet',
         {field: 'duration', type: 'range', interval: 100},
         {
@@ -190,20 +203,34 @@
             //size: 0
           },
           aggregations: {
-            roletype: {
+            trials: {
               terms: {
                 field: "trial",
                 order: {"_term": "asc"}
                 //include: "([a-z]?[.][a-z]+)",
                 //size: 200
               },
-              aggregations: {
-                durationtotals: {
-                  histogram: {
-                    field: 'duration', interval: 1, min_doc_count: 1
+                aggregations: {
+                  aois: {
+                    terms: {
+                      field: "datetime",
+                      order: {"_term": "asc"}
+                      
+                    },
+                    aggregations: {
+                      aoiDuration: {
+                        terms: {
+                          field: "duration",
+                        }
+                      },
+                      aoiDate:{
+                         terms: {
+                            field: "aoi"
+                        }
+                      }                      
+                    }
                   }
-                }
-              }
+                } 
             }
           }
         });
@@ -240,6 +267,45 @@
         }
         });      
 
+
+ queryBuilderService.setFacetConfig('datelinediagram',
+     {field: 'userName', type: 'term'},
+        {
+          terms: {
+            field: "userName",
+            // exclude: "",
+            //size: 0
+          },
+            aggregations: {
+              trials: {
+                terms: {
+                  field: "trial",
+                  order: {"_term": "asc"}
+                },                                
+                aggregations: {
+                  aois: {
+                    terms: {
+                      field: "datetime",
+                      order: {"_term": "asc"}
+                      
+                    },
+                    aggregations: {
+                      aoiDuration: {
+                        terms: {
+                          field: "duration",
+                        }
+                      },
+                      aoiDate:{
+                         terms: {
+                            field: "aoi"
+                        }
+                      }                      
+                    }
+                  }
+                }                                
+              }
+            }         
+        });    
 
       // Reuqest the date once more ,  this time it will fetched from
       // the primary query-context and thus be affected by the query context
@@ -500,6 +566,7 @@
             self.dangleDateHisto = dangleMapHistoData(self.aggregations.dateLimited);
             self.mainTreeDiagram = mainTreeMapDiagramData(self.aggregations.treediagram);
             self.arcDiagram = arcDiagramData(self.aggregations.arcdiagram);
+            self.datelineDiagram = datelineDiagramData(self.aggregations.datelinediagram);
           })
           .catch(function (error) {
             self.statusOk = false;

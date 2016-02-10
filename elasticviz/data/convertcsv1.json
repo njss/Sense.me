@@ -4,7 +4,9 @@
 {"index":{}}
 {"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi1", "duration":500, "x":100, "y":120, "datetime":"2015-05-11T16:55:00+00:00", "datetimezero":"2015-05-11T16:55:00.145", "isComparison":false, "isAnswer":true, "isTerminal":false}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi2", "duration":800, "x":1020, "y":200, "datetime":"2015-05-11T16:55:30+00:00", "datetimezero":"2015-05-11T16:55:30.245", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi2", "duration":200, "x":100, "y":220, "datetime":"2015-05-11T16:55:10+00:00", "datetimezero":"2015-05-11T16:55:00.145", "isComparison":false, "isAnswer":true, "isTerminal":false}
+{"index":{}}
+{"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial1", "aoi":"aoi3", "duration":800, "x":1020, "y":200, "datetime":"2015-05-11T16:55:30+00:00", "datetimezero":"2015-05-11T16:55:30.245", "isComparison":false, "isAnswer":true, "isTerminal":false}
 {"index":{}}
 {"userName":"user1", "age":40, "experiment":"exp1", "trial":"trial2", "aoi":"aoi7", "duration":100, "x":1000, "y":120, "datetime":"2015-05-11T16:56:00+00:00", "datetimezero":"2015-05-11T16:56:00.345", "isComparison":false, "isAnswer":true, "isTerminal":false}
 {"index":{}}

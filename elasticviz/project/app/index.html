@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="styles/maindendogram.css"/>
   <link rel="stylesheet" href="styles/arcdiagram.css"/>
   <link rel="stylesheet" href="/bower_components/dangle/css/dangle.css">
+  <link rel="stylesheet" href="styles/dateline.css">
+
+  
 
 
   <!-- build:css styles/vendor.css -->
@@ -56,7 +59,7 @@
         <pre>{{c.query}}</pre>
         <pre>{{c.queryDSL}}</pre>
       </div>
-      <form>   
+      <form>
         <div class="facet-widget">
           <h4>Search AOIs
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('freetext')" ng-click="c.resetField('freetext')">reset</a>
@@ -90,7 +93,8 @@
           <h4>Trial</h4>
 
           <div>
-            <a class="btn btn-default btn-sm" ng-if="c.queryContains('trial')" ng-click="c.resetField('trial')">reset</a>
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('trial')"
+               ng-click="c.resetField('trial')">reset</a>
           </div>
           <div>
             <label><input type="checkbox" ng-model="c.showHiddenChart" ng-change="c.showHiddenChart"/>Show Hidden Charts</label>
@@ -118,7 +122,7 @@
           </div>
         </div>
 
-     <div class="facet-widget">
+        <div class="facet-widget">
           <h4 data-toggle="collapse" href="#userNameField">userName
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('userName')"
                ng-click="c.resetField('userName')">reset</a>
@@ -137,7 +141,7 @@
           </div>
         </div>
 
-   <div class="facet-widget">
+        <div class="facet-widget">
           <h4 data-toggle="collapse" href="#aoiField">AOIs
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('aoi')"
                ng-click="c.resetField('aoi')">reset</a>
@@ -154,11 +158,12 @@
               <label for="cb_aoi_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
             </div>
           </div>
-        </div>        
+        </div>
 
         <div class="facet-widget">
           <h4>Is Terminal
-            <a class="btn btn-default btn-sm" ng-if="c.queryContains('isTerminal')" ng-click="c.resetField('isTerminal')">reset</a>
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('isTerminal')"
+               ng-click="c.resetField('isTerminal')">reset</a>
           </h4>
 
           <div ng-repeat="bucket in c.aggregations.isTerminal.buckets"
@@ -190,10 +195,9 @@
                ng-click="c.resetField('age')">reset</a>
           </h4>
 
-            <div ng-repeat="bucket in c.aggregations.age_avg.buckets">
-          <h4>{{bucket.key}}</h4>
-           </div>
-
+          <div ng-repeat="bucket in c.aggregations.age_avg.buckets">
+            <h4>{{bucket.key}}</h4>
+          </div>
 
 
           <div ng-repeat="bucket in c.aggregations.age.buckets"
@@ -205,7 +209,7 @@
                    value="{{bucket.key}}"/>
             <label for="cb_age_{{bucket.key}}" title="{{bucket.key}}">
               {{bucket.key|limitTo:20}}{{bucket.key.length > 20 ? '...' : ''}}
-              <small>({{bucket.doc_count}})</small>              
+              <small>({{bucket.doc_count}})</small>
             </label>
           </div>
         </div>
@@ -215,24 +219,24 @@
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('duration')" ng-click="c.resetField('duration')">reset</a>
           </h4>
 
-<div class="facet-widget">
-          <h4 data-toggle="collapse" href="#durationField">
-            <a class="btn btn-default btn-sm" ng-if="c.queryContains('duration')"
-               ng-click="c.resetField('duration')">reset</a>
-          </h4>
+          <div class="facet-widget">
+            <h4 data-toggle="collapse" href="#durationField">
+              <a class="btn btn-default btn-sm" ng-if="c.queryContains('duration')"
+                 ng-click="c.resetField('duration')">reset</a>
+            </h4>
 
-          <div id="durationField" class="in">
-            <div ng-repeat="bucket in c.aggregations.duration.buckets"
-                 ng-if="bucket.doc_count">
-              <input type="checkbox"
-                     ng-change="c.refresh()"
-                     ng-model="c.query.duration[bucket.key]"
-                     id="cb_duration_{{bucket.key}}"
-                     value="{{bucket.key}}"/>
-              <label for="cb_duration_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+            <div id="durationField" class="in">
+              <div ng-repeat="bucket in c.aggregations.duration.buckets"
+                   ng-if="bucket.doc_count">
+                <input type="checkbox"
+                       ng-change="c.refresh()"
+                       ng-model="c.query.duration[bucket.key]"
+                       id="cb_duration_{{bucket.key}}"
+                       value="{{bucket.key}}"/>
+                <label for="cb_duration_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+              </div>
             </div>
           </div>
-        </div>                
 
 
           <div>
@@ -242,7 +246,7 @@
               <durationPieChart-gui-item bind="c.aggregations.duration.buckets"></durationPieChart-gui-item>
             </div>
           </div>
-         
+
         </div>
 
         <div>
@@ -289,8 +293,11 @@
           <a href="#" ng-click="c.showTab('text')">Textual</a>
         </li>
         <li role="presentation" ng-class="{'active':c.tabIsShown('vis')}">
-          <a href="#" ng-click="c.showTab('vis')">Visualisations</a>
+          <a href="#" ng-click="c.showTab('vis')">Visualizations</a>
         </li>
+        <li role="presentation" ng-class="{'active':c.tabIsShown('eyevis')}">
+          <a href="#" ng-click="c.showTab('eyevis')">Eye Analysis-Viz</a>
+        </li>        
       </ul>
       <!-- Tabs to switch result view end -->
 
@@ -318,13 +325,19 @@
         {{c.aggregations.buckets}}
         <maindendogram-gui-item bind="c.mainTreeDiagram"
                                 confirm-action="convertPartyCase(arg1)"></maindendogram-gui-item>
- <div>
-        <arcDiagram-gui-item bind="c.arcDiagram"
-                                confirm-action="convertPartyCase(arg1)"></arcDiagram-gui-item>
-
-      </div>                                
       </div>
-     
+
+  <div ng-show="c.tabIsShown('eyevis')">
+        <div>
+          <arcDiagram-gui-item bind="c.arcDiagram"
+                               confirm-action="convertPartyCase(arg1)"></arcDiagram-gui-item>
+        </div>
+        <div>
+          <datelineDiagram-gui-item bind="c.datelineDiagram"
+                               confirm-action="convertPartyCase(arg1)"></datelineDiagram-gui-item>
+        </div>        
+      </div>      
+
       <!-- Visualisations end -->
 
     </div> <!-- END col -->
@@ -350,6 +363,8 @@
 <script src="/bower_components/dcjs/dc.js"></script>
 <script src="/bower_components/ng-debounce/angular-debounce.js"></script>
 <script src="/bower_components/angularjs-slider/dist/rzslider.js"></script>
+<script src="/bower_components/heatmap.js-amd/build/heatmap.js"></script>
+
 <!-- endbower -->
 
 <!-- extra dependencies the inclusion of which is *not* managed by bower -->
@@ -383,6 +398,7 @@
 <script src="scripts/maindendogram-directive.js"></script>
 <script src="scripts/durationhistogram-directive.js"></script>
 <script src="scripts/arcdiagram-directive.js"></script>
+<script src="scripts/datelinediagram-directive.js"></script>
 <!-- endbuild -->
 </body>
 </html>
