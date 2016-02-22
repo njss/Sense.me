@@ -84,6 +84,7 @@
         clauses = [],
         clause,
         queryDSL = {
+          from : 0, size : 10000,
           body: {
             aggregations: {}
           }

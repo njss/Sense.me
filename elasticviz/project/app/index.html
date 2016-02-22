@@ -9,16 +9,15 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="styles/maindendogram.css"/>
+  <!--<link rel="stylesheet" href="styles/_maindendogram.scss"/>
   <link rel="stylesheet" href="styles/arcdiagram.css"/>
   <link rel="stylesheet" href="/bower_components/dangle/css/dangle.css">
-  <link rel="stylesheet" href="styles/dateline.css">
-
-  
+  <link rel="stylesheet" href="styles/dateline.css">-->
 
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/dangle/css/dangle.css"/>
   <link rel="stylesheet" href="/bower_components/colorbrewer/colorbrewer.css"/>
   <link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.css"/>
   <link rel="stylesheet" href="/bower_components/dcjs/dc.css"/>
@@ -44,7 +43,7 @@
 
     <ul class="nav nav-pills pull-right sm">
       <li class="active"><a href="index.html#">Home</a></li>
-      <li><a href="index-eui.html">Others (EUI Test)</a></li>
+      <li><a href="index-eui.html">Other ML Techniques</a></li>
     </ul>
 
     <h1 class="text-muted">Sense.me</h1>
@@ -161,6 +160,71 @@
         </div>
 
         <div class="facet-widget">
+          <h4>Is Comparison
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('isComparison')"
+               ng-click="c.resetField('isComparison')">reset</a>
+          </h4>
+
+          <div ng-repeat="bucket in c.aggregations.isComparison.buckets"
+               ng-if="bucket.doc_count">
+            <input type="radio"
+                   ng-change="c.refresh()"
+                   ng-model="c.query.isComparison"
+                   id="isComparison{{bucket.key}}"
+                   value="{{bucket.key}}"/>
+            <label for="isComparison{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+          </div>
+        </div>
+
+        <div class="facet-widget">
+          <h4>Is Answer
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('isAnswer')"
+               ng-click="c.resetField('isAnswer')">reset</a>
+          </h4>
+
+          <div ng-repeat="bucket in c.aggregations.isAnswer.buckets"
+               ng-if="bucket.doc_count">
+            <input type="radio"
+                   ng-change="c.refresh()"
+                   ng-model="c.query.isAnswer"
+                   id="isAnswer{{bucket.key}}"
+                   value="{{bucket.key}}"/>
+            <label for="isAnswer{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+          </div>
+        </div>        
+        <div class="facet-widget">
+          <h4>Is Settings
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('isSettings')"
+               ng-click="c.resetField('isSettings')">reset</a>
+          </h4>
+
+          <div ng-repeat="bucket in c.aggregations.isSettings.buckets"
+               ng-if="bucket.doc_count">
+            <input type="radio"
+                   ng-change="c.refresh()"
+                   ng-model="c.query.isSettings"
+                   id="isSettings{{bucket.key}}"
+                   value="{{bucket.key}}"/>
+            <label for="isSettings{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+          </div>
+        </div> 
+        <div class="facet-widget">
+          <h4>Is Offscreen
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('isOffscreen')"
+               ng-click="c.resetField('isOffscreen')">reset</a>
+          </h4>
+
+          <div ng-repeat="bucket in c.aggregations.isOffscreen.buckets"
+               ng-if="bucket.doc_count">
+            <input type="radio"
+                   ng-change="c.refresh()"
+                   ng-model="c.query.isOffscreen"
+                   id="isOffscreen{{bucket.key}}"
+                   value="{{bucket.key}}"/>
+            <label for="isOffscreen{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+          </div>
+        </div>         
+        <div class="facet-widget">
           <h4>Is Terminal
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('isTerminal')"
                ng-click="c.resetField('isTerminal')">reset</a>
@@ -175,7 +239,7 @@
                    value="{{bucket.key}}"/>
             <label for="cb_isTerminal_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
           </div>
-        </div>
+        </div>        
 
         <div class="facet-widget">
           <h4>Date <label> <input type="checkbox" ng-model="c.useDateSlider" ng-change="c.refresh()"/> use date </label>
@@ -297,13 +361,12 @@
         </li>
         <li role="presentation" ng-class="{'active':c.tabIsShown('eyevis')}">
           <a href="#" ng-click="c.showTab('eyevis')">Eye Analysis-Viz</a>
-        </li>        
+        </li>
       </ul>
       <!-- Tabs to switch result view end -->
 
       <!-- Result set -->
       <div ng-show="c.tabIsShown('text')">
-
         <ul>
           <li ng-repeat="item in c.results" class="result-list-item">
             <faceted-gui-item item="item._source" score="item.score"
@@ -327,16 +390,16 @@
                                 confirm-action="convertPartyCase(arg1)"></maindendogram-gui-item>
       </div>
 
-  <div ng-show="c.tabIsShown('eyevis')">
+      <div ng-show="c.tabIsShown('eyevis')">
         <div>
           <arcDiagram-gui-item bind="c.arcDiagram"
                                confirm-action="convertPartyCase(arg1)"></arcDiagram-gui-item>
         </div>
         <div>
           <datelineDiagram-gui-item bind="c.datelineDiagram"
-                               confirm-action="convertPartyCase(arg1)"></datelineDiagram-gui-item>
-        </div>        
-      </div>      
+                                    confirm-action="convertPartyCase(arg1)"></datelineDiagram-gui-item>
+        </div>
+      </div>
 
       <!-- Visualisations end -->
 

@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  var app = angular
-    .module('FacetedUI', [
+  var app = angular.module('FacetedUI', [
       'elasticsearch',
       'elasticui',
       'dangle',
@@ -48,7 +47,7 @@
     };
   }
 
-    /**
+  /**
    * Passing data to the Arc Diagram
    */
   function arcDiagramData(data) {
@@ -61,7 +60,7 @@
   }
 
 
-      /**
+  /**
    * Passing data to the Dateline Diagram
    */
   function datelineDiagramData(data) {
@@ -79,49 +78,69 @@
     'queryBuilderService', 'debounce',
     function ($scope, $log, $filter, esClient, queryBuilderService, debounce) {
       var self = this;
-      var minValue = 0, maxValue = 100000;
+      //var minValue = 0, maxValue = 100000;
 
       this.results = [];
       this.aggregations = {};
       this.query = {};
       this.queryDSL = {};
-      this.lastQueryTime = 0;
-      this.statusOk = true;
-      this.statusInProgress = false;
+      //this.lastQueryTime = 0;
+      //this.statusOk = true;
+      //this.statusInProgress = false;
       this.tabsOpen = ['text'];
 
       // Constants
-      this.roleLongname = {
-        abg: 'Member of Parl.',
-        other: 'Other',
-        pres: 'President'
-      };
+      //this.roleLongname = {
+      //  abg: 'Member of Parl.',
+      //  other: 'Other',
+      //  pres: 'President'
+      //};
 
       // Configure facets
       queryBuilderService.setFacetConfig('experiment',
         {field: 'experiment', type: 'multiTerm', key: 'experiment'},
-        {terms: {field: 'experiment'}});
+        {terms: {field: 'experiment', size: 10}});
 
 
       queryBuilderService.setFacetConfig('ageAvg',
         {field: 'age', type: 'multiTerm', key: 'ageAvg'},
-        {terms: {field: 'age'}});
-   
+        {terms: {field: 'age', size: 100}});
+
+      queryBuilderService.setFacetConfig('retAll',
+        {field: 'aoi', type: 'multiTerm', key: 'retAll'},
+        {terms: {field: 'aoi', size: 1000}});      
+
       queryBuilderService.setFacetConfig('duration',
         {field: 'duration', type: 'multiTerm', key: 'duration'},
-        {terms: {field: 'duration'}});
+        {terms: {field: 'duration', size: 1000}});
 
       queryBuilderService.setFacetConfig('userName',
         {field: 'userName', type: 'multiTerm'},
-        {terms: {field: 'userName'}});
+        {terms: {field: 'userName', size: 100}});
 
       queryBuilderService.setFacetConfig('aoi',
         {field: 'aoi', type: 'multiTerm'},
-        {terms: {field: 'aoi'}});
+        {terms: {field: 'aoi', size: 1000}});
 
       queryBuilderService.setFacetConfig('isTerminal',
         {field: 'isTerminal', type: 'term'},
         {terms: {field: 'isTerminal'}});
+
+      queryBuilderService.setFacetConfig('isAnswer',
+        {field: 'isAnswer', type: 'term'},
+        {terms: {field: 'isAnswer'}});
+
+      queryBuilderService.setFacetConfig('isComparison',
+        {field: 'isComparison', type: 'term'},
+        {terms: {field: 'isComparison'}});
+
+      queryBuilderService.setFacetConfig('isSettings',
+        {field: 'isSettings', type: 'term'},
+        {terms: {field: 'isSettings'}});
+
+      queryBuilderService.setFacetConfig('isOffscreen',
+        {field: 'isOffscreen', type: 'term'},
+        {terms: {field: 'isOffscreen'}});
 
       // Simple query config for role
       // queryBuilderService.setFacetConfig('role',
@@ -150,11 +169,6 @@
       // };
 
 
-
-
-
-
-
       // queryBuilderService.setFacetConfig('trial', roleconfigs.fast[0],
       //   roleconfigs.fast[1]);
 
@@ -176,10 +190,10 @@
         {field: 'duration', type: 'range', interval: 100},
         {
           histogram: {
-            field: 'duration', interval: 100, min_doc_count: 10
+            field: 'duration', interval: 100
           }
         });
-    
+
 
       queryBuilderService.setFacetConfig('datetime',
         {field: 'datetime', type: 'range'},
@@ -193,12 +207,12 @@
 
       //
       // This configuration is used by the tree-diagram !!!
-      
+
       queryBuilderService.setFacetConfig('treediagram',
         {field: 'userName', type: 'term'},
         {
           terms: {
-            field: "userName",
+            field: "userName"
             // exclude: "",
             //size: 0
           },
@@ -210,104 +224,104 @@
                 //include: "([a-z]?[.][a-z]+)",
                 //size: 200
               },
-                aggregations: {
-                  aois: {
-                    terms: {
-                      field: "datetime",
-                      order: {"_term": "asc"}
-                      
-                    },
-                    aggregations: {
-                      aoiDuration: {
-                        terms: {
-                          field: "duration",
-                        }
-                      },
-                      aoiDate:{
-                         terms: {
-                            field: "aoi"
-                        }
-                      }                      
-                    }
-                  }
-                } 
-            }
-          }
-        });
-
-   queryBuilderService.setFacetConfig('arcdiagram',
-        {field: 'userName', type: 'term'},
-        {
-          terms: {
-            field: "userName",
-            // exclude: "",
-            //size: 0
-          },
-            aggregations: {
-              trials: {
-                terms: {
-                  field: "trial",
-                  order: {"_term": "asc"}
-                },
               aggregations: {
-              aois: {
-                terms: {
-                  field: "aoi",
-                },
-              aggregations: {
-                aoiDuration: {
+                aois: {
                   terms: {
-                    field: "duration",
+                    field: "datetime",
+                    order: {"_term": "asc"}
+
+                  },
+                  aggregations: {
+                    aoiDuration: {
+                      terms: {
+                        field: "duration"
+                      }
+                    },
+                    aoiDate: {
+                      terms: {
+                        field: "aoi"
+                      }
+                    }
                   }
                 }
               }
             }
           }
-        }
-        }
-        });      
+        });
 
-
- queryBuilderService.setFacetConfig('datelinediagram',
-     {field: 'userName', type: 'term'},
+      queryBuilderService.setFacetConfig('arcdiagram',
+        {field: 'userName', type: 'term'},
         {
           terms: {
-            field: "userName",
+            field: "userName"
             // exclude: "",
             //size: 0
           },
-            aggregations: {
-              trials: {
-                terms: {
-                  field: "trial",
-                  order: {"_term": "asc"}
-                },                                
-                aggregations: {
-                  aois: {
-                    terms: {
-                      field: "datetime",
-                      order: {"_term": "asc"}
-                      
-                    },
-                    aggregations: {
-                      aoiDuration: {
-                        terms: {
-                          field: "duration",
-                        }
-                      },
-                      aoiDate:{
-                         terms: {
-                            field: "aoi"
-                        }
-                      }                      
+          aggregations: {
+            trials: {
+              terms: {
+                field: "trial",
+                order: {"_term": "asc"}
+              },
+              aggregations: {
+                aois: {
+                  terms: {
+                    field: "aoi"
+                  },
+                  aggregations: {
+                    aoiDuration: {
+                      terms: {
+                        field: "duration"
+                      }
                     }
                   }
-                }                                
+                }
               }
-            }         
-        });    
+            }
+          }
+        });
 
-      // Reuqest the date once more ,  this time it will fetched from
+
+      queryBuilderService.setFacetConfig('datelinediagram',
+        {field: 'userName', type: 'term'},
+        {
+          terms: {
+            field: "userName"
+            // exclude: "",
+            //size: 0
+          },
+          aggregations: {
+            trials: {
+              terms: {
+                field: "trial",
+                order: {"_term": "asc"}
+              },
+              aggregations: {
+                aois: {
+                  terms: {
+                    field: "datetime",
+                    order: {"_term": "asc"}
+
+                  },
+                  aggregations: {
+                    aoiDuration: {
+                      terms: {
+                        field: "duration"
+                      }
+                    },
+                    aoiDate: {
+                      terms: {
+                        field: "aoi"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        });
+
+      // Request the date once more ,  this time it will fetched from
       // the primary query-context and thus be affected by the query context
       queryBuilderService.setFacetConfig('dateLimited',
         false,
@@ -322,20 +336,20 @@
        * This is a demo method that shows that aggregations can easily be
        * changed on the fly.
        */
-      function useNestedAggregationForRoleFacet(status) {
-        if(status) {
-          queryBuilderService.setFacetConfig('trial',
-            roleconfigs.full[0], roleconfigs.full[1]);
-        } else {
-          queryBuilderService.setFacetConfig('trial',
-            roleconfigs.fast[0], roleconfigs.fast[1]);
-        }
-      }
+      //function useNestedAggregationForRoleFacet(status) {
+      //  if (status) {
+      //    queryBuilderService.setFacetConfig('trial',
+      //      roleconfigs.full[0], roleconfigs.full[1]);
+      //  } else {
+      //    queryBuilderService.setFacetConfig('trial',
+      //      roleconfigs.fast[0], roleconfigs.fast[1]);
+      //  }
+      //}
 
-      this.updateHiddenChartSetting = function() {
-        useNestedAggregationForRoleFacet(this.showHiddenChart);
-        this.refresh();
-      }
+      //this.updateHiddenChartSetting = function () {
+      //  useNestedAggregationForRoleFacet(this.showHiddenChart);
+      //  this.refresh();
+      //};
 
 
       /**
@@ -380,6 +394,17 @@
           }
         }
 
+          if (self.query.retAll) {
+          for (var pk in self.query.retAll) {
+            if (!self.query.retAll[pk]) {
+              delete self.query.retAll[pk];
+            }
+          }
+          if (!Object.keys(self.query.retAll).length) {
+            delete self.query.retAll;
+          }
+        }
+
         // Cleanup the userName field
         if (self.query.userName) {
           for (var pk in self.query.userName) {
@@ -402,9 +427,9 @@
           if (!Object.keys(self.query.aoi).length) {
             delete self.query.aoi;
           }
-        }      
+        }
 
-           // Cleanup the duration field
+        // Cleanup the duration field
         if (self.query.duration) {
           for (var pk in self.query.duration) {
             if (!self.query.duration[pk]) {
@@ -438,8 +463,8 @@
        */
       function extraFacetRequest(excludefacet, query) {
         var extraquery = {},
-          dsl = {},
           queryitems = Object.keys(query);
+        var dsl;
 
 
         // Copy the query except for the excludefacet
@@ -464,7 +489,7 @@
       }
 
       function specialFacetRequest(excludefacet, query) {
-       return esClient.search(query)
+        return esClient.search(query)
           .then(function (body) {
             bringAggregationsIntoScope([excludefacet], body.aggregations);
           })
@@ -473,7 +498,7 @@
             // self.statusInProgress = false;
             $log.error(error);
           });
-      }      
+      }
 
       this.tabIsShown = function (what) {
         return this.tabsOpen.indexOf(what) !== -1;
@@ -486,9 +511,9 @@
       /**
        * Return current content of freetext-search.
        */
-      this.getQueryText = function () {
-        return (this.query.freetext);
-      };
+      //this.getQueryText = function () {
+      //  return (this.query.freetext);
+      //};
 
       /**
        * remove a filter/facet from query context
@@ -542,7 +567,7 @@
         // Make request to search-backend
         esClient.search(self.queryDSL)
           .then(function (body) {
-            var mainaggs = [], specialaggs = [];
+            var mainaggs, specialaggs;
             self.statusOk = true;
             self.statusInProgress = false;
             self.results = body.hits.hits;
@@ -579,36 +604,58 @@
         // TODO : read from configuration , i.e. do that for all facets
         // that are in  queryBuilderService.getAggregationMultiKeys()
 
-        specialFacetRequest('ageAvg', 
-        {
-        size: 0,
-        body: {
-                // Begin query.
-                query: { match_all: {} },
-                // Aggregate on the results
-                aggs: {
-                  ageAvg: {
-                    avg: {
-                      field: "age"
-                    }
+        specialFacetRequest('ageAvg',
+          {
+            size: 0,
+            body: {
+              // Begin query.
+              query: {match_all: {}},
+              // Aggregate on the results
+              aggs: {
+                ageAvg: {
+                  avg: {
+                    field: "age"
                   }
-                  // End query.
                 }
+                // End query.
               }
+            }
           })
-            .then(function() {
+          .then(function () {
 
-              var agg = self.aggregations.ageAvg, dummy;
-              self.ageAvg = self.aggregations.ageAvg;
+            //var agg = self.aggregations.ageAvg, dummy;
+            self.ageAvg = self.aggregations.ageAvg;
 
-          });           
+          });
 
-        extraFacetRequest('experiment', self.query);
+    specialFacetRequest('retAll',
+          {
+            size: 10000,
+            body: {
+              // Begin query.
+              query: {match_all: {}},
+              aggs: {
+                retAll:{
+                  terms:{
+                    field: "aoi",
+                    order: {"_term": "asc"}
+                  }
+                }
+              }                         
+            }
+          })
+          .then(function () {
+
+            self.retAll = self.aggregations.retAll;
+
+          });
+
+        extraFacetRequest('experiment', self.query);       
         extraFacetRequest('duration', self.query);
         extraFacetRequest('userName', self.query);
         extraFacetRequest('aoi', self.query);
         extraFacetRequest('datetime', self.query)
-          .then(function() {
+          .then(function () {
             // Separate request for the date
             // Set new values to our slider and the 'full-date' histogram
             // (which is not affected by the date query)

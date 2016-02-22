@@ -8,10 +8,10 @@
             "type": "long"
          },
          "experiment": {
-            "type": "string"
+            "type": "long"
          },      
          "trial": {
-            "type": "string"
+            "type": "long"
          },  
          "aoi": {
             "type": "string"
@@ -39,9 +39,15 @@
          "isAnswer": {
             "type": "boolean"
          },
-         "isterminal": {
+         "isSettings": {
             "type": "boolean"
-         }      
+         },         
+         "isTerminal": {
+            "type": "boolean"
+         },         
+         "isOffscreen": {
+            "type": "boolean"
+         }       
      }
    }
 }

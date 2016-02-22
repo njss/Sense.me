@@ -1,27 +1,71 @@
 <div class="resultItem">
   <div class="speaker">
-    <div class="image">
-      <img src="{{item.image}}" class="speaker"/>
+
+      <div ng-if="item.isOffscreen" class="image">   
+      <p>        
+        <img  ng-if="item.isTerminal!=true" src="/config/images/isOffscreen.png" class="speaker" title="isOffScreen"/>
+        <img  ng-if="item.isTerminal==true" src="/config/images/isOffScreen_isTerminal.png" class="speaker" title="isOffscreen and isTerminal"/>
+      </p>
     </div>
-    <b>{{item.name}}</b>
+
+    <div ng-if="item.isOffscreen!=true">  
+      <div ng-if="item.isComparison" class="image">    
+        <p >        
+          <img  ng-if="item.isTerminal!=true" src="/config/images/isComparison.png" class="speaker" title="isComparison"/>
+          <img  ng-if="item.isTerminal==true" src="/config/images/isComparison_isTerminal.png" class="speaker" title="isComparison and isTerminal"/>
+        </p>
+      </div>
+      <div ng-if="item.isSettings" class="image"> 
+        <p>        
+          <img  ng-if="item.isTerminal!=true" src="/config/images/isSettings.png" class="speaker" title="isSettings"/>
+          <img  ng-if="item.isTerminal==true" src="/config/images/isSettings_isTerminal.png" class="speaker" title="isSettings and isTerminal"/>
+        </p>
+      </div>
+    </div>
+
+  <div ng-if="item.isOffscreen!=true && item.isComparison!=true && item.isSettings!=true" class="image">          
+        <p ng-if="item.isTerminal==true">
+         <img  ng-if="item.isAnswer!=true" src="/config/images/isTerminal.png" class="speaker" title="isTerminal"/>
+         <img  ng-if="item.isAnswer==true" src="/config/images/isAnswer_isTerminal.png" class="speaker" title="isAnswer and isTerminal"/>
+        </p>
+
+        <p ng-if="item.isTerminal!=true">
+          <img ng-if="item.isAnswer!=true" src="/config/images/isNormal.png" class="speaker" title="isNormal"/>
+          <img ng-if="item.isAnswer==true" src="/config/images/isAnswer.png" class="speaker" title="isAnswer"/>
+        </p>
+    </div>
+
+    <b>{{item.aoi}}</b>
 
     <p>
       <span class="party">Trial: {{item.trial}}</span>
       <span class="occupation">Age: {{item.age}}</span>
     </p>
 
-    <p>{{item.datetime | date }}</p>
+    <!--<p>{{item.datetime | date }}</p>-->
 
-    <p ng-if="item.isTerminal">
-      &dagger; {{item.datetime | date }}
+    <p ng-if="item.isTerminal"> &ge; Time Threshold &ge;    
     </p>
+
+    <p ng-if="item.isSettings"> Looked at Settings
+    </p>
+
+    <p ng-if="item.isOffscreen"> Looked Offscreen
+    </p>
+
+    <p ng-if="item.isAnswer"> &asymp; Looked at Answer &asymp;      
+    </p>
+
+    <p ng-if="item.isComparison"> &#x2605; (Comparing Sketch)      
+    </p>
+
   </div>
   <div class="content">
     <span class="tag-thing">
-      <h5>{{item.datetime | date : 'd.MM.y, HH:mm'}}</h5>
+      <h5>{{item.datetime | date : 'd.MM.y, HH:mm:ss:sss'}}</h5>
     </span>
     <span class="tag-thing">
-      LLP {{item.x}} / Session {{item.y}}
+      X {{item.x}} / Y {{item.y}}
     </span>
     <span class="tag-thing">
       Duration: {{item.duration}}
@@ -29,7 +73,7 @@
     <span class="role">{{item.experiment}}</span>
 
     <p class="text" ng-show="!itemExpanded">
-      {{item.name|limitTo : 160}}
+      {{item.userName|limitTo : 160}}
       <a class="expand" ng-click="expandToggle()">(more)</a>
     </p>
     <p class="text" ng-show="itemExpanded"

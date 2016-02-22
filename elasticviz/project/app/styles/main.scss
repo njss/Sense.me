@@ -5,6 +5,10 @@ $icon-font-path: '../fonts/';
 // endbower
 
 @import "app/styles/facetedGui.scss";
+@import "app/styles/_arcdiagram.scss";
+@import "app/styles/_maindendogram.scss";
+//@import "app/styles/_dangle.scss";
+@import "app/styles/_dateline.scss";
 
 .browserupgrade {
   margin: 0.2em 0;

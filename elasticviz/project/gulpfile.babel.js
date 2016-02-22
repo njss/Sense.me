@@ -32,6 +32,7 @@ function lint(files, options) {
       .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
   };
 }
+
 const testLintOptions = {
   env: {
     mocha: true
@@ -46,13 +47,29 @@ gulp.task('html', ['styles'], () => {
 
   return gulp.src('app/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
+
+    //comment this line, if you have lint errors but want to sent the javscript anyway (the uglify is failing...)
+    //.pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('scriptshtml', ['styles'], () => {
+  const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
+
+return gulp.src('app/scripts/*.html')
+  .pipe(assets)
+  //.pipe($.if('*.js', $.uglify()))
+  .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
+  .pipe(assets.restore())
+  .pipe($.useref())
+  .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+  .pipe(gulp.dest('dist/scripts'));
+});
+
 
 gulp.task('images', () => {
   return gulp.src('app/images/**/*')
@@ -138,7 +155,7 @@ gulp.task('serve:test', () => {
   });
 
   gulp.watch('test/spec/**/*.js').on('change', reload);
-  gulp.watch('test/spec/**/*.js', ['lint:test']);
+  //gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
 // inject bower components
@@ -157,7 +174,8 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+//gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', [ 'lint', 'html', 'scriptshtml', 'images', 'fonts'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

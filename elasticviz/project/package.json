@@ -32,10 +32,9 @@
       "browser": true
     },
     "rules": {
-      "quotes": [
-        2,
-        "single"
-      ]
+      "camelcase": 2,
+      "quotes": [2,"single"]
+
     }
   }
 }

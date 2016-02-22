@@ -439,7 +439,7 @@
                   }
                 }
 
-                loadchart("datelinediagram", json);
+                //loadchart("datelinediagram", json);
 
               }
             });
