@@ -36,29 +36,30 @@
                 svg.selectAll("*").remove();
 
                        // load csv file and create the chart
-                var colorgen = d3.scale.ordinal()
+                var colorGen = d3.scale.ordinal()
                   .range(["#a6cee3","#1f78b4","#b2df8a","#33a02c",
                           "#fb9a99","#e31a1c","#fdbf6f","#ff7f00",
                           "#cab2d6","#6a3d9a","#ffff99","#b15928"]);
 
-                var color = function(d) { 
-                  return colorgen(d.group); };
-
+           
 
                 var dimensions;                
                 var numberPattern = /\d+/g;
 
+var users = ["user1", "user2", "user3"];
+
                 //Start
-                var margin = {top: 30, right: 10, bottom: 10, left: 10},
-                    width = 1400 - margin.left - margin.right,
+                var margin = {top: 30, right: 40, bottom: 10, left: 10},
+                    width = 1350 - margin.left - margin.right,
                     height = 500 - margin.top - margin.bottom;
 
                 var x = d3.scale.ordinal().rangePoints([0, width], 1),
-                    y = {},
+                    y = {},                    
                     dragging = {};
 
-                var line = d3.svg.line(),
-                    axis = d3.svg.axis().orient("left"),
+                var line = d3.svg.line();
+                //.interpolate("basis");
+                var axis = d3.svg.axis().orient("left"),
                     background,
                     foreground;
 
@@ -68,6 +69,7 @@
                   .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
                   
+
 
                   //Data Start
                   // Extract the list of dimensions and create a scale for each.
@@ -95,13 +97,40 @@
                     .enter().append("path")
                       .attr("d", path);
 
+ // Add a legend.
+  var legend = svg.selectAll("g.legend")
+      .data(users)
+    .enter().append("svg:g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(" + (width - 40) + "," + (i * 20 + 100) + ")"; });
+
+  legend.append("svg:line")
+      .attr("class", String)
+      .attr("x2", 8);
+
+  legend.append("svg:text")
+      .attr("x", 12)
+      .attr("dy", ".31em")
+      .text(function(d) { return d; });
+
+
+// linear color scale
+var blue_to_brown = d3.scale.linear()
+  .domain([1, 2])
+  .range(["steelblue", "brown"])
+  .interpolate(d3.interpolateLab);
+
+
                   // Add blue foreground lines for focus.
                   foreground = svg.append("g")
                       .attr("class", "foreground")
                     .selectAll("path")
                       .data(root)
                     .enter().append("path")
-                      .attr("d", path);
+                      .attr("d", path)
+                      .style("stroke", function(d) { 
+                        var colorClass = blue_to_brown(d.row.userName);
+                        return  colorClass;/*"user" + d.row.userName;*/ }); //color
 
                   // Add a group element for each dimension.
                   var g = svg.selectAll(".dimension")
@@ -121,6 +150,9 @@
                           dimensions.sort(function(a, b) { return position(a) - position(b); });
                           x.domain(dimensions);
                           g.attr("transform", function(d) { return "translate(" + position(d) + ")"; })
+
+                          //new
+                          this.__dragged__ = true;
                         })
                         .on("dragend", function(d) {
                           delete dragging[d];
@@ -132,16 +164,38 @@
                               .delay(500)
                               .duration(0)
                               .attr("visibility", null);
+
+                            //new
+                            if (!this.__dragged__) 
+                            {
+                              // no movement, invert axis
+                              var extent = invert_axis(d);
+
+                            } else {
+                              // reorder axes
+                              d3.select(this).transition().attr("transform", "translate(" + x(d) + ")");
+
+                              var extent = y[d].brush.extent();
+                            }    
+
+                          //New
+                          // TODO required to avoid a bug
+                          x.domain(dimensions);
+                          update_ticks(d, extent);                                                      
                         }));
 
                   // Add an axis and title.
                   g.append("g")
                       .attr("class", "axis")
-                      .each(function(d) { d3.select(this).call(axis.scale(y[d])); })
+                      .each(function(d) { 
+                        d3.select(this).call(axis.scale(y[d])); 
+                          })
                     .append("text")
                       .style("text-anchor", "middle")
                       .attr("y", -9)
                       .text(function(d) { return d; });
+
+
 
                   // Add and store a brush for each axis.
                   g.append("g")
@@ -152,6 +206,7 @@
                     .selectAll("rect")
                       .attr("x", -8)
                       .attr("width", 16);
+
 
 
                 function position(d) {
@@ -188,6 +243,56 @@
                     }) ? null : "none";
                   });
                 }
+
+function invert_axis(d) {
+  // save extent before inverting
+  if (!y[d].brush.empty()) {
+    var extent = y[d].brush.extent();
+  }
+  if (y[d].inverted == true) {
+    y[d].range([height, 0]);
+    d3.selectAll('.text')
+      .filter(function(p) { return p == d; })
+      .style("text-decoration", null);
+    y[d].inverted = false;
+  } else {
+    y[d].range([0, height]);
+    d3.selectAll('.text')
+      .filter(function(p) { return p == d; })
+      .style("text-decoration", "underline");
+    y[d].inverted = true;
+  }
+  return extent;
+}
+
+// transition ticks for reordering, rescaling and inverting
+function update_ticks(d, extent) {
+  // update brushes
+  if (d) {
+    var brush_el = d3.selectAll(".brush")
+        .filter(function(key) { return key == d; });
+    // single tick
+    if (extent) {
+      // restore previous extent
+      brush_el.call(y[d].brush = d3.svg.brush().y(y[d]).extent(extent).on("brush", brush));
+    } else {
+      brush_el.call(y[d].brush = d3.svg.brush().y(y[d]).on("brush", brush));
+    }
+  } else {
+    // all ticks
+    d3.selectAll(".brush")
+      .each(function(d) { d3.select(this).call(y[d].brush = d3.svg.brush().y(y[d]).on("brush", brush)); })
+  }
+
+  //brush_count++;
+
+  //show_ticks();
+
+}
+
+
+
+
 
 
                 function createChildNodes(dataObj) {

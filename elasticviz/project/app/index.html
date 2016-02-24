@@ -381,15 +381,19 @@
           </div>
         </div>
         <h3>Overall Diagram View</h3>
-        {{c.aggregations.buckets}}
-        <maindendogram-gui-item bind="c.mainTreeDiagram"
-                                confirm-action="convertPartyCase(arg1)"></maindendogram-gui-item>
-
-        <parallelcoordinates-gui-item bind="c.mainParallelCoordinates"
-                                confirm-action="convertPartyCase(arg1)"></parallelcoordinates-gui-item>
-        
-        <advancedparallelcoordinates-gui-item bind="c.mainParallelCoordinatesAdv"
-                                confirm-action="convertPartyCase(arg1)"></advancedparallelcoordinates-gui-item>
+        <div>
+          {{c.aggregations.buckets}}
+          <maindendogram-gui-item bind="c.mainTreeDiagram"
+                                  confirm-action="convertPartyCase(arg1)"></maindendogram-gui-item>
+        </div>
+        <div>
+          <h3>Parallel Coordinates Exploration</h3>
+          <parallelcoordinates-gui-item bind="c.mainParallelCoordinates"
+                                  confirm-action="convertPartyCase(arg1)"></parallelcoordinates-gui-item>
+          
+          <!--<advancedparallelcoordinates-gui-item bind="c.mainParallelCoordinatesAdv"
+                                  confirm-action="convertPartyCase(arg1)"></advancedparallelcoordinates-gui-item>-->
+        </div>
       </div>
 
       <div ng-show="c.tabIsShown('eyevis')">
