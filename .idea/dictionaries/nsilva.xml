@@ -1,12 +1,30 @@
 <component name="ProjectDictionaryState">
   <dictionary name="nsilva">
     <words>
+      <w>agglist</w>
+      <w>aggs</w>
+      <w>aois</w>
+      <w>arcdiagram</w>
+      <w>datelinediagram</w>
       <w>debounce</w>
+      <w>diferent</w>
       <w>elasticsearch</w>
       <w>elasticui</w>
+      <w>excludefacet</w>
+      <w>extraquery</w>
       <w>eyedata</w>
+      <w>freetext</w>
+      <w>grüne</w>
       <w>histo</w>
+      <w>historgram</w>
+      <w>longname</w>
+      <w>mainaggs</w>
+      <w>parl</w>
+      <w>queryitems</w>
+      <w>request</w>
       <w>roleconfigs</w>
+      <w>specialaggs</w>
+      <w>treediagram</w>
     </words>
   </dictionary>
 </component>

@@ -6,7 +6,7 @@
       'elasticui',
       'dangle',
       'debounce',
-      'rzModule'
+      'rzModule', 'underscore'
     ]);
 
   // Config for elastic-UI
@@ -42,6 +42,31 @@
     return {
       _type: 'userName',
       entries: data.buckets.map(function (r) {
+        return {main: r};
+      })
+    };
+  }
+
+/**
+   * Passing data to the Tree Diagram
+   */
+  function mainParallelCoordinatesData(data) {
+    return {
+      _type: 'userName',
+      entries: data.map(function (r) {
+        return {main: r};
+      })
+    };
+  }
+
+
+/**
+   * Passing data to the Tree Diagram
+   */
+  function mainParallelCoordinatesAdvData(data) {
+    return {
+      _type: 'userName',
+      entries: data.map(function (r) {
         return {main: r};
       })
     };
@@ -110,9 +135,9 @@
         {field: 'aoi', type: 'multiTerm', key: 'retAll'},
         {terms: {field: 'aoi', size: 1000}});      
 
-      queryBuilderService.setFacetConfig('duration',
-        {field: 'duration', type: 'multiTerm', key: 'duration'},
-        {terms: {field: 'duration', size: 1000}});
+      queryBuilderService.setFacetConfig('durationAoi',
+        {field: 'durationAoi', type: 'multiTerm', key: 'durationAoi'},
+        {terms: {field: 'durationAoi', size: 1000}});
 
       queryBuilderService.setFacetConfig('userName',
         {field: 'userName', type: 'multiTerm'},
@@ -184,15 +209,15 @@
         {field: 'aoi', type: 'analysedTerm', key: 'freetext'},
         false);
 
-      //
-      // Query and aggregation by duration
-      queryBuilderService.setFacetConfig('durationFacet',
-        {field: 'duration', type: 'range', interval: 100},
-        {
-          histogram: {
-            field: 'duration', interval: 100
-          }
-        });
+      // //
+      // // Query and aggregation by durationAoi
+      // queryBuilderService.setFacetConfig('durationAoiFacet',
+      //   {field: 'durationAoi', type: 'range', interval: 100},
+      //   {
+      //     histogram: {
+      //       field: 'durationAoi', interval: 100
+      //     }
+      //   });
 
 
       queryBuilderService.setFacetConfig('datetime',
@@ -225,19 +250,19 @@
                 //size: 200
               },
               aggregations: {
-                aois: {
+                aoisDates: {
                   terms: {
                     field: "datetime",
                     order: {"_term": "asc"}
 
                   },
                   aggregations: {
-                    aoiDuration: {
+                    durationAoi: {
                       terms: {
-                        field: "duration"
+                        field: "durationAoi"
                       }
                     },
-                    aoiDate: {
+                    aoi: {
                       terms: {
                         field: "aoi"
                       }
@@ -247,6 +272,50 @@
               }
             }
           }
+        });
+
+      queryBuilderService.setFacetConfig('parallelCoordinates',
+        {field: 'aoi', type: 'term'},
+        {
+          terms: {
+            field: "userName",
+            field: "experiment",
+            field: "trial"
+            // exclude: "",
+            //size: 0
+          }
+          //,
+          // aggregations: {
+          //   trials: {
+          //     terms: {
+          //       field: "trial",
+          //       order: {"_term": "asc"}
+          //       //include: "([a-z]?[.][a-z]+)",
+          //       //size: 200
+          //     },
+          //     aggregations: {
+          //       aois: {
+          //         terms: {
+          //           field: "datetime",
+          //           order: {"_term": "asc"}
+
+          //         },
+          //         aggregations: {
+          //           durationAoi: {
+          //             terms: {
+          //               field: "durationAoi"
+          //             }
+          //           },
+          //           aoiDate: {
+          //             terms: {
+          //               field: "aoi"
+          //             }
+          //           }
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
         });
 
       queryBuilderService.setFacetConfig('arcdiagram',
@@ -269,9 +338,9 @@
                     field: "aoi"
                   },
                   aggregations: {
-                    aoiDuration: {
+                    durationAoi: {
                       terms: {
-                        field: "duration"
+                        field: "durationAoi"
                       }
                     }
                   }
@@ -304,9 +373,9 @@
 
                   },
                   aggregations: {
-                    aoiDuration: {
+                    durationAoi: {
                       terms: {
-                        field: "duration"
+                        field: "durationAoi"
                       }
                     },
                     aoiDate: {
@@ -429,15 +498,15 @@
           }
         }
 
-        // Cleanup the duration field
-        if (self.query.duration) {
-          for (var pk in self.query.duration) {
-            if (!self.query.duration[pk]) {
-              delete self.query.duration[pk];
+        // Cleanup the durationAoi field
+        if (self.query.durationAoi) {
+          for (var pk in self.query.durationAoi) {
+            if (!self.query.durationAoi[pk]) {
+              delete self.query.durationAoi[pk];
             }
           }
-          if (!Object.keys(self.query.duration).length) {
-            delete self.query.duration;
+          if (!Object.keys(self.query.durationAoi).length) {
+            delete self.query.durationAoi;
           }
         }
 
@@ -590,6 +659,8 @@
             // (some components need the results in diferent form)
             self.dangleDateHisto = dangleMapHistoData(self.aggregations.dateLimited);
             self.mainTreeDiagram = mainTreeMapDiagramData(self.aggregations.treediagram);
+            self.mainParallelCoordinates = mainParallelCoordinatesData(body.hits.hits);
+            self.mainParallelCoordinatesAdv = mainParallelCoordinatesAdvData(body.hits.hits);
             self.arcDiagram = arcDiagramData(self.aggregations.arcdiagram);
             self.datelineDiagram = datelineDiagramData(self.aggregations.datelinediagram);
           })
@@ -624,7 +695,7 @@
           .then(function () {
 
             //var agg = self.aggregations.ageAvg, dummy;
-            self.ageAvg = self.aggregations.ageAvg;
+            self.ageAvg = (self.aggregations.ageAvg.value).toFixed(2);
 
           });
 
@@ -651,7 +722,7 @@
           });
 
         extraFacetRequest('experiment', self.query);       
-        extraFacetRequest('duration', self.query);
+        extraFacetRequest('durationAoi', self.query);
         extraFacetRequest('userName', self.query);
         extraFacetRequest('aoi', self.query);
         extraFacetRequest('datetime', self.query)
@@ -692,7 +763,7 @@
         if (party == 'none') {
           return 'None';
         }
-        return party.toUpperCase();
+        return party;
       };
 
       /**
@@ -705,7 +776,7 @@
 
       $scope.myController = this;
 
-      //Fires every time the user changes the range value on the dc chart duration histogram
+      //Fires every time the user changes the range value on the dc chart durationAoi histogram
       $scope.setMinMaxValues = function (min, max) {
         //debugger;
         $scope.myController.minValue = min;

@@ -1,131 +1,131 @@
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi18", "duration":239, "x":920, "y":536, "datetime":"2016-02-17T14:51:31+00:00", "datetimezero":"2016-02-17T14:51:31+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":18, "durationAoi":239, "x":920, "y":536, "datetime":"2016-02-17T14:51:31+00:00", "datetimezero":"2016-02-17T14:51:31+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi40", "duration":234, "x":242, "y":108, "datetime":"2016-02-17T14:51:32+00:00", "datetimezero":"2016-02-17T14:51:32+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":40, "durationAoi":234, "x":242, "y":108, "datetime":"2016-02-17T14:51:32+00:00", "datetimezero":"2016-02-17T14:51:32+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi1", "duration":94, "x":612, "y":86, "datetime":"2016-02-17T14:51:32+00:00", "datetimezero":"2016-02-17T14:51:32+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":1, "durationAoi":94, "x":612, "y":86, "datetime":"2016-02-17T14:51:32+00:00", "datetimezero":"2016-02-17T14:51:32+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi3", "duration":32, "x":1003, "y":67, "datetime":"2016-02-17T14:51:33+00:00", "datetimezero":"2016-02-17T14:51:33+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":3, "durationAoi":32, "x":1003, "y":67, "datetime":"2016-02-17T14:51:33+00:00", "datetimezero":"2016-02-17T14:51:33+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi10", "duration":32, "x":963, "y":271, "datetime":"2016-02-17T14:51:34+00:00", "datetimezero":"2016-02-17T14:51:34+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":10, "durationAoi":32, "x":963, "y":271, "datetime":"2016-02-17T14:51:34+00:00", "datetimezero":"2016-02-17T14:51:34+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":64, "x":1332, "y":479, "datetime":"2016-02-17T14:51:34+00:00", "datetimezero":"2016-02-17T14:51:34+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":64, "x":1332, "y":479, "datetime":"2016-02-17T14:51:34+00:00", "datetimezero":"2016-02-17T14:51:34+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":436, "x":1289, "y":491, "datetime":"2016-02-17T14:51:35+00:00", "datetimezero":"2016-02-17T14:51:35+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":436, "x":1289, "y":491, "datetime":"2016-02-17T14:51:35+00:00", "datetimezero":"2016-02-17T14:51:35+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi40", "duration":154, "x":245, "y":102, "datetime":"2016-02-17T14:51:35+00:00", "datetimezero":"2016-02-17T14:51:35+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":40, "durationAoi":154, "x":245, "y":102, "datetime":"2016-02-17T14:51:35+00:00", "datetimezero":"2016-02-17T14:51:35+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi42", "duration":61, "x":1353, "y":553, "datetime":"2016-02-17T14:51:36+00:00", "datetimezero":"2016-02-17T14:51:36+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":42, "durationAoi":61, "x":1353, "y":553, "datetime":"2016-02-17T14:51:36+00:00", "datetimezero":"2016-02-17T14:51:36+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":30, "x":1468, "y":535, "datetime":"2016-02-17T14:51:36+00:00", "datetimezero":"2016-02-17T14:51:36+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":30, "x":1468, "y":535, "datetime":"2016-02-17T14:51:36+00:00", "datetimezero":"2016-02-17T14:51:36+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":354, "x":1475, "y":510, "datetime":"2016-02-17T14:51:36+00:00", "datetimezero":"2016-02-17T14:51:36+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":354, "x":1475, "y":510, "datetime":"2016-02-17T14:51:36+00:00", "datetimezero":"2016-02-17T14:51:36+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi13", "duration":32, "x":1392, "y":412, "datetime":"2016-02-17T14:51:37+00:00", "datetimezero":"2016-02-17T14:51:37+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":13, "durationAoi":32, "x":1392, "y":412, "datetime":"2016-02-17T14:51:37+00:00", "datetimezero":"2016-02-17T14:51:37+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi12", "duration":464, "x":1184, "y":418, "datetime":"2016-02-17T14:51:37+00:00", "datetimezero":"2016-02-17T14:51:37+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":12, "durationAoi":464, "x":1184, "y":418, "datetime":"2016-02-17T14:51:37+00:00", "datetimezero":"2016-02-17T14:51:37+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":63, "x":1387, "y":483, "datetime":"2016-02-17T14:51:38+00:00", "datetimezero":"2016-02-17T14:51:38+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":63, "x":1387, "y":483, "datetime":"2016-02-17T14:51:38+00:00", "datetimezero":"2016-02-17T14:51:38+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":127, "x":1399, "y":462, "datetime":"2016-02-17T14:51:38+00:00", "datetimezero":"2016-02-17T14:51:38+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":127, "x":1399, "y":462, "datetime":"2016-02-17T14:51:38+00:00", "datetimezero":"2016-02-17T14:51:38+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":83, "x":1233, "y":458, "datetime":"2016-02-17T14:51:38+00:00", "datetimezero":"2016-02-17T14:51:38+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":83, "x":1233, "y":458, "datetime":"2016-02-17T14:51:38+00:00", "datetimezero":"2016-02-17T14:51:38+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":105, "x":1257, "y":509, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":105, "x":1257, "y":509, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":20, "x":1441, "y":513, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":20, "x":1441, "y":513, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":239, "x":1466, "y":511, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":239, "x":1466, "y":511, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":31, "x":1246, "y":490, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":31, "x":1246, "y":490, "datetime":"2016-02-17T14:51:39+00:00", "datetimezero":"2016-02-17T14:51:39+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":165, "x":1278, "y":501, "datetime":"2016-02-17T14:51:40+00:00", "datetimezero":"2016-02-17T14:51:40+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":165, "x":1278, "y":501, "datetime":"2016-02-17T14:51:40+00:00", "datetimezero":"2016-02-17T14:51:40+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi21", "duration":818, "x":1487, "y":523, "datetime":"2016-02-17T14:51:41+00:00", "datetimezero":"2016-02-17T14:51:41+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":21, "durationAoi":818, "x":1487, "y":523, "datetime":"2016-02-17T14:51:41+00:00", "datetimezero":"2016-02-17T14:51:41+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi20", "duration":1564, "x":1315, "y":500, "datetime":"2016-02-17T14:51:42+00:00", "datetimezero":"2016-02-17T14:51:42+00:00", "isComparison":false, "isAnswer":true, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":20, "durationAoi":1564, "x":1315, "y":500, "datetime":"2016-02-17T14:51:42+00:00", "datetimezero":"2016-02-17T14:51:42+00:00", "isComparison":0, "isAnswer":1, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi12", "duration":250, "x":1186, "y":406, "datetime":"2016-02-17T14:51:43+00:00", "datetimezero":"2016-02-17T14:51:43+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":12, "durationAoi":250, "x":1186, "y":406, "datetime":"2016-02-17T14:51:43+00:00", "datetimezero":"2016-02-17T14:51:43+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi40", "duration":95, "x":244, "y":96, "datetime":"2016-02-17T14:51:43+00:00", "datetimezero":"2016-02-17T14:51:43+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":40, "durationAoi":95, "x":244, "y":96, "datetime":"2016-02-17T14:51:43+00:00", "datetimezero":"2016-02-17T14:51:43+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":1, "aoi":"aoi12", "duration":31, "x":1282, "y":325, "datetime":"2016-02-17T14:51:44+00:00", "datetimezero":"2016-02-17T14:51:44+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":1, "aoi":12, "durationAoi":31, "x":1282, "y":325, "datetime":"2016-02-17T14:51:44+00:00", "datetimezero":"2016-02-17T14:51:44+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi18", "duration":175, "x":939, "y":521, "datetime":"2016-02-17T14:51:48+00:00", "datetimezero":"2016-02-17T14:51:48+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":18, "durationAoi":175, "x":939, "y":521, "datetime":"2016-02-17T14:51:48+00:00", "datetimezero":"2016-02-17T14:51:48+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi20", "duration":410, "x":1226, "y":475, "datetime":"2016-02-17T14:51:48+00:00", "datetimezero":"2016-02-17T14:51:48+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":20, "durationAoi":410, "x":1226, "y":475, "datetime":"2016-02-17T14:51:48+00:00", "datetimezero":"2016-02-17T14:51:48+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi20", "duration":72, "x":1333, "y":554, "datetime":"2016-02-17T14:51:48+00:00", "datetimezero":"2016-02-17T14:51:48+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":20, "durationAoi":72, "x":1333, "y":554, "datetime":"2016-02-17T14:51:48+00:00", "datetimezero":"2016-02-17T14:51:48+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi20", "duration":115, "x":1320, "y":589, "datetime":"2016-02-17T14:51:49+00:00", "datetimezero":"2016-02-17T14:51:49+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":20, "durationAoi":115, "x":1320, "y":589, "datetime":"2016-02-17T14:51:49+00:00", "datetimezero":"2016-02-17T14:51:49+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi40", "duration":1993, "x":251, "y":21, "datetime":"2016-02-17T14:51:51+00:00", "datetimezero":"2016-02-17T14:51:51+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":40, "durationAoi":1993, "x":251, "y":21, "datetime":"2016-02-17T14:51:51+00:00", "datetimezero":"2016-02-17T14:51:51+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi42", "duration":64, "x":971, "y":241, "datetime":"2016-02-17T14:51:51+00:00", "datetimezero":"2016-02-17T14:51:51+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":42, "durationAoi":64, "x":971, "y":241, "datetime":"2016-02-17T14:51:51+00:00", "datetimezero":"2016-02-17T14:51:51+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi1", "duration":31, "x":727, "y":64, "datetime":"2016-02-17T14:51:52+00:00", "datetimezero":"2016-02-17T14:51:52+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":1, "durationAoi":31, "x":727, "y":64, "datetime":"2016-02-17T14:51:52+00:00", "datetimezero":"2016-02-17T14:51:52+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi40", "duration":31, "x":253, "y":95, "datetime":"2016-02-17T14:51:53+00:00", "datetimezero":"2016-02-17T14:51:53+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":40, "durationAoi":31, "x":253, "y":95, "datetime":"2016-02-17T14:51:53+00:00", "datetimezero":"2016-02-17T14:51:53+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi40", "duration":494, "x":266, "y":48, "datetime":"2016-02-17T14:51:53+00:00", "datetimezero":"2016-02-17T14:51:53+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":40, "durationAoi":494, "x":266, "y":48, "datetime":"2016-02-17T14:51:53+00:00", "datetimezero":"2016-02-17T14:51:53+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi42", "duration":31, "x":1578, "y":56, "datetime":"2016-02-17T14:51:53+00:00", "datetimezero":"2016-02-17T14:51:53+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":42, "durationAoi":31, "x":1578, "y":56, "datetime":"2016-02-17T14:51:53+00:00", "datetimezero":"2016-02-17T14:51:53+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi42", "duration":331, "x":1587, "y":250, "datetime":"2016-02-17T14:51:54+00:00", "datetimezero":"2016-02-17T14:51:54+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":42, "durationAoi":331, "x":1587, "y":250, "datetime":"2016-02-17T14:51:54+00:00", "datetimezero":"2016-02-17T14:51:54+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi7", "duration":143, "x":1817, "y":235, "datetime":"2016-02-17T14:51:55+00:00", "datetimezero":"2016-02-17T14:51:55+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":7, "durationAoi":143, "x":1817, "y":235, "datetime":"2016-02-17T14:51:55+00:00", "datetimezero":"2016-02-17T14:51:55+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi42", "duration":85, "x":783, "y":246, "datetime":"2016-02-17T14:51:55+00:00", "datetimezero":"2016-02-17T14:51:55+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":42, "durationAoi":85, "x":783, "y":246, "datetime":"2016-02-17T14:51:55+00:00", "datetimezero":"2016-02-17T14:51:55+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi2", "duration":134, "x":821, "y":236, "datetime":"2016-02-17T14:51:55+00:00", "datetimezero":"2016-02-17T14:51:55+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":2, "durationAoi":134, "x":821, "y":236, "datetime":"2016-02-17T14:51:55+00:00", "datetimezero":"2016-02-17T14:51:55+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi0", "duration":497, "x":465, "y":212, "datetime":"2016-02-17T14:51:56+00:00", "datetimezero":"2016-02-17T14:51:56+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":0, "durationAoi":497, "x":465, "y":212, "datetime":"2016-02-17T14:51:56+00:00", "datetimezero":"2016-02-17T14:51:56+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi42", "duration":173, "x":586, "y":353, "datetime":"2016-02-17T14:51:57+00:00", "datetimezero":"2016-02-17T14:51:57+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":42, "durationAoi":173, "x":586, "y":353, "datetime":"2016-02-17T14:51:57+00:00", "datetimezero":"2016-02-17T14:51:57+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi11", "duration":113, "x":1128, "y":414, "datetime":"2016-02-17T14:51:57+00:00", "datetimezero":"2016-02-17T14:51:57+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":11, "durationAoi":113, "x":1128, "y":414, "datetime":"2016-02-17T14:51:57+00:00", "datetimezero":"2016-02-17T14:51:57+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi14", "duration":30, "x":1547, "y":419, "datetime":"2016-02-17T14:51:58+00:00", "datetimezero":"2016-02-17T14:51:58+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":14, "durationAoi":30, "x":1547, "y":419, "datetime":"2016-02-17T14:51:58+00:00", "datetimezero":"2016-02-17T14:51:58+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi42", "duration":110, "x":1628, "y":444, "datetime":"2016-02-17T14:51:58+00:00", "datetimezero":"2016-02-17T14:51:58+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":42, "durationAoi":110, "x":1628, "y":444, "datetime":"2016-02-17T14:51:58+00:00", "datetimezero":"2016-02-17T14:51:58+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi22", "duration":31, "x":1601, "y":608, "datetime":"2016-02-17T14:51:58+00:00", "datetimezero":"2016-02-17T14:51:58+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":22, "durationAoi":31, "x":1601, "y":608, "datetime":"2016-02-17T14:51:58+00:00", "datetimezero":"2016-02-17T14:51:58+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi21", "duration":155, "x":1387, "y":602, "datetime":"2016-02-17T14:51:59+00:00", "datetimezero":"2016-02-17T14:51:59+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":21, "durationAoi":155, "x":1387, "y":602, "datetime":"2016-02-17T14:51:59+00:00", "datetimezero":"2016-02-17T14:51:59+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi22", "duration":82, "x":1578, "y":575, "datetime":"2016-02-17T14:51:59+00:00", "datetimezero":"2016-02-17T14:51:59+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":22, "durationAoi":82, "x":1578, "y":575, "datetime":"2016-02-17T14:51:59+00:00", "datetimezero":"2016-02-17T14:51:59+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi23", "duration":434, "x":1793, "y":627, "datetime":"2016-02-17T14:52:00+00:00", "datetimezero":"2016-02-17T14:52:00+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":23, "durationAoi":434, "x":1793, "y":627, "datetime":"2016-02-17T14:52:00+00:00", "datetimezero":"2016-02-17T14:52:00+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi18", "duration":140, "x":904, "y":584, "datetime":"2016-02-17T14:52:00+00:00", "datetimezero":"2016-02-17T14:52:00+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":18, "durationAoi":140, "x":904, "y":584, "datetime":"2016-02-17T14:52:00+00:00", "datetimezero":"2016-02-17T14:52:00+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":2, "aoi":"aoi16", "duration":30, "x":499, "y":559, "datetime":"2016-02-17T14:52:02+00:00", "datetimezero":"2016-02-17T14:52:02+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":2, "aoi":16, "durationAoi":30, "x":499, "y":559, "datetime":"2016-02-17T14:52:02+00:00", "datetimezero":"2016-02-17T14:52:02+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi18", "duration":174, "x":935, "y":510, "datetime":"2016-02-17T14:52:08+00:00", "datetimezero":"2016-02-17T14:52:08+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":18, "durationAoi":174, "x":935, "y":510, "datetime":"2016-02-17T14:52:08+00:00", "datetimezero":"2016-02-17T14:52:08+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi40", "duration":104, "x":222, "y":8, "datetime":"2016-02-17T14:52:09+00:00", "datetimezero":"2016-02-17T14:52:09+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":40, "durationAoi":104, "x":222, "y":8, "datetime":"2016-02-17T14:52:09+00:00", "datetimezero":"2016-02-17T14:52:09+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi1", "duration":30, "x":660, "y":71, "datetime":"2016-02-17T14:52:09+00:00", "datetimezero":"2016-02-17T14:52:09+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":1, "durationAoi":30, "x":660, "y":71, "datetime":"2016-02-17T14:52:09+00:00", "datetimezero":"2016-02-17T14:52:09+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi2", "duration":32, "x":932, "y":61, "datetime":"2016-02-17T14:52:09+00:00", "datetimezero":"2016-02-17T14:52:09+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":2, "durationAoi":32, "x":932, "y":61, "datetime":"2016-02-17T14:52:09+00:00", "datetimezero":"2016-02-17T14:52:09+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi40", "duration":197, "x":192, "y":20, "datetime":"2016-02-17T14:52:11+00:00", "datetimezero":"2016-02-17T14:52:11+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":40, "durationAoi":197, "x":192, "y":20, "datetime":"2016-02-17T14:52:11+00:00", "datetimezero":"2016-02-17T14:52:11+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi18", "duration":173, "x":857, "y":613, "datetime":"2016-02-17T14:52:11+00:00", "datetimezero":"2016-02-17T14:52:11+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":18, "durationAoi":173, "x":857, "y":613, "datetime":"2016-02-17T14:52:11+00:00", "datetimezero":"2016-02-17T14:52:11+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi18", "duration":143, "x":872, "y":634, "datetime":"2016-02-17T14:52:12+00:00", "datetimezero":"2016-02-17T14:52:12+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":18, "durationAoi":143, "x":872, "y":634, "datetime":"2016-02-17T14:52:12+00:00", "datetimezero":"2016-02-17T14:52:12+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi40", "duration":330, "x":232, "y":19, "datetime":"2016-02-17T14:52:12+00:00", "datetimezero":"2016-02-17T14:52:12+00:00", "isComparison":true, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":40, "durationAoi":330, "x":232, "y":19, "datetime":"2016-02-17T14:52:12+00:00", "datetimezero":"2016-02-17T14:52:12+00:00", "isComparison":1, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi12", "duration":33, "x":1218, "y":396, "datetime":"2016-02-17T14:52:13+00:00", "datetimezero":"2016-02-17T14:52:13+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":12, "durationAoi":33, "x":1218, "y":396, "datetime":"2016-02-17T14:52:13+00:00", "datetimezero":"2016-02-17T14:52:13+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi22", "duration":62, "x":1550, "y":485, "datetime":"2016-02-17T14:52:13+00:00", "datetimezero":"2016-02-17T14:52:13+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":22, "durationAoi":62, "x":1550, "y":485, "datetime":"2016-02-17T14:52:13+00:00", "datetimezero":"2016-02-17T14:52:13+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi42", "duration":196, "x":1739, "y":247, "datetime":"2016-02-17T14:52:14+00:00", "datetimezero":"2016-02-17T14:52:14+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":42, "durationAoi":196, "x":1739, "y":247, "datetime":"2016-02-17T14:52:14+00:00", "datetimezero":"2016-02-17T14:52:14+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi9", "duration":43, "x":612, "y":338, "datetime":"2016-02-17T14:52:15+00:00", "datetimezero":"2016-02-17T14:52:15+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":9, "durationAoi":43, "x":612, "y":338, "datetime":"2016-02-17T14:52:15+00:00", "datetimezero":"2016-02-17T14:52:15+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi42", "duration":32, "x":868, "y":17, "datetime":"2016-02-17T14:52:15+00:00", "datetimezero":"2016-02-17T14:52:15+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":true, "isTerminal":true}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":42, "durationAoi":32, "x":868, "y":17, "datetime":"2016-02-17T14:52:15+00:00", "datetimezero":"2016-02-17T14:52:15+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":1, "isTerminal":1}
 {"index":{}}
-{"userName":"user1", "age":40, "experiment":"1", "trial":3, "aoi":"aoi1", "duration":40, "x":642, "y":59, "datetime":"2016-02-17T14:52:16+00:00", "datetimezero":"2016-02-17T14:52:16+00:00", "isComparison":false, "isAnswer":false, "isSettings":false, "isOffscreen":false, "isTerminal":false}
+{"userName":1, "age":40, "experiment":1, "trial":3, "aoi":1, "durationAoi":40, "x":642, "y":59, "datetime":"2016-02-17T14:52:16+00:00", "datetimezero":"2016-02-17T14:52:16+00:00", "isComparison":0, "isAnswer":0, "isSettings":0, "isOffscreen":0, "isTerminal":0}
 {"index":{}}

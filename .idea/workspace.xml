@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6af8256c-9ea1-465a-a853-3a90270c234c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dateline/js/d3dateline.js" afterPath="$PROJECT_DIR$/dateline/js/d3dateline.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/data/convertcsv1.json" afterPath="$PROJECT_DIR$/elasticviz/data/convertcsv1.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/nsilva.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/app/index.html" afterPath="$PROJECT_DIR$/elasticviz/project/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/app/scripts/app.js" afterPath="$PROJECT_DIR$/elasticviz/project/app/scripts/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js" afterPath="$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/app/scripts/durationhistogram-directive.js" afterPath="$PROJECT_DIR$/elasticviz/project/app/scripts/durationhistogram-directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/bower.json" afterPath="$PROJECT_DIR$/elasticviz/project/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/app/styles/main.scss" afterPath="$PROJECT_DIR$/elasticviz/project/app/styles/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/gulpfile.babel.js" afterPath="$PROJECT_DIR$/elasticviz/project/gulpfile.babel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elasticviz/project/package.json" afterPath="$PROJECT_DIR$/elasticviz/project/package.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elasticviz/project/app/styles/arcdiagram.css" afterPath="$PROJECT_DIR$/elasticviz/project/app/styles/_arcdiagram.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elasticviz/project/app/styles/dateline.css" afterPath="$PROJECT_DIR$/elasticviz/project/app/styles/_dateline.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/elasticviz/project/app/styles/maindendogram.css" afterPath="$PROJECT_DIR$/elasticviz/project/app/styles/_maindendogram.scss" />
     </list>
     <ignored path="SenseWebViz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,161 +37,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/elasticviz/project/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <marker date="1455037595664" expanded="true" signature="36:1099" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1106:15810" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1341:10946" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1389:1619" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1435:1568" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1683:10946" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1728:9691" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1887:1965" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="1978:9679" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2013:2335" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2224:2319" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2371:3170" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2433:2606" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2528:2590" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2655:3155" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2729:3138" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="2809:3017" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="3206:4362" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="3248:3402" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="3418:3564" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="3632:4347" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="3705:3883" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="3997:4330" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4045:4310" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4168:4263" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4398:5179" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4458:4625" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4549:4609" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4672:5164" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4744:5147" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="4824:5028" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5215:5952" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5270:5423" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5352:5407" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5465:5937" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5532:5920" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5612:5806" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="5988:6643" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="6003:6177" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="6250:6628" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="6323:6511" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="6832:7107" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="6928:7090" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7158:8048" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7173:7356" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7285:7340" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7426:7479" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7546:8033" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7619:7793" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="7864:8016" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8084:9463" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8099:8265" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8303:9108" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8365:8530" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8450:8512" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8653:9072" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="8737:8949" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9126:9447" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9302:9430" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9478:9663" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9522:9648" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9745:10946" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9845:10412" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9877:10399" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9892:10063" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="9943:10047" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="10116:10385" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="10269:10349" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="10489:10552" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="10659:10946" placeholder="..." />
-                <marker date="1455037595664" expanded="true" signature="10735:10812" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.851851">
-              <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-              <folding>
-                <marker date="1455030749287" expanded="true" signature="77:177" placeholder="[...]" />
-                <marker date="1455030749287" expanded="true" signature="300:452" placeholder="//..." />
-                <marker date="1455030749287" expanded="true" signature="500:620" placeholder="{...}" />
-                <marker date="1455030749287" expanded="true" signature="523:614" placeholder="{&quot;host&quot;: 'localhost:9200/eyedata'...}" />
-                <marker date="1455030749287" expanded="true" signature="626:743" placeholder="/** Map aggregation part of an elastic result to the format that ...*/" />
-                <marker date="1455030749287" expanded="true" signature="780:942" placeholder="{...}" />
-                <marker date="1455030749287" expanded="true" signature="793:937" placeholder="{&quot;_type&quot;: 'date_histogram'...}" />
-                <marker date="1455030749287" expanded="true" signature="946:993" placeholder="/** Passing data to the Tree Diagram ...*/" />
-                <marker date="1455030749287" expanded="true" signature="1034:1166" placeholder="{...}" />
-                <marker date="1455030749287" expanded="true" signature="1047:1161" placeholder="{&quot;_type&quot;: 'userName'...}" />
-                <marker date="1455030749287" expanded="true" signature="1172:1218" placeholder="/** Passing data to the Arc Diagram ...*/" />
-                <marker date="1455030749287" expanded="true" signature="1251:1383" placeholder="{...}" />
-                <marker date="1455030749287" expanded="true" signature="15825:15846" placeholder="{...}" />
-                <marker date="1455030749287" expanded="true" signature="15825:18156" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="arcdiagram-directive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="927" column="0" selection-start-line="927" selection-start-column="0" selection-end-line="935" selection-end-column="5" />
-              <folding>
-                <element signature="e#4977#5252#0" expanded="false" />
-                <element signature="e#6332#9512#0" expanded="false" />
-                <element signature="e#9601#10823#0" expanded="false" />
-                <element signature="e#10947#13514#0" expanded="false" />
-                <element signature="e#13623#14161#0" expanded="false" />
-                <element signature="e#14248#16177#0" expanded="false" />
-                <element signature="e#16282#21859#0" expanded="false" />
-                <element signature="e#21908#34212#0" expanded="false" />
-                <element signature="e#34323#37616#0" expanded="false" />
-                <element signature="e#37666#37908#0" expanded="false" />
-                <element signature="e#37960#38318#0" expanded="false" />
-                <element signature="e#38371#39369#0" expanded="false" />
-                <element signature="e#39500#41657#0" expanded="false" />
-                <element signature="e#41710#43278#0" expanded="false" />
-                <marker date="1455021024754" expanded="true" signature="10340:10349" placeholder="..." />
-                <marker date="1455021024754" expanded="true" signature="10630:10639" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="datelinediagram-directive.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/datelinediagram-directive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7777778">
-              <caret line="129" column="11" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="11" />
-              <folding>
-                <marker date="1455097149955" expanded="true" signature="12762:12771" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="d3dateline.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dateline/js/d3dateline.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1455096939528" expanded="true" signature="6516:6525" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.5988258">
+              <caret line="326" column="9" selection-start-line="326" selection-start-column="9" selection-end-line="326" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -196,10 +55,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/elasticviz/project/app/index.html" />
-        <option value="$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js" />
         <option value="$PROJECT_DIR$/dateline/js/d3dateline.js" />
         <option value="$PROJECT_DIR$/elasticviz/project/app/scripts/datelinediagram-directive.js" />
+        <option value="$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js" />
+        <option value="$PROJECT_DIR$/elasticviz/project/package.json" />
+        <option value="$PROJECT_DIR$/elasticviz/project/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/elasticviz/project/app/index.html" />
+        <option value="$PROJECT_DIR$/elasticviz/project/gulpfile.babel.js" />
+        <option value="$PROJECT_DIR$/elasticviz/project/app/scripts/app.js" />
       </list>
     </option>
   </component>
@@ -308,6 +171,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SenseWebViz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SenseWebViz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elasticviz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SenseWebViz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SenseWebViz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elasticviz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -338,38 +245,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SenseWebViz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SenseWebViz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dateline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SenseWebViz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SenseWebViz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dateline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -380,6 +255,52 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="editor.config.accepted" value="true" />
+    <property name="js-jscs-nodeInterpreter" value="D:\Extra_Program_Files\nodejs\node.exe" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -395,25 +316,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -434,140 +355,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <marker date="1455037595664" expanded="true" signature="36:1099" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1106:15810" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1341:10946" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1389:1619" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1435:1568" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1683:10946" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1728:9691" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1887:1965" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="1978:9679" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2013:2335" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2224:2319" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2371:3170" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2433:2606" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2528:2590" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2655:3155" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2729:3138" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="2809:3017" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="3206:4362" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="3248:3402" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="3418:3564" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="3632:4347" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="3705:3883" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="3997:4330" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4045:4310" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4168:4263" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4398:5179" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4458:4625" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4549:4609" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4672:5164" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4744:5147" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="4824:5028" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5215:5952" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5270:5423" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5352:5407" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5465:5937" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5532:5920" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5612:5806" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="5988:6643" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="6003:6177" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="6250:6628" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="6323:6511" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="6832:7107" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="6928:7090" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7158:8048" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7173:7356" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7285:7340" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7426:7479" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7546:8033" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7619:7793" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="7864:8016" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8084:9463" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8099:8265" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8303:9108" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8365:8530" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8450:8512" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8653:9072" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="8737:8949" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9126:9447" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9302:9430" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9478:9663" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9522:9648" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9745:10946" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9845:10412" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9877:10399" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9892:10063" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="9943:10047" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="10116:10385" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="10269:10349" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="10489:10552" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="10659:10946" placeholder="..." />
-            <marker date="1455037595664" expanded="true" signature="10735:10812" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.851851">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-          <folding>
-            <marker date="1455030749287" expanded="true" signature="77:177" placeholder="[...]" />
-            <marker date="1455030749287" expanded="true" signature="300:452" placeholder="//..." />
-            <marker date="1455030749287" expanded="true" signature="500:620" placeholder="{...}" />
-            <marker date="1455030749287" expanded="true" signature="523:614" placeholder="{&quot;host&quot;: 'localhost:9200/eyedata'...}" />
-            <marker date="1455030749287" expanded="true" signature="626:743" placeholder="/** Map aggregation part of an elastic result to the format that ...*/" />
-            <marker date="1455030749287" expanded="true" signature="780:942" placeholder="{...}" />
-            <marker date="1455030749287" expanded="true" signature="793:937" placeholder="{&quot;_type&quot;: 'date_histogram'...}" />
-            <marker date="1455030749287" expanded="true" signature="946:993" placeholder="/** Passing data to the Tree Diagram ...*/" />
-            <marker date="1455030749287" expanded="true" signature="1034:1166" placeholder="{...}" />
-            <marker date="1455030749287" expanded="true" signature="1047:1161" placeholder="{&quot;_type&quot;: 'userName'...}" />
-            <marker date="1455030749287" expanded="true" signature="1172:1218" placeholder="/** Passing data to the Arc Diagram ...*/" />
-            <marker date="1455030749287" expanded="true" signature="1251:1383" placeholder="{...}" />
-            <marker date="1455030749287" expanded="true" signature="15825:15846" placeholder="{...}" />
-            <marker date="1455030749287" expanded="true" signature="15825:18156" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="927" column="0" selection-start-line="927" selection-start-column="0" selection-end-line="935" selection-end-column="5" />
-          <folding>
-            <element signature="e#4977#5252#0" expanded="false" />
-            <element signature="e#6332#9512#0" expanded="false" />
-            <element signature="e#9601#10823#0" expanded="false" />
-            <element signature="e#10947#13514#0" expanded="false" />
-            <element signature="e#13623#14161#0" expanded="false" />
-            <element signature="e#14248#16177#0" expanded="false" />
-            <element signature="e#16282#21859#0" expanded="false" />
-            <element signature="e#21908#34212#0" expanded="false" />
-            <element signature="e#34323#37616#0" expanded="false" />
-            <element signature="e#37666#37908#0" expanded="false" />
-            <element signature="e#37960#38318#0" expanded="false" />
-            <element signature="e#38371#39369#0" expanded="false" />
-            <element signature="e#39500#41657#0" expanded="false" />
-            <element signature="e#41710#43278#0" expanded="false" />
-            <marker date="1455021024754" expanded="true" signature="10340:10349" placeholder="..." />
-            <marker date="1455021024754" expanded="true" signature="10630:10639" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dateline/js/d3dateline.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
             <marker date="1455096939528" expanded="true" signature="6516:6525" placeholder="..." />
           </folding>
         </state>
@@ -575,11 +368,232 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/datelinediagram-directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7777778">
-          <caret line="129" column="11" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="26" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
           <folding>
-            <marker date="1455097149955" expanded="true" signature="12762:12771" placeholder="..." />
+            <marker date="1455120881401" expanded="true" signature="13011:13020" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/build/config.gypi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/test/spec/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/.jshintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/arcdiagram-directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+          <folding>
+            <element signature="e#39069#41127#0" expanded="false" />
+            <element signature="e#41178#42668#0" expanded="false" />
+            <marker date="1455123790983" expanded="true" signature="11077:11086" placeholder="..." />
+            <marker date="1455123790983" expanded="true" signature="11335:11344" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/index-eui.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#highchart#0;n#eui-var#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/robots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/scripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1455126783837" expanded="true" signature="55678:55687" placeholder="..." />
+            <marker date="1455126783837" expanded="true" signature="55936:55945" placeholder="..." />
+            <marker date="1455126783837" expanded="true" signature="100397:100406" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/scripts/plugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/scripts/vendor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-57.925926">
+          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/styles/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="202.43396">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/styles/vendor.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1455126784879" expanded="true" signature="376:526" placeholder="..." />
+            <marker date="1455126784879" expanded="true" signature="469:494" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37427577">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <marker date="1455126540940" expanded="true" signature="1231:1382" placeholder="..." />
+            <marker date="1455126540940" expanded="true" signature="1324:1350" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/gulpfile.babel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42632172">
+          <caret line="151" column="46" selection-start-line="151" selection-start-column="46" selection-end-line="151" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/.bowerrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/styles/facetedGui.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/.editorconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/.yo-rc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64798206">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elasticviz/project/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5988258">
+          <caret line="326" column="9" selection-start-line="326" selection-start-column="9" selection-end-line="326" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

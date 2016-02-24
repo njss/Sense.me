@@ -81,7 +81,7 @@
                   for (var i = 0; i < root.children[0].main.trials.buckets[0].aois.buckets.length; i++) {
                     graph.nodes[i] = new Object();
                     graph.nodes[i].date = object.aois.buckets[i].key_as_string;
-                    graph.nodes[i].duration = object.aois.buckets[i].aoiDuration.buckets[0].key;
+                    graph.nodes[i].duration = object.aois.buckets[i].durationAoi.buckets[0].key;
                     graph.nodes[i].id = i;
                     graph.nodes[i].type = "fixed";
                     graph.nodes[i].name = object.aois.buckets[i].aoiDate.buckets[0].key;
@@ -95,7 +95,7 @@
                     }
                     else
                     {
-                      graph.nodes[i].from = parseInt(object.aois.buckets[i].aoiDate.buckets[0].key.match(numberPattern));
+                      graph.nodes[i].from = parseInt(object.aois.buckets[i].aoiDate.buckets[0].key);
                     }
                   }
 

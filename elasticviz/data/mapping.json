@@ -2,7 +2,7 @@
    "statement": {
       "properties": {
          "userName": {
-            "type": "string"
+            "type": "long"
          },
          "age": {
             "type": "long"
@@ -14,9 +14,9 @@
             "type": "long"
          },  
          "aoi": {
-            "type": "string"
+            "type": "long"
          },     
-         "duration": {
+         "durationAoi": {
             "type": "long"
          },    
          "x": {
@@ -34,19 +34,19 @@
             "format": "strict_date_optional_time||epoch_millis"
          },
          "isComparison": {
-            "type": "boolean"
+            "type": "long"
          },
          "isAnswer": {
-            "type": "boolean"
+            "type": "long"
          },
          "isSettings": {
-            "type": "boolean"
+            "type": "long"
          },         
          "isTerminal": {
-            "type": "boolean"
+            "type": "long"
          },         
          "isOffscreen": {
-            "type": "boolean"
+            "type": "long"
          }       
      }
    }

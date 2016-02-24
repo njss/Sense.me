@@ -10,25 +10,21 @@
   <!-- Place favicon.ico in the root directory -->
 
   <!--<link rel="stylesheet" href="styles/_maindendogram.scss"/>
-  <link rel="stylesheet" href="styles/arcdiagram.css"/>
+  <link rel="stylesheet" href="styles/arcdiagram.css"/>-->
   <link rel="stylesheet" href="/bower_components/dangle/css/dangle.css">
-  <link rel="stylesheet" href="styles/dateline.css">-->
+  <!--<link rel="stylesheet" href="styles/dateline.css">-->-->
 
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/dangle/css/dangle.css"/>
-  <link rel="stylesheet" href="/bower_components/colorbrewer/colorbrewer.css"/>
-  <link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/jquery-ui.css"/>
-  <link rel="stylesheet" href="/bower_components/dcjs/dc.css"/>
-  <link rel="stylesheet" href="/bower_components/angularjs-slider/dist/rzslider.css"/>
+  <link rel="stylesheet" href="/bower_components/dcjs/dc.css" />
+  <link rel="stylesheet" href="/bower_components/angularjs-slider/dist/rzslider.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
-
 </head>
 <body>
 <!--[if lt IE 10]>
@@ -254,7 +250,7 @@
         </div>
 
         <div class="facet-widget">
-          <h4>User Age (Avg: {{c.ageAvg.value}})
+          <h4>User Age (Avg: {{c.ageAvg}})
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('age')"
                ng-click="c.resetField('age')">reset</a>
           </h4>
@@ -279,25 +275,25 @@
         </div>
 
         <div class="facet-widget">
-          <h4>AOIs Fixation Duration
-            <a class="btn btn-default btn-sm" ng-if="c.queryContains('duration')" ng-click="c.resetField('duration')">reset</a>
+          <h4>AOIs Fixation durationAoi
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('durationAoi')" ng-click="c.resetField('durationAoi')">reset</a>
           </h4>
 
           <div class="facet-widget">
-            <h4 data-toggle="collapse" href="#durationField">
-              <a class="btn btn-default btn-sm" ng-if="c.queryContains('duration')"
-                 ng-click="c.resetField('duration')">reset</a>
+            <h4 data-toggle="collapse" href="#durationAoiField">
+              <a class="btn btn-default btn-sm" ng-if="c.queryContains('durationAoi')"
+                 ng-click="c.resetField('durationAoi')">reset</a>
             </h4>
 
-            <div id="durationField" class="in">
-              <div ng-repeat="bucket in c.aggregations.duration.buckets"
+            <div id="durationAoiField" class="in">
+              <div ng-repeat="bucket in c.aggregations.durationAoi.buckets"
                    ng-if="bucket.doc_count">
                 <input type="checkbox"
                        ng-change="c.refresh()"
-                       ng-model="c.query.duration[bucket.key]"
-                       id="cb_duration_{{bucket.key}}"
+                       ng-model="c.query.durationAoi[bucket.key]"
+                       id="cb_durationAoi_{{bucket.key}}"
                        value="{{bucket.key}}"/>
-                <label for="cb_duration_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
+                <label for="cb_durationAoi_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
               </div>
             </div>
           </div>
@@ -306,16 +302,16 @@
           <div>
             <label><input type="checkbox" ng-model="c.showHiddenChart" ng-change="c.showHiddenChart"/>Show Hidden Charts</label>
 
-            <div ng-show="c.showHiddenChart">
-              <durationPieChart-gui-item bind="c.aggregations.duration.buckets"></durationPieChart-gui-item>
-            </div>
+      <!--       <div ng-show="c.showHiddenChart">
+              <durationAoiPieChart-gui-item bind="c.aggregations.durationAoi.buckets"></durationAoiPieChart-gui-item>
+            </div> -->
           </div>
 
         </div>
 
         <div>
           <div ng-show="c.showHiddenChart">
-            <durationhistogram-gui-item bind="c.aggregations.duration.buckets"></durationhistogram-gui-item>
+            <durationAoihistogram-gui-item bind="c.aggregations.durationAoi.buckets"></durationAoihistogram-gui-item>
           </div>
         </div>
 
@@ -388,6 +384,12 @@
         {{c.aggregations.buckets}}
         <maindendogram-gui-item bind="c.mainTreeDiagram"
                                 confirm-action="convertPartyCase(arg1)"></maindendogram-gui-item>
+
+        <parallelcoordinates-gui-item bind="c.mainParallelCoordinates"
+                                confirm-action="convertPartyCase(arg1)"></parallelcoordinates-gui-item>
+        
+        <advancedparallelcoordinates-gui-item bind="c.mainParallelCoordinatesAdv"
+                                confirm-action="convertPartyCase(arg1)"></advancedparallelcoordinates-gui-item>
       </div>
 
       <div ng-show="c.tabIsShown('eyevis')">
@@ -414,20 +416,25 @@
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/elasticsearch/elasticsearch.js"></script>
 <script src="/bower_components/elastic.js/dist/elastic.js"></script>
 <script src="/bower_components/elasticui/dist/elasticui.min.js"></script>
 <script src="/bower_components/crossfilter/crossfilter.js"></script>
 <script src="/bower_components/d3/d3.js"></script>
-<script src="/bower_components/d3-tip/index.js"></script>
-<script src="/bower_components/colorbrewer/colorbrewer.js"></script>
 <script src="/bower_components/dcjs/dc.js"></script>
 <script src="/bower_components/ng-debounce/angular-debounce.js"></script>
 <script src="/bower_components/angularjs-slider/dist/rzslider.js"></script>
+<script src="/bower_components/d3-tip/index.js"></script>
+<script src="/bower_components/colorbrewer/colorbrewer.js"></script>
+<script src="/bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="/bower_components/heatmap.js-amd/build/heatmap.js"></script>
-
+<!--<script src="/bower_components/heatmap.js-amd/plugins/gmaps-heatmap.js"></script>
+<script src="/bower_components/heatmap.js-amd/plugins/leaflet-heatmap.js"></script>
+<script src="/bower_components/heatmap.js-amd/plugins/svg-area-heatmap.js"></script>-->
+<script src="/bower_components/d3.parcoords.js/d3.parcoords.js"></script>
+<script src="/bower_components/underscore/underscore.js"></script>
+<script src="/bower_components/angular-underscore-module/angular-underscore-module.js"></script>
 <!-- endbower -->
 
 <!-- extra dependencies the inclusion of which is *not* managed by bower -->
@@ -462,6 +469,8 @@
 <script src="scripts/durationhistogram-directive.js"></script>
 <script src="scripts/arcdiagram-directive.js"></script>
 <script src="scripts/datelinediagram-directive.js"></script>
+<script src="scripts/parallelcoordinates-directive.js"></script>
+<!--<script src="scripts/advancedparallelcoordinates-directive.js"></script>-->
 <!-- endbuild -->
 </body>
 </html>

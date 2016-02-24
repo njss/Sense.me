@@ -77,7 +77,7 @@
               for (var obj of aoisConfig) {
                 /* eslint-enable no-alert */
                 if (obj.aoi == aoi) {
-                  console.log(obj);
+                  //console.log(obj);
                   return obj;
                 }
               }
@@ -134,8 +134,10 @@
                   root.children[0].main.trials.buckets[0].aois.buckets.forEach(function (d) {
 
                     if (count < root.children[0].main.trials.buckets[0].aois.buckets.length) {
-                      d.aoiSource = d.key.match(numberPattern);
-                      d.aoiSource.duration = d.aoiDuration.buckets[0].key;
+                      d.aoiSource = new Array();
+                      d.aoiSource.key = d.key;
+                      d.aoiSource.duration = new Array();
+                      d.aoiSource.duration = d.durationAoi.buckets[0].key;                      
                       d.aoiSource.x = d.x;
                       d.aoiSource.y = d.y;
                     }
@@ -149,14 +151,18 @@
 
                   for (var i = 0; i < root.children[0].main.trials.buckets[0].aois.buckets.length; i++) {
                     if (i != root.children[0].main.trials.buckets[0].aois.buckets.length - 1) {
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].key.match(numberPattern);
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].aoiDuration.buckets[0].key;
+                       root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget = new Array();
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.key = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].key;
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = new Array();
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].durationAoi.buckets[0].key;
                       root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.x = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].x;
                       root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.y = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].y;
                     }
                     else {
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget = root.children[0].main.trials.buckets[0].aois.buckets[i].key.match(numberPattern);
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = root.children[0].main.trials.buckets[0].aois.buckets[i].aoiDuration.buckets[0].key;
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget = new Array();
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.key = root.children[0].main.trials.buckets[0].aois.buckets[i].key;
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = new Array();
+                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = root.children[0].main.trials.buckets[0].aois.buckets[i].durationAoi.buckets[0].key;
                       root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.x = root.children[0].main.trials.buckets[0].aois.buckets[i].x;
                       root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.y = root.children[0].main.trials.buckets[0].aois.buckets[i].y;
                     }
@@ -190,10 +196,10 @@
                     //We need to sum up all AOIx durations and then do the colorscale.
                     //This would should the AOIs duration scale heatmap (total duration on a certain AOIx)
 
-                    console.log(aoi);
+                    //console.log(aoi);
 
-                    if (d.key.match(numberPattern)[0] == aoi.match(numberPattern)[0]) {
-                      duration += parseInt(d.aoiDuration.buckets[0].key);
+                    if (d.key[0] == aoi[0]) {
+                      duration += parseInt(d.durationAoi.buckets[0].key);
                     }
 
                   });
@@ -220,11 +226,11 @@
                       // }else{
 
                       if (d.key) {
-                        return "<strong>AOI</strong> <span style='color:red'>" + d.key.match(numberPattern) + "</span>";
+                        return "<strong>AOI</strong> <span style='color:red'>" + d.key + "</span>";
                       }
                       else {
                         //Higlight of circle when hovering on image matrix for AOIS
-                        return "<strong>AOI</strong> <span style='color:red'>" + d.aoi.match(numberPattern) + "</span>";
+                        return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
                       }
                       //}
                     });
@@ -301,7 +307,7 @@
                   nodes.forEach(function (d, i) {
                     d.x = xscale(i);
                     d.y = yfixed;
-                    d.duration = d.aoiDuration.buckets[0].key;
+                    d.duration = d.durationAoi.buckets[0].key;
                   });
                 }
 
@@ -322,10 +328,10 @@
                     .append("circle")
                     .attr("class", "node")
                     .attr("id", function (d, i) {
-                      return d.key.match(numberPattern);
+                      return d.key;
                     })
                     .attr("name", function (d, i) {
-                      return getAoiFromConfig(d.key.match(numberPattern)).url;
+                      return getAoiFromConfig(d.key).url;
                     })
                     .attr("cx", function (d, i) {
                       return d.x;
@@ -334,7 +340,7 @@
                       return d.y;
                     })
                     .attr("r", function (d, i) {
-                      return radiusArc * (d.duration / 100);//value
+                      return radiusArc * (d.duration / 40);//value
                     })
                     .style("fill", function (d, i) {
                       var c = colorScale(parseInt(GetAOIDuration(d.key)) / 1000);
@@ -396,7 +402,8 @@
                       return arc(points);
                     })
                     .style("stroke-width", function (d) {
-                      return d.value;
+                      //TODO: Maybe we want to use the number of jumps instead...
+                      return (d.duration / 100);
                     });
 
                   // add labels
@@ -406,8 +413,8 @@
                     .enter()
                     .append("text")
                     .attr("id", function (d, i) {
-                      var s = d.aoiSource[0];
-                      var t = d.aoiTarget[0];
+                      var s = d.aoiSource.key;
+                      var t = d.aoiTarget.key;
                       var id = "id" + i + "-" + s + "_" + t;
                       labelList.push(id);
                       return id + currentSettingsID;
@@ -531,7 +538,7 @@
                     .enter()
                     .append("rect")
                     .attr("id", function (d, i) {
-                      return d.aoi.match(numberPattern);
+                      return d.aoi;
                       ;
                     })
                     .attr('class', 'image-border')
@@ -561,7 +568,7 @@
                     .append("text")
                     .attr("class", "matrix-label")
                     .attr("id", function (d, i) {
-                      return d.aoi.match(numberPattern);
+                      return d.aoi;
                     })
                     .attr("x", function (d, i) {
                       return (i % column) * imageWidth + (imageWidth / 2);
@@ -570,7 +577,7 @@
                       return (Math.floor(i / column) * imageHeight) + (imageHeight / 2);  // 10 +  ... + Math.floor(i / 4) * 50
                     })
                     .text(function (d, i) {
-                      return "AOI " + d.aoi.match(numberPattern);
+                      return "AOI " + d.aoi;
                     });
 
 
@@ -647,7 +654,7 @@
                     .enter()
                     .append("div")
                     .attr("id", function (d, i) {
-                      return "heatmap" + d.aoi.match(numberPattern);
+                      return "heatmap" + d.aoi;
                     })
                     .attr('class', 'heatmap')
                     .style("left", function (d, i) {
@@ -863,7 +870,7 @@
                   var parentDiv = circle.node().parentNode.id;
                   var parentRef = parentDiv.substring(parentDiv.indexOf("_") + 1);
 
-                  var cId = circle.attr("id").match(numberPattern);
+                  var cId = circle.attr("id");
 
                   var groupElement = d3.select("#gCellBorder_" + parentRef);
                   var groupNodes = groupElement.node();

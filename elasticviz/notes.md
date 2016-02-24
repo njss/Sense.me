@@ -148,3 +148,9 @@ Example of query with aggregations (=facets)
                 "must":[
                     {"term":{"current_party":"spö"}}
                 ]}}}}
+
+
+//Everytime we run bower we have to remove from index.html
+<!--<script src="/bower_components/heatmap.js-amd/plugins/gmaps-heatmap.js"></script>
+<script src="/bower_components/heatmap.js-amd/plugins/leaflet-heatmap.js"></script>
+<script src="/bower_components/heatmap.js-amd/plugins/svg-area-heatmap.js"></script>-->

@@ -15,7 +15,9 @@
     "d3-tip": "~0.6.7",
     "colorbrewer": "~1.0.0",
     "jquery-ui": "~1.11.4",
-    "heatmap.js-amd": "*"
+    "heatmap.js-amd": "*",
+    "d3.parcoords.js": "d3.parcoords#*",
+    "angular-underscore-module": "~1.0.3"
   },
   "overrides": {
     "bootstrap-sass": {

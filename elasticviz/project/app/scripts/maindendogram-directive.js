@@ -130,7 +130,7 @@
                         return d.key;
                     }
                     else
-                      return ( d.aoiDate.buckets[0].key + ": " + d.aoiDuration.buckets[0].key );
+                      return ( d.aoi.buckets[0].key + ": " + d.durationAoi.buckets[0].key );
                   });
 
                 d3.select(self.frameElement).style("height", height + "px");
@@ -149,7 +149,7 @@
                   root.children.forEach(function (d) {
                     //console.log(d);
                     d.children.forEach(function (d) {
-                      d.children = d.aois.buckets;
+                      d.children = d.aoisDates.buckets;
                     });
                   });
 

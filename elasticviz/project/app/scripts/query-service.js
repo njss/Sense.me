@@ -167,7 +167,7 @@
      */
     this.getAggregationMultiKeys = function () {
       var l = [], kn;
-      var multikeys = ['experiment', 'datetime', 'ageavg'];  // TODO: read this from the configuration
+      var multikeys = ['experiment', 'datetime', 'ageavg', 'durationAoi'];  // TODO: read this from the configuration
       for (kn in this.facets) {
         if (this.facets[kn].aggregation &&
           multikeys.indexOf(kn) !== -1) {
