@@ -57,7 +57,8 @@ var users = ["user1", "user2", "user3"];
                     y = {},                    
                     dragging = {};
 
-                var line = d3.svg.line();
+                var line = d3.svg.line()
+                .interpolate("monotone");
                 //.interpolate("basis");
                 var axis = d3.svg.axis().orient("left"),
                     background,
