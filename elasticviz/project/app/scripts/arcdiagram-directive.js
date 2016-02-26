@@ -25,49 +25,49 @@
             var numberPattern = /\d+/g;
 
             var aoisConfig = [
-              {"exp": "1", "trial": "1", "aoi": "0", "url": "14.TS-NI.png", "name": "aoi0"},
-              {"exp": "1", "trial": "1", "aoi": "1", "url": "15.Sum-Ni.png", "name": "aoi1"},
-              {"exp": "1", "trial": "1", "aoi": "2", "url": "16.Ni-Ni.png", "name": "aoi2"},
-              {"exp": "1", "trial": "1", "aoi": "3", "url": "34.Ni-Sum.png", "name": "aoi3"},
-              {"exp": "1", "trial": "1", "aoi": "4", "url": "69.Fe-Ni.png", "name": "aoi4"},
-              {"exp": "1", "trial": "1", "aoi": "5", "url": "40.TS-Ni.png", "name": "aoi5"},
-              {"exp": "1", "trial": "1", "aoi": "6", "url": "38.Ni-Ni.png", "name": "aoi6"},
-              {"exp": "1", "trial": "1", "aoi": "7", "url": "35.TS-Sum.png", "name": "aoi7"},
-              {"exp": "1", "trial": "1", "aoi": "8", "url": "70.Co-Ni.png", "name": "aoi8"},
-              {"exp": "1", "trial": "1", "aoi": "9", "url": "71.TS-Ni.png", "name": "aoi9"},
-              {"exp": "1", "trial": "1", "aoi": "10", "url": "169.Sum-TS.png", "name": "aoi10"},
-              {"exp": "1", "trial": "1", "aoi": "11", "url": "170.Ni-TS.png", "name": "aoi11"},
-              {"exp": "1", "trial": "1", "aoi": "12", "url": "1.png", "name": "aoi12"},
-              {"exp": "1", "trial": "1", "aoi": "13", "url": "2.png", "name": "aoi13"},
-              {"exp": "1", "trial": "1", "aoi": "14", "url": "3.png", "name": "aoi14"},
-              {"exp": "1", "trial": "1", "aoi": "15", "url": "4.png", "name": "aoi15"},
-              {"exp": "1", "trial": "1", "aoi": "16", "url": "5.png", "name": "aoi16"},
-              {"exp": "1", "trial": "1", "aoi": "17", "url": "6.png", "name": "aoi17"},
-              {"exp": "1", "trial": "1", "aoi": "18", "url": "7.png", "name": "aoi18"},
-              {"exp": "1", "trial": "1", "aoi": "19", "url": "8.png", "name": "aoi19"},
-              {"exp": "1", "trial": "1", "aoi": "20", "url": "9.png", "name": "aoi20"},
-              {"exp": "1", "trial": "1", "aoi": "21", "url": "10.png", "name": "aoi21"},
-              {"exp": "1", "trial": "1", "aoi": "22", "url": "11.png", "name": "aoi22"},
-              {"exp": "1", "trial": "1", "aoi": "23", "url": "12.png", "name": "aoi23"},
-              {"exp": "1", "trial": "1", "aoi": "24", "url": "422.TS-TS.png", "name": "aoi24"},
-              {"exp": "1", "trial": "1", "aoi": "25", "url": "41.Fe-Ni.png", "name": "aoi25"},
-              {"exp": "1", "trial": "1", "aoi": "26", "url": "39.Fe-Ni.png", "name": "aoi26"},
-              {"exp": "1", "trial": "1", "aoi": "27", "url": "29.Sum-TS.png", "name": "aoi27"},
-              {"exp": "1", "trial": "1", "aoi": "28", "url": "27.Ni-TS.png", "name": "aoi28"},
-              {"exp": "1", "trial": "1", "aoi": "29", "url": "24409.Depth-WBD.png", "name": "aoi29"},
-              {"exp": "1", "trial": "1", "aoi": "30", "url": "157.Fe-Fe.png", "name": "aoi30"},
-              {"exp": "1", "trial": "1", "aoi": "31", "url": "154.Co-Fe.png", "name": "aoi31"},
-              {"exp": "1", "trial": "1", "aoi": "32", "url": "153.Ni-Fe.png", "name": "aoi32"},
-              {"exp": "1", "trial": "1", "aoi": "33", "url": "13546.Turbidity-Density.png", "name": "aoi33"},
-              {"exp": "1", "trial": "1", "aoi": "34", "url": "149.Co-Ni.png", "name": "aoi34"},
-              {"exp": "1", "trial": "1", "aoi": "35", "url": "148.Fe-Ni.png", "name": "aoi35"},
-              {"exp": "1", "trial": "1", "aoi": "36", "url": "147.Ni-Ni.png", "name": "aoi36"},
-              {"exp": "1", "trial": "1", "aoi": "37", "url": "145.Co-Ni.png", "name": "aoi37"},
-              {"exp": "1", "trial": "1", "aoi": "38", "url": "144.Fe-Ni.png", "name": "aoi38"},
-              {"exp": "1", "trial": "1", "aoi": "39", "url": "13551.Sal-Turbidity.png", "name": "aoi39"},
-              {"exp": "1", "trial": "1", "aoi": "40", "url": "sketch.png", "name": "aoi sketch"},
-              {"exp": "1", "trial": "1", "aoi": "41", "url": "settings.png", "name": "aoi settings"},
-              {"exp": "1", "trial": "1", "aoi": "42", "url": "offscreen.png", "name": "aoi offscreen"}
+              {"exp": "1", "trial": "1", "aoi": "0", "url": "14.TS-NI.png", "name": "aoi0", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "1", "url": "15.Sum-Ni.png", "name": "aoi1", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "2", "url": "16.Ni-Ni.png", "name": "aoi2", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "3", "url": "34.Ni-Sum.png", "name": "aoi3", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "4", "url": "69.Fe-Ni.png", "name": "aoi4", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "5", "url": "40.TS-Ni.png", "name": "aoi5", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "6", "url": "38.Ni-Ni.png", "name": "aoi6", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "7", "url": "35.TS-Sum.png", "name": "aoi7", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "8", "url": "70.Co-Ni.png", "name": "aoi8", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "9", "url": "71.TS-Ni.png", "name": "aoi9", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "10", "url": "169.Sum-TS.png", "name": "aoi10", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "11", "url": "170.Ni-TS.png", "name": "aoi11", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "12", "url": "1.png", "name": "aoi12", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "13", "url": "2.png", "name": "aoi13", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "14", "url": "3.png", "name": "aoi14", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "15", "url": "4.png", "name": "aoi15", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "16", "url": "5.png", "name": "aoi16", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "17", "url": "6.png", "name": "aoi17", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "18", "url": "7.png", "name": "aoi18", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "19", "url": "8.png", "name": "aoi19", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "20", "url": "9.png", "name": "aoi20", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "21", "url": "10.png", "name": "aoi21", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "22", "url": "11.png", "name": "aoi22", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "23", "url": "12.png", "name": "aoi23", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "24", "url": "422.TS-TS.png", "name": "aoi24", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "25", "url": "41.Fe-Ni.png", "name": "aoi25", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "26", "url": "39.Fe-Ni.png", "name": "aoi26", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "27", "url": "29.Sum-TS.png", "name": "aoi27", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "28", "url": "27.Ni-TS.png", "name": "aoi28", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "29", "url": "24409.Depth-WBD.png", "name": "aoi29", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "30", "url": "157.Fe-Fe.png", "name": "aoi30", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "31", "url": "154.Co-Fe.png", "name": "aoi31", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "32", "url": "153.Ni-Fe.png", "name": "aoi32", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "33", "url": "13546.Turbidity-Density.png", "name": "aoi33", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "34", "url": "149.Co-Ni.png", "name": "aoi34", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "35", "url": "148.Fe-Ni.png", "name": "aoi35", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "36", "url": "147.Ni-Ni.png", "name": "aoi36", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "37", "url": "145.Co-Ni.png", "name": "aoi37", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "38", "url": "144.Fe-Ni.png", "name": "aoi38", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "39", "url": "13551.Sal-Turbidity.png", "name": "aoi39", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "40", "url": "sketch.png", "name": "aoi sketch", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "41", "url": "settings.png", "name": "aoi settings", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "42", "url": "offscreen.png", "name": "aoi offscreen", "duration": 0}
             ];
 
 
@@ -87,8 +87,8 @@
 
 
 
-            var width = 800;           // width of arc div
-            var height = 320;
+            var width = 1200;           // width of arc div
+            var height = 620;
             var margin = 50;            // amount of margin around plot area
             var pad = margin / 3;       // actual padding amount
             var radiusArc = 4;             // fixed node radiusArc
@@ -106,106 +106,117 @@
             var matrixGap = 30;
 
             //colorbrewer
-            var classesNumber = 10;
+            var classesNumber = 9;
+            var palette = "Blues"; //"PuBuGn";
             var matrixNodes = [];
 
 
             scope.$watch('bind', function (data) {
 
-              if (data) {
+              if (data) 
+              {
 
-                // D3 code goes here.
+                
+                // function checkNodeExists(rootFinal, key)
+                // {
+                //   var FoundException = {};
+
+                
+                //     if (!rootFinal.nodes_rows.length == 0)
+                //     {
+                //       try {
+                //         rootFinal.nodes_rows.forEach(function (d) 
+                //         {
+                //           if (d.key == key)
+                //           {
+                //             throw FoundException;                   
+                //           }
+                //         });
+                //       } catch(e)
+                //         {
+                //           if (e==FoundException)
+                //           {
+                //             return true;
+                //           }
+                //         }
+                //     }                  
+                // }
+
+
+                // function returnAOIIndice(rootFinal, key)
+                // {
+                //   var FoundException = {};
+
+                
+                //     for (var i=0; i<rootFinal.nodes_rows.length;i++)
+                //     {
+                //       if (rootFinal.nodes_rows[i].aoi== key)
+                //         return i;
+                //     }
+
+                //     return -1;
+                // }
+
+                // Create nodes for experiment 1, trial 1, user 1
                 var root = createChildNodes(data);
 
-                function createChildNodes(dataObj) {
-                  var root = {};
 
-                  root.key = "Eye Data";
+                //TODO: refactor to include all experiments and all trials and all users
+                //Right now is just handling experiment 1, trial 1, user 1
+                function createChildNodes(dataObj) {                  
+                  var rootFinal =  new Array();
 
-                  root.children = dataObj.entries;
+                  rootFinal.nodes_rows = new Array();
+                  rootFinal.nodes_rows = JSON.parse(JSON.stringify(aoisConfig));
 
-                  // must be done AFTER links are fixed
-                  linearLayout(root.children[0].main.trials.buckets[0].aois.buckets);
+                  //rootFinal.nodes_rows =  aoisConfig.slice(0);                  
+                                
+                  //Nodes
+                  dataObj.entries.forEach(function (d) {                   
 
+                    var indice = d.main._source.aoi;
+                                  
+                    rootFinal.nodes_rows[indice].aoi = d.main._source.aoi;
+                    //rootFinal.nodes_rows[indice].durationAoi = new Array();
+                    rootFinal.nodes_rows[indice].duration += d.main._source.durationAoi;
 
-                  //sources
-                  var count = 0;
+                    // rootFinal.nodes_rows[indice].age = d.main._source.age;
+                    // rootFinal.nodes_rows[indice].experiment = d.main._source.experiment;
+                    // rootFinal.nodes_rows[indice].trial = d.main._source.trial;
+                    // rootFinal.nodes_rows[indice].userName = d.main._source.userName;
+                    // rootFinal.nodes_rows[indice].datetime = d.main._source.datetime;
+                    // rootFinal.nodes_rows[indice].datetimezero = d.main._source.datetimezero;
+                    // rootFinal.nodes_rows[indice].Xscreen = d.main._source.Xscreen;
+                    // rootFinal.nodes_rows[indice].Yscreen = d.main._source.Yscreen;
 
-                  root.children[0].main.trials.buckets[0].aois.buckets.forEach(function (d) {
-
-                    if (count < root.children[0].main.trials.buckets[0].aois.buckets.length) {
-                      d.aoiSource = new Array();
-                      d.aoiSource.key = d.key;
-                      d.aoiSource.duration = new Array();
-                      d.aoiSource.duration = d.durationAoi.buckets[0].key;                      
-                      d.aoiSource.x = d.x;
-                      d.aoiSource.y = d.y;
-                    }
-
-                    count++;
+                    rootFinal.nodes_rows[indice].x = 0;
+                    rootFinal.nodes_rows[indice].y = 0;                   
 
                   });
 
-                  //targets
-                  count = 0;
+                  //source to target
+                  rootFinal.links_rows = new Array();
 
-                  for (var i = 0; i < root.children[0].main.trials.buckets[0].aois.buckets.length; i++) {
-                    if (i != root.children[0].main.trials.buckets[0].aois.buckets.length - 1) {
-                       root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget = new Array();
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.key = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].key;
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = new Array();
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].durationAoi.buckets[0].key;
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.x = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].x;
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.y = root.children[0].main.trials.buckets[0].aois.buckets[i + 1].y;
+                  var count = 0;
+                 
+                  for (var i = 0; i < dataObj.entries.length; i++) {
+                    if (i != dataObj.entries.length - 1) {
+                      rootFinal.links_rows[count] = new Array();
+                      rootFinal.links_rows[count].source = dataObj.entries[i].main._source.aoi;
+                      rootFinal.links_rows[count].target = dataObj.entries[i+1].main._source.aoi;
                     }
-                    else {
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget = new Array();
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.key = root.children[0].main.trials.buckets[0].aois.buckets[i].key;
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = new Array();
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.duration = root.children[0].main.trials.buckets[0].aois.buckets[i].durationAoi.buckets[0].key;
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.x = root.children[0].main.trials.buckets[0].aois.buckets[i].x;
-                      root.children[0].main.trials.buckets[0].aois.buckets[i].aoiTarget.y = root.children[0].main.trials.buckets[0].aois.buckets[i].y;
+                    else
+                    {
+                      rootFinal.links_rows[count] = new Array();
+                      rootFinal.links_rows[count].source = dataObj.entries[i].main._source.aoi;
+                      rootFinal.links_rows[count].target = dataObj.entries[i].main._source.aoi;
                     }
+                    count++;
                   }
 
-                  // root.children[0].main.trials.buckets[0].aois.buckets.forEach(function (d) {
-
-                  //   //console.log(d);
-                  //   if (count > 0)
-                  //   {
-                  //       d.aoiTarget = d.key.match( numberPattern );
-                  //       d.aoiTarget.duration = d.aoiDuration.buckets[0].key;
-                  //       d.aoiTarget.x = d.x;
-                  //       d.aoiTarget.y = d.y;
-                  //   }
-
-                  //   count++;
-                  // });
-
-                  return root;
+                  return rootFinal;
                 }
 
-                function GetAOIDuration(aoi) {
-                  var duration = 0;
-
-                  root.children[0].main.trials.buckets[0].aois.buckets.forEach(function (d) {
-
-                    //NOTE: The image grid from Lin is not workin well now!
-                    //It should display a color scale for the (total duration) of a certain (AOIx) for the entire experiment
-                    // and not just the duration of AOI x. This is because we can have many AOIs duration for the same AOIx!!!
-                    //We need to sum up all AOIx durations and then do the colorscale.
-                    //This would should the AOIs duration scale heatmap (total duration on a certain AOIx)
-
-                    //console.log(aoi);
-
-                    if (d.key[0] == aoi[0]) {
-                      duration += parseInt(d.durationAoi.buckets[0].key);
-                    }
-
-                  });
-
-                  return duration;
-                }
 
                 /* DRAW ARC DIAGRAM */
 
@@ -213,7 +224,6 @@
                   currentSettingsID = "arcdiagram";
 
                   var svg = d3.select("#arcdiagram");
-
                   svg.selectAll("*").remove();
 
                   tip = d3.tip()
@@ -225,8 +235,8 @@
                       //   return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
                       // }else{
 
-                      if (d.key) {
-                        return "<strong>AOI</strong> <span style='color:red'>" + d.key + "</span>";
+                      if (d.aoi) {
+                        return "<strong>AOI</strong> <span style='color:red'>" + d.aoi + "</span>";
                       }
                       else {
                         //Higlight of circle when hovering on image matrix for AOIS
@@ -235,12 +245,12 @@
                       //}
                     });
 
-                  arcDiagram(root);
+                  arcDiagram(data, root);
                 }
 
 
                 // Draws an arc diagram for the provided undirected graph
-                function arcDiagram(graph) {
+                function arcDiagram(data, graph) {
 
                   d3.select("#" + currentSettingsID)
                     .attr("width", "100%")
@@ -270,18 +280,22 @@
                     .attr("id", "gArc_" + currentSettingsID)
                     .attr("transform", "translate(" + pad + ", " + pad + ")");
 
-                  // fix graph links to map to objects instead of indices
-                  // graph.children[0].main.trials.buckets[0].aois.buckets.forEach(function (d, i) {
-                  //           d.aoiSource[0] = isNaN(d.aoiSource[0]) ? d.aoiSource[0] : graph.nodes[d.aoiSource[0]];
-                  //           d.aoiTarget[0] = isNaN(aoiTarget[0]) ? d.aoiTarget[0] : graph.nodes[aoiTarget[0]];
-                  //       });
+                  //fix graph links to map to objects instead of indices
+                  graph.links_rows.forEach(function (d, i) {
+                            d.source = isNaN(d.source) ? d.source : graph.nodes_rows[d.source];
+                            d.target = isNaN(d.target) ? d.target : graph.nodes_rows[d.target];
+                        });
 
 
-                  // draw links first, so nodes appear on top
-                  drawLinks(graph.children[0].main.trials.buckets[0].aois.buckets);
+                  // must be done AFTER links are fixed
+                  linearLayout(graph.nodes_rows);
+
+                  // draw links first, so nodes appear on topck
+
+                  drawLinks(graph.links_rows);
 
                   // draw nodes last
-                  drawNodes(graph.children[0].main.trials.buckets[0].aois.buckets);
+                  drawNodes(graph.nodes_rows);
 
                   // reset height
                   var element = document.getElementById('gArc_' + currentSettingsID);
@@ -292,7 +306,7 @@
 
                   // draw scatterplot matrix (get dataroconfig)
                   //drawSPmatrix(graph.children[0].main.trials.buckets[0].aois.buckets);
-                  drawSPmatrix(aoisConfig);
+                  drawSPmatrix(data, graph.nodes_rows);
                 }
 
                 // Layout nodes linearly, sorted by group
@@ -307,7 +321,7 @@
                   nodes.forEach(function (d, i) {
                     d.x = xscale(i);
                     d.y = yfixed;
-                    d.duration = d.durationAoi.buckets[0].key;
+                    //d.duration = d.durationAoi;
                   });
                 }
 
@@ -316,7 +330,7 @@
                   // used to assign nodes color by group
                   var color = d3.scale.category20();
 
-                  var colors = colorbrewer["RdYlGn"][classesNumber];
+                  var colors = colorbrewer[palette][classesNumber];
                   var colorScale = d3.scale.quantize()
                     .domain([0, 1])
                     .range(colors);
@@ -328,10 +342,10 @@
                     .append("circle")
                     .attr("class", "node")
                     .attr("id", function (d, i) {
-                      return d.key;
+                      return d.aoi;
                     })
                     .attr("name", function (d, i) {
-                      return getAoiFromConfig(d.key).url;
+                      return getAoiFromConfig(d.aoi).url;
                     })
                     .attr("cx", function (d, i) {
                       return d.x;
@@ -340,10 +354,10 @@
                       return d.y;
                     })
                     .attr("r", function (d, i) {
-                      return radiusArc * (d.duration / 40);//value
+                      return radiusArc * (d.duration / 1000) + 2;//value
                     })
                     .style("fill", function (d, i) {
-                      var c = colorScale(parseInt(GetAOIDuration(d.key)) / 1000);
+                      var c = colorScale(parseInt(d.duration) / 100);
                       return c;
                     })
                     .on("mouseover", function (d, i) {
@@ -381,13 +395,13 @@
                     .attr("transform", function (d, i) {
                       // arc will always be drawn around (0, 0)
                       // shift so (0, 0) will be between source and target
-                      var xshift = d.aoiSource.x + (d.aoiTarget.x - d.aoiSource.x) / 2;
+                      var xshift = d.source.x + (d.target.x - d.source.x) / 2;
                       var yshift = yfixed;
                       return "translate(" + xshift + ", " + yshift + ")";
                     })
                     .attr("d", function (d, i) {
                       // get x distance between source and target
-                      var xdist = Math.abs(d.aoiSource.x - d.aoiTarget.x);
+                      var xdist = Math.abs(d.source.x - d.target.x);
 
                       // set arc radiusArc based on x distance
                       arc.radius(xdist / 2);
@@ -403,7 +417,7 @@
                     })
                     .style("stroke-width", function (d) {
                       //TODO: Maybe we want to use the number of jumps instead...
-                      return (d.duration / 100);
+                      return (d.duration / 10);
                     });
 
                   // add labels
@@ -413,17 +427,17 @@
                     .enter()
                     .append("text")
                     .attr("id", function (d, i) {
-                      var s = d.aoiSource.key;
-                      var t = d.aoiTarget.key;
+                      var s = d.source.aoi;
+                      var t = d.target.aoi;
                       var id = "id" + i + "-" + s + "_" + t;
                       labelList.push(id);
                       return id + currentSettingsID;
                     })
                     .attr("x", function (d, i) {
-                      return d.aoiSource.x + (d.aoiTarget.x - d.aoiSource.x) / 2;
+                      return d.source.x + (d.target.x - d.source.x) / 2;
                     })
                     .attr("y", function (d, i) {
-                      var xdist = Math.abs(d.aoiSource.x - d.aoiTarget.x);
+                      var xdist = Math.abs(d.source.x - d.target.x);
                       return yfixed + (xdist / 2) + 10;
                     })
                     .text(function (d, i) {
@@ -474,7 +488,7 @@
                   }
                 }
 
-                function drawSPmatrix(nodes) {
+                function drawSPmatrix(data, nodes) {
 
                   //add view
                   var divSPLOM = d3.select("#" + currentSettingsID)
@@ -586,55 +600,6 @@
                   var offScreenItemWidth = rect.width / 3;
                   offScreenItemWidth = 400; //bug: > 2 users -> tab error!
 
-                  // var offscreen = d3.select("#gSPLOM_" + currentSettingsID)
-                  //   .append("g")
-                  //   .attr("id", "otherAOIs_" + currentSettingsID)
-                  //   .selectAll("rect")
-                  //   .data(matrixNodes)
-                  //   .enter()
-                  //   .append("rect")
-                  //   .attr('class', 'image-border')
-                  //   .attr("id", function (d, i) {
-                  //     return d.aoi;
-                  //   })
-                  //   .attr("x", function (d, i) {
-                  //     return (i % column) * offScreenItemWidth +1;
-                  //   })
-                  //   .attr("y", function (d, i) {
-                  //     return 500;
-                  //   })
-                  //   .attr("height", 28)
-                  //   .attr("width", offScreenItemWidth -2)
-                  //   .style("fill", "LightYellow")
-                  //   .style("stroke-width", "1")
-                  //   .on("mouseover", function (d, i) {
-                  //     tip.show(d);
-                  //     highlightADcircle(d3.select(this));
-                  //   })
-                  //   .on("mouseout", function (d, i) {
-                  //     tip.hide(d);
-                  //     d3.select("#highlightCircle").remove();
-                  //   });
-
-                  // d3.select("#otherAOIs_" + currentSettingsID).selectAll("text")
-                  //   .data(matrixNodes)
-                  //   .enter()
-                  //   .append("text")
-                  //   .attr("class", "matrix-label")
-                  //   .attr("id", function (d, i) {
-                  //     return d.name;
-                  //   })
-                  //   .attr("x", function (d, i) {
-                  //     return (i % column) * offScreenItemWidth + (offScreenItemWidth/2);
-                  //   })
-                  //   .attr("y", function (d, i) {
-                  //     return 500 + 23;
-                  //   })
-                  //   .text(function (d, i) {
-                  //     return "AOI " + d.name;
-                  //   });
-
-
                   var hArc = d3.select("#divArc").style("height");
                   var heightArcDiv = parseInt(hArc.substr(0, hArc.indexOf("px")))
                   var headerHeigth = 40;
@@ -673,9 +638,9 @@
                     .append("div")
                     .attr("id", "divControl")
                     .attr("width", "100%")
-                    .style("top", "-760px")
+                    .style("top", "-700px")
                     .style("text-align", "left")
-                    .style("left", "900px")
+                    .style("left", "1050px")
                     .style("position", "relative");
 
                   var colorSliderGroup = settingDiv
@@ -738,13 +703,13 @@
                   d3.select("#colorPalette_" + currentSettingsID).on("keyup", function () {
                       var newPalette = d3.select("#colorPalette_" + currentSettingsID).property("value");
                       if (newPalette != null)           // when interfaced with jQwidget, the ComboBox handles keyup event but value is then not available ?
-                        changePalette(newPalette);
+                        changePalette(data, newPalette);
                     })
                     .on("change", function () {
                       var parentDiv = d3.select(this).node().id;
                       var parentName = parentDiv.substring(parentDiv.indexOf("_") + 1);
                       var newPalette = d3.select("#colorPalette_" + parentName).property("value");
-                      changePalette(newPalette, parentName);
+                      changePalette(data, newPalette, parentName);
                     });
 
                 }
@@ -752,7 +717,7 @@
 
                 /* HELPER FUNCTIONS */
 
-                function changePalette(paletteName, parentName) {
+                function changePalette(data, paletteName, parentName) {
                   if (paletteName === "---") {
                     var svg = d3.select("#gSPLOM_" + parentName);
                     var t = svg.transition().duration(500);
@@ -784,17 +749,20 @@
 
                     if (!heatNodes[0].hasChildNodes()) {
                       for (var i = 0; i < heatNodes.length; i++) {
-                        var id = heatNodes[i].id
-                        d3.select("#" + id).style("width", imageWidth + "px")
-                        d3.select("#" + id).style("height", imageHeight + "px")
-                        createHeatMap(id);
-                        d3.select("#" + id).style("position", "absolute")
+                        var id = heatNodes[i].id;
+                        d3.select("#" + id).style("width", imageWidth + "px");
+                        d3.select("#" + id).style("height", imageHeight + "px");
+
+                        //create each AOI heatmap
+                        createHeatMap(data, id);
+
+                        d3.select("#" + id).style("position", "absolute");
                       }
                     }
                   }
                   else if (paletteName === "global") {
 
-                    var colors = colorbrewer["RdYlGn"][classesNumber];
+                    var colors = colorbrewer[palette][classesNumber];
                     var colorScale = d3.scale.quantize()
                       .domain([0.0, 1.0])
                       .range(colors);
@@ -802,11 +770,11 @@
                     var t = svg.transition().duration(500);
                     t.selectAll("rect")
                       .style("fill", function (d, i) {
-                        var c = colorScale(parseInt(GetAOIDuration(d.aoi)) / 1000);
+                        var c = colorScale(parseInt(d.duration) / 100);
                         return c;
                       });
 
-                    var colors = colorbrewer["RdYlGn"][classesNumber];
+                    var colors = colorbrewer[palette][classesNumber];
                     var colorScale = d3.scale.quantize()
                       .domain([0, 1])
                       .range(colors);
@@ -814,7 +782,7 @@
                     var t2 = svg2.transition().duration(500);
                     t2.selectAll("circle")
                       .style("fill", function (d, i) {
-                        var c = colorScale(parseInt(GetAOIDuration(d.key)) / 1000);
+                        var c = colorScale(parseInt(d.duration) / 100);
                         return c;
                       });
 
@@ -828,14 +796,64 @@
                     .style("opacity", value);
                 }
 
-                function createHeatMap(divName) {
+                function createHeatMap(data, divName) {
                   var heatmapInstance = h337.create({
                     // only container is required, the rest will be defaults
                     container: document.querySelector('#' + divName)
                   });
 
-                  var data = generateRandomData(10);
-                  heatmapInstance.setData(data);
+                  //Data for each plot
+                  var dataAOI = generateRandomData(10);
+                  var dataAOI2 = prepareHeatmapData(data, divName);
+
+                  heatmapInstance.setData(dataAOI2);
+                }
+
+                function prepareHeatmapData(data, divName)
+                {                  
+                  var points = [];
+                  var max = 0;
+                  var width = imageWidth;
+                  var height = imageHeight;
+                  var Xscreen = 0;
+                  var Yscreen = 0;
+                  var aoi = divName.match(numberPattern);
+                  var val = 0;
+
+
+                  data.entries.forEach(function (d) {
+
+                    if (d.main._source.aoi == aoi)
+                    {
+                      val = d.main._source.durationAoi;
+
+                      var row = (aoi/8 + 1);
+                      var col = aoi/5;
+
+                      //For the calculation of x and y we need to take in account the original screen limits of the AOI
+                      Xscreen = Math.floor(d.main._source.x/width +70);
+                      Yscreen = Math.floor(d.main._source.y/height + 50);
+
+                      // now also with custom radiusArc
+                      //var radiusArc = Math.floor(Math.random() * 70);;
+
+                      max = Math.max(max, val);
+                      var point = {
+                        x: Xscreen,
+                        y: Yscreen,
+                        value: val,
+                        // radiusArc configuration on point basis
+                        //radiusArc: radiusArc
+                      };
+
+                      points.push(point);
+                    }
+
+                  });
+
+                  var data = {max: max, data: points};
+
+                  return data;
                 }
 
                 function generateRandomData(len) {

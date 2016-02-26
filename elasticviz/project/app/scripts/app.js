@@ -78,7 +78,7 @@
   function arcDiagramData(data) {
     return {
       _type: 'userName',
-      entries: data.buckets.map(function (r) {
+      entries: data.map(function (r) {
         return {main: r};
       })
     };
@@ -661,7 +661,7 @@
             self.mainTreeDiagram = mainTreeMapDiagramData(self.aggregations.treediagram);
             self.mainParallelCoordinates = mainParallelCoordinatesData(body.hits.hits);
             self.mainParallelCoordinatesAdv = mainParallelCoordinatesAdvData(body.hits.hits);
-            self.arcDiagram = arcDiagramData(self.aggregations.arcdiagram);
+            self.arcDiagram = arcDiagramData(body.hits.hits);
             self.datelineDiagram = datelineDiagramData(self.aggregations.datelinediagram);
           })
           .catch(function (error) {

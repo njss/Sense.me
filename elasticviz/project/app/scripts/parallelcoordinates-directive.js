@@ -30,10 +30,28 @@
                 // D3 code goes here.
                 var root = createChildNodes(data);
 
-                
+                var tip;
+
                 //remove previous data and chart
                 var svg = d3.select("#parallelcoordinates");
                 svg.selectAll("*").remove();
+
+
+               tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([0, 0])
+                .html(function (d) {
+                  var color = "#FF6500"
+                    return "<p><strong>userName: </strong> <span style='color:" + color + "'>" + d.row.userName + "</span></p>"
+                    + "<p><strong>age: </strong> <span style='color:" + color + "'>" + d.row.age + "</span></p>"
+                    + "<p><strong>experiment: </strong> <span style='color:" + color + "'>" + d.row.experiment + "</span></p>"
+                    + "<p><strong>trial: </strong> <span style='color:" + color + "'>" + d.row.trial + "</span></p>"
+                    + "<p><strong>aoi: </strong> <span style='color:" + color + "'>" + d.row.aoi + "</span></p>"
+                    + "<p><strong>duration: </strong> <span style='color:" + color + "'>" + d.row.durationAoi + "</span></p>"
+                    ;
+                
+                });
+
 
                        // load csv file and create the chart
                 var colorGen = d3.scale.ordinal()
@@ -46,7 +64,8 @@
                 var dimensions;                
                 var numberPattern = /\d+/g;
 
-var users = ["user1", "user2", "user3"];
+                //TODO: This should be dynamic
+                var users = ["user1", "user2", "user3"];
 
                 //Start
                 var margin = {top: 30, right: 40, bottom: 10, left: 10},
@@ -64,13 +83,14 @@ var users = ["user1", "user2", "user3"];
                     background,
                     foreground;
 
+
                 var svg = d3.select("#parallelcoordinates").append("svg")
                     .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
+                    .attr("height", height + margin.top + margin.bottom)                      
                   .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-                  
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");                
 
+                  svg.call(tip);
 
                   //Data Start
                   // Extract the list of dimensions and create a scale for each.
@@ -122,6 +142,9 @@ var blue_to_brown = d3.scale.linear()
   .interpolate(d3.interpolateLab);
 
 
+
+                  var tempLineColor;
+
                   // Add blue foreground lines for focus.
                   foreground = svg.append("g")
                       .attr("class", "foreground")
@@ -131,7 +154,31 @@ var blue_to_brown = d3.scale.linear()
                       .attr("d", path)
                       .style("stroke", function(d) { 
                         var colorClass = blue_to_brown(d.row.userName);
-                        return  colorClass;/*"user" + d.row.userName;*/ }); //color
+                        return  colorClass;/*"user" + d.row.userName;*/  /*color*/})
+                          .on("mouseover", function(d){
+                             tempLineColor = this.style.stroke;
+
+                            tip.show(d);
+
+                            d3.select(this).transition().duration(100)
+                                .style({'stroke' : '#FFA500'});
+
+                        })
+                        .on("mousemove", function(){
+                        var coordinates = [0, 0];
+                        coordinates = d3.mouse(this);
+                        var x = coordinates[0];
+                        var y = coordinates[1];
+                          return tip.style("top", (width + y + 30)+"px").style("left",(height + x + 595)+"px");})
+                        .on("mouseout", function(d){
+
+                          tip.hide(d);
+
+                          var colorClass = blue_to_brown(d.row.userName);
+                          d3.select(this).transition().duration(100)
+                          .style({'stroke': colorClass })                      
+                           
+                            });
 
                   // Add a group element for each dimension.
                   var g = svg.selectAll(".dimension")
@@ -244,6 +291,8 @@ var blue_to_brown = d3.scale.linear()
                     }) ? null : "none";
                   });
                 }
+
+
 
 function invert_axis(d) {
   // save extent before inverting
