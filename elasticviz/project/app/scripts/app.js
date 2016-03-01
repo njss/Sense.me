@@ -2,12 +2,12 @@
   'use strict';
 
   var app = angular.module('FacetedUI', [
-      'elasticsearch',
-      'elasticui',
-      'dangle',
-      'debounce',
-      'rzModule', 'underscore'
-    ]);
+    'elasticsearch',
+    'elasticui',
+    'dangle',
+    'debounce',
+    'rzModule', 'underscore'
+  ]);
 
   // Config for elastic-UI
   app.constant('euiHost', 'http://localhost:9200'); // ACTION: change to cluster address
@@ -47,7 +47,7 @@
     };
   }
 
-/**
+  /**
    * Passing data to the Tree Diagram
    */
   function mainParallelCoordinatesData(data) {
@@ -60,7 +60,7 @@
   }
 
 
-/**
+  /**
    * Passing data to the Tree Diagram
    */
   function mainParallelCoordinatesAdvData(data) {
@@ -71,6 +71,33 @@
       })
     };
   }
+
+
+  /**
+   * Passing data to the Tree Diagram
+   */
+  function mainSpaceTimeCubeData(data) {
+    return {
+      _type: 'userName',
+      entries: data.map(function (r) {
+        return {main: r};
+      })
+    };
+  }
+
+
+  /**
+   * Passing data to the Tree Diagram
+   */
+  function mainSankeyData(data) {
+    return {
+      _type: 'userName',
+      entries: data.map(function (r) {
+        return {main: r};
+      })
+    };
+  }
+
 
   /**
    * Passing data to the Arc Diagram
@@ -133,7 +160,7 @@
 
       queryBuilderService.setFacetConfig('retAll',
         {field: 'aoi', type: 'multiTerm', key: 'retAll'},
-        {terms: {field: 'aoi', size: 1000}});      
+        {terms: {field: 'aoi', size: 1000}});
 
       queryBuilderService.setFacetConfig('durationAoi',
         {field: 'durationAoi', type: 'multiTerm', key: 'durationAoi'},
@@ -463,7 +490,7 @@
           }
         }
 
-          if (self.query.retAll) {
+        if (self.query.retAll) {
           for (var pk in self.query.retAll) {
             if (!self.query.retAll[pk]) {
               delete self.query.retAll[pk];
@@ -660,7 +687,10 @@
             self.dangleDateHisto = dangleMapHistoData(self.aggregations.dateLimited);
             self.mainTreeDiagram = mainTreeMapDiagramData(self.aggregations.treediagram);
             self.mainParallelCoordinates = mainParallelCoordinatesData(body.hits.hits);
-            self.mainParallelCoordinatesAdv = mainParallelCoordinatesAdvData(body.hits.hits);
+            self.mainSpaceTimeCube = mainSpaceTimeCubeData(body.hits.hits);
+            self.mainSankey = mainSankeyData(body.hits.hits);
+
+            //self.mainParallelCoordinatesAdv = mainParallelCoordinatesAdvData(body.hits.hits);
             self.arcDiagram = arcDiagramData(body.hits.hits);
             self.datelineDiagram = datelineDiagramData(self.aggregations.datelinediagram);
           })
@@ -699,20 +729,20 @@
 
           });
 
-    specialFacetRequest('retAll',
+        specialFacetRequest('retAll',
           {
             size: 10000,
             body: {
               // Begin query.
               query: {match_all: {}},
               aggs: {
-                retAll:{
-                  terms:{
+                retAll: {
+                  terms: {
                     field: "aoi",
                     order: {"_term": "asc"}
                   }
                 }
-              }                         
+              }
             }
           })
           .then(function () {
@@ -721,7 +751,7 @@
 
           });
 
-        extraFacetRequest('experiment', self.query);       
+        extraFacetRequest('experiment', self.query);
         extraFacetRequest('durationAoi', self.query);
         extraFacetRequest('userName', self.query);
         extraFacetRequest('aoi', self.query);

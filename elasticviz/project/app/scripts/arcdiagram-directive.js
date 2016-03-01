@@ -113,23 +113,23 @@
 
             scope.$watch('bind', function (data) {
 
-              if (data) 
+              if (data)
               {
 
-                
+
                 // function checkNodeExists(rootFinal, key)
                 // {
                 //   var FoundException = {};
 
-                
+
                 //     if (!rootFinal.nodes_rows.length == 0)
                 //     {
                 //       try {
-                //         rootFinal.nodes_rows.forEach(function (d) 
+                //         rootFinal.nodes_rows.forEach(function (d)
                 //         {
                 //           if (d.key == key)
                 //           {
-                //             throw FoundException;                   
+                //             throw FoundException;
                 //           }
                 //         });
                 //       } catch(e)
@@ -139,7 +139,7 @@
                 //             return true;
                 //           }
                 //         }
-                //     }                  
+                //     }
                 // }
 
 
@@ -147,7 +147,7 @@
                 // {
                 //   var FoundException = {};
 
-                
+
                 //     for (var i=0; i<rootFinal.nodes_rows.length;i++)
                 //     {
                 //       if (rootFinal.nodes_rows[i].aoi== key)
@@ -163,19 +163,19 @@
 
                 //TODO: refactor to include all experiments and all trials and all users
                 //Right now is just handling experiment 1, trial 1, user 1
-                function createChildNodes(dataObj) {                  
+                function createChildNodes(dataObj) {
                   var rootFinal =  new Array();
 
                   rootFinal.nodes_rows = new Array();
                   rootFinal.nodes_rows = JSON.parse(JSON.stringify(aoisConfig));
 
-                  //rootFinal.nodes_rows =  aoisConfig.slice(0);                  
-                                
+                  //rootFinal.nodes_rows =  aoisConfig.slice(0);
+
                   //Nodes
-                  dataObj.entries.forEach(function (d) {                   
+                  dataObj.entries.forEach(function (d) {
 
                     var indice = d.main._source.aoi;
-                                  
+
                     rootFinal.nodes_rows[indice].aoi = d.main._source.aoi;
                     //rootFinal.nodes_rows[indice].durationAoi = new Array();
                     rootFinal.nodes_rows[indice].duration += d.main._source.durationAoi;
@@ -190,7 +190,7 @@
                     // rootFinal.nodes_rows[indice].Yscreen = d.main._source.Yscreen;
 
                     rootFinal.nodes_rows[indice].x = 0;
-                    rootFinal.nodes_rows[indice].y = 0;                   
+                    rootFinal.nodes_rows[indice].y = 0;
 
                   });
 
@@ -198,7 +198,7 @@
                   rootFinal.links_rows = new Array();
 
                   var count = 0;
-                 
+
                   for (var i = 0; i < dataObj.entries.length; i++) {
                     if (i != dataObj.entries.length - 1) {
                       rootFinal.links_rows[count] = new Array();
@@ -417,7 +417,7 @@
                     })
                     .style("stroke-width", function (d) {
                       //TODO: Maybe we want to use the number of jumps instead...
-                      return (d.duration / 10);
+                      return (d.duration / 100);
                     });
 
                   // add labels
@@ -810,7 +810,7 @@
                 }
 
                 function prepareHeatmapData(data, divName)
-                {                  
+                {
                   var points = [];
                   var max = 0;
                   var width = imageWidth;
@@ -827,12 +827,12 @@
                     {
                       val = d.main._source.durationAoi;
 
-                      var row = (aoi/8 + 1);
-                      var col = aoi/5;
+                      var row = Math.ceil(aoi/8 + 1);
+                      var col = aoi - ((aoi/8)*8);
 
                       //For the calculation of x and y we need to take in account the original screen limits of the AOI
-                      Xscreen = Math.floor(d.main._source.x/width +70);
-                      Yscreen = Math.floor(d.main._source.y/height + 50);
+                      Xscreen = Math.floor(d.main._source.x/width);
+                      Yscreen = Math.floor(d.main._source.y/height);
 
                       // now also with custom radiusArc
                       //var radiusArc = Math.floor(Math.random() * 70);;

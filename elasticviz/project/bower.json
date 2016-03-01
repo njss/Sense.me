@@ -17,7 +17,9 @@
     "jquery-ui": "~1.11.4",
     "heatmap.js-amd": "*",
     "d3.parcoords.js": "d3.parcoords#*",
-    "angular-underscore-module": "~1.0.3"
+    "angular-underscore-module": "~1.0.3",
+    "three.js": "threejs#*",
+    "d3-plugins-sankey": "~1.1.0"
   },
   "overrides": {
     "bootstrap-sass": {

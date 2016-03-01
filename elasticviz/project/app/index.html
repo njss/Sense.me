@@ -12,13 +12,14 @@
   <!--<link rel="stylesheet" href="styles/_maindendogram.scss"/>
   <link rel="stylesheet" href="styles/arcdiagram.css"/>-->
   <link rel="stylesheet" href="/bower_components/dangle/css/dangle.css">
-  <!--<link rel="stylesheet" href="styles/dateline.css">-->-->
+  <!--<link rel="stylesheet" href="styles/dateline.css">-->
 
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/dcjs/dc.css" />
-  <link rel="stylesheet" href="/bower_components/angularjs-slider/dist/rzslider.css" />
+  <link rel="stylesheet" href="/bower_components/dcjs/dc.css"/>
+  <link rel="stylesheet" href="/bower_components/angularjs-slider/dist/rzslider.css"/>
+  <link rel="stylesheet" href="/bower_components/d3-plugins-sankey/sankey.css"/>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -187,7 +188,7 @@
                    value="{{bucket.key}}"/>
             <label for="isAnswer{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
           </div>
-        </div>        
+        </div>
         <div class="facet-widget">
           <h4>Is Settings
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('isSettings')"
@@ -203,7 +204,7 @@
                    value="{{bucket.key}}"/>
             <label for="isSettings{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
           </div>
-        </div> 
+        </div>
         <div class="facet-widget">
           <h4>Is Offscreen
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('isOffscreen')"
@@ -219,7 +220,7 @@
                    value="{{bucket.key}}"/>
             <label for="isOffscreen{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
           </div>
-        </div>         
+        </div>
         <div class="facet-widget">
           <h4>Is Terminal
             <a class="btn btn-default btn-sm" ng-if="c.queryContains('isTerminal')"
@@ -235,7 +236,7 @@
                    value="{{bucket.key}}"/>
             <label for="cb_isTerminal_{{bucket.key}}">{{bucket.key}} ({{bucket.doc_count}})</label>
           </div>
-        </div>        
+        </div>
 
         <div class="facet-widget">
           <h4>Date <label> <input type="checkbox" ng-model="c.useDateSlider" ng-change="c.refresh()"/> use date </label>
@@ -276,7 +277,8 @@
 
         <div class="facet-widget">
           <h4>AOIs Fixation durationAoi
-            <a class="btn btn-default btn-sm" ng-if="c.queryContains('durationAoi')" ng-click="c.resetField('durationAoi')">reset</a>
+            <a class="btn btn-default btn-sm" ng-if="c.queryContains('durationAoi')"
+               ng-click="c.resetField('durationAoi')">reset</a>
           </h4>
 
           <div class="facet-widget">
@@ -302,9 +304,9 @@
           <div>
             <label><input type="checkbox" ng-model="c.showHiddenChart" ng-change="c.showHiddenChart"/>Show Hidden Charts</label>
 
-      <!--       <div ng-show="c.showHiddenChart">
-              <durationAoiPieChart-gui-item bind="c.aggregations.durationAoi.buckets"></durationAoiPieChart-gui-item>
-            </div> -->
+            <!--       <div ng-show="c.showHiddenChart">
+                    <durationAoiPieChart-gui-item bind="c.aggregations.durationAoi.buckets"></durationAoiPieChart-gui-item>
+                  </div> -->
           </div>
 
         </div>
@@ -388,12 +390,25 @@
         </div>
         <div>
           <h3>Parallel Coordinates Exploration</h3>
-          <parallelcoordinates-gui-item bind="c.mainParallelCoordinates"
-                                  confirm-action="convertPartyCase(arg1)"></parallelcoordinates-gui-item>
-          
+          <parallelcoordinates-gui-item bind="c.mainSpaceTimeCube"
+                                        confirm-action="convertPartyCase(arg1)"></parallelcoordinates-gui-item>
+
           <!--<advancedparallelcoordinates-gui-item bind="c.mainParallelCoordinatesAdv"
                                   confirm-action="convertPartyCase(arg1)"></advancedparallelcoordinates-gui-item>-->
         </div>
+
+        <div>
+          <h3>Space-Time Cube Exploration</h3>
+          <spacetimecube-gui-item bind="c.mainParallelCoordinates"
+                                  confirm-action="convertPartyCase(arg1)"></spacetimecube-gui-item>
+        </div>
+
+        <div>
+          <h3>Sankey Exploration (Exp1, Trial 1, User 1)</h3>
+          <sankey-gui-item bind="c.mainSankey"
+                           confirm-action="convertPartyCase(arg1)"></sankey-gui-item>
+        </div>
+
       </div>
 
       <div ng-show="c.tabIsShown('eyevis')">
@@ -433,12 +448,11 @@
 <script src="/bower_components/colorbrewer/colorbrewer.js"></script>
 <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="/bower_components/heatmap.js-amd/build/heatmap.js"></script>
-<!--<script src="/bower_components/heatmap.js-amd/plugins/gmaps-heatmap.js"></script>
-<script src="/bower_components/heatmap.js-amd/plugins/leaflet-heatmap.js"></script>
-<script src="/bower_components/heatmap.js-amd/plugins/svg-area-heatmap.js"></script>-->
 <script src="/bower_components/d3.parcoords.js/d3.parcoords.js"></script>
 <script src="/bower_components/underscore/underscore.js"></script>
 <script src="/bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+<script src="/bower_components/three.js/build/three.js"></script>
+<script src="/bower_components/d3-plugins-sankey/sankey.js"></script>
 <!-- endbower -->
 
 <!-- extra dependencies the inclusion of which is *not* managed by bower -->
@@ -474,6 +488,8 @@
 <script src="scripts/arcdiagram-directive.js"></script>
 <script src="scripts/datelinediagram-directive.js"></script>
 <script src="scripts/parallelcoordinates-directive.js"></script>
+<script src="scripts/spacetimecube-directive.js"></script>
+<script src="scripts/sankey-directive.js"></script>
 <!--<script src="scripts/advancedparallelcoordinates-directive.js"></script>-->
 <!-- endbuild -->
 </body>

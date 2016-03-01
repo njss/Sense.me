@@ -1,34 +1,37 @@
-body {
-  font: 14px sans-serif;
-}
+div#dendrogram {
+  body {
+    font: 14px sans-serif;
+  }
 
-.arc path {
-  stroke: #fff;
-  stroke-width: 3px;
-}
+  .arc path {
+    stroke: #fff;
+    stroke-width: 3px;
+  }
 
-/*.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}*/
-.circledendogram
-{
-   fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
+  /*.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }*/
 
-.node {
-  font: 10px sans-serif;
-}
+  .circledendogram {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
 
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
+  .node {
+    font: 10px sans-serif;
+  }
 
-.highlighted {
-  background: yellow
+
+  .link {
+    fill: none;
+    stroke: #888888;
+    stroke-weight: 1px;
+    stroke-opacity: 0.5;
+  }
+  .highlighted {
+    background: yellow
+  }
 }

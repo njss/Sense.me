@@ -49,7 +49,7 @@
                     + "<p><strong>aoi: </strong> <span style='color:" + color + "'>" + d.row.aoi + "</span></p>"
                     + "<p><strong>duration: </strong> <span style='color:" + color + "'>" + d.row.durationAoi + "</span></p>"
                     ;
-                
+
                 });
 
 
@@ -59,9 +59,9 @@
                           "#fb9a99","#e31a1c","#fdbf6f","#ff7f00",
                           "#cab2d6","#6a3d9a","#ffff99","#b15928"]);
 
-           
 
-                var dimensions;                
+
+                var dimensions;
                 var numberPattern = /\d+/g;
 
                 //TODO: This should be dynamic
@@ -73,7 +73,7 @@
                     height = 500 - margin.top - margin.bottom;
 
                 var x = d3.scale.ordinal().rangePoints([0, width], 1),
-                    y = {},                    
+                    y = {},
                     dragging = {};
 
                 var line = d3.svg.line()
@@ -86,26 +86,26 @@
 
                 var svg = d3.select("#parallelcoordinates").append("svg")
                     .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)                      
+                    .attr("height", height + margin.top + margin.bottom)
                   .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");                
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                   svg.call(tip);
 
                   //Data Start
                   // Extract the list of dimensions and create a scale for each.
                   x.domain(dimensions = d3.keys(root[0].row).filter(function(d) {
-                    return d != "duration" 
-                    && d != "datetime" && d != "datetimezero" 
+                    return d != "duration"
+                    && d != "datetime" && d != "datetimezero"
                     && (y[d] = d3.scale.linear()
-                        .domain(d3.extent(root, function(p) { 
-                      
-               
-                        //console.log(d + " :d: " + p.row[d]);
-                     
+                        .domain(d3.extent(root, function(p) {
 
-                            return +p.row[d]; 
-                          
+
+                        //console.log(d + " :d: " + p.row[d]);
+
+
+                            return +p.row[d];
+
                         }))
                         .range([height, 0]));
                   }));
@@ -118,28 +118,28 @@
                     .enter().append("path")
                       .attr("d", path);
 
- // Add a legend.
-  var legend = svg.selectAll("g.legend")
-      .data(users)
-    .enter().append("svg:g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(" + (width - 40) + "," + (i * 20 + 100) + ")"; });
+                   // Add a legend.
+                    var legend = svg.selectAll("g.legend")
+                        .data(users)
+                      .enter().append("svg:g")
+                        .attr("class", "legend")
+                        .attr("transform", function(d, i) { return "translate(" + (width - 40) + "," + (i * 20 + 100) + ")"; });
 
-  legend.append("svg:line")
-      .attr("class", String)
-      .attr("x2", 8);
+                    legend.append("svg:line")
+                        .attr("class", String)
+                        .attr("x2", 8);
 
-  legend.append("svg:text")
-      .attr("x", 12)
-      .attr("dy", ".31em")
-      .text(function(d) { return d; });
+                    legend.append("svg:text")
+                        .attr("x", 12)
+                        .attr("dy", ".31em")
+                        .text(function(d) { return d; });
 
 
-// linear color scale
-var blue_to_brown = d3.scale.linear()
-  .domain([1, 2])
-  .range(["steelblue", "brown"])
-  .interpolate(d3.interpolateLab);
+                  // linear color scale
+                  var blue_to_brown = d3.scale.linear()
+                    .domain([1, 2])
+                    .range(["steelblue", "#881336"])
+                    .interpolate(d3.interpolateLab);
 
 
 
@@ -152,7 +152,7 @@ var blue_to_brown = d3.scale.linear()
                       .data(root)
                     .enter().append("path")
                       .attr("d", path)
-                      .style("stroke", function(d) { 
+                      .style("stroke", function(d) {
                         var colorClass = blue_to_brown(d.row.userName);
                         return  colorClass;/*"user" + d.row.userName;*/  /*color*/})
                           .on("mouseover", function(d){
@@ -176,8 +176,8 @@ var blue_to_brown = d3.scale.linear()
 
                           var colorClass = blue_to_brown(d.row.userName);
                           d3.select(this).transition().duration(100)
-                          .style({'stroke': colorClass })                      
-                           
+                          .style({'stroke': colorClass })
+
                             });
 
                   // Add a group element for each dimension.
@@ -214,7 +214,7 @@ var blue_to_brown = d3.scale.linear()
                               .attr("visibility", null);
 
                             //new
-                            if (!this.__dragged__) 
+                            if (!this.__dragged__)
                             {
                               // no movement, invert axis
                               var extent = invert_axis(d);
@@ -224,19 +224,19 @@ var blue_to_brown = d3.scale.linear()
                               d3.select(this).transition().attr("transform", "translate(" + x(d) + ")");
 
                               var extent = y[d].brush.extent();
-                            }    
+                            }
 
                           //New
                           // TODO required to avoid a bug
                           x.domain(dimensions);
-                          update_ticks(d, extent);                                                      
+                          update_ticks(d, extent);
                         }));
 
                   // Add an axis and title.
                   g.append("g")
                       .attr("class", "axis")
-                      .each(function(d) { 
-                        d3.select(this).call(axis.scale(y[d])); 
+                      .each(function(d) {
+                        d3.select(this).call(axis.scale(y[d]));
                           })
                     .append("text")
                       .style("text-anchor", "middle")
@@ -268,10 +268,10 @@ var blue_to_brown = d3.scale.linear()
 
                 // Returns the path for a given data point.
                 function path(d) {
-                  return line(dimensions.map(function(p) { 
+                  return line(dimensions.map(function(p) {
 
-                    return [position(p), y[p](d.row[p])]; 
-                  
+                    return [position(p), y[p](d.row[p])];
+
                   }));
                 }
 
@@ -281,9 +281,9 @@ var blue_to_brown = d3.scale.linear()
 
                 // Handles a brush event, toggling the display of foreground lines.
                 function brush() {
-                  var actives = dimensions.filter(function(p) { 
+                  var actives = dimensions.filter(function(p) {
                     return !y[p].brush.empty(); }),
-                      extents = actives.map(function(p) { 
+                      extents = actives.map(function(p) {
                         return y[p].brush.extent(); });
                   foreground.style("display", function(d) {
                     return actives.every(function(p, i) {
@@ -355,10 +355,10 @@ function update_ticks(d, extent) {
                   root.forEach(function (d) {
                     d.row = d.main._source;
                     d.main = null;
-                  });                
+                  });
 
                   return root;
-                }    
+                }
               }
             });
 

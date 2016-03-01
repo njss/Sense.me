@@ -1,91 +1,102 @@
+div#arcdiagram {
+  .image-border {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 1;
+  }
 
-.image-border {
-  fill: transparent;
-  stroke: black;
-  stroke-width: 1;
-}
+  .image-border:hover {
+    stroke: red;
+    stroke-width: 3;
+  }
 
-.image-border:hover {
-  stroke: red;
-  stroke-width: 3;
-}
+  .matrix-label {
+    font-family: sans-serif;
+    font-size: 20px;
+    text-anchor: middle;
+    font-weight: bold;
+    visibility: hidden;
+  }
 
-.matrix-label{
-	font-family:sans-serif;
-	font-size:20px;
-	text-anchor:middle;
-	font-weight:bold;
-	visibility:hidden;
-}
+  .d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
 
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
+  .link {
+    fill: none;
+    //stroke: #888888;
+    //stroke-opacity: 0.6;
+  }
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(255, 165, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
+  .link:hover {
+    //fill: red;
+    stroke: #880d20;
+  }
 
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
 
-.node {
+  /* Creates a small triangle extender for the tooltip */
+  .d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(255, 165, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+  }
+
+  /* Style northward tooltips differently */
+  .d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+  }
+
+  .node {
     stroke: black;
     stroke-weight: 1px;
-}
+  }
 
-.node:hover {
-  stroke: red;
-  stroke-weight: 3px;
-}
+  .node:hover {
+    stroke: red;
+    stroke-weight: 3px;
+  }
 
-.link {
-    fill: none;
-    stroke: #888888;
-    stroke-weight: 1px;
-    stroke-opacity: 0.5;
-}
 
-.highlight {
+
+  .highlight {
     stroke: red;
     stroke-weight: 4px;
     stroke-opacity: 1.0;
-}
+  }
 
-path {
+  path {
     stroke: steelblue;
-    stroke-width: 1;
+    stroke-width: 3;
     fill: none;
-}
+  }
 
-.ui-slider-horizontal {
+  .ui-slider-horizontal {
     height: 8px;
     width: 200px;
     position: relative;
-}
-.ui-slider .ui-slider-handle {
+  }
+  .ui-slider .ui-slider-handle {
     height: 15px;
     width: 5px;
     padding-left: 10px;
-}
+  }
 
-.heatmap{background:rgba(0,0,0,.03); border:1px solid black;}
+  .heatmap {
+    background: rgba(0, 0, 0, .03);
+    border: 1px solid black;
+  }
+}
