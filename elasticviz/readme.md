@@ -35,6 +35,7 @@ able to start the developmend server with
 
     $ gulp serve
 
+
 ## Elasticsearch Server
 
 Elasticsearch binaries are available at the Elasticsearch website: 
