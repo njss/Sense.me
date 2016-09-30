@@ -1,14 +1,3 @@
-# Faceted Search with Elasticsearch, Angular.js and D3.js
-### Authors:
-* Nelson Silva
-* Mathias Blum
-* Matthias Frey
-* Daniel Lamprecht
-
-> This project was the result from the lecture: **Information Architecture and Web Usability**.
-
-> Delivered by: **Prof. Keith Andrews**, at TU Graz, Austria ([IAWEB](http://www.iicm.tugraz.at/keith "IAWEB")).
-
 # Web Project
 
 In `/project`, a generic web-project with bower and npm is set up.
@@ -45,10 +34,3 @@ Find the executables in `elasticsearch-2.1.0/bin` .
 
 ### Elasticsearch Server - Windows
 exectue the file `elasticsearch-2.1.0\bin\elasticsearch.bat`
-
-
-# Project Screenshots:
-<img src="/report/images/screenshots/application_native.png" width="380" height="450">
-<img src="/report/images/screenshots/application_elasticui.png" width="380" height="450">
-<img src="/report/images/screenshots/histogram_diagram.png" width="380" height="450">
-<img src="/report/images/screenshots/top_words.png" width="200" height="400">
