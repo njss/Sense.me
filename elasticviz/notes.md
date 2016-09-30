@@ -36,7 +36,7 @@ Query client using promises instead of callbacks.
 
 ## Import documents
 
-Elasticsearch terminology : there is an index (we use 'opendata') and inside
+Elasticsearch terminology : there is an index (we use 'eyedata') and inside
 that, there are documents/items (we use 'statement')
 
 Data exists as import instructions for elasticsearch in 'data/', for every
@@ -44,12 +44,12 @@ debate there is a file. 'export-24-218.json' contains data from legislative
 period 24, debate no. 218 . Files like 'export-23.json' contain the complete
 legislative period.
 
-To import a file 'data/export-24-218.json' into 'opendata', and into an
+To import a file 'data/export-24-218.json' into 'eyedata', and into an
 index/collection 'statement':
 
-    curl -XPOST localhost:9200/opendata/statement/_bulk?pretty --data-binary @data/export-24-218.json
+    curl -XPOST localhost:9200/eyedata/statement/_bulk?pretty --data-binary @data/export-24-218.json
 
-    curl -XPOST localhost:9200/opendata/statement/_bulk?pretty --data-binary @data/export-23.json
+    curl -XPOST localhost:9200/eyedata/statement/_bulk?pretty --data-binary @data/export-23.json
 
 This simple way of importing is not going to be sufficient later on - a mapping file will
 be needed to configure how some fields are imported and analyzed.
@@ -58,7 +58,7 @@ be needed to configure how some fields are imported and analyzed.
 
 Delete an index (e.g. to start fresh import)
 
-    curl -XDELETE 'http://localhost:9200/opendata/'
+    curl -XDELETE 'http://localhost:9200/eyedata/'
 
 
 ## Analyzers
