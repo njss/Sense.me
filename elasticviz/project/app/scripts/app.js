@@ -10,13 +10,13 @@
   ]);
 
   // Config for elastic-UI
-  app.constant('euiHost', 'http://localhost:9200'); // ACTION: change to cluster address
+  app.constant('euiHost', 'http://138.68.90.110:9200'); // ACTION: change to cluster address
 
   // esFactory() creates a configured client instance. Turn that instance
   // into a service so that it can be required by other parts of the application
   app.service('esClient', function (esFactory) {
     return esFactory({
-      host: 'localhost:9200/eyedata',
+      host: '138.68.90.110:9200/eyedata',
       //apiVersion: '1.2',
       log: 'trace'
     });

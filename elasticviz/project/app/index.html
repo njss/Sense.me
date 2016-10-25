@@ -39,8 +39,8 @@
   <div class="header">
 
     <ul class="nav nav-pills pull-right sm">
-      <li class="active"><a href="index.html#">Home</a></li>
-      <li><a href="index-eui.html">Other ML Techniques</a></li>
+      <li class="active"><a href="http://138.68.90.110/">Home</a></li>
+      <!--<li><a href="index-eui.html">Other ML Techniques</a></li>-->
     </ul>
 
     <h1 class="text-muted">Sense.me</h1>
@@ -238,7 +238,7 @@
           </div>
         </div>
 
-        <div class="facet-widget">
+       <!-- <div class="facet-widget">
           <h4>Date <label> <input type="checkbox" ng-model="c.useDateSlider" ng-change="c.refresh()"/> use date </label>
           </h4>
           <div>
@@ -248,7 +248,7 @@
               rz-slider-high="c.dateSlider.max"
               rz-slider-options="c.dateSliderOptions"></rzslider>
           </div>
-        </div>
+        </div>-->
 
         <div class="facet-widget">
           <h4>User Age (Avg: {{c.ageAvg}})
@@ -376,12 +376,12 @@
 
       <!-- Visualisations -->
       <div ng-show="c.tabIsShown('vis')">
-        <div class="facet-widget">
+        <!--<div class="facet-widget">
           <div style="display:inline-block;width: 700px; heigth:800px">
             <h4>Dates Histogram</h4>
             <fs-date-histo bind="c.dangleDateHisto"></fs-date-histo>
           </div>
-        </div>
+        </div>-->
         <h3>Overall Diagram View</h3>
         <div>
           {{c.aggregations.buckets}}

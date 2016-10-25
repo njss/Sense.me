@@ -25,7 +25,7 @@
             var numberPattern = /\d+/g;
 
             var aoisConfig = [
-              {"exp": "1", "trial": "1", "aoi": "0", "url": "14.TS-NI.png", "name": "aoi0", "duration": 0},
+              {"exp": "1", "trial": "1", "aoi": "0", "url": "14.TS-Ni.png", "name": "aoi0", "duration": 0},
               {"exp": "1", "trial": "1", "aoi": "1", "url": "15.Sum-Ni.png", "name": "aoi1", "duration": 0},
               {"exp": "1", "trial": "1", "aoi": "2", "url": "16.Ni-Ni.png", "name": "aoi2", "duration": 0},
               {"exp": "1", "trial": "1", "aoi": "3", "url": "34.Ni-Sum.png", "name": "aoi3", "duration": 0},

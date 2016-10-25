@@ -3,35 +3,35 @@
 
       <div ng-if="item.isOffscreen" class="image">   
       <p>        
-        <img  ng-if="item.isTerminal!=true" src="/config/images/isOffscreen.png" class="speaker" title="isOffScreen"/>
-        <img  ng-if="item.isTerminal==true" src="/config/images/isOffScreen_isTerminal.png" class="speaker" title="isOffscreen and isTerminal"/>
+        <img  ng-if="item.isTerminal!=true" src="config/images/isOffscreen.png" class="speaker" title="isOffScreen"/>
+        <img  ng-if="item.isTerminal==true" src="config/images/isOffscreen_isTerminal.png" class="speaker" title="isOffscreen and isTerminal"/>
       </p>
     </div>
 
     <div ng-if="item.isOffscreen!=true">  
       <div ng-if="item.isComparison" class="image">    
         <p >        
-          <img  ng-if="item.isTerminal!=true" src="/config/images/isComparison.png" class="speaker" title="isComparison"/>
-          <img  ng-if="item.isTerminal==true" src="/config/images/isComparison_isTerminal.png" class="speaker" title="isComparison and isTerminal"/>
+          <img  ng-if="item.isTerminal!=true" src="config/images/isComparison.png" class="speaker" title="isComparison"/>
+          <img  ng-if="item.isTerminal==true" src="config/images/isComparison_isTerminal.png" class="speaker" title="isComparison and isTerminal"/>
         </p>
       </div>
       <div ng-if="item.isSettings" class="image"> 
         <p>        
-          <img  ng-if="item.isTerminal!=true" src="/config/images/isSettings.png" class="speaker" title="isSettings"/>
-          <img  ng-if="item.isTerminal==true" src="/config/images/isSettings_isTerminal.png" class="speaker" title="isSettings and isTerminal"/>
+          <img  ng-if="item.isTerminal!=true" src="config/images/isSettings.png" class="speaker" title="isSettings"/>
+          <img  ng-if="item.isTerminal==true" src="config/images/isSettings_isTerminal.png" class="speaker" title="isSettings and isTerminal"/>
         </p>
       </div>
     </div>
 
   <div ng-if="item.isOffscreen!=true && item.isComparison!=true && item.isSettings!=true" class="image">          
         <p ng-if="item.isTerminal==true">
-         <img  ng-if="item.isAnswer!=true" src="/config/images/isTerminal.png" class="speaker" title="isTerminal"/>
-         <img  ng-if="item.isAnswer==true" src="/config/images/isAnswer_isTerminal.png" class="speaker" title="isAnswer and isTerminal"/>
+         <img  ng-if="item.isAnswer!=true" src="config/images/isTerminal.png" class="speaker" title="isTerminal"/>
+         <img  ng-if="item.isAnswer==true" src="config/images/isAnswer_isTerminal.png" class="speaker" title="isAnswer and isTerminal"/>
         </p>
 
         <p ng-if="item.isTerminal!=true">
-          <img ng-if="item.isAnswer!=true" src="/config/images/isNormal.png" class="speaker" title="isNormal"/>
-          <img ng-if="item.isAnswer==true" src="/config/images/isAnswer.png" class="speaker" title="isAnswer"/>
+          <img ng-if="item.isAnswer!=true" src="config/images/isNormal.png" class="speaker" title="isNormal"/>
+          <img ng-if="item.isAnswer==true" src="config/images/isAnswer.png" class="speaker" title="isAnswer"/>
         </p>
     </div>
 

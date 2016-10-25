@@ -72,7 +72,7 @@ return gulp.src('app/scripts/*.html')
 
 
 gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
+  return gulp.src('app/config/images/**/*')
     .pipe($.if($.if.isFile, $.cache($.imagemin({
       progressive: true,
       interlaced: true,
@@ -84,8 +84,9 @@ gulp.task('images', () => {
       console.log(err);
       this.end();
     })))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('dist/config/images'));
 });
+
 
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')({
@@ -93,6 +94,14 @@ gulp.task('fonts', () => {
   }).concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('csv', () => {
+  return gulp.src([
+    'app/config/*.*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/config'));
 });
 
 gulp.task('extras', () => {
@@ -122,7 +131,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
     'app/*.html',
     'app/scripts/**/*.js',
     'app/scripts/**/*.html',
-    'app/images/**/*',
+    'app/config/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
@@ -174,8 +183,8 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-//gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-gulp.task('build', [ 'lint', 'html', 'scriptshtml', 'images', 'fonts'], () => {
+//gulp.task('build', ['html', 'images', 'fonts', 'csv', 'extras'], () => {
+gulp.task('build', [ 'lint', 'html', 'scriptshtml', 'images', 'fonts', 'csv', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
