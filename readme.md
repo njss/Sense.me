@@ -3,6 +3,7 @@
 - After successful publication of our work, we will make our entire source code freely available.
 - Our work uses a standard Elasticsearch server and we have developed a new faceted web user interface for eye-tracking data analysis.
 - The elasticsearch exploration project is located at the folder: elasticviz. The instructions on this page are for the project files contained in the elasticviz folder only! All the remaining folders, are not needed to run the elasticviz web app. We make them available in case you want to check other visualization examples, as a learning exercise.
+- Running System: http://138.68.90.110/ 
 
 ## What you will need: 
 - Pull (or download) our project repository (this one)
