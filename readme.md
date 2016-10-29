@@ -12,7 +12,7 @@
 - Pull (or download) our project repository (this one)
 - Download an install a standard Elasticsearch server (https://www.elastic.co/blog/elasticsearch-2-1-0-and-2-0-1-released)
 - (if you want to make your elasticsearch server publicly available), we will also provide you with a python proxy (courtesy of our colleague Matthias Frey)
-- Upload your eye-tracking data files to ElasticSearch (we will provide the means for that) and configure your datasets (using our Data Configurator)
+- Upload your eye-tracking data files to ElasticSearch (we will provide the means for that) and configure your datasets (in the future maybe using our Data Configurator)
 - Run our web application (we will also provide the exact instructions and you just have to use Gulp)
 - Enjoy: filter, explore and visualize your datasets
 
