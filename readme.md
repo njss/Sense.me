@@ -6,6 +6,7 @@
 - Our work is based on previous work: https://github.com/WebUX-Group5/ui-demo-faceted
 - The elasticsearch exploration project is located at the folder: elasticviz. The instructions on this page are for the project files contained in the elasticviz folder only! All the remaining folders, are not needed to run the elasticviz web app. We make them available in case you want to check other visualization examples, as a learning exercise.
 - Running System: http://138.68.90.110/ 
+- DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.163764.svg)](https://doi.org/10.5281/zenodo.163764)
 
 ## What you will need: 
 - Pull (or download) our project repository (this one)
