@@ -3,6 +3,7 @@
 - The complete code for all examples and for the final prototype is available here!
 - The main prototype folder is: elasticviz/project
 - Our work uses a standard Elasticsearch server and we have developed a new faceted web user interface for eye-tracking data analysis.
+- Our work is based on previous work: https://github.com/WebUX-Group5/ui-demo-faceted
 - The elasticsearch exploration project is located at the folder: elasticviz. The instructions on this page are for the project files contained in the elasticviz folder only! All the remaining folders, are not needed to run the elasticviz web app. We make them available in case you want to check other visualization examples, as a learning exercise.
 - Running System: http://138.68.90.110/ 
 
