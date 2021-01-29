@@ -1,4 +1,4 @@
-# Sense.me - Open Source Framework for the Exploration and Visualization of Eye-tracking Data
+# Sense.me - Open Source Framework for the Exploration and Visualization of Eye tracking Data
 
 - The complete code for all examples and for the final prototype is available here!
 - The main prototype folder is: elasticviz/project
